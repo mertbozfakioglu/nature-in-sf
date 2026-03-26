@@ -254,6 +254,7 @@ def build_background_distribution(years):
             rows.append({
                 "year":             int(year),
                 "month":            int(dt.month),
+                "day_of_year":      int(dt.timetuple().tm_yday),
                 "hour":             int(dt.hour),
                 "temp_f":           float(hourly["temperature_2m"][i]),
                 "humidity":         float(hourly["relative_humidity_2m"][i]),
@@ -778,6 +779,158 @@ def fig10_sightability_dashboard(obs_df, bg_df):
     print(f"Saved {path}")
 
 
+def fig11_time_of_day_sightability(obs_df, bg_df):
+    """
+    Sightability index by hour of day.
+    Background hours are tallied per hour across all Mar–May daylight hours.
+    """
+    timed_obs = obs_df.dropna(subset=["hour_local"])
+    timed_obs = timed_obs[timed_obs["hour_local"].between(8, 18)]
+    if len(timed_obs) < 5:
+        print("Skipping time-of-day sightability (not enough timed observations)")
+        return
+
+    hours = list(range(8, 19))
+    obs_counts  = timed_obs["hour_local"].astype(int).value_counts().reindex(hours, fill_value=0)
+    bg_counts   = bg_df["hour"].value_counts().reindex(hours, fill_value=0)
+
+    obs_frac = obs_counts / obs_counts.sum()
+    bg_frac  = bg_counts  / bg_counts.sum()
+    with np.errstate(divide="ignore", invalid="ignore"):
+        index = np.where(bg_frac > 0, obs_frac / bg_frac, np.nan)
+
+    fig, ax1 = plt.subplots(figsize=(11, 5))
+    fig.patch.set_facecolor("#f9f9f6")
+
+    x = np.array(hours)
+    width = 0.38
+    ax1.bar(x - width/2, bg_frac * 100,  width=width, color="#cccccc", alpha=0.7,
+            label="Background (% of spring daylight hours)")
+    ax1.bar(x + width/2, obs_frac * 100, width=width, color=BUTTERFLY_COLOR, alpha=0.8,
+            label="Observations (% of obs with time)")
+    ax1.set_xlabel("Hour of Day (local time)")
+    ax1.set_ylabel("% frequency")
+    ax1.set_xticks(hours)
+    ax1.set_xticklabels([f"{h}:00" for h in hours], rotation=45)
+    ax1.legend(loc="upper left", fontsize=9)
+
+    ax2 = ax1.twinx()
+    ax2.plot(x, index, color="black", linewidth=2, marker="o", markersize=5,
+             zorder=5, label="Sightability index")
+    ax2.axhline(1.0, color="red", linestyle="--", linewidth=1.2, alpha=0.7,
+                label="Base rate (1.0)")
+    ax2.set_ylabel("Sightability index  (1.0 = base rate)")
+    ax2.legend(loc="upper right", fontsize=9)
+
+    peak_h = hours[int(np.nanargmax(index))]
+    ax2.annotate(f"Peak: {peak_h}:00\n({index[hours.index(peak_h)]:.2f}×)",
+                 xy=(peak_h, index[hours.index(peak_h)]),
+                 xytext=(8, 4), textcoords="offset points",
+                 fontsize=9, color="darkgreen", fontweight="bold")
+
+    ax1.set_title(
+        "Time of Day — Sightability Index\n"
+        "Are butterflies observed more or less than the background rate predicts?",
+        fontsize=12, fontweight="bold",
+    )
+
+    plt.tight_layout()
+    path = os.path.join(OUTPUT_DIR, "fig11_time_of_day_sightability.png")
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {path}")
+
+
+def fig12_calendar_day_sightability(obs_df, bg_df):
+    """
+    Sightability index by calendar day-of-year (smoothed with a 7-day rolling mean).
+    Uses non-leap-year day numbers so years stack cleanly.
+    Background hours tallied per day-of-year across all Mar–May years.
+    """
+    # Normalise leap-year days: Feb 29 = doy 60 gets absorbed; doys > 60 in
+    # leap years are shifted back by 1 so all years map onto 1–365.
+    def normalise_doy(year, doy):
+        import calendar
+        if calendar.isleap(year) and doy >= 60:
+            return doy - 1
+        return doy
+
+    obs = obs_df.copy()
+    obs["doy_norm"] = obs.apply(lambda r: normalise_doy(int(r["year"]), int(r["day_of_year"])), axis=1)
+
+    bg = bg_df.copy()
+    bg["doy_norm"] = bg.apply(lambda r: normalise_doy(int(r["year"]), int(r["day_of_year"])), axis=1)
+
+    # Focus on Mar 1 (doy 60) – May 31 (doy 151)
+    doy_range = range(60, 152)
+    obs_counts = obs[obs["doy_norm"].isin(doy_range)]["doy_norm"].value_counts().reindex(doy_range, fill_value=0)
+    bg_counts  = bg[bg["doy_norm"].isin(doy_range)]["doy_norm"].value_counts().reindex(doy_range, fill_value=0)
+
+    obs_frac = obs_counts / obs_counts.sum()
+    bg_frac  = bg_counts  / bg_counts.sum()
+    with np.errstate(divide="ignore", invalid="ignore"):
+        raw_index = np.where(bg_frac > 0, obs_frac / bg_frac, np.nan)
+
+    # 7-day rolling smooth
+    index_series = pd.Series(raw_index, index=list(doy_range))
+    smooth = index_series.rolling(window=7, center=True, min_periods=3).mean()
+
+    # Build date labels (use 2023 as non-leap reference)
+    ref = pd.to_datetime("2023-01-01")
+    dates = [ref + pd.Timedelta(days=d - 1) for d in doy_range]
+    date_labels = [d.strftime("%b %-d") for d in dates]
+    tick_every = 7
+    tick_pos   = list(range(0, len(doy_range), tick_every))
+
+    fig, ax1 = plt.subplots(figsize=(14, 5))
+    fig.patch.set_facecolor("#f9f9f6")
+
+    doys = np.array(list(doy_range))
+
+    ax1.bar(doys, bg_frac * 100,  color="#cccccc", alpha=0.6, width=1,
+            label="Background (% of spring daylight hours per day)")
+    ax1.bar(doys, obs_frac * 100, color=BUTTERFLY_COLOR, alpha=0.7, width=1,
+            label="Observations (% of obs per day)")
+    ax1.set_ylabel("% frequency")
+    ax1.set_xlabel("Calendar Date")
+    ax1.set_xticks([doys[i] for i in tick_pos])
+    ax1.set_xticklabels([date_labels[i] for i in tick_pos], rotation=45, ha="right")
+    ax1.legend(loc="upper left", fontsize=8)
+
+    ax2 = ax1.twinx()
+    ax2.plot(doys, smooth.values, color="black", linewidth=2.5, zorder=5,
+             label="Sightability index (7-day smoothed)")
+    ax2.axhline(1.0, color="red", linestyle="--", linewidth=1.2, alpha=0.7,
+                label="Base rate (1.0)")
+    ax2.fill_between(doys, 1.0, smooth.values,
+                     where=(smooth.values > 1.0), alpha=0.12, color="green",
+                     interpolate=True)
+    ax2.fill_between(doys, 1.0, smooth.values,
+                     where=(smooth.values < 1.0), alpha=0.12, color="red",
+                     interpolate=True)
+    ax2.set_ylabel("Sightability index  (1.0 = base rate)")
+    ax2.legend(loc="upper right", fontsize=8)
+
+    peak_doy = int(smooth.idxmax())
+    peak_date = (ref + pd.Timedelta(days=peak_doy - 1)).strftime("%b %-d")
+    ax2.annotate(f"Peak: {peak_date}\n({smooth[peak_doy]:.2f}×)",
+                 xy=(peak_doy, smooth[peak_doy]),
+                 xytext=(8, 4), textcoords="offset points",
+                 fontsize=9, color="darkgreen", fontweight="bold")
+
+    ax1.set_title(
+        "Calendar Day — Sightability Index (Mar–May)\n"
+        "7-day smoothed  ·  green shading = above base rate",
+        fontsize=12, fontweight="bold",
+    )
+
+    plt.tight_layout()
+    path = os.path.join(OUTPUT_DIR, "fig12_calendar_day_sightability.png")
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {path}")
+
+
 def print_text_summary(df):
     weather_vars = ["temp_f", "humidity", "wind_mph", "solar_radiation", "cloud_cover"]
     complete = df.dropna(subset=weather_vars)
@@ -851,6 +1004,8 @@ def main():
     fig8_summary_dashboard(df)
     fig9_sightability(df, bg_df)
     fig10_sightability_dashboard(df, bg_df)
+    fig11_time_of_day_sightability(df, bg_df)
+    fig12_calendar_day_sightability(df, bg_df)
 
     # 5. Print text summary
     print_text_summary(df)
