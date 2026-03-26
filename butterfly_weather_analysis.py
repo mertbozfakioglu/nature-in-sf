@@ -196,7 +196,82 @@ def enrich_with_weather(df):
     return pd.concat([df, weather_df], axis=1)
 
 
-# ── 3. Plotting ───────────────────────────────────────────────────────────────
+# ── 3. Background weather distribution ───────────────────────────────────────
+
+SF_LAT = 37.758   # centroid of SF county
+SF_LON = -122.453
+BACKGROUND_CACHE = "background_weather_cache.json"
+DAYLIGHT_HOURS = range(8, 19)   # 8 AM–6 PM inclusive
+
+
+def build_background_distribution(years):
+    """
+    Fetch all March–May daylight-hour weather at the SF centroid for every year
+    in `years`. Returns a DataFrame with one row per (year, day, hour).
+    """
+    if os.path.exists(BACKGROUND_CACHE):
+        print(f"Loading cached background weather from {BACKGROUND_CACHE}")
+        with open(BACKGROUND_CACHE) as f:
+            rows = json.load(f)
+        return pd.DataFrame(rows)
+
+    print(f"Fetching background weather for {len(years)} years × Mar–May…")
+    url = "https://archive-api.open-meteo.com/v1/archive"
+    rows = []
+
+    today = datetime.today().strftime("%Y-%m-%d")
+    for year in sorted(years):
+        start = f"{year}-03-01"
+        end   = min(f"{year}-05-31", today)
+        if start > today:
+            print(f"  {year}: skipping (future)")
+            continue
+        params = {
+            "latitude": SF_LAT,
+            "longitude": SF_LON,
+            "start_date": start,
+            "end_date":   end,
+            "hourly": "temperature_2m,relative_humidity_2m,wind_speed_10m,"
+                      "shortwave_radiation,cloud_cover",
+            "timezone": "America/Los_Angeles",
+            "wind_speed_unit": "mph",
+            "temperature_unit": "fahrenheit",
+        }
+        try:
+            resp = requests.get(url, params=params, timeout=30)
+            resp.raise_for_status()
+            hourly = resp.json().get("hourly", {})
+        except Exception as e:
+            print(f"  Background fetch error for {year}: {e}")
+            time.sleep(2)
+            continue
+
+        times = hourly.get("time", [])
+        for i, t in enumerate(times):
+            dt = datetime.fromisoformat(t)
+            if dt.hour not in DAYLIGHT_HOURS:
+                continue
+            rows.append({
+                "year":             int(year),
+                "month":            int(dt.month),
+                "hour":             int(dt.hour),
+                "temp_f":           float(hourly["temperature_2m"][i]),
+                "humidity":         float(hourly["relative_humidity_2m"][i]),
+                "wind_mph":         float(hourly["wind_speed_10m"][i]),
+                "solar_radiation":  float(hourly["shortwave_radiation"][i]),
+                "cloud_cover":      float(hourly["cloud_cover"][i]),
+            })
+
+        print(f"  {year}: {sum(1 for r in rows if r['year']==year)} daylight hours")
+        time.sleep(0.3)
+
+    with open(BACKGROUND_CACHE, "w") as f:
+        json.dump(rows, f)
+    print(f"Saved {len(rows)} background hours to {BACKGROUND_CACHE}")
+    return pd.DataFrame(rows)
+
+
+# ── 4. Plotting ───────────────────────────────────────────────────────────────
 
 BUTTERFLY_COLOR = "#4a9e5c"
 PALETTE = "YlGn"
@@ -520,6 +595,189 @@ def fig8_summary_dashboard(df):
     print(f"Saved {path}")
 
 
+def fig9_sightability(obs_df, bg_df):
+    """
+    Sightability index: how much more (or less) likely are butterflies to be
+    observed at a given condition compared to that condition simply being common?
+
+    Index = (obs_fraction_in_bin) / (background_fraction_in_bin)
+    > 1.0  → genuinely preferred condition
+    = 1.0  → observed exactly as often as base rate predicts
+    < 1.0  → avoided / less active under these conditions
+    """
+    var_cfg = [
+        ("temp_f",          "Temperature (°F)",      "#e07b39", np.arange(44, 82, 4)),
+        ("humidity",        "Relative Humidity (%)", "#5b9bd5", np.arange(30, 101, 10)),
+        ("wind_mph",        "Wind Speed (mph)",      "#8e6bbf", np.arange(0, 32, 4)),
+        ("solar_radiation", "Solar Radiation (W/m²)","#c8a800", np.arange(0, 1100, 100)),
+        ("cloud_cover",     "Cloud Cover (%)",       "#666666", np.arange(0, 101, 10)),
+    ]
+
+    fig, axes = plt.subplots(1, 5, figsize=(22, 6))
+    fig.patch.set_facecolor("#f9f9f6")
+    fig.suptitle(
+        "Callophrys viridis — Sightability Index\n"
+        "How much more likely are butterflies observed under each condition\n"
+        "vs. how common that condition is in SF during spring (Mar–May)?",
+        fontsize=13, fontweight="bold", y=1.02,
+    )
+
+    for ax, (var, label, color, bins) in zip(axes, var_cfg):
+        obs_vals = obs_df[var].dropna()
+        bg_vals  = bg_df[var].dropna()
+
+        if len(obs_vals) < 5 or len(bg_vals) < 5:
+            ax.set_visible(False)
+            continue
+
+        obs_counts, _ = np.histogram(obs_vals, bins=bins)
+        bg_counts,  _ = np.histogram(bg_vals,  bins=bins)
+
+        obs_frac = obs_counts / obs_counts.sum()
+        bg_frac  = bg_counts  / bg_counts.sum()
+
+        # Sightability: avoid div-by-zero for empty background bins
+        with np.errstate(divide="ignore", invalid="ignore"):
+            index = np.where(bg_frac > 0, obs_frac / bg_frac, np.nan)
+
+        centers = (bins[:-1] + bins[1:]) / 2
+        width   = (bins[1] - bins[0]) * 0.8
+
+        # Background bars (grey, light)
+        ax.bar(centers, bg_frac * 100, width=width,
+               color="#cccccc", alpha=0.6, label="Background (% of spring hours)", zorder=1)
+        # Observation bars (colored, semi-transparent)
+        ax.bar(centers, obs_frac * 100, width=width,
+               color=color, alpha=0.55, label="Observations (% of obs)", zorder=2)
+
+        ax.set_xlabel(label, fontsize=9)
+        ax.set_ylabel("% frequency", fontsize=9)
+        ax.tick_params(labelsize=8)
+
+        # Sightability line on twin axis
+        ax2 = ax.twinx()
+        valid = ~np.isnan(index)
+        ax2.plot(centers[valid], index[valid], color="black", linewidth=2,
+                 marker="o", markersize=4, zorder=5, label="Sightability index")
+        ax2.axhline(1.0, color="red", linestyle="--", linewidth=1, alpha=0.7)
+        ax2.set_ylabel("Sightability index\n(1.0 = base rate)", fontsize=8)
+        ax2.tick_params(labelsize=8)
+
+        # Find peak bin
+        peak_idx = np.nanargmax(index)
+        ax2.annotate(
+            f"Peak:\n{centers[peak_idx]:.0f}",
+            xy=(centers[peak_idx], index[peak_idx]),
+            xytext=(5, 5), textcoords="offset points",
+            fontsize=7, color="darkgreen", fontweight="bold",
+        )
+
+        ax.set_title(label, fontsize=10, fontweight="bold")
+
+        # Combined legend on first panel only
+        if ax == axes[0]:
+            handles1, labels1 = ax.get_legend_handles_labels()
+            handles2, labels2 = ax2.get_legend_handles_labels()
+            ax.legend(handles1 + handles2, labels1 + labels2,
+                      fontsize=7, loc="upper right")
+
+    plt.tight_layout()
+    path = os.path.join(OUTPUT_DIR, "fig9_sightability_index.png")
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {path}")
+
+
+def fig10_sightability_dashboard(obs_df, bg_df):
+    """
+    Summary dashboard using the sightability index to report optimal ranges
+    (the bin with highest index for each variable).
+    """
+    var_cfg = [
+        ("temp_f",          "Temperature (°F)",      "#e07b39", np.arange(44, 82, 4)),
+        ("humidity",        "Relative Humidity (%)", "#5b9bd5", np.arange(30, 101, 10)),
+        ("wind_mph",        "Wind Speed (mph)",      "#8e6bbf", np.arange(0, 32, 4)),
+        ("solar_radiation", "Solar Radiation (W/m²)","#c8a800", np.arange(0, 1100, 100)),
+        ("cloud_cover",     "Cloud Cover (%)",       "#666666", np.arange(0, 101, 10)),
+    ]
+
+    fig = plt.figure(figsize=(16, 10))
+    fig.patch.set_facecolor("#f9f9f6")
+    fig.suptitle(
+        "Callophrys viridis — Sightability Index Dashboard\n"
+        "San Francisco County · Normalized for background weather conditions",
+        fontsize=14, fontweight="bold", y=0.99,
+    )
+    gs = gridspec.GridSpec(2, 3, figure=fig, hspace=0.5, wspace=0.38)
+
+    summary_lines = ["BEST CONDITIONS TO FIND THEM\n(by sightability index)\n"]
+    opt_ranges = {}
+
+    for i, (var, label, color, bins) in enumerate(var_cfg):
+        row, col = divmod(i, 3)
+        ax = fig.add_subplot(gs[row, col])
+
+        obs_vals = obs_df[var].dropna()
+        bg_vals  = bg_df[var].dropna()
+        obs_counts, _ = np.histogram(obs_vals, bins=bins)
+        bg_counts,  _ = np.histogram(bg_vals,  bins=bins)
+        obs_frac = obs_counts / obs_counts.sum()
+        bg_frac  = bg_counts  / bg_counts.sum()
+        with np.errstate(divide="ignore", invalid="ignore"):
+            index = np.where(bg_frac > 0, obs_frac / bg_frac, np.nan)
+
+        centers = (bins[:-1] + bins[1:]) / 2
+        width   = (bins[1] - bins[0]) * 0.75
+
+        bar_colors = [color if (not np.isnan(v) and v >= 1.0) else "#dddddd"
+                      for v in index]
+        bars = ax.bar(centers, index, width=width, color=bar_colors,
+                      edgecolor="white", linewidth=0.4)
+        ax.axhline(1.0, color="red", linestyle="--", linewidth=1.2, alpha=0.8,
+                   label="Base rate (1.0)")
+        ax.set_title(label, fontsize=9, fontweight="bold")
+        ax.set_xlabel(label, fontsize=8)
+        ax.set_ylabel("Sightability index", fontsize=8)
+        ax.tick_params(labelsize=7)
+        ax.legend(fontsize=7)
+
+        # Mark peak
+        peak_idx = int(np.nanargmax(index))
+        ax.bar(centers[peak_idx], index[peak_idx], width=width,
+               color=color, edgecolor="black", linewidth=1.5)
+
+        # Top third of bins by sightability → "optimal range"
+        valid_idx = np.where(~np.isnan(index))[0]
+        if len(valid_idx):
+            threshold = np.nanpercentile(index, 67)
+            good = [centers[j] for j in valid_idx if index[j] >= threshold]
+            if good:
+                opt_ranges[label] = (min(good) - (bins[1]-bins[0])/2,
+                                     max(good) + (bins[1]-bins[0])/2,
+                                     index[peak_idx])
+
+        summary_lines.append(
+            f"{label}:\n  peak {centers[peak_idx]:.0f}  "
+            f"(index {index[peak_idx]:.2f}x)\n"
+        )
+
+    # Text panel
+    ax_txt = fig.add_subplot(gs[1, 2])
+    ax_txt.axis("off")
+    text = "\n".join(summary_lines)
+    text += "\nIndex > 1.0 = more likely than\nbackground rate alone predicts.\n"
+    text += "Grey bars = below base rate."
+    ax_txt.text(0.05, 0.97, text, transform=ax_txt.transAxes,
+                fontsize=9, va="top", fontfamily="monospace",
+                bbox=dict(boxstyle="round,pad=0.5", facecolor="#eaf4ec",
+                          edgecolor=BUTTERFLY_COLOR, linewidth=2))
+
+    path = os.path.join(OUTPUT_DIR, "fig10_sightability_dashboard.png")
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"Saved {path}")
+
+
 def print_text_summary(df):
     weather_vars = ["temp_f", "humidity", "wind_mph", "solar_radiation", "cloud_cover"]
     complete = df.dropna(subset=weather_vars)
@@ -576,7 +834,12 @@ def main():
     df.to_csv(csv_path, index=False)
     print(f"Saved enriched data to {csv_path}")
 
-    # 3. Generate plots
+    # 3. Build background distribution
+    years = sorted(df["year"].unique())
+    bg_df = build_background_distribution(years)
+    print(f"Background: {len(bg_df)} daylight hours across {len(years)} years")
+
+    # 4. Generate plots
     print("\nGenerating plots...")
     fig1_seasonal_overview(df)
     fig2_time_of_day(df)
@@ -586,8 +849,10 @@ def main():
     fig6_wind_vs_temp(df)
     fig7_humidity_buckets(df)
     fig8_summary_dashboard(df)
+    fig9_sightability(df, bg_df)
+    fig10_sightability_dashboard(df, bg_df)
 
-    # 4. Print text summary
+    # 5. Print text summary
     print_text_summary(df)
 
     print(f"\nAll outputs saved to: {OUTPUT_DIR}/")
