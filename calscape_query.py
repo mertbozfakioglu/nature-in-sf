@@ -124,7 +124,7 @@ CALSCAPE_DATA = {
         "sun": "Full Sun", "height": "3–5 ft",
     },
     "Lupinus formosus": {
-        "moisture": "Very Low", "soil": "Sand, Loam", "clay": False,
+        "moisture": "Very Low", "soil": "Sand, Loam, Clay", "clay": True,
         "sun": "Full Sun", "height": "2–4 ft",
     },
     "Juncus patens": {
