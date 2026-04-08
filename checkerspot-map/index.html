@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Variable Checkerspot in San Francisco</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #111d11;
+      color: #cde0cd;
+      overflow: hidden;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    /* ── Header ── */
+    #header {
+      flex: 0 0 auto;
+      background: #0a150a;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #243824;
+    }
+
+    #header h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #9fcf9f;
+      white-space: nowrap;
+    }
+
+    #header h1 em { font-style: italic; color: #7ab07a; }
+
+    .header-sub {
+      font-size: 0.72rem;
+      color: #4a704a;
+      margin-top: 1px;
+    }
+
+    /* Mode toggle */
+    #mode-toggle {
+      display: flex;
+      background: #162916;
+      border: 1px solid #2a402a;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .mode-btn {
+      padding: 5px 14px;
+      border: none;
+      background: transparent;
+      color: #4a704a;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .mode-btn.active { background: #e8831a; color: #fff; }
+
+    /* Stats */
+    #stats {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #5a8a5a;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .stat strong { color: #9fcf9f; font-size: 0.9rem; }
+
+    /* ── Map ── */
+    #map { flex: 1; min-height: 0; }
+
+    /* ── Controls ── */
+    #controls {
+      flex: 0 0 auto;
+      background: #0a150a;
+      padding: 12px 20px 14px;
+      border-top: 1px solid #243824;
+    }
+
+    #year-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    #year-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e8831a;
+      line-height: 1;
+    }
+
+    #year-sub {
+      font-size: 0.75rem;
+      color: #4a704a;
+    }
+
+    /* Slider with tick alignment correction */
+    .slider-outer {
+      padding: 0 10px;  /* aligns track edges with tick edges */
+    }
+
+    #year-slider {
+      width: 100%;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      background: #2a402a; /* overridden via JS fill */
+    }
+
+    #year-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #e8831a;
+      cursor: pointer;
+      box-shadow: 0 0 0 3px rgba(232,131,26,0.25);
+      transition: box-shadow 0.15s;
+    }
+
+    #year-slider:active::-webkit-slider-thumb,
+    #year-slider:hover::-webkit-slider-thumb {
+      box-shadow: 0 0 0 7px rgba(232,131,26,0.2);
+    }
+
+    #year-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #e8831a;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Ticks — positioned relative to slider-outer, accounting for 10px padding */
+    #ticks {
+      position: relative;
+      height: 26px;
+      margin-top: 3px;
+    }
+
+    .tick {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateX(-50%);
+      gap: 2px;
+    }
+
+    .tick-mark {
+      width: 1px;
+      height: 5px;
+      background: #2a402a;
+    }
+
+    .tick-label {
+      font-size: 0.62rem;
+      color: #3a583a;
+      white-space: nowrap;
+    }
+
+    .tick.has-obs .tick-mark  { background: #456a45; }
+    .tick.has-obs .tick-label { color: #567856; }
+    .tick.active .tick-mark   { background: #e8831a; height: 7px; }
+    .tick.active .tick-label  { color: #e8831a; font-weight: 700; }
+
+    /* Legend */
+    #legend {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: #567856;
+    }
+
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .leg-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      line-height: 1;
+    }
+
+    .leg-dot.butterfly { background: rgba(232,131,26,0.85); border: 1.5px solid #f0a050; }
+    .leg-dot.caterpillar { background: rgba(80,180,80,0.85); border: 1.5px solid #70d070; }
+
+    /* ── Custom markers ── */
+    .m-dot {
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.45);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .m-butterfly  { background: rgba(232,131,26,0.88); border-color: #f0a050; }
+    .m-caterpillar { background: rgba(75,175,75,0.88); border-color: #70d070; }
+
+    /* ── Popup overrides ── */
+    .leaflet-popup-content-wrapper {
+      background: #162916 !important;
+      color: #cde0cd !important;
+      border: 1px solid #2a4a2a !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+    }
+
+    .leaflet-popup-tip { background: #162916 !important; }
+    .leaflet-popup-close-button { color: #5a8a5a !important; }
+
+    .popup-body {
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .popup-body a { color: #e8a040; text-decoration: none; }
+    .popup-body a:hover { text-decoration: underline; }
+    .popup-body .popup-type { font-weight: 600; margin-bottom: 2px; }
+
+    /* ── Loading overlay ── */
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 15, 8, 0.93);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      gap: 14px;
+    }
+
+    #loading h2 { font-size: 1rem; color: #9fcf9f; }
+    #loading-msg { font-size: 0.82rem; color: #4a7a4a; min-height: 1.2em; }
+
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid #2a402a;
+      border-top-color: #e8831a;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .progress-bar-wrap {
+      width: 200px; height: 4px;
+      background: #1a2a1a;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    #progress-bar {
+      height: 100%;
+      background: #e8831a;
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.3s;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <div id="header">
+    <div>
+      <h1>Variable Checkerspot &middot; <em>Euphydryas chalcedona</em></h1>
+      <div class="header-sub">San Francisco &middot; iNaturalist observations</div>
+    </div>
+    <div id="stats">
+      <span class="stat">🦋 <strong id="s-butterfly">—</strong></span>
+      <span class="stat">🐛 <strong id="s-larva">—</strong></span>
+      <span class="stat">total <strong id="s-total">—</strong></span>
+    </div>
+    <div id="mode-toggle">
+      <button class="mode-btn active" id="btn-annual"     onclick="setMode('annual')">Annual</button>
+      <button class="mode-btn"        id="btn-cumulative" onclick="setMode('cumulative')">Cumulative</button>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <div id="controls">
+    <div id="year-row">
+      <span id="year-value">—</span>
+      <span id="year-sub"></span>
+    </div>
+    <div class="slider-outer">
+      <input type="range" id="year-slider" min="0" max="1" value="1" step="1">
+      <div id="ticks"></div>
+    </div>
+    <div id="legend">
+      <div class="leg-item">
+        <div class="leg-dot butterfly">🦋</div>
+        Butterfly (adult / unlabeled)
+      </div>
+      <div class="leg-item">
+        <div class="leg-dot caterpillar">🐛</div>
+        Caterpillar (larva)
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <h2>Loading observations…</h2>
+  <div class="progress-bar-wrap"><div id="progress-bar"></div></div>
+  <div id="loading-msg">Connecting to iNaturalist</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── Constants ─────────────────────────────────────────────────────────────
+const TAXON_ID  = 50892; // Euphydryas chalcedona (Variable Checkerspot)
+const PLACE_ID  = 854;   // San Francisco County, CA
+const LARVA_ID  = 6;     // controlled_value_id for Larva (Life Stage annotation)
+const CACHE_KEY = 'checkerspot_sf_v3';
+const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 h
+
+// ── App state ─────────────────────────────────────────────────────────────
+let map, markerPane;
+let allObs     = [];   // flat array of processed observations
+let byYear     = {};   // year (number) → obs[]
+let years      = [];   // sorted unique years with observations
+let yearLayers = {};   // year → L.layerGroup (created once, added/removed from map)
+let currentIdx = 0;
+let mode       = 'annual';
+
+// Pre-built icons (created once)
+let ICONS;
+
+// ── Marker icons ──────────────────────────────────────────────────────────
+function buildIcons() {
+  const make = (cls, emoji) => L.divIcon({
+    html: `<div class="m-dot ${cls}" style="width:20px;height:20px">${emoji}</div>`,
+    className: '',
+    iconSize:   [20, 20],
+    iconAnchor: [10, 10],
+    popupAnchor:[0, -12]
+  });
+  return {
+    butterfly:   make('m-butterfly',   '🦋'),
+    caterpillar: make('m-caterpillar', '🐛')
+  };
+}
+
+// ── Map setup ─────────────────────────────────────────────────────────────
+function initMap() {
+  map = L.map('map', { preferCanvas: false })
+         .setView([37.7595, -122.4492], 13);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+}
+
+// ── Data fetching ─────────────────────────────────────────────────────────
+function setMsg(msg) {
+  document.getElementById('loading-msg').textContent = msg;
+}
+
+function setProgress(loaded, total) {
+  if (total > 0) {
+    document.getElementById('progress-bar').style.width =
+      Math.min(100, Math.round((loaded / total) * 100)) + '%';
+  }
+}
+
+async function fetchPage(page) {
+  const url = `https://api.inaturalist.org/v1/observations` +
+    `?taxon_id=${TAXON_ID}&place_id=${PLACE_ID}` +
+    `&per_page=200&page=${page}` +
+    `&order=asc&order_by=observed_on`;
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`iNaturalist API returned HTTP ${r.status}`);
+  return r.json();
+}
+
+async function loadObservations() {
+  // Try localStorage cache
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    if (raw) {
+      const { data, ts } = JSON.parse(raw);
+      if (Array.isArray(data) && data.length > 0 && Date.now() - ts < CACHE_TTL) {
+        setMsg(`Loaded ${data.length} cached observations`);
+        setProgress(1, 1);
+        return data;
+      }
+    }
+  } catch (_) { /* ignore cache errors */ }
+
+  const obs = [];
+  let page = 1, total = Infinity;
+
+  while (obs.length < total) {
+    setMsg(`Fetching page ${page}… (${obs.length} / ${total === Infinity ? '?' : total} observations)`);
+    setProgress(obs.length, total);
+
+    const data = await fetchPage(page);
+    total = data.total_results;
+
+    for (const o of data.results) {
+      if (!o.location || !o.observed_on) continue;
+      const [latStr, lngStr] = o.location.split(',');
+      const lat = parseFloat(latStr), lng = parseFloat(lngStr);
+      if (isNaN(lat) || isNaN(lng)) continue;
+      const year = parseInt(o.observed_on.slice(0, 4));
+      if (isNaN(year)) continue;
+
+      // Life stage: only explicit Larva annotation → caterpillar; everything else → butterfly
+      const isLarva = (o.annotations || []).some(
+        a => a.controlled_attribute?.id === 1 && a.controlled_value?.id === LARVA_ID
+      );
+
+      obs.push({
+        id:      o.id,
+        lat, lng,
+        year,
+        isLarva,
+        date:    o.observed_on,
+        url:     o.uri
+      });
+    }
+
+    if (data.results.length < 200) break;
+    page++;
+  }
+
+  setProgress(1, 1);
+
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ data: obs, ts: Date.now() }));
+  } catch (_) { /* ignore quota errors */ }
+
+  return obs;
+}
+
+// ── Build marker layers (once) ────────────────────────────────────────────
+function buildMarkerLayers() {
+  for (const year of years) {
+    const lg = L.layerGroup();
+    for (const obs of byYear[year]) {
+      const icon = obs.isLarva ? ICONS.caterpillar : ICONS.butterfly;
+      const label = obs.isLarva ? '🐛 Caterpillar (larva)' : '🦋 Butterfly';
+      L.marker([obs.lat, obs.lng], { icon })
+        .bindPopup(
+          `<div class="popup-body">
+            <div class="popup-type">${label}</div>
+            <div>Date: ${obs.date}</div>
+            <div><a href="${obs.url}" target="_blank" rel="noopener">View on iNaturalist ↗</a></div>
+          </div>`,
+          { maxWidth: 240 }
+        )
+        .addTo(lg);
+    }
+    yearLayers[year] = lg;
+  }
+}
+
+// ── Display update ────────────────────────────────────────────────────────
+function updateDisplay() {
+  const currentYear = years[currentIdx];
+
+  // Show / hide year layers
+  for (const yr of years) {
+    const layer = yearLayers[yr];
+    const show = mode === 'annual' ? (yr === currentYear) : (yr <= currentYear);
+    if (show && !map.hasLayer(layer)) layer.addTo(map);
+    if (!show && map.hasLayer(layer)) map.removeLayer(layer);
+  }
+
+  // Stats
+  let nButterfly = 0, nLarva = 0;
+  for (const yr of years) {
+    const include = mode === 'annual' ? (yr === currentYear) : (yr <= currentYear);
+    if (!include) continue;
+    for (const o of byYear[yr]) {
+      if (o.isLarva) nLarva++; else nButterfly++;
+    }
+  }
+
+  document.getElementById('s-butterfly').textContent = nButterfly;
+  document.getElementById('s-larva').textContent     = nLarva;
+  document.getElementById('s-total').textContent     = nButterfly + nLarva;
+  document.getElementById('year-value').textContent  = currentYear;
+  document.getElementById('year-sub').textContent    =
+    mode === 'annual'
+      ? `· ${nButterfly + nLarva} observation${nButterfly + nLarva !== 1 ? 's' : ''}`
+      : `· cumulative ${years[0]}–${currentYear}`;
+
+  // Tick highlights
+  document.querySelectorAll('.tick').forEach((el, i) => {
+    el.classList.toggle('active', i === currentIdx);
+  });
+
+  // Slider fill
+  const pct = years.length > 1 ? (currentIdx / (years.length - 1)) * 100 : 100;
+  document.getElementById('year-slider').style.background =
+    `linear-gradient(to right, #e8831a 0%, #e8831a ${pct}%, #2a402a ${pct}%, #2a402a 100%)`;
+}
+
+// ── Mode toggle ───────────────────────────────────────────────────────────
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-annual').classList.toggle('active', m === 'annual');
+  document.getElementById('btn-cumulative').classList.toggle('active', m === 'cumulative');
+  updateDisplay();
+}
+
+// ── Slider setup ──────────────────────────────────────────────────────────
+function setupSlider() {
+  const slider = document.getElementById('year-slider');
+  slider.max   = years.length - 1;
+  slider.value = years.length - 1;
+  currentIdx   = years.length - 1;
+
+  slider.addEventListener('input', () => {
+    currentIdx = parseInt(slider.value);
+    updateDisplay();
+  });
+
+  // Build tick marks
+  // Ticks are positioned within the slider-outer padding box (same 10px padding).
+  // Percentage positions from 0% to 100% map correctly to track start/end.
+  const tickContainer = document.getElementById('ticks');
+  tickContainer.innerHTML = '';
+
+  // Label every year; suppress label for middle years if too crowded (>20 years)
+  const n = years.length;
+  const labelEvery = n <= 12 ? 1 : n <= 20 ? 2 : 3;
+
+  years.forEach((year, i) => {
+    const pct = n > 1 ? (i / (n - 1)) * 100 : 50;
+    const showLabel = (i % labelEvery === 0) || i === n - 1;
+
+    const div = document.createElement('div');
+    div.className = 'tick has-obs';
+    div.style.left = `${pct}%`;
+    div.innerHTML = `
+      <div class="tick-mark"></div>
+      <div class="tick-label">${showLabel ? year : ''}</div>
+    `;
+    tickContainer.appendChild(div);
+  });
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────
+(async () => {
+  initMap();
+  ICONS = buildIcons();
+
+  try {
+    allObs = await loadObservations();
+  } catch (err) {
+    setMsg(`Error: ${err.message}`);
+    return;
+  }
+
+  // Organise by year
+  for (const obs of allObs) {
+    (byYear[obs.year] ??= []).push(obs);
+  }
+  years = Object.keys(byYear).map(Number).sort((a, b) => a - b);
+
+  if (years.length === 0) {
+    setMsg('No observations found.');
+    return;
+  }
+
+  buildMarkerLayers();
+  setupSlider();
+  updateDisplay();
+
+  // Hide loading screen
+  document.getElementById('loading').style.display = 'none';
+})();
+</script>
+</body>
+</html>
