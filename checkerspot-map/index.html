@@ -358,10 +358,7 @@
         <div class="leg-dot leg-caterpillar">🐛</div>
         Caterpillar (larva)
       </div>
-      <button id="overlay-toggle-btn" onclick="toggleOverlay()">
-        <div class="leg-dot leg-plant" style="width:13px;height:13px;font-size:8px">🌿</div>
-        <span id="overlay-btn-label">CA Pipevine plant</span>
-      </button>
+      <div id="overlay-btns"></div>
     </div>
   </div>
 
@@ -384,7 +381,12 @@ const SPECIES = [
     scientific: 'Euphydryas chalcedona',
     color:      '#e8831a',
     dataFile:   'data/variable-checkerspot.json',
-    overlay:    null
+    overlays: [
+      { id: 'diplacus', name: 'Sticky Monkeyflower', scientific: 'Diplacus aurantiacus',
+        dataFile: 'data/diplacus-aurantiacus.json',     color: '#c87d10', emoji: '🌼' },
+      { id: 'figwort',  name: 'CA Figwort',           scientific: 'Scrophularia californica',
+        dataFile: 'data/scrophularia-californica.json', color: '#a03838', emoji: '🌺' }
+    ]
   },
   {
     id:         'pipevine',
@@ -392,11 +394,10 @@ const SPECIES = [
     scientific: 'Battus philenor',
     color:      '#6655dd',
     dataFile:   'data/pipevine-swallowtail.json',
-    overlay: {
-      name:     'California Pipevine',
-      scientific:'Aristolochia californica',
-      dataFile: 'data/ca-pipevine-plant.json'
-    }
+    overlays: [
+      { id: 'capipevine', name: 'CA Pipevine', scientific: 'Aristolochia californica',
+        dataFile: 'data/ca-pipevine-plant.json', color: '#2e8040', emoji: '🌿' }
+    ]
   },
   {
     id:         'hairstreak',
@@ -404,7 +405,10 @@ const SPECIES = [
     scientific: 'Callophrys viridis',
     color:      '#2da84e',
     dataFile:   'data/coastal-green-hairstreak.json',
-    overlay:    null
+    overlays: [
+      { id: 'buckwheat', name: 'Coast Buckwheat', scientific: 'Eriogonum latifolium',
+        dataFile: 'data/eriogonum-latifolium.json', color: '#b07030', emoji: '🌾' }
+    ]
   }
 ];
 
@@ -420,15 +424,8 @@ let speciesIdx = 0;
 let ICONS      = {};
 let switching  = false;
 
-// Overlay (host plant) state
-let overlayByYear  = {};
-let overlayYears   = [];
-let overlayLayers  = {};
-let showOverlay    = true;
-const PLANT_ICON   = L.divIcon({
-  html: '<div class="m-dot m-plant" style="width:16px;height:16px;font-size:10px">🌿</div>',
-  className: '', iconSize: [16,16], iconAnchor: [8,8], popupAnchor: [0,-10]
-});
+// Active overlays: [{id, name, scientific, emoji, color, icon, shown, byYear, years, layers}]
+let activeOverlays = [];
 
 // ── CSS variable helper ───────────────────────────────────────────────────
 function setSpeciesColor(color) {
@@ -438,7 +435,6 @@ function setSpeciesColor(color) {
 // ── Map init ──────────────────────────────────────────────────────────────
 function initMap() {
   map = L.map('map').setView([37.7595, -122.4492], 13);
-
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
     subdomains: 'abcd',
@@ -459,7 +455,14 @@ function buildIcons(color) {
   return { butterfly, caterpillar };
 }
 
-// ── Build marker layers ───────────────────────────────────────────────────
+function buildPlantIcon(color, emoji) {
+  return L.divIcon({
+    html: `<div class="m-dot m-plant" style="width:16px;height:16px;font-size:10px;background:${color}cc;border-color:${color}">${emoji}</div>`,
+    className: '', iconSize: [16,16], iconAnchor: [8,8], popupAnchor: [0,-10]
+  });
+}
+
+// ── Build butterfly marker layers ─────────────────────────────────────────
 function buildMarkerLayers() {
   yearLayers = {};
   for (const year of years) {
@@ -478,6 +481,80 @@ function buildMarkerLayers() {
     }
     yearLayers[year] = lg;
   }
+}
+
+// ── Overlay management ────────────────────────────────────────────────────
+async function loadOverlays(overlayConfigs) {
+  activeOverlays = [];
+  for (const cfg of overlayConfigs) {
+    const resp = await fetch(cfg.dataFile);
+    if (!resp.ok) throw new Error(`Could not load ${cfg.dataFile}`);
+    const data = await resp.json();
+
+    const byYr = {};
+    for (const obs of data) (byYr[obs.year] ??= []).push(obs);
+    const yrs = Object.keys(byYr).map(Number).sort((a, b) => a - b);
+
+    const icon = buildPlantIcon(cfg.color, cfg.emoji);
+    const layers = {};
+    for (const yr of yrs) {
+      const lg = L.layerGroup();
+      for (const obs of byYr[yr]) {
+        L.marker([obs.lat, obs.lng], { icon })
+          .bindPopup(
+            `<div class="popup-body">
+              <div class="popup-type">${cfg.emoji} ${cfg.name}</div>
+              <div><em>${cfg.scientific}</em></div>
+              <div>Date: ${obs.date}</div>
+              <div><a href="${obs.url}" target="_blank" rel="noopener">View on iNaturalist ↗</a></div>
+            </div>`, { maxWidth: 240 })
+          .addTo(lg);
+      }
+      layers[yr] = lg;
+    }
+    activeOverlays.push({ ...cfg, icon, shown: true, byYear: byYr, years: yrs, layers });
+  }
+}
+
+function updateOverlaysDisplay(currentYear) {
+  for (const ov of activeOverlays) {
+    for (const yr of ov.years) {
+      const show = ov.shown && (mode === 'annual' ? (yr === currentYear) : (yr <= currentYear));
+      if (show && !map.hasLayer(ov.layers[yr])) ov.layers[yr].addTo(map);
+      if (!show && map.hasLayer(ov.layers[yr])) map.removeLayer(ov.layers[yr]);
+    }
+  }
+}
+
+function clearOverlays() {
+  for (const ov of activeOverlays) {
+    for (const yr of ov.years) {
+      if (map.hasLayer(ov.layers[yr])) map.removeLayer(ov.layers[yr]);
+    }
+  }
+  activeOverlays = [];
+}
+
+function toggleOverlay(idx) {
+  const ov = activeOverlays[idx];
+  ov.shown = !ov.shown;
+  const btn = document.querySelector(`#overlay-btns button[data-idx="${idx}"]`);
+  btn.classList.toggle('active', ov.shown);
+  btn.classList.toggle('inactive', !ov.shown);
+  updateDisplay();
+}
+
+function buildOverlayButtons() {
+  const container = document.getElementById('overlay-btns');
+  container.innerHTML = '';
+  activeOverlays.forEach((ov, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'overlay-toggle-btn active';
+    btn.dataset.idx = i;
+    btn.onclick = () => toggleOverlay(i);
+    btn.innerHTML = `<div class="leg-dot leg-plant" style="width:13px;height:13px;font-size:8px;background:${ov.color}cc;border-color:${ov.color}">${ov.emoji}</div><span>${ov.name}</span>`;
+    container.appendChild(btn);
+  });
 }
 
 // ── Display update ────────────────────────────────────────────────────────
@@ -507,7 +584,7 @@ function updateDisplay() {
       ? `· ${nButterfly + nLarva} observation${nButterfly + nLarva !== 1 ? 's' : ''}`
       : `· cumulative ${years[0]}–${currentYear}`;
 
-  updateOverlayDisplay(currentYear);
+  updateOverlaysDisplay(currentYear);
 
   document.querySelectorAll('.tick').forEach((el, i) => {
     el.classList.toggle('active', i === currentIdx);
@@ -534,7 +611,6 @@ function setupSlider() {
   slider.value = years.length - 1;
   currentIdx   = years.length - 1;
 
-  // Replace input listener (remove old one by cloning)
   const newSlider = slider.cloneNode(true);
   slider.parentNode.replaceChild(newSlider, slider);
   newSlider.addEventListener('input', () => {
@@ -546,7 +622,6 @@ function setupSlider() {
   tickContainer.innerHTML = '';
   const n = years.length;
   const labelEvery = n <= 12 ? 1 : n <= 20 ? 2 : 3;
-
   years.forEach((year, i) => {
     const pct = n > 1 ? (i / (n - 1)) * 100 : 50;
     const showLabel = (i % labelEvery === 0) || i === n - 1;
@@ -558,64 +633,12 @@ function setupSlider() {
   });
 }
 
-// ── Overlay layer management ──────────────────────────────────────────────
-function buildOverlayLayers(data, butterflYears) {
-  overlayByYear = {};
-  overlayLayers = {};
-  for (const obs of data) {
-    (overlayByYear[obs.year] ??= []).push(obs);
-  }
-  overlayYears = Object.keys(overlayByYear).map(Number).sort((a, b) => a - b);
-
-  for (const yr of overlayYears) {
-    const lg = L.layerGroup();
-    for (const obs of overlayByYear[yr]) {
-      L.marker([obs.lat, obs.lng], { icon: PLANT_ICON })
-        .bindPopup(
-          `<div class="popup-body">
-            <div class="popup-type">🌿 California Pipevine</div>
-            <div><em>Aristolochia californica</em></div>
-            <div>Date: ${obs.date}</div>
-            <div><a href="${obs.url}" target="_blank" rel="noopener">View on iNaturalist ↗</a></div>
-          </div>`, { maxWidth: 240 })
-        .addTo(lg);
-    }
-    overlayLayers[yr] = lg;
-  }
-}
-
-function updateOverlayDisplay(currentYear) {
-  for (const yr of overlayYears) {
-    const layer = overlayLayers[yr];
-    const inRange = showOverlay && (mode === 'annual' ? (yr === currentYear) : (yr <= currentYear));
-    if (inRange && !map.hasLayer(layer)) layer.addTo(map);
-    if (!inRange && map.hasLayer(layer)) map.removeLayer(layer);
-  }
-}
-
-function clearOverlayLayers() {
-  for (const yr of overlayYears) {
-    if (overlayLayers[yr] && map.hasLayer(overlayLayers[yr])) map.removeLayer(overlayLayers[yr]);
-  }
-  overlayByYear = {}; overlayYears = []; overlayLayers = {};
-}
-
-function toggleOverlay() {
-  showOverlay = !showOverlay;
-  const btn = document.getElementById('overlay-toggle-btn');
-  btn.classList.toggle('active', showOverlay);
-  btn.classList.toggle('inactive', !showOverlay);
-  document.getElementById('overlay-btn-label').textContent =
-    showOverlay ? 'CA Pipevine plant' : 'CA Pipevine (hidden)';
-  updateDisplay();
-}
-
-// ── Remove all current year layers from map ───────────────────────────────
+// ── Clear all map layers ──────────────────────────────────────────────────
 function clearLayers() {
   for (const yr of years) {
     if (yearLayers[yr] && map.hasLayer(yearLayers[yr])) map.removeLayer(yearLayers[yr]);
   }
-  clearOverlayLayers();
+  clearOverlays();
 }
 
 // ── Load species data and render ──────────────────────────────────────────
@@ -626,16 +649,14 @@ async function loadSpecies(idx) {
   speciesIdx = idx;
   const sp = SPECIES[idx];
 
-  // UI update
   setSpeciesColor(sp.color);
   updateTabUI(idx);
   document.getElementById('page-title').textContent = `${sp.name} · San Francisco`;
   document.getElementById('loading-title').textContent = `Loading ${sp.name}…`;
   document.getElementById('progress-bar').style.width = '0%';
-  document.getElementById('loading-msg').textContent = `Reading cached data`;
+  document.getElementById('loading-msg').textContent = 'Reading cached data';
   document.getElementById('loading').style.display = 'flex';
 
-  // Clear previous layers
   clearLayers();
   byYear = {}; years = []; yearLayers = {};
 
@@ -643,33 +664,22 @@ async function loadSpecies(idx) {
     const resp = await fetch(sp.dataFile);
     if (!resp.ok) throw new Error(`Could not load ${sp.dataFile}`);
     allObs = await resp.json();
-    document.getElementById('progress-bar').style.width = '100%';
+    document.getElementById('progress-bar').style.width = '60%';
 
-    for (const obs of allObs) {
-      (byYear[obs.year] ??= []).push(obs);
-    }
+    for (const obs of allObs) (byYear[obs.year] ??= []).push(obs);
     years = Object.keys(byYear).map(Number).sort((a, b) => a - b);
-
     if (years.length === 0) throw new Error('No observations found in data file');
 
     ICONS = buildIcons(sp.color);
     buildMarkerLayers();
 
-    // Load plant overlay if this species has one
-    const overlayBtn = document.getElementById('overlay-toggle-btn');
-    if (sp.overlay) {
-      const oresp = await fetch(sp.overlay.dataFile);
-      if (!oresp.ok) throw new Error(`Could not load ${sp.overlay.dataFile}`);
-      const overlayData = await oresp.json();
-      showOverlay = true;
-      buildOverlayLayers(overlayData, years);
-      overlayBtn.style.display = 'flex';
-      overlayBtn.classList.add('active');
-      overlayBtn.classList.remove('inactive');
-      document.getElementById('overlay-btn-label').textContent = 'CA Pipevine plant';
+    if (sp.overlays && sp.overlays.length > 0) {
+      await loadOverlays(sp.overlays);
+      buildOverlayButtons();
     } else {
-      overlayBtn.style.display = 'none';
+      document.getElementById('overlay-btns').innerHTML = '';
     }
+    document.getElementById('progress-bar').style.width = '100%';
 
     setupSlider();
     updateDisplay();

@@ -39,6 +39,21 @@ SPECIES = [
         "taxon_id": 52950,   # Aristolochia californica on iNaturalist
         "output": "data/ca-pipevine-plant.json",
     },
+    {
+        "name": "Sticky Monkeyflower (plant)",
+        "taxon_id": 55530,   # Diplacus aurantiacus on iNaturalist
+        "output": "data/diplacus-aurantiacus.json",
+    },
+    {
+        "name": "California Figwort (plant)",
+        "taxon_id": 56010,   # Scrophularia californica on iNaturalist
+        "output": "data/scrophularia-californica.json",
+    },
+    {
+        "name": "Coast Buckwheat (plant)",
+        "taxon_id": 55793,   # Eriogonum latifolium on iNaturalist
+        "output": "data/eriogonum-latifolium.json",
+    },
 ]
 
 LARVA_ATTR_ID  = 1  # Life Stage controlled attribute
