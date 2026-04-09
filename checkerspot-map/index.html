@@ -231,6 +231,25 @@
 
     .leg-butterfly  { background: var(--species-color, #e8831a); border: 1.5px solid rgba(255,255,255,0.3); }
     .leg-caterpillar { background: #4cae4c; border: 1.5px solid rgba(255,255,255,0.3); }
+    .leg-plant      { background: #5a9a5a; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 3px; }
+
+    /* Plant overlay toggle button */
+    #overlay-toggle-btn {
+      display: none;
+      align-items: center;
+      gap: 5px;
+      background: transparent;
+      border: 1px solid #2a402a;
+      border-radius: 12px;
+      padding: 2px 8px;
+      color: #5a9a5a;
+      font-size: 0.73rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    #overlay-toggle-btn.active { background: rgba(90,154,90,0.2); border-color: #5a9a5a; }
+    #overlay-toggle-btn.inactive { color: #3a583a; border-color: #243824; }
 
     /* ── Custom markers ── */
     .m-dot {
@@ -242,6 +261,7 @@
     }
 
     .m-caterpillar { background: rgba(76,174,76,0.88); border-color: #6dd06d; }
+    .m-plant { background: rgba(80,150,80,0.82); border-color: #70c070; border-radius: 3px !important; }
 
     /* ── Popup overrides ── */
     .leaflet-popup-content-wrapper {
@@ -332,12 +352,16 @@
     <div id="legend">
       <div class="leg-item">
         <div class="leg-dot leg-butterfly">🦋</div>
-        <span id="leg-butterfly-label">Butterfly (adult / unlabeled)</span>
+        <span>Butterfly (adult / unlabeled)</span>
       </div>
       <div class="leg-item">
         <div class="leg-dot leg-caterpillar">🐛</div>
         Caterpillar (larva)
       </div>
+      <button id="overlay-toggle-btn" onclick="toggleOverlay()">
+        <div class="leg-dot leg-plant" style="width:13px;height:13px;font-size:8px">🌿</div>
+        <span id="overlay-btn-label">CA Pipevine plant</span>
+      </button>
     </div>
   </div>
 
@@ -359,21 +383,28 @@ const SPECIES = [
     name:       'Variable Checkerspot',
     scientific: 'Euphydryas chalcedona',
     color:      '#e8831a',
-    dataFile:   'data/variable-checkerspot.json'
+    dataFile:   'data/variable-checkerspot.json',
+    overlay:    null
   },
   {
     id:         'pipevine',
     name:       'Pipevine Swallowtail',
     scientific: 'Battus philenor',
     color:      '#6655dd',
-    dataFile:   'data/pipevine-swallowtail.json'
+    dataFile:   'data/pipevine-swallowtail.json',
+    overlay: {
+      name:     'California Pipevine',
+      scientific:'Aristolochia californica',
+      dataFile: 'data/ca-pipevine-plant.json'
+    }
   },
   {
     id:         'hairstreak',
     name:       'Coastal Green Hairstreak',
     scientific: 'Callophrys viridis',
     color:      '#2da84e',
-    dataFile:   'data/coastal-green-hairstreak.json'
+    dataFile:   'data/coastal-green-hairstreak.json',
+    overlay:    null
   }
 ];
 
@@ -388,6 +419,16 @@ let mode       = 'annual';
 let speciesIdx = 0;
 let ICONS      = {};
 let switching  = false;
+
+// Overlay (host plant) state
+let overlayByYear  = {};
+let overlayYears   = [];
+let overlayLayers  = {};
+let showOverlay    = true;
+const PLANT_ICON   = L.divIcon({
+  html: '<div class="m-dot m-plant" style="width:16px;height:16px;font-size:10px">🌿</div>',
+  className: '', iconSize: [16,16], iconAnchor: [8,8], popupAnchor: [0,-10]
+});
 
 // ── CSS variable helper ───────────────────────────────────────────────────
 function setSpeciesColor(color) {
@@ -466,6 +507,8 @@ function updateDisplay() {
       ? `· ${nButterfly + nLarva} observation${nButterfly + nLarva !== 1 ? 's' : ''}`
       : `· cumulative ${years[0]}–${currentYear}`;
 
+  updateOverlayDisplay(currentYear);
+
   document.querySelectorAll('.tick').forEach((el, i) => {
     el.classList.toggle('active', i === currentIdx);
   });
@@ -515,11 +558,64 @@ function setupSlider() {
   });
 }
 
+// ── Overlay layer management ──────────────────────────────────────────────
+function buildOverlayLayers(data, butterflYears) {
+  overlayByYear = {};
+  overlayLayers = {};
+  for (const obs of data) {
+    (overlayByYear[obs.year] ??= []).push(obs);
+  }
+  overlayYears = Object.keys(overlayByYear).map(Number).sort((a, b) => a - b);
+
+  for (const yr of overlayYears) {
+    const lg = L.layerGroup();
+    for (const obs of overlayByYear[yr]) {
+      L.marker([obs.lat, obs.lng], { icon: PLANT_ICON })
+        .bindPopup(
+          `<div class="popup-body">
+            <div class="popup-type">🌿 California Pipevine</div>
+            <div><em>Aristolochia californica</em></div>
+            <div>Date: ${obs.date}</div>
+            <div><a href="${obs.url}" target="_blank" rel="noopener">View on iNaturalist ↗</a></div>
+          </div>`, { maxWidth: 240 })
+        .addTo(lg);
+    }
+    overlayLayers[yr] = lg;
+  }
+}
+
+function updateOverlayDisplay(currentYear) {
+  for (const yr of overlayYears) {
+    const layer = overlayLayers[yr];
+    const inRange = showOverlay && (mode === 'annual' ? (yr === currentYear) : (yr <= currentYear));
+    if (inRange && !map.hasLayer(layer)) layer.addTo(map);
+    if (!inRange && map.hasLayer(layer)) map.removeLayer(layer);
+  }
+}
+
+function clearOverlayLayers() {
+  for (const yr of overlayYears) {
+    if (overlayLayers[yr] && map.hasLayer(overlayLayers[yr])) map.removeLayer(overlayLayers[yr]);
+  }
+  overlayByYear = {}; overlayYears = []; overlayLayers = {};
+}
+
+function toggleOverlay() {
+  showOverlay = !showOverlay;
+  const btn = document.getElementById('overlay-toggle-btn');
+  btn.classList.toggle('active', showOverlay);
+  btn.classList.toggle('inactive', !showOverlay);
+  document.getElementById('overlay-btn-label').textContent =
+    showOverlay ? 'CA Pipevine plant' : 'CA Pipevine (hidden)';
+  updateDisplay();
+}
+
 // ── Remove all current year layers from map ───────────────────────────────
 function clearLayers() {
   for (const yr of years) {
     if (yearLayers[yr] && map.hasLayer(yearLayers[yr])) map.removeLayer(yearLayers[yr]);
   }
+  clearOverlayLayers();
 }
 
 // ── Load species data and render ──────────────────────────────────────────
@@ -558,6 +654,23 @@ async function loadSpecies(idx) {
 
     ICONS = buildIcons(sp.color);
     buildMarkerLayers();
+
+    // Load plant overlay if this species has one
+    const overlayBtn = document.getElementById('overlay-toggle-btn');
+    if (sp.overlay) {
+      const oresp = await fetch(sp.overlay.dataFile);
+      if (!oresp.ok) throw new Error(`Could not load ${sp.overlay.dataFile}`);
+      const overlayData = await oresp.json();
+      showOverlay = true;
+      buildOverlayLayers(overlayData, years);
+      overlayBtn.style.display = 'flex';
+      overlayBtn.classList.add('active');
+      overlayBtn.classList.remove('inactive');
+      document.getElementById('overlay-btn-label').textContent = 'CA Pipevine plant';
+    } else {
+      overlayBtn.style.display = 'none';
+    }
+
     setupSlider();
     updateDisplay();
   } catch (err) {

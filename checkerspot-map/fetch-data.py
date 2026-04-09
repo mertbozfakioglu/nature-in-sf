@@ -34,6 +34,11 @@ SPECIES = [
         "taxon_id": 210423,
         "output": "data/coastal-green-hairstreak.json",
     },
+    {
+        "name": "California Pipevine (plant)",
+        "taxon_id": 52950,   # Aristolochia californica on iNaturalist
+        "output": "data/ca-pipevine-plant.json",
+    },
 ]
 
 LARVA_ATTR_ID  = 1  # Life Stage controlled attribute
