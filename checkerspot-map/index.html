@@ -263,6 +263,30 @@
     .m-caterpillar { background: rgba(76,174,76,0.88); border-color: #6dd06d; }
     .m-plant { background: rgba(80,150,80,0.82); border-color: #70c070; border-radius: 3px !important; }
 
+    /* ── Photo markers ── */
+    .pm {
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2.5px solid #888;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.55);
+      background: #1e2e1e;
+    }
+
+    .pm img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+
+    /* Larva: dashed green border to distinguish from adult */
+    .pm.pm-larva {
+      border-style: dashed;
+      border-color: #5cbe5c !important;
+      border-width: 2px;
+    }
+
+    /* Plant: slightly rounded-square */
+    .pm.pm-plant { border-radius: 28%; }
+
     /* ── Popup overrides ── */
     .leaflet-popup-content-wrapper {
       background: #162916 !important;
@@ -373,6 +397,10 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+// ── Leaflet pane names ────────────────────────────────────────────────────
+const INSECT_PANE = 'insects';  // z-index 650 — always above plants
+const PLANT_PANE  = 'plants';   // z-index 400 — below insects
+
 // ── Species configuration ─────────────────────────────────────────────────
 const SPECIES = [
   {
@@ -435,6 +463,13 @@ function setSpeciesColor(color) {
 // ── Map init ──────────────────────────────────────────────────────────────
 function initMap() {
   map = L.map('map').setView([37.7595, -122.4492], 13);
+
+  // Custom panes so insects always render above plants
+  map.createPane(PLANT_PANE);
+  map.getPane(PLANT_PANE).style.zIndex = 400;
+  map.createPane(INSECT_PANE);
+  map.getPane(INSECT_PANE).style.zIndex = 650;
+
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
     subdomains: 'abcd',
@@ -442,35 +477,69 @@ function initMap() {
   }).addTo(map);
 }
 
-// ── Icons ─────────────────────────────────────────────────────────────────
-function buildIcons(color) {
-  const butterfly = L.divIcon({
-    html: `<div class="m-dot" style="width:20px;height:20px;background:${color}cc;border-color:${color}">🦋</div>`,
-    className: '', iconSize: [20,20], iconAnchor: [10,10], popupAnchor: [0,-12]
-  });
-  const caterpillar = L.divIcon({
-    html: `<div class="m-dot m-caterpillar" style="width:20px;height:20px">🐛</div>`,
-    className: '', iconSize: [20,20], iconAnchor: [10,10], popupAnchor: [0,-12]
-  });
-  return { butterfly, caterpillar };
+// ── Taxon photo fetching (runs in visitor's browser, not build server) ────
+async function fetchTaxonPhoto(scientificName) {
+  const cacheKey = `taxophoto_${scientificName}`;
+  const hit = sessionStorage.getItem(cacheKey);
+  if (hit !== null) return hit || null;
+  try {
+    const r = await fetch(
+      `https://api.inaturalist.org/v1/taxa?taxon_name=${encodeURIComponent(scientificName)}&per_page=1`,
+      { signal: AbortSignal.timeout(5000) }
+    );
+    const d = await r.json();
+    const url = d.results?.[0]?.default_photo?.square_url ?? '';
+    sessionStorage.setItem(cacheKey, url);
+    return url || null;
+  } catch {
+    sessionStorage.setItem(cacheKey, '');
+    return null;
+  }
 }
 
-function buildPlantIcon(color, emoji) {
+// ── Icon builders ─────────────────────────────────────────────────────────
+function makeInsectIcon(photoUrl, color, size, isLarva) {
+  if (photoUrl) {
+    const cls = isLarva ? 'pm pm-larva' : 'pm';
+    const border = isLarva ? '' : `border-color:${color}`;
+    return L.divIcon({
+      html: `<div class="${cls}" style="width:${size}px;height:${size}px;${border}">` +
+            `<img src="${photoUrl}" loading="lazy"></div>`,
+      className: '', iconSize: [size,size], iconAnchor: [size/2,size/2], popupAnchor: [0,-(size/2+4)]
+    });
+  }
+  // Emoji fallback
+  const emoji = isLarva ? '🐛' : '🦋';
+  const bg    = isLarva ? 'rgba(76,174,76,0.88)' : `${color}cc`;
   return L.divIcon({
-    html: `<div class="m-dot m-plant" style="width:16px;height:16px;font-size:10px;background:${color}cc;border-color:${color}">${emoji}</div>`,
-    className: '', iconSize: [16,16], iconAnchor: [8,8], popupAnchor: [0,-10]
+    html: `<div class="m-dot" style="width:${size}px;height:${size}px;background:${bg};border-color:${color}">${emoji}</div>`,
+    className: '', iconSize: [size,size], iconAnchor: [size/2,size/2], popupAnchor: [0,-(size/2+4)]
   });
 }
 
-// ── Build butterfly marker layers ─────────────────────────────────────────
+function makePlantIcon(photoUrl, color, emoji, size) {
+  if (photoUrl) {
+    return L.divIcon({
+      html: `<div class="pm pm-plant" style="width:${size}px;height:${size}px;border-color:${color}">` +
+            `<img src="${photoUrl}" loading="lazy"></div>`,
+      className: '', iconSize: [size,size], iconAnchor: [size/2,size/2], popupAnchor: [0,-(size/2+3)]
+    });
+  }
+  return L.divIcon({
+    html: `<div class="m-dot m-plant" style="width:${size}px;height:${size}px;background:${color}cc;border-color:${color}">${emoji}</div>`,
+    className: '', iconSize: [size,size], iconAnchor: [size/2,size/2], popupAnchor: [0,-(size/2+3)]
+  });
+}
+
+// ── Build butterfly/insect marker layers ──────────────────────────────────
 function buildMarkerLayers() {
   yearLayers = {};
   for (const year of years) {
     const lg = L.layerGroup();
     for (const obs of byYear[year]) {
-      const icon = obs.isLarva ? ICONS.caterpillar : ICONS.butterfly;
+      const icon  = obs.isLarva ? ICONS.caterpillar : ICONS.butterfly;
       const label = obs.isLarva ? '🐛 Caterpillar (larva)' : '🦋 Butterfly';
-      L.marker([obs.lat, obs.lng], { icon })
+      L.marker([obs.lat, obs.lng], { icon, pane: INSECT_PANE })
         .bindPopup(
           `<div class="popup-body">
             <div class="popup-type">${label}</div>
@@ -487,7 +556,11 @@ function buildMarkerLayers() {
 async function loadOverlays(overlayConfigs) {
   activeOverlays = [];
   for (const cfg of overlayConfigs) {
-    const resp = await fetch(cfg.dataFile);
+    // Fetch data + photo in parallel
+    const [resp, photo] = await Promise.all([
+      fetch(cfg.dataFile),
+      fetchTaxonPhoto(cfg.scientific)
+    ]);
     if (!resp.ok) throw new Error(`Could not load ${cfg.dataFile}`);
     const data = await resp.json();
 
@@ -495,12 +568,12 @@ async function loadOverlays(overlayConfigs) {
     for (const obs of data) (byYr[obs.year] ??= []).push(obs);
     const yrs = Object.keys(byYr).map(Number).sort((a, b) => a - b);
 
-    const icon = buildPlantIcon(cfg.color, cfg.emoji);
+    const icon = makePlantIcon(photo, cfg.color, cfg.emoji, 20);
     const layers = {};
     for (const yr of yrs) {
       const lg = L.layerGroup();
       for (const obs of byYr[yr]) {
-        L.marker([obs.lat, obs.lng], { icon })
+        L.marker([obs.lat, obs.lng], { icon, pane: PLANT_PANE })
           .bindPopup(
             `<div class="popup-body">
               <div class="popup-type">${cfg.emoji} ${cfg.name}</div>
@@ -670,7 +743,12 @@ async function loadSpecies(idx) {
     years = Object.keys(byYear).map(Number).sort((a, b) => a - b);
     if (years.length === 0) throw new Error('No observations found in data file');
 
-    ICONS = buildIcons(sp.color);
+    // Fetch main taxon photo (runs in visitor's browser)
+    const mainPhoto = await fetchTaxonPhoto(sp.scientific);
+    ICONS = {
+      butterfly:   makeInsectIcon(mainPhoto, sp.color, 26, false),
+      caterpillar: makeInsectIcon(mainPhoto, sp.color, 20, true)
+    };
     buildMarkerLayers();
 
     if (sp.overlays && sp.overlays.length > 0) {
