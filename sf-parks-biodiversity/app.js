@@ -28,6 +28,7 @@ const state = {
   detailCache: {},      // { [parkId]: { species[], cats, nativeCount, introducedCount } }
   selectedId:  null,
   sortCol:     'total',
+  nativesOnly: false,
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -204,7 +205,7 @@ function openSidebar(feature) {
 function renderSidebar(feature, detail) {
   const name  = pname(feature);
   const total = detail.species?.length ?? detail.total ?? 0;
-  const nativePct = total > 0 ? Math.round((detail.nativeCount / total) * 100) : '–';
+  const initEM = state.nativesOnly ? 'native' : 'all';
 
   const catGrid = CATEGORIES.map(c => `
     <div class="cat-pill" data-cat="${c.key}">
@@ -216,15 +217,15 @@ function renderSidebar(feature, detail) {
   document.getElementById('sidebar-content').innerHTML = `
     <div class="park-header">
       <div class="park-title">${esc(name)}</div>
-      <div class="park-meta">${total.toLocaleString()} species · ${nativePct}% native/endemic · research grade</div>
+      <div class="park-meta">${total.toLocaleString()} species · ${detail.nativeCount} native · research grade</div>
     </div>
     <div class="cat-grid">${catGrid}</div>
     <div id="em-filter">
-      <button class="em-btn active" data-em="all">All (${total})</button>
-      <button class="em-btn" data-em="native">Native (${detail.nativeCount})</button>
+      <button class="em-btn${initEM === 'all' ? ' active' : ''}" data-em="all">All (${total})</button>
+      <button class="em-btn${initEM === 'native' ? ' active' : ''}" data-em="native">Native (${detail.nativeCount})</button>
       <button class="em-btn" data-em="introduced">Introduced (${detail.introducedCount})</button>
     </div>
-    <div id="sp-list-wrap">${buildSpeciesHTML(detail.species, 'all', null)}</div>`;
+    <div id="sp-list-wrap">${buildSpeciesHTML(detail.species, initEM, null)}</div>`;
 
   let activeCat = null;
 
@@ -316,32 +317,32 @@ function renderRankings() {
   const entries = Object.entries(state.detailCache);
   if (!entries.length) return;
 
-  const col = state.sortCol;
+  const col    = state.sortCol;
+  const natv   = state.nativesOnly;
   entries.sort(([, a], [, b]) => {
-    if (col === 'native_pct') {
-      const ap = a.total > 0 ? a.nativeCount / a.total : -1;
-      const bp = b.total > 0 ? b.nativeCount / b.total : -1;
-      return bp - ap;
-    }
-    if (col === 'total') return (b.total ?? 0) - (a.total ?? 0);
-    return (b.cats?.[col] ?? 0) - (a.cats?.[col] ?? 0);
+    const av = natv ? (a.nativeCount ?? 0) : (col === 'total' ? (a.total ?? 0) : (a.cats?.[col] ?? 0));
+    const bv = natv ? (b.nativeCount ?? 0) : (col === 'total' ? (b.total ?? 0) : (b.cats?.[col] ?? 0));
+    return bv - av;
   });
 
+  // Keep the "Species" header in sync with the current mode
+  const thSp = document.getElementById('th-species');
+  if (thSp) thSp.textContent = natv ? 'Native spp' : 'Species';
+
   body.innerHTML = entries.map(([id, d], i) => {
-    const name      = state.summary[id]?.name ?? id;
-    const nativePct = d.total > 0 ? Math.round((d.nativeCount / d.total) * 100) + '%' : '–';
-    const sel       = state.selectedId === id ? 'row-selected' : '';
-    const n = v => v != null ? v.toLocaleString() : '–';
+    const name = state.summary[id]?.name ?? id;
+    const sel  = state.selectedId === id ? 'row-selected' : '';
+    const n    = v => v != null ? v.toLocaleString() : '–';
+    const displayTotal = natv ? n(d.nativeCount) : n(d.total);
     return `<tr class="${sel}" data-pid="${esc(id)}">
       <td class="td-rank">${i + 1}</td>
       <td class="td-name" title="${esc(name)}">${esc(name)}</td>
-      <td class="td-num">${n(d.total)}</td>
+      <td class="td-num">${displayTotal}</td>
       <td class="td-num">${n(d.cats?.Plantae)}</td>
       <td class="td-num">${n(d.cats?.Aves)}</td>
       <td class="td-num">${n(d.cats?.Insecta)}</td>
       <td class="td-num">${n(d.cats?.Mammalia)}</td>
       <td class="td-num">${n(d.cats?.Fungi)}</td>
-      <td class="td-num">${nativePct}</td>
     </tr>`;
   }).join('');
 
@@ -357,6 +358,27 @@ function renderRankings() {
       }
     });
   });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Natives-only toggle
+// ─────────────────────────────────────────────────────────────────────────────
+
+function toggleNativesOnly() {
+  state.nativesOnly = !state.nativesOnly;
+  document.getElementById('natives-btn').classList.toggle('active', state.nativesOnly);
+  renderRankings();
+
+  // Update open sidebar species list and EM filter buttons to match
+  const wrap = document.getElementById('sp-list-wrap');
+  if (!wrap) return;
+  currentEM = state.nativesOnly ? 'native' : 'all';
+  wrap.innerHTML = buildSpeciesHTML(
+    state.detailCache[state.selectedId]?.species ?? null,
+    currentEM, null
+  );
+  document.querySelectorAll('.em-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.em === currentEM));
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -398,6 +420,9 @@ async function init() {
 
   // Sidebar close
   document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
+
+  // Natives-only toggle
+  document.getElementById('natives-btn').addEventListener('click', toggleNativesOnly);
 
   // Sort buttons
   document.querySelectorAll('.sort-btn').forEach(btn => {

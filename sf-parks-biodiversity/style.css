@@ -69,6 +69,27 @@ html, body {
   margin-top: 2px;
 }
 
+#natives-btn {
+  padding: 5px 13px;
+  background: #162916;
+  border: 1px solid #2a402a;
+  color: #7ab07a;
+  border-radius: 14px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+#natives-btn:hover { background: #1e321e; color: #cde0cd; }
+
+#natives-btn.active {
+  background: #2a5a2a;
+  border-color: #5a9b5a;
+  color: #c8f0c8;
+}
+
 /* ─── Body layout ───────────────────────────────── */
 #body-wrap {
   flex: 1;

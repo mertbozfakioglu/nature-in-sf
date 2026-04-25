@@ -24,6 +24,7 @@
           <span id="stat-ranked">0</span>
           <label>ranked</label>
         </div>
+        <button id="natives-btn" title="Show native species only">🌿 Natives only</button>
       </div>
     </header>
 
@@ -58,7 +59,6 @@
             <button class="sort-btn" data-col="Aves">Birds</button>
             <button class="sort-btn" data-col="Insecta">Insects</button>
             <button class="sort-btn" data-col="Mammalia">Mammals</button>
-            <button class="sort-btn" data-col="native_pct">% Native</button>
           </div>
         </div>
 
@@ -68,18 +68,17 @@
               <tr>
                 <th class="th-rank">#</th>
                 <th class="th-name">Park / Natural Area</th>
-                <th class="th-num sortable" data-col="total">Species</th>
+                <th class="th-num sortable" data-col="total" id="th-species">Species</th>
                 <th class="th-num sortable" data-col="Plantae">🌿 Plants</th>
                 <th class="th-num sortable" data-col="Aves">🐦 Birds</th>
                 <th class="th-num sortable" data-col="Insecta">🦋 Insects</th>
                 <th class="th-num sortable" data-col="Mammalia">🦊 Mammals</th>
                 <th class="th-num sortable" data-col="Fungi">🍄 Fungi</th>
-                <th class="th-num sortable" data-col="native_pct">Native %</th>
               </tr>
             </thead>
             <tbody id="rankings-body">
               <tr>
-                <td colspan="9" class="empty-msg">
+                <td colspan="8" class="empty-msg">
                   Rankings loading…
                 </td>
               </tr>
