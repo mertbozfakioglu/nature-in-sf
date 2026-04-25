@@ -6,14 +6,11 @@
 
 const INAT_API = 'https://api.inaturalist.org/v1';
 
-// SF Open Data – Recreation & Park Properties (polygon geometries)
-// Dataset: https://data.sfgov.org/Recreation-and-Parks/Recreation-and-Park-Department-Park-Info/z76i-7yes
+// SF Open Data – Recreation & Park Department Properties (polygon geometries)
+// Dataset: https://data.sfgov.org/Recreation-and-Parks/Recreation-and-Park-Department-Park-Info/gtr9-ntp6
+// Filter to SF city limits only (excludes Camp Mather etc.) and limit to parks/open spaces
 const SF_PARKS_URL =
-  'https://data.sfgov.org/resource/z76i-7yes.geojson?$limit=500';
-
-// Fallback: broader open spaces dataset
-const SF_OPENSPACES_URL =
-  'https://data.sfgov.org/resource/5fh8-fiqg.geojson?$limit=500';
+  "https://data.sfgov.org/resource/gtr9-ntp6.geojson?$limit=500&$where=city='San Francisco'";
 
 const CATEGORIES = [
   { key: 'Plantae',   label: 'Plants',      icon: '🌿', col: '#4a8c4a' },
@@ -68,8 +65,9 @@ const PARK_STYLE = {
 function parkId(feature) {
   const p = feature.properties || {};
   return (
-    p.rec_park_id || p.parkid || p.park_id || p.object_id || p.objectid ||
-    p.map_label || p.common_nm || p.name || p.park_name ||
+    p.property_id || p.rec_park_id || p.parkid || p.park_id ||
+    p.object_id || p.objectid || p.map_label || p.common_nm ||
+    p.name || p.park_name ||
     JSON.stringify(feature.geometry?.coordinates?.[0]?.[0])
   );
 }
@@ -77,8 +75,8 @@ function parkId(feature) {
 function parkName(feature) {
   const p = feature.properties || {};
   return (
-    p.common_nm || p.name || p.park_name || p.parkname ||
-    p.rec_park_nm || p.map_label || 'Unnamed Park'
+    p.property_name || p.common_nm || p.name || p.park_name ||
+    p.parkname || p.rec_park_nm || p.map_label || 'Unnamed Park'
   );
 }
 
@@ -581,12 +579,8 @@ async function loadParks() {
   try {
     features = await tryFetchParks(SF_PARKS_URL);
   } catch (e1) {
-    try {
-      features = await tryFetchParks(SF_OPENSPACES_URL);
-    } catch (e2) {
-      showMapOverlay(`Failed to load parks data.\n${e1.message}\n${e2.message}`, true);
-      return;
-    }
+    showMapOverlay(`Failed to load parks data: ${e1.message}`, true);
+    return;
   }
 
   state.parks = features;
