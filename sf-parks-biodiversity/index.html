@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SF Parks Biodiversity</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="app">
+
+    <header id="header">
+      <div id="header-left">
+        <h1>SF Parks Biodiversity</h1>
+        <div class="subtitle">iNaturalist research-grade species · Click any park to explore</div>
+      </div>
+      <div id="header-stats">
+        <div class="stat">
+          <span id="stat-parks">–</span>
+          <label>parks</label>
+        </div>
+        <div class="stat">
+          <span id="stat-ranked">0</span>
+          <label>ranked</label>
+        </div>
+      </div>
+    </header>
+
+    <div id="body-wrap">
+
+      <!-- Map + sliding sidebar -->
+      <div id="map-panel">
+        <div id="map"></div>
+
+        <div id="map-overlay-msg" class="hidden">
+          <div class="spinner"></div>
+          <span id="map-overlay-text">Loading parks…</span>
+        </div>
+
+        <div id="sidebar" class="sidebar-closed">
+          <button id="sidebar-close" title="Close">✕</button>
+          <div id="sidebar-scroll">
+            <div id="sidebar-content"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rankings -->
+      <div id="rankings-panel">
+        <div id="rankings-bar">
+          <h2>Biodiversity Rankings</h2>
+
+          <div id="rankings-actions">
+            <button id="load-all-btn">Load all parks</button>
+            <div id="rank-progress" class="hidden">
+              <div id="rank-progress-track"><div id="rank-progress-fill"></div></div>
+              <span id="rank-progress-label"></span>
+            </div>
+          </div>
+
+          <div id="sort-row">
+            <span class="sort-label">Sort:</span>
+            <button class="sort-btn active" data-col="total">Total</button>
+            <button class="sort-btn" data-col="Plantae">Plants</button>
+            <button class="sort-btn" data-col="Aves">Birds</button>
+            <button class="sort-btn" data-col="Insecta">Insects</button>
+            <button class="sort-btn" data-col="Mammalia">Mammals</button>
+            <button class="sort-btn" data-col="native_pct">% Native</button>
+          </div>
+        </div>
+
+        <div id="rankings-scroll">
+          <table id="rankings-table">
+            <thead>
+              <tr>
+                <th class="th-rank">#</th>
+                <th class="th-name">Park / Natural Area</th>
+                <th class="th-num sortable" data-col="total">Species</th>
+                <th class="th-num sortable" data-col="Plantae">🌿 Plants</th>
+                <th class="th-num sortable" data-col="Aves">🐦 Birds</th>
+                <th class="th-num sortable" data-col="Insecta">🦋 Insects</th>
+                <th class="th-num sortable" data-col="Mammalia">🦊 Mammals</th>
+                <th class="th-num sortable" data-col="Fungi">🍄 Fungi</th>
+                <th class="th-num sortable" data-col="native_pct">Native %</th>
+              </tr>
+            </thead>
+            <tbody id="rankings-body">
+              <tr>
+                <td colspan="9" class="empty-msg">
+                  Click a park on the map, or press <strong>Load all parks</strong> to build the full ranking.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /body-wrap -->
+  </div><!-- /app -->
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
