@@ -4,7 +4,7 @@
 // Config
 // ─────────────────────────────────────────────────────────────────────────────
 
-const DATA_ROOT = 'data';   // relative to index.html
+const DATA_ROOT = 'data';
 
 const CATEGORIES = [
   { key: 'Plantae',   label: 'Plants',      icon: '🌿' },
@@ -23,12 +23,13 @@ const CATEGORIES = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 const state = {
-  parks:       [],      // GeoJSON features
-  summary:     {},      // { [parkId]: { name, total, cats, nativeCount, ... } }
-  detailCache: {},      // { [parkId]: { species[], cats, nativeCount, introducedCount } }
+  parks:       [],
+  summary:     {},
+  detailCache: {},
   selectedId:  null,
   sortCol:     'total',
-  nativesOnly: false,
+  nativeMode:  'all',   // 'all' | 'ca' | 'sf'
+  sfNatives:   new Set(),
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -120,13 +121,22 @@ function closeSidebar() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Data loading (static files)
+// Data loading
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function loadJSON(path) {
   const resp = await fetch(path);
   if (!resp.ok) throw new Error(`HTTP ${resp.status}: ${path}`);
   return resp.json();
+}
+
+async function loadSFNatives() {
+  const resp = await fetch(`${DATA_ROOT}/sf_natives.csv`);
+  if (!resp.ok) return;
+  const text = await resp.text();
+  state.sfNatives = new Set(
+    text.split('\n').map(l => l.trim()).filter(Boolean)
+  );
 }
 
 async function loadParks() {
@@ -144,15 +154,16 @@ async function loadParks() {
 async function loadSummary() {
   const summary = await loadJSON(`${DATA_ROOT}/summary.json`);
   state.summary = summary;
-  // Populate rankings immediately from summary
   for (const [id, data] of Object.entries(summary)) {
     state.detailCache[id] = {
-      species:        null,  // not yet loaded
-      cats:           data.cats        || {},
-      native_cats:    data.native_cats || {},
-      nativeCount:    data.nativeCount    || 0,
-      introducedCount:data.introducedCount|| 0,
-      total:          data.total          || 0,
+      species:        null,
+      cats:           data.cats            || {},
+      native_cats:    data.native_cats     || {},
+      sf_native_cats: data.sf_native_cats  || {},
+      nativeCount:    data.nativeCount     || 0,
+      sfNativeCount:  data.sfNativeCount   || 0,
+      introducedCount:data.introducedCount || 0,
+      total:          data.total           || 0,
     };
   }
   renderRankings();
@@ -161,33 +172,70 @@ async function loadSummary() {
 
 async function loadParkDetail(feature) {
   const id = pid(feature);
-  // Return summary stub if full species aren't loaded yet
   if (state.detailCache[id]?.species) return state.detailCache[id];
 
-  const data = await loadJSON(`${DATA_ROOT}/species/${id}.json`);
+  const data    = await loadJSON(`${DATA_ROOT}/species/${id}.json`);
   const species = data.species || [];
   state.detailCache[id] = {
     species,
-    cats:           data.summary?.cats        || {},
-    native_cats:    nativeCatsFromSpecies(species),
-    nativeCount:    data.summary?.nativeCount    || 0,
-    introducedCount:data.summary?.introducedCount|| 0,
-    total:          data.summary?.total          || 0,
+    cats:           data.summary?.cats            || {},
+    native_cats:    nativeCatsFromSpecies(species, 'ca'),
+    sf_native_cats: nativeCatsFromSpecies(species, 'sf'),
+    nativeCount:    countNatives(species, 'ca'),
+    sfNativeCount:  countNatives(species, 'sf'),
+    introducedCount:data.summary?.introducedCount || 0,
+    total:          species.filter(isSpeciesLevel).length,
   };
   return state.detailCache[id];
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Species filtering helpers
+// ─────────────────────────────────────────────────────────────────────────────
+
+function em_from(s) {
+  return s.taxon?.establishment_means?.establishment_means || null;
+}
+
+function isIntroduced(s) {
+  const em = em_from(s);
+  return em === 'introduced' || em === 'naturalizing';
+}
+
+function isSpeciesLevel(s) {
+  return (s.taxon?.name || '').split(' ').length >= 2;
+}
+
+function isNativeForMode(s, mode) {
+  if (isIntroduced(s)) return false;
+  if (mode === 'sf' && s.taxon?.iconic_taxon_name === 'Plantae') {
+    const sp = (s.taxon.name || '').split(' ').slice(0, 2).join(' ');
+    return state.sfNatives.has(sp);
+  }
+  return true;
+}
+
+function nativeCatsFromSpecies(species, mode = 'ca') {
+  const out = {};
+  CATEGORIES.forEach(c => { out[c.key] = 0; });
+  for (const s of (species || [])) {
+    if (!isSpeciesLevel(s)) continue;
+    const k = s.taxon?.iconic_taxon_name;
+    if (k in out && isNativeForMode(s, mode)) out[k]++;
+  }
+  return out;
+}
+
+function countNatives(species, mode) {
+  return (species || []).filter(s => isSpeciesLevel(s) && isNativeForMode(s, mode)).length;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Sidebar
 // ─────────────────────────────────────────────────────────────────────────────
 
-let currentEM = 'all';
-
 function openSidebar(feature) {
-  currentEM = 'all';
-  const sidebar = document.getElementById('sidebar');
-  sidebar.classList.remove('sidebar-closed');
-
+  document.getElementById('sidebar').classList.remove('sidebar-closed');
   const name = pname(feature);
   document.getElementById('sidebar-content').innerHTML = `
     <div class="park-header">
@@ -205,27 +253,18 @@ function openSidebar(feature) {
     });
 }
 
-function isIntroduced(s) {
-  const em = em_from(s);
-  return em === 'introduced' || em === 'naturalizing';
-}
-
-function nativeCatsFromSpecies(species) {
-  const out = {};
-  CATEGORIES.forEach(c => { out[c.key] = 0; });
-  for (const s of (species || [])) {
-    const k = s.taxon?.iconic_taxon_name;
-    if (k in out && !isIntroduced(s)) out[k]++;
-  }
-  return out;
-}
-
 function renderSidebar(feature, detail) {
-  const name    = pname(feature);
-  const total   = detail.species?.length ?? detail.total ?? 0;
-  currentEM = state.nativesOnly ? 'native' : 'all';
-  const dispTotal = state.nativesOnly ? detail.nativeCount : total;
-  const dispCats  = state.nativesOnly ? nativeCatsFromSpecies(detail.species) : detail.cats;
+  const name = pname(feature);
+  const mode = state.nativeMode;
+  const total = detail.species?.filter(isSpeciesLevel).length ?? detail.total ?? 0;
+
+  const dispTotal = mode === 'sf' ? detail.sfNativeCount
+                  : mode === 'ca' ? detail.nativeCount
+                  : total;
+  const dispCats  = mode === 'sf' ? detail.sf_native_cats
+                  : mode === 'ca' ? detail.native_cats
+                  : detail.cats;
+  const modeLabel = mode === 'sf' ? 'SF native' : mode === 'ca' ? 'CA native' : '';
 
   const catGrid = CATEGORIES.map(c => `
     <div class="cat-pill" data-cat="${c.key}">
@@ -234,16 +273,19 @@ function renderSidebar(feature, detail) {
       <span class="p-label">${c.label}</span>
     </div>`).join('');
 
+  const metaParts = [`${dispTotal.toLocaleString()}${modeLabel ? ' ' + modeLabel : ''} species`];
+  if (mode !== 'all') metaParts.push(`${total.toLocaleString()} total`);
+  metaParts.push('research grade');
+
   document.getElementById('sidebar-content').innerHTML = `
     <div class="park-header">
       <div class="park-title">${esc(name)}</div>
-      <div class="park-meta">${dispTotal.toLocaleString()} ${state.nativesOnly ? 'native' : ''} species · ${detail.nativeCount} native · research grade</div>
+      <div class="park-meta">${metaParts.join(' · ')}</div>
     </div>
     <div class="cat-grid">${catGrid}</div>
-    <div id="sp-list-wrap">${buildSpeciesHTML(detail.species, currentEM, null)}</div>`;
+    <div id="sp-list-wrap">${buildSpeciesHTML(detail.species, null)}</div>`;
 
   let activeCat = null;
-
   document.querySelectorAll('.cat-pill').forEach(pill => {
     pill.addEventListener('click', () => {
       const cat = pill.dataset.cat;
@@ -251,20 +293,18 @@ function renderSidebar(feature, detail) {
       document.querySelectorAll('.cat-pill').forEach(p =>
         p.classList.toggle('active', p.dataset.cat === activeCat));
       document.getElementById('sp-list-wrap').innerHTML =
-        buildSpeciesHTML(detail.species, currentEM, activeCat);
+        buildSpeciesHTML(detail.species, cat);
     });
   });
 }
 
-function buildSpeciesHTML(species, em = 'all', cat = null) {
+function buildSpeciesHTML(species, cat = null) {
   if (!species) return '<div style="color:#2a5a2a;font-size:.74rem;padding:10px 4px;font-style:italic">Full species list loading…</div>';
 
-  let list = species;
-  if (cat)          list = list.filter(s => s.taxon?.iconic_taxon_name === cat);
-  if (em === 'native')
-    list = list.filter(s => !isIntroduced(s));
-  else if (em === 'introduced')
-    list = list.filter(s => isIntroduced(s));
+  const mode = state.nativeMode;
+  let list = species.filter(isSpeciesLevel);
+  if (cat)           list = list.filter(s => s.taxon?.iconic_taxon_name === cat);
+  if (mode !== 'all') list = list.filter(s => isNativeForMode(s, mode));
 
   if (!list.length)
     return '<div style="color:#2a5a2a;font-size:.74rem;padding:10px 4px;font-style:italic">No species match this filter.</div>';
@@ -274,10 +314,6 @@ function buildSpeciesHTML(species, em = 'all', cat = null) {
   const overflow = list.length > SHOW
     ? `<div class="list-overflow">Showing ${SHOW} of ${list.length.toLocaleString()}</div>` : '';
   return `<div class="species-list">${items}</div>${overflow}`;
-}
-
-function em_from(s) {
-  return s.taxon?.establishment_means?.establishment_means || null;
 }
 
 function speciesItemHTML(s) {
@@ -315,31 +351,43 @@ function speciesItemHTML(s) {
 // Rankings
 // ─────────────────────────────────────────────────────────────────────────────
 
+function buildSortVal(d, col, mode) {
+  const cats  = mode === 'sf' ? d.sf_native_cats
+              : mode === 'ca' ? d.native_cats
+              : d.cats;
+  const count = mode === 'sf' ? (d.sfNativeCount  ?? 0)
+              : mode === 'ca' ? (d.nativeCount     ?? 0)
+              : (d.total ?? 0);
+  return col === 'total' ? count : (cats?.[col] ?? 0);
+}
+
 function renderRankings() {
   const body    = document.getElementById('rankings-body');
   const entries = Object.entries(state.detailCache);
   if (!entries.length) return;
 
-  const col    = state.sortCol;
-  const natv   = state.nativesOnly;
-  const getVal = d =>
-    col === 'total' ? (natv ? (d.nativeCount        ?? 0) : (d.total       ?? 0))
-                    : (natv ? (d.native_cats?.[col]  ?? 0) : (d.cats?.[col] ?? 0));
-  entries.sort(([, a], [, b]) => getVal(b) - getVal(a));
+  const col  = state.sortCol;
+  const mode = state.nativeMode;
+  entries.sort(([, a], [, b]) => buildSortVal(b, col, mode) - buildSortVal(a, col, mode));
 
-  // Keep the "Species" header in sync with the current mode
   const thSp = document.getElementById('th-species');
-  if (thSp) thSp.textContent = natv ? 'Native spp' : 'Species';
+  if (thSp) thSp.textContent =
+    mode === 'sf' ? 'SF Native spp' : mode === 'ca' ? 'CA Native spp' : 'Species';
 
   body.innerHTML = entries.map(([id, d], i) => {
     const name = state.summary[id]?.name ?? id;
     const sel  = state.selectedId === id ? 'row-selected' : '';
     const n    = v => v != null ? v.toLocaleString() : '–';
-    const cats = natv ? d.native_cats : d.cats;
+    const cats = mode === 'sf' ? d.sf_native_cats
+               : mode === 'ca' ? d.native_cats
+               : d.cats;
+    const total = mode === 'sf' ? d.sfNativeCount
+                : mode === 'ca' ? d.nativeCount
+                : d.total;
     return `<tr class="${sel}" data-pid="${esc(id)}">
       <td class="td-rank">${i + 1}</td>
       <td class="td-name" title="${esc(name)}">${esc(name)}</td>
-      <td class="td-num">${natv ? n(d.nativeCount) : n(d.total)}</td>
+      <td class="td-num">${n(total)}</td>
       <td class="td-num">${n(cats?.Plantae)}</td>
       <td class="td-num">${n(cats?.Aves)}</td>
       <td class="td-num">${n(cats?.Insecta)}</td>
@@ -363,22 +411,18 @@ function renderRankings() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Natives-only toggle
+// Native mode toggle
 // ─────────────────────────────────────────────────────────────────────────────
 
-function toggleNativesOnly() {
-  state.nativesOnly = !state.nativesOnly;
-  document.getElementById('natives-btn').classList.toggle('active', state.nativesOnly);
+function toggleNativeMode(newMode) {
+  state.nativeMode = (state.nativeMode === newMode) ? 'all' : newMode;
+  document.getElementById('ca-natives-btn').classList.toggle('active', state.nativeMode === 'ca');
+  document.getElementById('sf-natives-btn').classList.toggle('active', state.nativeMode === 'sf');
   renderRankings();
-
-  // Re-render the full sidebar so cat-pill counts + meta update too
   if (state.selectedId) {
     const detail  = state.detailCache[state.selectedId];
     const feature = state.parks.find(f => pid(f) === state.selectedId);
-    if (detail?.species && feature) {
-      currentEM = state.nativesOnly ? 'native' : 'all';
-      renderSidebar(feature, detail);
-    }
+    if (detail?.species && feature) renderSidebar(feature, detail);
   }
 }
 
@@ -408,24 +452,19 @@ function esc(s) {
 
 async function init() {
   initMap();
-
-  // Load parks GeoJSON and summary in parallel
   try {
-    await loadParks();
+    await Promise.all([loadParks(), loadSFNatives()]);
   } catch (e) {
-    showOverlay(`Failed to load parks: ${e.message}`, true);
+    showOverlay(`Failed to load parks: ${e.message}`);
     return;
   }
 
   loadSummary().catch(e => console.warn('Summary not yet available:', e.message));
 
-  // Sidebar close
   document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
+  document.getElementById('ca-natives-btn').addEventListener('click', () => toggleNativeMode('ca'));
+  document.getElementById('sf-natives-btn').addEventListener('click', () => toggleNativeMode('sf'));
 
-  // Natives-only toggle
-  document.getElementById('natives-btn').addEventListener('click', toggleNativesOnly);
-
-  // Sort buttons
   document.querySelectorAll('.sort-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
