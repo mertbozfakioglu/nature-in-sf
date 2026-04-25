@@ -165,12 +165,14 @@ async function loadParkDetail(feature) {
   if (state.detailCache[id]?.species) return state.detailCache[id];
 
   const data = await loadJSON(`${DATA_ROOT}/species/${id}.json`);
+  const species = data.species || [];
   state.detailCache[id] = {
-    species:        data.species || [],
-    cats:           data.summary?.cats || {},
-    nativeCount:    data.summary?.nativeCount || 0,
-    introducedCount:data.summary?.introducedCount || 0,
-    total:          data.summary?.total || 0,
+    species,
+    cats:           data.summary?.cats        || {},
+    native_cats:    nativeCatsFromSpecies(species),
+    nativeCount:    data.summary?.nativeCount    || 0,
+    introducedCount:data.summary?.introducedCount|| 0,
+    total:          data.summary?.total          || 0,
   };
   return state.detailCache[id];
 }
@@ -217,7 +219,7 @@ function nativeCatsFromSpecies(species) {
 function renderSidebar(feature, detail) {
   const name    = pname(feature);
   const total   = detail.species?.length ?? detail.total ?? 0;
-  const initEM  = state.nativesOnly ? 'native' : 'all';
+  currentEM = state.nativesOnly ? 'native' : 'all';
   const dispTotal = state.nativesOnly ? detail.nativeCount : total;
   const dispCats  = state.nativesOnly ? nativeCatsFromSpecies(detail.species) : detail.cats;
 
@@ -234,12 +236,7 @@ function renderSidebar(feature, detail) {
       <div class="park-meta">${dispTotal.toLocaleString()} ${state.nativesOnly ? 'native' : ''} species · ${detail.nativeCount} native · research grade</div>
     </div>
     <div class="cat-grid">${catGrid}</div>
-    <div id="em-filter">
-      <button class="em-btn${initEM === 'all'    ? ' active' : ''}" data-em="all">All (${total})</button>
-      <button class="em-btn${initEM === 'native' ? ' active' : ''}" data-em="native">Native (${detail.nativeCount})</button>
-      <button class="em-btn" data-em="introduced">Introduced (${detail.introducedCount})</button>
-    </div>
-    <div id="sp-list-wrap">${buildSpeciesHTML(detail.species, initEM, null)}</div>`;
+    <div id="sp-list-wrap">${buildSpeciesHTML(detail.species, currentEM, null)}</div>`;
 
   let activeCat = null;
 
@@ -251,18 +248,6 @@ function renderSidebar(feature, detail) {
         p.classList.toggle('active', p.dataset.cat === activeCat));
       document.getElementById('sp-list-wrap').innerHTML =
         buildSpeciesHTML(detail.species, currentEM, activeCat);
-    });
-  });
-
-  document.querySelectorAll('.em-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.em-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentEM = btn.dataset.em;
-      activeCat = null;
-      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-      document.getElementById('sp-list-wrap').innerHTML =
-        buildSpeciesHTML(detail.species, currentEM, null);
     });
   });
 }
