@@ -319,11 +319,10 @@ function renderRankings() {
 
   const col    = state.sortCol;
   const natv   = state.nativesOnly;
-  entries.sort(([, a], [, b]) => {
-    const av = natv ? (a.nativeCount ?? 0) : (col === 'total' ? (a.total ?? 0) : (a.cats?.[col] ?? 0));
-    const bv = natv ? (b.nativeCount ?? 0) : (col === 'total' ? (b.total ?? 0) : (b.cats?.[col] ?? 0));
-    return bv - av;
-  });
+  const getVal = d =>
+    col === 'total' ? (natv ? (d.nativeCount ?? 0) : (d.total ?? 0))
+                    : (d.cats?.[col] ?? 0);
+  entries.sort(([, a], [, b]) => getVal(b) - getVal(a));
 
   // Keep the "Species" header in sync with the current mode
   const thSp = document.getElementById('th-species');
