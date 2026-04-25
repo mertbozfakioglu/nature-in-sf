@@ -220,6 +220,7 @@ function renderSidebar(feature, detail) {
   const name    = pname(feature);
   const total   = detail.species?.length ?? detail.total ?? 0;
   const initEM  = state.nativesOnly ? 'native' : 'all';
+  currentEM = initEM;
   const dispTotal = state.nativesOnly ? detail.nativeCount : total;
   const dispCats  = state.nativesOnly ? nativeCatsFromSpecies(detail.species) : detail.cats;
 
