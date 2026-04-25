@@ -165,12 +165,14 @@ async function loadParkDetail(feature) {
   if (state.detailCache[id]?.species) return state.detailCache[id];
 
   const data = await loadJSON(`${DATA_ROOT}/species/${id}.json`);
+  const species = data.species || [];
   state.detailCache[id] = {
-    species:        data.species || [],
-    cats:           data.summary?.cats || {},
-    nativeCount:    data.summary?.nativeCount || 0,
-    introducedCount:data.summary?.introducedCount || 0,
-    total:          data.summary?.total || 0,
+    species,
+    cats:           data.summary?.cats        || {},
+    native_cats:    nativeCatsFromSpecies(species),
+    nativeCount:    data.summary?.nativeCount    || 0,
+    introducedCount:data.summary?.introducedCount|| 0,
+    total:          data.summary?.total          || 0,
   };
   return state.detailCache[id];
 }
