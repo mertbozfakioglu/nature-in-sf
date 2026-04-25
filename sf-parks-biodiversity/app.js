@@ -147,11 +147,12 @@ async function loadSummary() {
   // Populate rankings immediately from summary
   for (const [id, data] of Object.entries(summary)) {
     state.detailCache[id] = {
-      species: null,  // not yet loaded
-      cats:    data.cats || {},
-      nativeCount:    data.nativeCount || 0,
-      introducedCount:data.introducedCount || 0,
-      total:   data.total || 0,
+      species:        null,  // not yet loaded
+      cats:           data.cats        || {},
+      native_cats:    data.native_cats || {},
+      nativeCount:    data.nativeCount    || 0,
+      introducedCount:data.introducedCount|| 0,
+      total:          data.total          || 0,
     };
   }
   renderRankings();
