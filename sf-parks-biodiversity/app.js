@@ -40,16 +40,16 @@ let parksLayer;
 
 function initMap() {
   map = L.map('map', { center: [37.7599, -122.44], zoom: 12 });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
     subdomains: 'abcd', maxZoom: 20,
   }).addTo(map);
 }
 
 const STYLE = {
-  normal:   { fillColor: '#2a4a2a', fillOpacity: 0.30, color: '#4a7a4a', weight: 1 },
-  hover:    { fillColor: '#3a6a3a', fillOpacity: 0.50, color: '#7ab07a', weight: 2 },
-  selected: { fillColor: '#5a9b5a', fillOpacity: 0.55, color: '#a0cf9f', weight: 2 },
+  normal:   { fillColor: '#7ab88a', fillOpacity: 0.30, color: '#4a7a56', weight: 1.5 },
+  hover:    { fillColor: '#5a9e6e', fillOpacity: 0.50, color: '#3a6a46', weight: 2 },
+  selected: { fillColor: '#3a8e56', fillOpacity: 0.60, color: '#2a6a3e', weight: 2.5 },
 };
 
 function pid(feature) {
