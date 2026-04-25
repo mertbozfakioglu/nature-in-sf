@@ -1,44 +1,40 @@
 #!/usr/bin/env python3
 """
-Download iNaturalist species data for SF parks and green spaces.
-Park boundaries sourced from OpenStreetMap via Overpass API.
+Download iNaturalist species data for all SF Rec & Park properties.
 Saves static JSON files consumed by the web app.
 
 Usage:
-    python3 download_data.py            # skip already-cached parks
-    python3 download_data.py --refresh  # re-fetch parks.geojson from OSM
-                                        # (also clears species cache)
+    python3 download_data.py
 
-Rate-limits to ~1 request per 0.3 s per thread to stay within iNaturalist limits.
+Skips parks already cached in data/species/. Safe to re-run.
+Rate-limits to ~1 request per 0.6 s to stay within iNaturalist limits.
 """
 
 import urllib.request
 import urllib.parse
-import urllib.error
 import json
-import math
 import time
 import sys
+import os
 import threading
-import shutil
 from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-INAT_API    = 'https://api.inaturalist.org/v1'
-SF_PLACE_ID = 854       # San Francisco County, CA
-DELAY       = 0.3       # seconds between iNat API calls per thread
-WORKERS     = 5         # concurrent park downloads
+INAT_API      = 'https://api.inaturalist.org/v1'
+SF_PLACE_ID   = 854   # San Francisco County, CA  (from iNaturalist)
+DELAY         = 0.3   # seconds between API calls per thread
+WORKERS       = 5     # concurrent park downloads
+_print_lock   = threading.Lock()
 
-OVERPASS_URL = 'https://overpass-api.de/api/interpreter'
-SF_BBOX      = (37.700, -122.530, 37.840, -122.345)  # south, west, north, east
-MIN_AREA_M2  = 1_000    # ~0.1 ha — filters out tiny slivers and road medians
+SF_PARKS_URL  = (
+    "https://data.sfgov.org/resource/gtr9-ntp6.geojson"
+    "?$limit=500&$where=city%3D%27San%20Francisco%27"
+)
 
 CATEGORIES = [
     'Plantae', 'Aves', 'Insecta', 'Mammalia', 'Fungi',
     'Reptilia', 'Amphibia', 'Arachnida', 'Mollusca',
 ]
-
-_print_lock = threading.Lock()
 
 # ── helpers ───────────────────────────────────────────────────────────────────
 
@@ -70,7 +66,7 @@ def park_id(feature):
 
 def park_name(feature):
     p = feature.get('properties') or {}
-    return p.get('property_name') or p.get('name') or 'Unknown'
+    return (p.get('property_name') or p.get('name') or 'Unknown')
 
 def park_bounds(feature):
     geom = feature['geometry']
@@ -91,127 +87,6 @@ def establishment_means(taxon):
         em = (taxon.get('listed_taxon') or {}).get('establishment_means')
     return em
 
-# ── OpenStreetMap / Overpass ──────────────────────────────────────────────────
-
-def polygon_area_m2(coords):
-    """Shoelace formula → approximate m² for a lat/lng ring."""
-    LAT_M = 111_000
-    LON_M = 111_000 * math.cos(math.radians((SF_BBOX[0] + SF_BBOX[2]) / 2))
-    n = len(coords)
-    area = 0.0
-    for i in range(n):
-        j = (i + 1) % n
-        xi, yi = coords[i][0] * LON_M, coords[i][1] * LAT_M
-        xj, yj = coords[j][0] * LON_M, coords[j][1] * LAT_M
-        area += xi * yj - xj * yi
-    return abs(area) / 2
-
-def way_coords(geom_list):
-    return [[p['lon'], p['lat']] for p in geom_list]
-
-def osm_elements_to_features(elements):
-    """Convert Overpass JSON elements to GeoJSON features."""
-    features = []
-    seen_names = {}   # name → (index, area) for deduplication
-
-    for el in elements:
-        tags   = el.get('tags', {})
-        name   = tags.get('name', '').strip()
-        if not name:
-            continue
-
-        el_type = el['type']
-        el_id   = el['id']
-        prop_id = f'w{el_id}' if el_type == 'way' else f'r{el_id}'
-
-        if el_type == 'way':
-            geom_list = el.get('geometry', [])
-            if len(geom_list) < 4:
-                continue
-            coords = way_coords(geom_list)
-            area   = polygon_area_m2(coords)
-            if area < MIN_AREA_M2:
-                continue
-            geometry = {'type': 'Polygon', 'coordinates': [coords]}
-
-        elif el_type == 'relation':
-            members = el.get('members', [])
-            outers  = [way_coords(m['geometry']) for m in members
-                       if m.get('type') == 'way' and m.get('geometry')
-                       and m.get('role') != 'inner']
-            inners  = [way_coords(m['geometry']) for m in members
-                       if m.get('type') == 'way' and m.get('geometry')
-                       and m.get('role') == 'inner']
-            if not outers:
-                continue
-            area = sum(polygon_area_m2(o) for o in outers)
-            if area < MIN_AREA_M2:
-                continue
-            if len(outers) == 1:
-                geometry = {'type': 'Polygon', 'coordinates': [outers[0]] + inners}
-            else:
-                geometry = {'type': 'MultiPolygon',
-                            'coordinates': [[o] for o in outers]}
-        else:
-            continue
-
-        feature = {
-            'type': 'Feature',
-            'properties': {
-                'property_id':   prop_id,
-                'property_name': name,
-            },
-            'geometry': geometry,
-        }
-
-        # Deduplicate: if same name seen before, keep the larger one
-        if name in seen_names:
-            prev_idx, prev_area = seen_names[name]
-            if area > prev_area:
-                features[prev_idx] = feature
-                seen_names[name]   = (prev_idx, area)
-        else:
-            seen_names[name] = (len(features), area)
-            features.append(feature)
-
-    return features
-
-def fetch_osm_parks():
-    s, w, n, e = SF_BBOX
-    bbox  = f'{s},{w},{n},{e}'
-    query = f'''[out:json][timeout:90];
-(
-  way["leisure"~"^(park|nature_reserve|garden)$"]["name"]({bbox});
-  way["boundary"~"^(national_park|protected_area)$"]["name"]({bbox});
-  relation["leisure"~"^(park|nature_reserve|garden)$"]["name"]({bbox});
-  relation["boundary"~"^(national_park|protected_area)$"]["name"]({bbox});
-);
-out geom;'''
-
-    print('Querying OpenStreetMap (Overpass API)…')
-    data   = query.encode()
-    req    = urllib.request.Request(
-        OVERPASS_URL, data=data,
-        headers={'Content-Type': 'application/x-www-form-urlencoded',
-                 'User-Agent': 'SF-Parks-Biodiversity/1.0'})
-    for attempt in range(4):
-        try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
-                result = json.load(resp)
-            break
-        except Exception as e:
-            if attempt == 3:
-                raise
-            wait = 2 ** attempt
-            print(f'  retry in {wait}s ({e})', file=sys.stderr)
-            time.sleep(wait)
-
-    elements = result.get('elements', [])
-    print(f'OSM returned {len(elements)} elements')
-    features = osm_elements_to_features(elements)
-    print(f'Converted to {len(features)} park features (area ≥ {MIN_AREA_M2} m²)')
-    return features
-
 # ── iNaturalist ───────────────────────────────────────────────────────────────
 
 def fetch_species(bounds):
@@ -225,12 +100,12 @@ def fetch_species(bounds):
         order_by='count',
         order='desc',
     )
-    url  = f"{INAT_API}/observations/species_counts?" + urllib.parse.urlencode(params)
+    url = f"{INAT_API}/observations/species_counts?" + urllib.parse.urlencode(params)
     data = fetch_json(url)
     all_sp = data.get('results', [])
     total  = data.get('total_results', 0)
 
-    pages = min((total + 199) // 200, 5)
+    pages = min((total + 199) // 200, 5)   # cap at 1 000 species per park
     for page in range(2, pages + 1):
         params['page'] = page
         time.sleep(DELAY)
@@ -277,7 +152,6 @@ def build_summary(species_list):
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    refresh     = '--refresh' in sys.argv
     base        = Path(__file__).parent / 'data'
     species_dir = base / 'species'
     base.mkdir(exist_ok=True)
@@ -285,28 +159,26 @@ def main():
 
     # ── Parks GeoJSON ──────────────────────────────────────────────────────
     parks_path = base / 'parks.geojson'
-    if refresh and parks_path.exists():
-        parks_path.unlink()
-        print('Cleared cached parks.geojson (--refresh)')
-        # Also clear species cache since park IDs will change
-        if species_dir.exists():
-            shutil.rmtree(species_dir)
-            species_dir.mkdir()
-            print('Cleared species cache')
-
     if parks_path.exists():
-        print('Loading cached parks.geojson…')
-        features = json.loads(parks_path.read_text())['features']
-        print(f'  {len(features)} parks loaded from cache')
+        print('Loading cached parks.geojson...')
+        with open(parks_path) as f:
+            geojson = json.load(f)
+        features = geojson['features']
     else:
-        features = fetch_osm_parks()
-        parks_path.write_text(json.dumps(
-            {'type': 'FeatureCollection', 'features': features},
-            separators=(',', ':')))
+        print('Fetching SF parks from SF Open Data...')
+        raw = fetch_json(SF_PARKS_URL)
+        features = [
+            feat for feat in raw.get('features', [])
+            if feat.get('geometry') and
+               feat['geometry']['type'] in ('Polygon', 'MultiPolygon')
+        ]
+        with open(parks_path, 'w') as f:
+            json.dump({'type': 'FeatureCollection', 'features': features}, f,
+                      separators=(',', ':'))
         print(f'Saved parks.geojson ({len(features)} parks)')
 
     # ── Per-park species ────────────────────────────────────────────────────
-    summary    = {}
+    summary = {}
     total_parks = len(features)
     done_count  = [0]
 
@@ -317,7 +189,8 @@ def main():
         out  = species_dir / f'{pid}.json'
 
         if out.exists():
-            cached = json.loads(out.read_text())
+            with open(out) as f:
+                cached = json.load(f)
             done_count[0] += 1
             tprint(f'[{done_count[0]:>3}/{total_parks}] {name[:45]:<45}  (cached  {cached["summary"]["total"]:>4} spp)')
             return pid, {**cached['summary'], 'name': name}
@@ -329,7 +202,9 @@ def main():
             summ    = build_summary(species)
             comp    = compress_species(species)
 
-            out.write_text(json.dumps({'summary': summ, 'species': comp}, separators=(',', ':')))
+            with open(out, 'w') as f:
+                json.dump({'summary': summ, 'species': comp}, f, separators=(',', ':'))
+
             done_count[0] += 1
             tprint(f'[{done_count[0]:>3}/{total_parks}] {name[:45]:<45}  {summ["total"]:>4} spp')
             return pid, {**summ, 'name': name}
@@ -339,16 +214,17 @@ def main():
             return pid, dict(total=0, cats={}, nativeCount=0, introducedCount=0, name=name)
 
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
-        for pid_val, summ_val in ex.map(process_park, enumerate(features)):
+        futures = ex.map(process_park, enumerate(features))
+        for pid_val, summ_val in futures:
             summary[pid_val] = summ_val
 
     # ── Summary JSON ────────────────────────────────────────────────────────
-    (base / 'summary.json').write_text(json.dumps(summary, separators=(',', ':')))
+    with open(base / 'summary.json', 'w') as f:
+        json.dump(summary, f, separators=(',', ':'))
 
     total_spp = sum(v['total'] for v in summary.values())
     print(f'\nDone – {len(summary)} parks, {total_spp:,} total species records.')
     print('Files written to data/')
-    print('\nNext: run python3 recompute_counts.py to add SF native counts.')
 
 if __name__ == '__main__':
     main()
