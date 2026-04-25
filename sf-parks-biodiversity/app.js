@@ -320,8 +320,8 @@ function renderRankings() {
   const col    = state.sortCol;
   const natv   = state.nativesOnly;
   const getVal = d =>
-    col === 'total' ? (natv ? (d.nativeCount ?? 0) : (d.total ?? 0))
-                    : (d.cats?.[col] ?? 0);
+    col === 'total' ? (natv ? (d.nativeCount        ?? 0) : (d.total       ?? 0))
+                    : (natv ? (d.native_cats?.[col]  ?? 0) : (d.cats?.[col] ?? 0));
   entries.sort(([, a], [, b]) => getVal(b) - getVal(a));
 
   // Keep the "Species" header in sync with the current mode
@@ -332,16 +332,16 @@ function renderRankings() {
     const name = state.summary[id]?.name ?? id;
     const sel  = state.selectedId === id ? 'row-selected' : '';
     const n    = v => v != null ? v.toLocaleString() : '–';
-    const displayTotal = natv ? n(d.nativeCount) : n(d.total);
+    const cats = natv ? d.native_cats : d.cats;
     return `<tr class="${sel}" data-pid="${esc(id)}">
       <td class="td-rank">${i + 1}</td>
       <td class="td-name" title="${esc(name)}">${esc(name)}</td>
-      <td class="td-num">${displayTotal}</td>
-      <td class="td-num">${n(d.cats?.Plantae)}</td>
-      <td class="td-num">${n(d.cats?.Aves)}</td>
-      <td class="td-num">${n(d.cats?.Insecta)}</td>
-      <td class="td-num">${n(d.cats?.Mammalia)}</td>
-      <td class="td-num">${n(d.cats?.Fungi)}</td>
+      <td class="td-num">${natv ? n(d.nativeCount) : n(d.total)}</td>
+      <td class="td-num">${n(cats?.Plantae)}</td>
+      <td class="td-num">${n(cats?.Aves)}</td>
+      <td class="td-num">${n(cats?.Insecta)}</td>
+      <td class="td-num">${n(cats?.Mammalia)}</td>
+      <td class="td-num">${n(cats?.Fungi)}</td>
     </tr>`;
   }).join('');
 
