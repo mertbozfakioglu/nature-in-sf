@@ -205,13 +205,17 @@ function openSidebar(feature) {
     });
 }
 
+function isIntroduced(s) {
+  const em = em_from(s);
+  return em === 'introduced' || em === 'naturalizing';
+}
+
 function nativeCatsFromSpecies(species) {
   const out = {};
   CATEGORIES.forEach(c => { out[c.key] = 0; });
   for (const s of (species || [])) {
-    const k  = s.taxon?.iconic_taxon_name;
-    const em = em_from(s);
-    if (k in out && (em === 'native' || em === 'endemic')) out[k]++;
+    const k = s.taxon?.iconic_taxon_name;
+    if (k in out && !isIntroduced(s)) out[k]++;
   }
   return out;
 }
@@ -258,9 +262,9 @@ function buildSpeciesHTML(species, em = 'all', cat = null) {
   let list = species;
   if (cat)          list = list.filter(s => s.taxon?.iconic_taxon_name === cat);
   if (em === 'native')
-    list = list.filter(s => { const e = em_from(s); return e === 'native' || e === 'endemic'; });
+    list = list.filter(s => !isIntroduced(s));
   else if (em === 'introduced')
-    list = list.filter(s => { const e = em_from(s); return e === 'introduced' || e === 'naturalizing'; });
+    list = list.filter(s => isIntroduced(s));
 
   if (!list.length)
     return '<div style="color:#2a5a2a;font-size:.74rem;padding:10px 4px;font-style:italic">No species match this filter.</div>';
