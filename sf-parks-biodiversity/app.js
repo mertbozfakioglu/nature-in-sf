@@ -202,26 +202,39 @@ function openSidebar(feature) {
     });
 }
 
+function nativeCatsFromSpecies(species) {
+  const out = {};
+  CATEGORIES.forEach(c => { out[c.key] = 0; });
+  for (const s of (species || [])) {
+    const k  = s.taxon?.iconic_taxon_name;
+    const em = em_from(s);
+    if (k in out && (em === 'native' || em === 'endemic')) out[k]++;
+  }
+  return out;
+}
+
 function renderSidebar(feature, detail) {
-  const name  = pname(feature);
-  const total = detail.species?.length ?? detail.total ?? 0;
-  const initEM = state.nativesOnly ? 'native' : 'all';
+  const name    = pname(feature);
+  const total   = detail.species?.length ?? detail.total ?? 0;
+  const initEM  = state.nativesOnly ? 'native' : 'all';
+  const dispTotal = state.nativesOnly ? detail.nativeCount : total;
+  const dispCats  = state.nativesOnly ? nativeCatsFromSpecies(detail.species) : detail.cats;
 
   const catGrid = CATEGORIES.map(c => `
     <div class="cat-pill" data-cat="${c.key}">
       <span class="p-icon">${c.icon}</span>
-      <span class="p-count">${detail.cats?.[c.key] ?? 0}</span>
+      <span class="p-count">${dispCats?.[c.key] ?? 0}</span>
       <span class="p-label">${c.label}</span>
     </div>`).join('');
 
   document.getElementById('sidebar-content').innerHTML = `
     <div class="park-header">
       <div class="park-title">${esc(name)}</div>
-      <div class="park-meta">${total.toLocaleString()} species · ${detail.nativeCount} native · research grade</div>
+      <div class="park-meta">${dispTotal.toLocaleString()} ${state.nativesOnly ? 'native' : ''} species · ${detail.nativeCount} native · research grade</div>
     </div>
     <div class="cat-grid">${catGrid}</div>
     <div id="em-filter">
-      <button class="em-btn${initEM === 'all' ? ' active' : ''}" data-em="all">All (${total})</button>
+      <button class="em-btn${initEM === 'all'    ? ' active' : ''}" data-em="all">All (${total})</button>
       <button class="em-btn${initEM === 'native' ? ' active' : ''}" data-em="native">Native (${detail.nativeCount})</button>
       <button class="em-btn" data-em="introduced">Introduced (${detail.introducedCount})</button>
     </div>
@@ -368,16 +381,15 @@ function toggleNativesOnly() {
   document.getElementById('natives-btn').classList.toggle('active', state.nativesOnly);
   renderRankings();
 
-  // Update open sidebar species list and EM filter buttons to match
-  const wrap = document.getElementById('sp-list-wrap');
-  if (!wrap) return;
-  currentEM = state.nativesOnly ? 'native' : 'all';
-  wrap.innerHTML = buildSpeciesHTML(
-    state.detailCache[state.selectedId]?.species ?? null,
-    currentEM, null
-  );
-  document.querySelectorAll('.em-btn').forEach(b =>
-    b.classList.toggle('active', b.dataset.em === currentEM));
+  // Re-render the full sidebar so cat-pill counts + meta update too
+  if (state.selectedId) {
+    const detail  = state.detailCache[state.selectedId];
+    const feature = state.parks.find(f => pid(f) === state.selectedId);
+    if (detail?.species && feature) {
+      currentEM = state.nativesOnly ? 'native' : 'all';
+      renderSidebar(feature, detail);
+    }
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
