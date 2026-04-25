@@ -89,8 +89,20 @@ html, body {
   margin-top: 2px;
 }
 
-#natives-btn {
-  padding: 5px 14px;
+#native-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+#native-filters .native-btn-row {
+  display: flex;
+  gap: 6px;
+}
+
+.native-btn {
+  padding: 5px 12px;
   background: var(--bg-card);
   border: 1.5px solid var(--border);
   color: var(--text-mid);
@@ -102,16 +114,22 @@ html, body {
   white-space: nowrap;
 }
 
-#natives-btn:hover {
+.native-btn:hover {
   background: var(--green-pale);
   border-color: var(--green-mid);
   color: var(--green);
 }
 
-#natives-btn.active {
+.native-btn.active {
   background: var(--green);
   border-color: var(--green);
   color: #fff;
+}
+
+.native-hint {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-align: right;
 }
 
 /* ─── Body layout ───────────────────────────────── */
