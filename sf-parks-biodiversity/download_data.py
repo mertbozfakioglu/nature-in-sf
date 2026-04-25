@@ -95,6 +95,7 @@ def fetch_species(bounds):
         nelat=bounds['nelat'], nelng=bounds['nelng'],
         quality_grade='research',
         place_id=SF_PLACE_ID,
+        taxon_geoprivacy='open',
         per_page=200,
         order_by='count',
         order='desc',

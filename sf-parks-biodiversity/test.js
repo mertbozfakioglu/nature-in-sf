@@ -18,13 +18,17 @@ function em_from(s) {
   return s.taxon?.establishment_means?.establishment_means || null;
 }
 
+function isIntroduced(s) {
+  const em = em_from(s);
+  return em === 'introduced' || em === 'naturalizing';
+}
+
 function nativeCatsFromSpecies(species) {
   const out = {};
   CATEGORIES.forEach(c => { out[c.key] = 0; });
   for (const s of (species || [])) {
-    const k  = s.taxon?.iconic_taxon_name;
-    const em = em_from(s);
-    if (k in out && (em === 'native' || em === 'endemic')) out[k]++;
+    const k = s.taxon?.iconic_taxon_name;
+    if (k in out && !isIntroduced(s)) out[k]++;
   }
   return out;
 }
@@ -71,14 +75,14 @@ const MOCK_SPECIES = [
   { count: 1, taxon: { iconic_taxon_name: 'Mammalia', name: 'Gray Fox',       establishment_means: { establishment_means: 'endemic' } } },
 ];
 
-// Expected native counts from MOCK_SPECIES:
-// Plantae:1 (oak native), Aves:1 (robin native), Insecta:0 (no em), Mammalia:1 (fox endemic)
+// Expected not-introduced counts from MOCK_SPECIES:
+// Plantae:1 (ivy excluded), Aves:1 (pigeon excluded), Insecta:1 (no em = not introduced), Mammalia:1 (endemic)
 
 const MOCK_SUMMARY_ENTRY = {
   total: 6,
   cats:        { Plantae:2, Aves:2, Insecta:1, Mammalia:1, Fungi:0, Reptilia:0, Amphibia:0, Arachnida:0, Mollusca:0 },
-  native_cats: { Plantae:1, Aves:1, Insecta:0, Mammalia:1, Fungi:0, Reptilia:0, Amphibia:0, Arachnida:0, Mollusca:0 },
-  nativeCount: 3,
+  native_cats: { Plantae:1, Aves:1, Insecta:1, Mammalia:1, Fungi:0, Reptilia:0, Amphibia:0, Arachnida:0, Mollusca:0 },
+  nativeCount: 4,
   introducedCount: 2,
   name: 'Test Park',
 };
@@ -121,8 +125,8 @@ test('does not count introduced species', () => {
   // 2 plants total but only 1 native
   assert.equal(nativeCatsFromSpecies(MOCK_SPECIES).Plantae, 1);
 });
-test('returns 0 for species with no establishment_means', () => {
-  assert.equal(nativeCatsFromSpecies(MOCK_SPECIES).Insecta, 0);
+test('counts species with no establishment_means as not-introduced', () => {
+  assert.equal(nativeCatsFromSpecies(MOCK_SPECIES).Insecta, 1);
 });
 test('returns 0 for all categories on empty input', () => {
   const r = nativeCatsFromSpecies([]);
@@ -143,7 +147,7 @@ test('total column, natives off → returns total', () => {
   assert.equal(buildSortVal(MOCK_SUMMARY_ENTRY, 'total', false), 6);
 });
 test('total column, natives on → returns nativeCount', () => {
-  assert.equal(buildSortVal(MOCK_SUMMARY_ENTRY, 'total', true), 3);
+  assert.equal(buildSortVal(MOCK_SUMMARY_ENTRY, 'total', true), 4);
 });
 test('category column, natives off → returns cats[col]', () => {
   assert.equal(buildSortVal(MOCK_SUMMARY_ENTRY, 'Plantae', false), 2);
@@ -154,8 +158,8 @@ test('category column, natives on → returns native_cats[col]', () => {
 test('category column, natives on, Aves → returns native_cats.Aves', () => {
   assert.equal(buildSortVal(MOCK_SUMMARY_ENTRY, 'Aves', true), 1);
 });
-test('category column, natives on, Insecta (0 natives) → returns 0 not undefined', () => {
-  assert.equal(buildSortVal(MOCK_SUMMARY_ENTRY, 'Insecta', true), 0);
+test('category column, natives on, Insecta (null em = not introduced) → returns 1', () => {
+  assert.equal(buildSortVal(MOCK_SUMMARY_ENTRY, 'Insecta', true), 1);
 });
 test('returns 0 (not NaN/undefined) when native_cats is missing', () => {
   const d = { ...MOCK_SUMMARY_ENTRY, native_cats: undefined };
