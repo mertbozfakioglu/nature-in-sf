@@ -1,0 +1,452 @@
+{
+  "lastUpdated": "2026-04-26",
+  "bySpecies": {
+    "Abronia latifolia": [
+      "heronshead"
+    ],
+    "Acaena pinnatifida": [
+      "missionblue"
+    ],
+    "Acer negundo": [
+      "heronshead"
+    ],
+    "Achillea millefolium": [
+      "oaktown",
+      "sutro",
+      "heronshead",
+      "missionblue"
+    ],
+    "Acmispon heermannii": [
+      "heronshead"
+    ],
+    "Aesculus californica": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Ambrosia chamissonis": [
+      "heronshead"
+    ],
+    "Anaphalis margaritacea": [
+      "missionblue"
+    ],
+    "Anisocarpus madioides": [
+      "oaktown"
+    ],
+    "Aquilegia formosa": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Arbutus menziesii": [
+      "oaktown"
+    ],
+    "Arctostaphylos manzanita": [
+      "heronshead"
+    ],
+    "Aristolochia californica": [
+      "heronshead"
+    ],
+    "Armeria maritima": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Artemisia californica": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Artemisia douglasiana": [
+      "heronshead"
+    ],
+    "Artemisia pycnocephala": [
+      "heronshead"
+    ],
+    "Asarum caudatum": [
+      "heronshead"
+    ],
+    "Baccharis pilularis": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Calamagrostis nutkaensis": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Calystegia occidentalis": [
+      "heronshead"
+    ],
+    "Camissoniopsis cheiranthifolia": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Carex barbarae": [
+      "oaktown"
+    ],
+    "Carex densa": [
+      "oaktown"
+    ],
+    "Carex pansa": [
+      "oaktown"
+    ],
+    "Carex praegracilis": [
+      "heronshead"
+    ],
+    "Carex tumulicola": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Ceanothus thyrsiflorus": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Cirsium occidentale": [
+      "oaktown"
+    ],
+    "Clarkia amoena": [
+      "heronshead"
+    ],
+    "Clarkia rubicunda": [
+      "oaktown"
+    ],
+    "Clinopodium douglasii": [
+      "missionblue"
+    ],
+    "Collinsia heterophylla": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Cornus sericea": [
+      "missionblue"
+    ],
+    "Corylus cornuta": [
+      "oaktown"
+    ],
+    "Danthonia californica": [
+      "oaktown"
+    ],
+    "Deschampsia cespitosa": [
+      "heronshead"
+    ],
+    "Diplacus aurantiacus": [
+      "missionblue"
+    ],
+    "Drymocallis glandulosa": [
+      "oaktown",
+      "missionblue"
+    ],
+    "Dudleya farinosa": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Elymus glaucus": [
+      "oaktown"
+    ],
+    "Elymus triticoides": [
+      "oaktown"
+    ],
+    "Ericameria ericoides": [
+      "heronshead"
+    ],
+    "Erigeron glaucus": [
+      "oaktown",
+      "sutro",
+      "heronshead",
+      "missionblue"
+    ],
+    "Eriogonum latifolium": [
+      "oaktown",
+      "sutro",
+      "heronshead",
+      "missionblue"
+    ],
+    "Eriophyllum lanatum": [
+      "heronshead"
+    ],
+    "Eriophyllum staechadifolium": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Erysimum franciscanum": [
+      "sutro"
+    ],
+    "Erythranthe cardinalis": [
+      "oaktown"
+    ],
+    "Erythranthe guttata": [
+      "oaktown",
+      "sutro"
+    ],
+    "Eschscholzia californica": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Euthamia occidentalis": [
+      "oaktown"
+    ],
+    "Festuca californica": [
+      "heronshead",
+      "missionblue"
+    ],
+    "Festuca idahoensis": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Fragaria chiloensis": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Fragaria vesca": [
+      "oaktown",
+      "sutro"
+    ],
+    "Frangula californica": [
+      "oaktown"
+    ],
+    "Garrya elliptica": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Gilia capitata": [
+      "oaktown"
+    ],
+    "Grindelia hirsutula": [
+      "oaktown"
+    ],
+    "Grindelia stricta": [
+      "oaktown"
+    ],
+    "Helenium puberulum": [
+      "heronshead",
+      "missionblue"
+    ],
+    "Heliotropium curassavicum": [
+      "oaktown"
+    ],
+    "Heteromeles arbutifolia": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Heuchera micrantha": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Holodiscus discolor": [
+      "oaktown"
+    ],
+    "Horkelia californica": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Iris douglasiana": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Juncus balticus": [
+      "oaktown"
+    ],
+    "Juncus effusus": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Juncus mexicanus": [
+      "oaktown"
+    ],
+    "Juncus patens": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Juncus xiphioides": [
+      "oaktown"
+    ],
+    "Koeleria macrantha": [
+      "oaktown"
+    ],
+    "Lasthenia californica": [
+      "oaktown"
+    ],
+    "Lepechinia calycina": [
+      "oaktown"
+    ],
+    "Lonicera involucrata": [
+      "sutro"
+    ],
+    "Lupinus albifrons": [
+      "oaktown"
+    ],
+    "Lupinus polyphyllus": [
+      "oaktown"
+    ],
+    "Lupinus succulentus": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Madia elegans": [
+      "oaktown"
+    ],
+    "Melica torreyana": [
+      "oaktown"
+    ],
+    "Monardella villosa": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Oenothera elata": [
+      "missionblue"
+    ],
+    "Perideridia kelloggii": [
+      "oaktown"
+    ],
+    "Phacelia californica": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Plantago erecta": [
+      "oaktown"
+    ],
+    "Polypodium californicum": [
+      "oaktown"
+    ],
+    "Polystichum munitum": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Prunella vulgaris": [
+      "heronshead"
+    ],
+    "Prunus ilicifolia": [
+      "heronshead"
+    ],
+    "Pseudognaphalium stramineum": [
+      "heronshead"
+    ],
+    "Quercus agrifolia": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Quercus parvula": [
+      "oaktown"
+    ],
+    "Ranunculus californicus": [
+      "heronshead"
+    ],
+    "Rhamnus crocea": [
+      "heronshead"
+    ],
+    "Rhododendron occidentale": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Ribes divaricatum": [
+      "oaktown"
+    ],
+    "Ribes malvaceum": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Ribes menziesii": [
+      "oaktown"
+    ],
+    "Ribes sanguineum": [
+      "oaktown",
+      "sutro",
+      "heronshead",
+      "missionblue"
+    ],
+    "Rosa gymnocarpa": [
+      "oaktown"
+    ],
+    "Rubus parviflorus": [
+      "oaktown"
+    ],
+    "Rubus ursinus": [
+      "oaktown"
+    ],
+    "Salvia spathacea": [
+      "heronshead",
+      "missionblue"
+    ],
+    "Sambucus nigra": [
+      "oaktown"
+    ],
+    "Sambucus racemosa": [
+      "missionblue"
+    ],
+    "Sanicula crassicaulis": [
+      "oaktown"
+    ],
+    "Scrophularia californica": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Sedum spathulifolium": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Sisyrinchium bellum": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Sisyrinchium californicum": [
+      "sutro",
+      "heronshead",
+      "missionblue"
+    ],
+    "Solidago velutina": [
+      "oaktown",
+      "heronshead",
+      "missionblue"
+    ],
+    "Stachys chamissonis": [
+      "oaktown"
+    ],
+    "Symphoricarpos albus": [
+      "oaktown"
+    ],
+    "Symphoricarpos mollis": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Symphyotrichum chilense": [
+      "missionblue"
+    ],
+    "Tellima grandiflora": [
+      "oaktown"
+    ],
+    "Thalictrum fendleri": [
+      "oaktown"
+    ],
+    "Toxicoscordion fremontii": [
+      "oaktown"
+    ],
+    "Trifolium wormskioldii": [
+      "missionblue"
+    ],
+    "Triteleia laxa": [
+      "oaktown"
+    ],
+    "Urtica dioica": [
+      "oaktown"
+    ],
+    "Vaccinium ovatum": [
+      "heronshead"
+    ],
+    "Viola adunca": [
+      "heronshead"
+    ],
+    "Woodwardia fimbriata": [
+      "oaktown",
+      "heronshead"
+    ]
+  }
+}

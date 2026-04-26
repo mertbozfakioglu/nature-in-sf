@@ -1,0 +1,36 @@
+{
+  "oaktown": {
+    "name": "Oaktown Native Plant Nursery",
+    "address": "702 Channing Way, Berkeley, CA",
+    "phone": "510-387-9744",
+    "website": "https://oaktownnursery.com",
+    "inventoryUrl": "https://oakrails.oaktownnursery.com/item/invList",
+    "lat": 37.8645,
+    "lng": -122.2998
+  },
+  "sutro": {
+    "name": "Sutro Stewards Native Plant Nursery",
+    "address": "476 Johnstone Drive, San Francisco, CA 94131",
+    "website": "https://www.sutrostewards.org/shop",
+    "inventoryUrl": "https://www.sutrostewards.org/shop",
+    "lat": 37.757342,
+    "lng": -122.4567715
+  },
+  "heronshead": {
+    "name": "Heron's Head Nursery",
+    "address": "98 Jennings St., San Francisco, CA 94124",
+    "phone": "(415) 510-2500",
+    "website": "https://heronsheadnursery.com",
+    "inventoryUrl": "https://heronsheadnursery.com/collections/california-natives",
+    "lat": 37.7428,
+    "lng": -122.3817
+  },
+  "missionblue": {
+    "name": "Mission Blue Nursery",
+    "address": "44 Visitacion Ave. Suite 206, Brisbane, CA 94005",
+    "website": "https://www.mountainwatch.org/native-plant-nursery",
+    "inventoryUrl": "https://www.mountainwatch.org/mbn-menu",
+    "lat": 37.6840,
+    "lng": -122.4031
+  }
+}
