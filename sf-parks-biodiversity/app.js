@@ -273,13 +273,9 @@ function renderSidebar(feature, detail) {
   const mode = state.nativeMode;
   const total = detail.species?.filter(isSpeciesLevel).length ?? detail.total ?? 0;
 
-  const dispTotal = mode === 'sf' ? detail.sfNativeCount
-                  : mode === 'ca' ? detail.nativeCount
-                  : total;
-  const dispCats  = mode === 'sf' ? detail.sf_native_cats
-                  : mode === 'ca' ? detail.native_cats
-                  : detail.cats;
-  const modeLabel = mode === 'sf' ? 'SF native' : mode === 'ca' ? 'CA native' : '';
+  const dispTotal = mode === 'sf' ? detail.sfNativeCount : total;
+  const dispCats  = mode === 'sf' ? detail.sf_native_cats : detail.cats;
+  const modeLabel = mode === 'sf' ? 'SF native' : '';
 
   const catGrid = CATEGORIES.map(c => `
     <div class="cat-pill" data-cat="${c.key}">
@@ -372,12 +368,8 @@ function speciesItemHTML(s) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function buildSortVal(d, col, mode) {
-  const cats  = mode === 'sf' ? d.sf_native_cats
-              : mode === 'ca' ? d.native_cats
-              : d.cats;
-  const count = mode === 'sf' ? (d.sfNativeCount  ?? 0)
-              : mode === 'ca' ? (d.nativeCount     ?? 0)
-              : (d.total ?? 0);
+  const cats  = mode === 'sf' ? d.sf_native_cats : d.cats;
+  const count = mode === 'sf' ? (d.sfNativeCount ?? 0) : (d.total ?? 0);
   return col === 'total' ? count : (cats?.[col] ?? 0);
 }
 
@@ -391,19 +383,14 @@ function renderRankings() {
   entries.sort(([, a], [, b]) => buildSortVal(b, col, mode) - buildSortVal(a, col, mode));
 
   const thSp = document.getElementById('th-species');
-  if (thSp) thSp.textContent =
-    mode === 'sf' ? 'SF Native spp' : mode === 'ca' ? 'CA Native spp' : 'Species';
+  if (thSp) thSp.textContent = mode === 'sf' ? 'SF Native spp' : 'Species';
 
   body.innerHTML = entries.map(([id, d], i) => {
-    const name = state.summary[id]?.name ?? id;
-    const sel  = state.selectedId === id ? 'row-selected' : '';
-    const n    = v => v != null ? v.toLocaleString() : '–';
-    const cats = mode === 'sf' ? d.sf_native_cats
-               : mode === 'ca' ? d.native_cats
-               : d.cats;
-    const total = mode === 'sf' ? d.sfNativeCount
-                : mode === 'ca' ? d.nativeCount
-                : d.total;
+    const name  = state.summary[id]?.name ?? id;
+    const sel   = state.selectedId === id ? 'row-selected' : '';
+    const n     = v => v != null ? v.toLocaleString() : '–';
+    const cats  = mode === 'sf' ? d.sf_native_cats : d.cats;
+    const total = mode === 'sf' ? d.sfNativeCount  : d.total;
     return `<tr class="${sel}" data-pid="${esc(id)}">
       <td class="td-rank">${i + 1}</td>
       <td class="td-name" title="${esc(name)}">${esc(name)}</td>
@@ -434,10 +421,9 @@ function renderRankings() {
 // Native mode toggle
 // ─────────────────────────────────────────────────────────────────────────────
 
-function toggleNativeMode(newMode) {
-  state.nativeMode = (state.nativeMode === newMode) ? 'all' : newMode;
-  document.getElementById('ca-natives-btn').classList.toggle('active', state.nativeMode === 'ca');
-  document.getElementById('sf-natives-btn').classList.toggle('active', state.nativeMode === 'sf');
+function toggleNativeMode() {
+  state.nativeMode = (state.nativeMode === 'sf') ? 'all' : 'sf';
+  document.getElementById('natives-btn').classList.toggle('active', state.nativeMode === 'sf');
   renderRankings();
   if (state.selectedId) {
     const detail  = state.detailCache[state.selectedId];
@@ -547,8 +533,7 @@ async function init() {
   loadNurseries();
 
   document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
-  document.getElementById('ca-natives-btn').addEventListener('click', () => toggleNativeMode('ca'));
-  document.getElementById('sf-natives-btn').addEventListener('click', () => toggleNativeMode('sf'));
+  document.getElementById('natives-btn').addEventListener('click', toggleNativeMode);
 
   document.getElementById('nursery-modal-close').addEventListener('click', closeNurseryModal);
   document.getElementById('nursery-modal-backdrop').addEventListener('click', closeNurseryModal);
