@@ -32,5 +32,13 @@
     "inventoryUrl": "https://www.mountainwatch.org/mbn-menu",
     "lat": 37.6840,
     "lng": -122.4031
+  },
+  "larnerseeds": {
+    "name": "Larner Seeds",
+    "address": "230 Grove Road, Bolinas, CA 94924",
+    "website": "https://larnerseeds.com",
+    "inventoryUrl": "https://larnerseeds.com/collections/all-seeds",
+    "lat": 37.9088,
+    "lng": -122.6860
   }
 }

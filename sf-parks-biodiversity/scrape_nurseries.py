@@ -145,11 +145,49 @@ def scrape_missionblue(url: str) -> list:
     return result
 
 
+def scrape_larnerseeds(url: str) -> list:
+    """Return in-stock genus+species from Larner Seeds (Shopify).
+    Titles begin with the scientific name: 'Genus species[, Common Name]'.
+    Uses the Shopify /products.json API with pagination."""
+    collection_base = re.sub(r'\?.*$', '', url.rstrip('/'))
+    seen = set()
+    result = []
+    page = 1
+    while True:
+        api_url = f"{collection_base}/products.json?limit=250&page={page}"
+        req = urllib.request.Request(
+            api_url, headers={"User-Agent": "Mozilla/5.0 nature-in-sf/nursery-scraper"}
+        )
+        with urllib.request.urlopen(req, timeout=30) as r:
+            products = json.load(r)["products"]
+        if not products:
+            break
+        for p in products:
+            if not any(v.get("available") for v in p.get("variants", [])):
+                continue
+            title = p["title"]
+            # Titles start with scientific name; common name follows a comma
+            name = title.split(",")[0].strip()
+            name = re.sub(r"\s*'[^']*'.*$", "", name)   # strip cultivar names
+            name = re.sub(r"\s+var\.\s+\S+.*$", "", name)  # strip var.
+            name = name.strip()
+            gs = genus_species(name)
+            if len(gs.split()) >= 2 and gs not in seen:
+                seen.add(gs)
+                result.append(gs)
+        if len(products) < 250:
+            break
+        page += 1
+        time.sleep(1)
+    return result
+
+
 SCRAPERS = {
-    "oaktown":     scrape_oaktown,
-    "sutro":       scrape_sutro,
-    "heronshead":  scrape_heronshead,
-    "missionblue": scrape_missionblue,
+    "oaktown":      scrape_oaktown,
+    "sutro":        scrape_sutro,
+    "heronshead":   scrape_heronshead,
+    "missionblue":  scrape_missionblue,
+    "larnerseeds":  scrape_larnerseeds,
 }
 
 
