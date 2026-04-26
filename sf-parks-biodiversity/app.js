@@ -477,11 +477,19 @@ function openNurseryModal(speciesKey) {
   document.getElementById('nursery-modal-title').textContent =
     `Buy ${speciesKey} at a local nursery`;
 
+  const PRODUCT_LABEL = { plants: '🪴 Potted plants', seeds: '🌱 Seeds' };
+  const FULFILLMENT_LABEL = { walkin: '🚶 Walk-in', pickup: '📦 Pickup', online: '🛒 Online order' };
+
   document.getElementById('nursery-modal-list').innerHTML = nurseryIds.map(id => {
     const n = state.nurseries[id];
     if (!n) return '';
+    const tags = [
+      PRODUCT_LABEL[n.productType],
+      FULFILLMENT_LABEL[n.fulfillment],
+    ].filter(Boolean).map(t => `<span class="nursery-tag">${t}</span>`).join('');
     return `<div class="nursery-card">
       <div class="nursery-card-name">${esc(n.name)}</div>
+      ${tags ? `<div class="nursery-card-tags">${tags}</div>` : ''}
       <div class="nursery-card-address">${esc(n.address)}</div>
       ${n.phone ? `<div class="nursery-card-phone">${esc(n.phone)}</div>` : ''}
       <a href="${esc(n.website)}" target="_blank" rel="noopener" class="nursery-card-link">Visit website →</a>

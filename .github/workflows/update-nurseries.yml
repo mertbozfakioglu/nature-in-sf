@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install dependencies
+        run: pip install requests
+
       - name: Scrape nurseries
         run: python sf-parks-biodiversity/scrape_nurseries.py
 

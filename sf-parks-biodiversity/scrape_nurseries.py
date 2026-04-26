@@ -12,6 +12,11 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 
+try:
+    import requests as _requests
+except ImportError:
+    _requests = None
+
 DATA_DIR = Path(__file__).parent / "data"
 
 
@@ -109,10 +114,80 @@ def scrape_heronshead(url: str) -> list:
     return result
 
 
+def scrape_missionblue(url: str) -> list:
+    """Return in-stock genus+species from Mission Blue Nursery (Squarespace).
+    Scientific names appear in parentheses in product titles.
+    Sold-out items carry a 'sold-out' CSS class on their <a> element."""
+    if _requests is None:
+        raise RuntimeError("requests library required for Mission Blue scraper")
+    r = _requests.get(url, headers={"User-Agent": "Mozilla/5.0 nature-in-sf/nursery-scraper"}, timeout=30)
+    r.raise_for_status()
+    content = r.text
+
+    blocks = re.findall(
+        r'<a href="/mbn-menu/[^"]+" class="([^"]+)"[^>]*>.*?<div class="product-title">([^<]+)</div>',
+        content, re.DOTALL,
+    )
+    seen = set()
+    result = []
+    for cls, title in blocks:
+        if "sold-out" in cls:
+            continue
+        m = re.search(
+            r'\(([A-Z][a-z]+(?: [a-z]+)+(?:\s+(?:ssp|subsp|var)\.[^)]*)?)\)', title
+        )
+        if not m:
+            continue
+        gs = genus_species(m.group(1).strip())
+        if gs not in seen:
+            seen.add(gs)
+            result.append(gs)
+    return result
+
+
+def scrape_larnerseeds(url: str) -> list:
+    """Return in-stock genus+species from Larner Seeds (Shopify).
+    Titles begin with the scientific name: 'Genus species[, Common Name]'.
+    Uses the Shopify /products.json API with pagination."""
+    collection_base = re.sub(r'\?.*$', '', url.rstrip('/'))
+    seen = set()
+    result = []
+    page = 1
+    while True:
+        api_url = f"{collection_base}/products.json?limit=250&page={page}"
+        req = urllib.request.Request(
+            api_url, headers={"User-Agent": "Mozilla/5.0 nature-in-sf/nursery-scraper"}
+        )
+        with urllib.request.urlopen(req, timeout=30) as r:
+            products = json.load(r)["products"]
+        if not products:
+            break
+        for p in products:
+            if not any(v.get("available") for v in p.get("variants", [])):
+                continue
+            title = p["title"]
+            # Titles start with scientific name; common name follows a comma
+            name = title.split(",")[0].strip()
+            name = re.sub(r"\s*'[^']*'.*$", "", name)   # strip cultivar names
+            name = re.sub(r"\s+var\.\s+\S+.*$", "", name)  # strip var.
+            name = name.strip()
+            gs = genus_species(name)
+            if len(gs.split()) >= 2 and gs not in seen:
+                seen.add(gs)
+                result.append(gs)
+        if len(products) < 250:
+            break
+        page += 1
+        time.sleep(1)
+    return result
+
+
 SCRAPERS = {
-    "oaktown":    scrape_oaktown,
-    "sutro":      scrape_sutro,
-    "heronshead": scrape_heronshead,
+    "oaktown":      scrape_oaktown,
+    "sutro":        scrape_sutro,
+    "heronshead":   scrape_heronshead,
+    "missionblue":  scrape_missionblue,
+    "larnerseeds":  scrape_larnerseeds,
 }
 
 
