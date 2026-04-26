@@ -126,12 +126,6 @@ html, body {
   color: #fff;
 }
 
-.native-hint {
-  font-size: 0.62rem;
-  color: var(--text-muted);
-  text-align: right;
-}
-
 /* ─── Body layout ───────────────────────────────── */
 #body-wrap {
   flex: 1;
