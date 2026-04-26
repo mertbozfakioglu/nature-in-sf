@@ -1,0 +1,11 @@
+{
+  "oaktown": {
+    "name": "Oaktown Native Plant Nursery",
+    "address": "702 Channing Way, Berkeley, CA",
+    "phone": "510-387-9744",
+    "website": "https://oaktownnursery.com",
+    "inventoryUrl": "https://oakrails.oaktownnursery.com/item/invList",
+    "lat": 37.8645,
+    "lng": -122.2998
+  }
+}

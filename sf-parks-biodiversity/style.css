@@ -370,6 +370,12 @@ html, body {
 .badge-introduced  { background: #fef3e6; color: #a05a1a; border: 1px solid #f0ceaa; }
 .badge-naturalizing{ background: #fdf6e6; color: #8a6010; border: 1px solid #eadcaa; }
 .badge-cat         { background: var(--green-pale); color: var(--green); border: 1px solid #c0d8c8; }
+.badge-nursery {
+  background: #fff8e6; color: #7a5200; border: 1px solid #f0d890;
+  cursor: pointer; font-family: inherit;
+  transition: background 0.15s;
+}
+.badge-nursery:hover { background: #ffefc0; }
 
 .sp-obs {
   font-size: 0.62rem;
@@ -598,3 +604,75 @@ html, body {
 }
 
 .leaflet-control-attribution a { color: var(--green) !important; }
+
+/* ─── Nursery modal ─────────────────────────────── */
+#nursery-modal {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+}
+#nursery-modal.hidden { display: none; }
+
+#nursery-modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(44, 56, 40, 0.45);
+}
+
+#nursery-modal-box {
+  position: relative; z-index: 1;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  width: min(760px, 94vw);
+  max-height: 86vh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+#nursery-modal-close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: none; cursor: pointer;
+  font-size: 1rem; color: var(--text-muted); line-height: 1;
+  padding: 4px 6px; border-radius: 6px;
+}
+#nursery-modal-close:hover { background: var(--bg-hover); color: var(--text); }
+
+#nursery-modal-title {
+  padding: 18px 20px 12px;
+  font-size: 0.95rem; font-weight: 600; color: var(--text);
+  border-bottom: 1px solid var(--border-soft);
+  font-style: italic;
+}
+
+#nursery-modal-body {
+  display: flex; flex: 1; overflow: hidden;
+}
+
+#nursery-modal-list {
+  width: 260px; flex-shrink: 0;
+  padding: 16px;
+  overflow-y: auto;
+  border-right: 1px solid var(--border-soft);
+}
+
+#nursery-modal-map {
+  flex: 1; min-height: 320px;
+}
+
+.nursery-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.nursery-card-name  { font-weight: 600; font-size: 0.82rem; color: var(--text); }
+.nursery-card-address, .nursery-card-phone {
+  font-size: 0.75rem; color: var(--text-mid);
+}
+.nursery-card-link  {
+  font-size: 0.75rem; color: var(--green);
+  text-decoration: none; margin-top: 2px;
+}
+.nursery-card-link:hover { text-decoration: underline; }
