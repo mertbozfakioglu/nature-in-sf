@@ -15,5 +15,14 @@
     "inventoryUrl": "https://www.sutrostewards.org/shop",
     "lat": 37.757342,
     "lng": -122.4567715
+  },
+  "heronshead": {
+    "name": "Heron's Head Nursery",
+    "address": "98 Jennings St., San Francisco, CA 94124",
+    "phone": "(415) 510-2500",
+    "website": "https://heronsheadnursery.com",
+    "inventoryUrl": "https://heronsheadnursery.com/collections/california-natives",
+    "lat": 37.7428,
+    "lng": -122.3817
   }
 }
