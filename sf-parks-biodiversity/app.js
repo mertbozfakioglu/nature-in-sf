@@ -23,13 +23,15 @@ const CATEGORIES = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 const state = {
-  parks:       [],
-  summary:     {},
-  detailCache: {},
-  selectedId:  null,
-  sortCol:     'total',
-  nativeMode:  'all',   // 'all' | 'ca' | 'sf'
-  sfNatives:   new Set(),
+  parks:        [],
+  summary:      {},
+  detailCache:  {},
+  selectedId:   null,
+  sortCol:      'total',
+  nativeMode:   'all',   // 'all' | 'ca' | 'sf'
+  sfNatives:    new Set(),
+  nurseries:    {},
+  nurseryIndex: new Map(),  // 'Genus species' → ['nursery_id', …]
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -137,6 +139,19 @@ async function loadSFNatives() {
   state.sfNatives = new Set(
     text.split('\n').map(l => l.trim()).filter(Boolean)
   );
+}
+
+async function loadNurseries() {
+  try {
+    const [nurseries, inventory] = await Promise.all([
+      loadJSON(`${DATA_ROOT}/nurseries.json`),
+      loadJSON(`${DATA_ROOT}/nursery_inventory.json`),
+    ]);
+    state.nurseries = nurseries;
+    state.nurseryIndex = new Map(Object.entries(inventory.bySpecies ?? {}));
+  } catch (e) {
+    console.warn('Nursery data not available:', e.message);
+  }
 }
 
 async function loadParks() {
@@ -335,13 +350,18 @@ function speciesItemHTML(s) {
 
   const catBadge = cat ? `<span class="badge badge-cat">${cat.icon} ${cat.label}</span>` : '';
 
+  const speciesKey = sci.split(' ').slice(0, 2).join(' ');
+  const nurseryBadge = state.nurseryIndex.has(speciesKey)
+    ? `<button class="badge badge-nursery" data-species="${esc(speciesKey)}">🪴 buy local</button>`
+    : '';
+
   return `
     <div class="sp-item">
       ${photoEl}
       <div class="sp-info">
         <div class="sp-common">${esc(common)}</div>
         <div class="sp-sci">${esc(sci)}</div>
-        <div class="sp-badges">${catBadge}${emBadge}</div>
+        <div class="sp-badges">${catBadge}${emBadge}${nurseryBadge}</div>
         <div class="sp-obs">${s.count.toLocaleString()} obs</div>
       </div>
     </div>`;
@@ -447,6 +467,62 @@ function esc(s) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Nursery modal
+// ─────────────────────────────────────────────────────────────────────────────
+
+let _nurseryMap = null;
+
+function openNurseryModal(speciesKey) {
+  const nurseryIds = state.nurseryIndex.get(speciesKey) ?? [];
+  document.getElementById('nursery-modal-title').textContent =
+    `Buy ${speciesKey} at a local nursery`;
+
+  document.getElementById('nursery-modal-list').innerHTML = nurseryIds.map(id => {
+    const n = state.nurseries[id];
+    if (!n) return '';
+    return `<div class="nursery-card">
+      <div class="nursery-card-name">${esc(n.name)}</div>
+      <div class="nursery-card-address">${esc(n.address)}</div>
+      ${n.phone ? `<div class="nursery-card-phone">${esc(n.phone)}</div>` : ''}
+      <a href="${esc(n.website)}" target="_blank" rel="noopener" class="nursery-card-link">Visit website →</a>
+      <a href="https://www.openstreetmap.org/directions?to=${n.lat},${n.lng}" target="_blank" rel="noopener" class="nursery-card-link">Get directions →</a>
+    </div>`;
+  }).join('');
+
+  document.getElementById('nursery-modal').classList.remove('hidden');
+
+  setTimeout(() => {
+    if (!_nurseryMap) {
+      _nurseryMap = L.map('nursery-modal-map').setView([37.85, -122.3], 11);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd', maxZoom: 20,
+      }).addTo(_nurseryMap);
+    }
+    _nurseryMap.invalidateSize();
+
+    _nurseryMap.eachLayer(l => { if (l instanceof L.Marker) _nurseryMap.removeLayer(l); });
+
+    const markers = nurseryIds.map(id => state.nurseries[id]).filter(n => n?.lat && n?.lng).map(n => {
+      const m = L.marker([n.lat, n.lng]).addTo(_nurseryMap);
+      m.bindPopup(`<strong>${n.name}</strong><br>${n.address}`).openPopup();
+      return m;
+    });
+
+    if (markers.length === 1) {
+      const n = state.nurseries[nurseryIds[0]];
+      _nurseryMap.setView([n.lat, n.lng], 14);
+    } else if (markers.length > 1) {
+      _nurseryMap.fitBounds(L.featureGroup(markers).getBounds().pad(0.3));
+    }
+  }, 50);
+}
+
+function closeNurseryModal() {
+  document.getElementById('nursery-modal').classList.add('hidden');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Init
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -460,10 +536,20 @@ async function init() {
   }
 
   loadSummary().catch(e => console.warn('Summary not yet available:', e.message));
+  loadNurseries();
 
   document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
   document.getElementById('ca-natives-btn').addEventListener('click', () => toggleNativeMode('ca'));
   document.getElementById('sf-natives-btn').addEventListener('click', () => toggleNativeMode('sf'));
+
+  document.getElementById('nursery-modal-close').addEventListener('click', closeNurseryModal);
+  document.getElementById('nursery-modal-backdrop').addEventListener('click', closeNurseryModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNurseryModal(); });
+
+  document.addEventListener('click', e => {
+    const badge = e.target.closest('.badge-nursery');
+    if (badge) { e.stopPropagation(); openNurseryModal(badge.dataset.species); }
+  });
 
   document.querySelectorAll('.sort-btn').forEach(btn => {
     btn.addEventListener('click', () => {
