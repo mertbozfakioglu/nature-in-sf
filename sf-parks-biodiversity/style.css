@@ -672,7 +672,7 @@ html, body {
 .nursery-tag {
   font-size: 0.68rem; font-weight: 500;
   padding: 2px 7px; border-radius: 10px;
-  background: var(--bg-body); border: 1px solid var(--border-soft);
+  background: var(--bg-panel); border: 1px solid var(--border);
   color: var(--text-mid);
 }
 .nursery-card-address, .nursery-card-phone {
