@@ -2,7 +2,8 @@
   "lastUpdated": "2026-04-26",
   "bySpecies": {
     "Achillea millefolium": [
-      "oaktown"
+      "oaktown",
+      "sutro"
     ],
     "Aesculus californica": [
       "oaktown"
@@ -74,19 +75,25 @@
       "oaktown"
     ],
     "Erigeron glaucus": [
-      "oaktown"
+      "oaktown",
+      "sutro"
     ],
     "Eriogonum latifolium": [
-      "oaktown"
+      "oaktown",
+      "sutro"
     ],
     "Eriophyllum staechadifolium": [
       "oaktown"
+    ],
+    "Erysimum franciscanum": [
+      "sutro"
     ],
     "Erythranthe cardinalis": [
       "oaktown"
     ],
     "Erythranthe guttata": [
-      "oaktown"
+      "oaktown",
+      "sutro"
     ],
     "Eschscholzia californica": [
       "oaktown"
@@ -101,7 +108,8 @@
       "oaktown"
     ],
     "Fragaria vesca": [
-      "oaktown"
+      "oaktown",
+      "sutro"
     ],
     "Frangula californica": [
       "oaktown"
@@ -160,6 +168,9 @@
     "Lepechinia calycina": [
       "oaktown"
     ],
+    "Lonicera involucrata": [
+      "sutro"
+    ],
     "Lupinus albifrons": [
       "oaktown"
     ],
@@ -212,7 +223,8 @@
       "oaktown"
     ],
     "Ribes sanguineum": [
-      "oaktown"
+      "oaktown",
+      "sutro"
     ],
     "Rosa gymnocarpa": [
       "oaktown"
@@ -237,6 +249,9 @@
     ],
     "Sisyrinchium bellum": [
       "oaktown"
+    ],
+    "Sisyrinchium californicum": [
+      "sutro"
     ],
     "Solidago velutina": [
       "oaktown"
