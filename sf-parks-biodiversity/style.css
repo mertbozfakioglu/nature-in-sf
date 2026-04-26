@@ -668,6 +668,13 @@ html, body {
   display: flex; flex-direction: column; gap: 4px;
 }
 .nursery-card-name  { font-weight: 600; font-size: 0.82rem; color: var(--text); }
+.nursery-card-tags  { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+.nursery-tag {
+  font-size: 0.68rem; font-weight: 500;
+  padding: 2px 7px; border-radius: 10px;
+  background: var(--bg-body); border: 1px solid var(--border-soft);
+  color: var(--text-mid);
+}
 .nursery-card-address, .nursery-card-phone {
   font-size: 0.75rem; color: var(--text-mid);
 }

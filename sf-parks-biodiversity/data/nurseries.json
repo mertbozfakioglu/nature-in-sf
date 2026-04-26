@@ -6,7 +6,9 @@
     "website": "https://oaktownnursery.com",
     "inventoryUrl": "https://oakrails.oaktownnursery.com/item/invList",
     "lat": 37.8645,
-    "lng": -122.2998
+    "lng": -122.2998,
+    "productType": "plants",
+    "fulfillment": "walkin"
   },
   "sutro": {
     "name": "Sutro Stewards Native Plant Nursery",
@@ -14,7 +16,9 @@
     "website": "https://www.sutrostewards.org/shop",
     "inventoryUrl": "https://www.sutrostewards.org/shop",
     "lat": 37.757342,
-    "lng": -122.4567715
+    "lng": -122.4567715,
+    "productType": "plants",
+    "fulfillment": "pickup"
   },
   "heronshead": {
     "name": "Heron's Head Nursery",
@@ -23,7 +27,9 @@
     "website": "https://heronsheadnursery.com",
     "inventoryUrl": "https://heronsheadnursery.com/collections/california-natives",
     "lat": 37.7428,
-    "lng": -122.3817
+    "lng": -122.3817,
+    "productType": "plants",
+    "fulfillment": "walkin"
   },
   "missionblue": {
     "name": "Mission Blue Nursery",
@@ -31,7 +37,9 @@
     "website": "https://www.mountainwatch.org/native-plant-nursery",
     "inventoryUrl": "https://www.mountainwatch.org/mbn-menu",
     "lat": 37.6840,
-    "lng": -122.4031
+    "lng": -122.4031,
+    "productType": "plants",
+    "fulfillment": "pickup"
   },
   "larnerseeds": {
     "name": "Larner Seeds",
@@ -39,6 +47,8 @@
     "website": "https://larnerseeds.com",
     "inventoryUrl": "https://larnerseeds.com/collections/all-seeds",
     "lat": 37.9088,
-    "lng": -122.6860
+    "lng": -122.6860,
+    "productType": "seeds",
+    "fulfillment": "online"
   }
 }
