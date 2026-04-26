@@ -428,7 +428,7 @@ function toggleNativeMode() {
   if (state.selectedId) {
     const detail  = state.detailCache[state.selectedId];
     const feature = state.parks.find(f => pid(f) === state.selectedId);
-    if (detail?.species && feature) renderSidebar(feature, detail);
+    if (detail && feature) renderSidebar(feature, detail);
   }
 }
 
