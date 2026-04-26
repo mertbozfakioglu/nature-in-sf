@@ -47,8 +47,35 @@ def scrape_oaktown(url: str) -> list:
     return result
 
 
+def scrape_sutro(url: str) -> list:
+    """Return list of genus+species strings from Sutro Stewards shop (Wix).
+    Product names embed the scientific name in parentheses, e.g.
+    'Yarrow (Achillea millefolium) Short Tree Pot potted plant'."""
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "Mozilla/5.0 nature-in-sf/nursery-scraper"}
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        content = r.read().decode("utf-8", errors="replace")
+
+    # Scientific names appear in parentheses inside product name strings in the
+    # embedded Wix JSON: "name":"Common Name (Genus species) pot description"
+    raw_names = re.findall(
+        r'"name":"[^"]*\(([A-Z][a-z]+(?: [a-z]+)+(?:\s+(?:ssp|subsp|var)\.[^)]*)?)\)',
+        content,
+    )
+    seen = set()
+    result = []
+    for name in raw_names:
+        gs = genus_species(name.strip())
+        if gs not in seen:
+            seen.add(gs)
+            result.append(gs)
+    return result
+
+
 SCRAPERS = {
     "oaktown": scrape_oaktown,
+    "sutro":   scrape_sutro,
 }
 
 
