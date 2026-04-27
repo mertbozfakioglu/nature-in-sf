@@ -371,10 +371,21 @@ html, body {
 }
 .badge-nursery:hover { background: #ffefc0; }
 
+.sp-obs-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+}
+
 .sp-obs {
   font-size: 0.62rem;
   color: var(--text-muted);
-  margin-top: 2px;
+}
+
+.sp-histogram rect {
+  fill: var(--green-mid);
+  opacity: 0.75;
 }
 
 .list-overflow {

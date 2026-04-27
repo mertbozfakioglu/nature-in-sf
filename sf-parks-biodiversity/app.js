@@ -32,6 +32,7 @@ const state = {
   sfNatives:    new Set(),
   nurseries:    {},
   nurseryIndex: new Map(),  // 'Genus species' → ['nursery_id', …]
+  histograms:   {},         // taxon_id (string) → [jan…dec counts]
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -139,6 +140,14 @@ async function loadSFNatives() {
   state.sfNatives = new Set(
     text.split('\n').map(l => l.trim()).filter(Boolean)
   );
+}
+
+async function loadHistograms() {
+  try {
+    state.histograms = await loadJSON(`${DATA_ROOT}/histograms.json`);
+  } catch (e) {
+    console.warn('Histograms not available:', e.message);
+  }
 }
 
 async function loadNurseries() {
@@ -322,6 +331,18 @@ function buildSpeciesHTML(species, cat = null) {
   return `<div class="species-list">${items}</div>${overflow}`;
 }
 
+function histogramSVG(taxonId) {
+  const counts = state.histograms[String(taxonId)];
+  if (!counts) return '';
+  const max = Math.max(...counts, 1);
+  const H = 22, W = 5, GAP = 1, totalW = 12 * (W + GAP) - GAP;
+  const bars = counts.map((c, i) => {
+    const h = Math.max(Math.round((c / max) * H), c > 0 ? 1 : 0);
+    return `<rect x="${i * (W + GAP)}" y="${H - h}" width="${W}" height="${h}" rx="1"/>`;
+  }).join('');
+  return `<svg class="sp-histogram" viewBox="0 0 ${totalW} ${H}" width="${totalW}" height="${H}" aria-hidden="true">${bars}</svg>`;
+}
+
 function speciesItemHTML(s) {
   const t      = s.taxon || {};
   const common = t.preferred_common_name || t.name || 'Unknown';
@@ -346,6 +367,8 @@ function speciesItemHTML(s) {
     ? `<button class="badge badge-nursery" data-species="${esc(speciesKey)}">🪴 buy local</button>`
     : '';
 
+  const histogram = histogramSVG(t.id);
+
   return `
     <div class="sp-item">
       ${photoEl}
@@ -353,7 +376,10 @@ function speciesItemHTML(s) {
         <div class="sp-common">${esc(common)}</div>
         <div class="sp-sci">${esc(sci)}</div>
         <div class="sp-badges">${catBadge}${emBadge}${nurseryBadge}</div>
-        <div class="sp-obs">${s.count.toLocaleString()} obs</div>
+        <div class="sp-obs-row">
+          <span class="sp-obs">${s.count.toLocaleString()} obs</span>
+          ${histogram}
+        </div>
       </div>
     </div>`;
 }
@@ -530,6 +556,7 @@ async function init() {
   document.getElementById('stat-ranked').textContent = n;
 
   loadNurseries();
+  loadHistograms();
 
   document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
   document.getElementById('natives-btn').addEventListener('click', toggleNativeMode);
