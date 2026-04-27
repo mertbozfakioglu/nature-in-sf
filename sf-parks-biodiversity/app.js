@@ -380,9 +380,12 @@ function renderRankings() {
 
   const col  = state.sortCol;
   const mode = state.nativeMode;
-  entries.sort(([, a], [, b]) => buildSortVal(b, col, mode) - buildSortVal(a, col, mode));
+  const visible = mode === 'sf'
+    ? entries.filter(([, d]) => (d.sfNativeCount ?? 0) > 0)
+    : entries;
+  visible.sort(([, a], [, b]) => buildSortVal(b, col, mode) - buildSortVal(a, col, mode));
 
-  body.innerHTML = entries.map(([id, d], i) => {
+  body.innerHTML = visible.map(([id, d], i) => {
     const name  = state.summary[id]?.name ?? id;
     const sel   = state.selectedId === id ? 'row-selected' : '';
     const n     = v => v != null ? v.toLocaleString() : '–';
