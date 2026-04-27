@@ -157,13 +157,9 @@ async function loadNurseries() {
 async function loadParks() {
   showOverlay('Loading parks…');
   const geojson = await loadJSON(`${DATA_ROOT}/parks.geojson`);
-  const features = (geojson.features || []).filter(
+  state.parks = (geojson.features || []).filter(
     f => f.geometry && (f.geometry.type === 'Polygon' || f.geometry.type === 'MultiPolygon')
   );
-  state.parks = features;
-  addParksToMap(features);
-  document.getElementById('stat-parks').textContent = features.length;
-  hideOverlay();
 }
 
 async function loadSummary() {
@@ -182,7 +178,6 @@ async function loadSummary() {
     };
   }
   renderRankings();
-  document.getElementById('stat-ranked').textContent = Object.keys(summary).length;
 }
 
 async function loadParkDetail(feature) {
@@ -521,13 +516,19 @@ function closeNurseryModal() {
 async function init() {
   initMap();
   try {
-    await Promise.all([loadParks(), loadSFNatives()]);
+    await Promise.all([loadParks(), loadSFNatives(), loadSummary()]);
   } catch (e) {
     showOverlay(`Failed to load parks: ${e.message}`);
     return;
   }
 
-  loadSummary().catch(e => console.warn('Summary not yet available:', e.message));
+  const visibleParks = state.parks.filter(f => (state.detailCache[pid(f)]?.sfNativeCount ?? 0) > 0);
+  addParksToMap(visibleParks);
+  hideOverlay();
+  const n = visibleParks.length;
+  document.getElementById('stat-parks').textContent = n;
+  document.getElementById('stat-ranked').textContent = n;
+
   loadNurseries();
 
   document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
