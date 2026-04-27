@@ -375,7 +375,7 @@ function renderRankings() {
 
   const col  = state.sortCol;
   const mode = state.nativeMode;
-  const visible = entries.filter(([, d]) => (d.sfNativeCount ?? 0) > 0);
+  const visible = entries.filter(([, d]) => (d.sf_native_cats?.Plantae ?? 0) > 0);
   visible.sort(([, a], [, b]) => buildSortVal(b, col, mode) - buildSortVal(a, col, mode));
 
   body.innerHTML = visible.map(([id, d], i) => {
@@ -522,7 +522,7 @@ async function init() {
     return;
   }
 
-  const visibleParks = state.parks.filter(f => (state.detailCache[pid(f)]?.sfNativeCount ?? 0) > 0);
+  const visibleParks = state.parks.filter(f => (state.detailCache[pid(f)]?.sf_native_cats?.Plantae ?? 0) > 0);
   addParksToMap(visibleParks);
   hideOverlay();
   const n = visibleParks.length;
