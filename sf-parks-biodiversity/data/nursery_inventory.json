@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-26",
+  "lastUpdated": "2026-04-27",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -140,6 +140,7 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
+      "oaktown",
       "missionblue"
     ],
     "Collinsia heterophylla": [
@@ -151,7 +152,6 @@
       "missionblue"
     ],
     "Corylus cornuta": [
-      "oaktown",
       "larnerseeds"
     ],
     "Danthonia californica": [
@@ -288,6 +288,7 @@
       "larnerseeds"
     ],
     "Heracleum maximum": [
+      "oaktown",
       "larnerseeds"
     ],
     "Heteromeles arbutifolia": [
@@ -366,9 +367,6 @@
     ],
     "Lupinus nanus": [
       "larnerseeds"
-    ],
-    "Lupinus polyphyllus": [
-      "oaktown"
     ],
     "Lupinus succulentus": [
       "oaktown",
@@ -579,7 +577,6 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
-      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
