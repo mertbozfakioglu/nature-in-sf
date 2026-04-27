@@ -382,15 +382,12 @@ function renderRankings() {
   const mode = state.nativeMode;
   entries.sort(([, a], [, b]) => buildSortVal(b, col, mode) - buildSortVal(a, col, mode));
 
-  const thSp = document.getElementById('th-species');
-  if (thSp) thSp.textContent = mode === 'sf' ? 'SF Native spp' : 'Species';
-
   body.innerHTML = entries.map(([id, d], i) => {
     const name  = state.summary[id]?.name ?? id;
     const sel   = state.selectedId === id ? 'row-selected' : '';
     const n     = v => v != null ? v.toLocaleString() : '–';
     const cats  = mode === 'sf' ? d.sf_native_cats : d.cats;
-    const total = mode === 'sf' ? d.sfNativeCount  : d.total;
+    const total = d.total;
     return `<tr class="${sel}" data-pid="${esc(id)}">
       <td class="td-rank">${i + 1}</td>
       <td class="td-name" title="${esc(name)}">${esc(name)}</td>
