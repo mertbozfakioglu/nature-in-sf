@@ -380,9 +380,7 @@ function renderRankings() {
 
   const col  = state.sortCol;
   const mode = state.nativeMode;
-  const visible = mode === 'sf'
-    ? entries.filter(([, d]) => (d.sfNativeCount ?? 0) > 0)
-    : entries;
+  const visible = entries.filter(([, d]) => (d.sfNativeCount ?? 0) > 0);
   visible.sort(([, a], [, b]) => buildSortVal(b, col, mode) - buildSortVal(a, col, mode));
 
   body.innerHTML = visible.map(([id, d], i) => {
