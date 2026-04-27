@@ -335,12 +335,17 @@ function histogramSVG(taxonId) {
   const counts = state.histograms[String(taxonId)];
   if (!counts) return '';
   const max = Math.max(...counts, 1);
-  const H = 22, W = 5, GAP = 1, totalW = 12 * (W + GAP) - GAP;
+  const MONTHS = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+  const H = 22, W = 8, GAP = 1, LABEL_H = 9;
+  const totalW = 12 * (W + GAP) - GAP;
   const bars = counts.map((c, i) => {
     const h = Math.max(Math.round((c / max) * H), c > 0 ? 1 : 0);
     return `<rect x="${i * (W + GAP)}" y="${H - h}" width="${W}" height="${h}" rx="1"/>`;
   }).join('');
-  return `<svg class="sp-histogram" viewBox="0 0 ${totalW} ${H}" width="${totalW}" height="${H}" aria-hidden="true">${bars}</svg>`;
+  const labels = MONTHS.map((m, i) =>
+    `<text x="${i * (W + GAP) + W / 2}" y="${H + LABEL_H - 1}" text-anchor="middle" class="sp-hist-label">${m}</text>`
+  ).join('');
+  return `<svg class="sp-histogram" viewBox="0 0 ${totalW} ${H + LABEL_H}" width="${totalW}" height="${H + LABEL_H}" aria-hidden="true">${bars}${labels}</svg>`;
 }
 
 function speciesItemHTML(s) {

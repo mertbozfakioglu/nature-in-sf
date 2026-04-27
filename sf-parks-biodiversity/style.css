@@ -388,6 +388,11 @@ html, body {
   opacity: 0.75;
 }
 
+.sp-hist-label {
+  font-size: 6px;
+  fill: var(--text-muted);
+}
+
 .list-overflow {
   font-size: 0.68rem;
   color: var(--text-muted);
