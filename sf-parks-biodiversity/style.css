@@ -286,6 +286,36 @@ html, body {
 .cat-pill .p-label { font-size: 0.56rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; display: block; }
 
 
+/* ─── Species sort row ──────────────────────────── */
+#sp-sort-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px 4px;
+}
+
+.sp-sort-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.sp-sort-btn {
+  font-size: 0.65rem;
+  padding: 2px 9px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-mid);
+  cursor: pointer;
+}
+
+.sp-sort-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
 /* ─── Species list ──────────────────────────────── */
 .species-list {
   display: flex;

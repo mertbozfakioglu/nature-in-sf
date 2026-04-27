@@ -33,6 +33,7 @@ const state = {
   nurseries:    {},
   nurseryIndex: new Map(),  // 'Genus species' → ['nursery_id', …]
   histograms:   {},         // taxon_id (string) → [jan…dec counts]
+  spSort:       'obs',      // 'obs' | 'month'
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -298,7 +299,17 @@ function renderSidebar(feature, detail) {
       <div class="park-meta">${metaParts.join(' · ')}</div>
     </div>
     <div class="cat-grid">${catGrid}</div>
+    <div id="sp-sort-row">
+      <span class="sp-sort-label">Sort by</span>
+      <button class="sp-sort-btn${state.spSort === 'obs'   ? ' active' : ''}" data-sort="obs"># observations</button>
+      <button class="sp-sort-btn${state.spSort === 'month' ? ' active' : ''}" data-sort="month">peak month</button>
+    </div>
     <div id="sp-list-wrap">${buildSpeciesHTML(detail.species, null)}</div>`;
+
+  const rerender = () => {
+    document.getElementById('sp-list-wrap').innerHTML =
+      buildSpeciesHTML(detail.species, activeCat);
+  };
 
   let activeCat = null;
   document.querySelectorAll('.cat-pill').forEach(pill => {
@@ -307,8 +318,16 @@ function renderSidebar(feature, detail) {
       activeCat = (activeCat === cat) ? null : cat;
       document.querySelectorAll('.cat-pill').forEach(p =>
         p.classList.toggle('active', p.dataset.cat === activeCat));
-      document.getElementById('sp-list-wrap').innerHTML =
-        buildSpeciesHTML(detail.species, cat);
+      rerender();
+    });
+  });
+
+  document.querySelectorAll('.sp-sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.spSort = btn.dataset.sort;
+      document.querySelectorAll('.sp-sort-btn').forEach(b =>
+        b.classList.toggle('active', b.dataset.sort === state.spSort));
+      rerender();
     });
   });
 }
@@ -324,11 +343,22 @@ function buildSpeciesHTML(species, cat = null) {
   if (!list.length)
     return '<div style="color:#2a5a2a;font-size:.74rem;padding:10px 4px;font-style:italic">No species match this filter.</div>';
 
+  if (state.spSort === 'month')
+    list.sort((a, b) => peakMonth(a.taxon?.id) - peakMonth(b.taxon?.id));
+
   const SHOW = 300;
   const items   = list.slice(0, SHOW).map(speciesItemHTML).join('');
   const overflow = list.length > SHOW
     ? `<div class="list-overflow">Showing ${SHOW} of ${list.length.toLocaleString()}</div>` : '';
   return `<div class="species-list">${items}</div>${overflow}`;
+}
+
+function peakMonth(taxonId) {
+  const counts = state.histograms[String(taxonId)];
+  if (!counts) return 99;
+  let maxIdx = 0;
+  counts.forEach((v, i) => { if (v > counts[maxIdx]) maxIdx = i; });
+  return maxIdx; // 0–11
 }
 
 function histogramSVG(taxonId) {
