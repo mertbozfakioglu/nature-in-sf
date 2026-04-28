@@ -327,6 +327,14 @@
     </div>
 
     <div class="filter-group">
+      <label class="group-label">Origin in SF</label>
+      <div class="chip-row" id="f-native">
+        <div class="chip" data-filter="native_to_ca" data-value="true">Native</div>
+        <div class="chip" data-filter="native_to_ca" data-value="false">Introduced</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
       <label class="group-label">Growth habit</label>
       <div class="chip-row" id="f-habit">
         <div class="chip" data-filter="rhizomatous" data-value="true">Rhizomatous</div>
@@ -347,6 +355,7 @@
         <tr>
           <th data-col="match" class="sort-col">Match <span class="sort-icon">▼</span></th>
           <th data-col="sci_name">Species</th>
+          <th data-col="native_to_ca">Origin</th>
           <th data-col="duration">Duration</th>
           <th data-col="ligule">Ligule</th>
           <th data-col="has_awns">Awns</th>
@@ -414,10 +423,12 @@ function scoreSpecies(sp, filters) {
 
   let matched = 0;
   for (const [key, val] of Object.entries(filters)) {
-    const spVal = String(sp[key] ?? '');
     // duration: annual_or_perennial matches both
     if (key === 'duration' && sp._durationBoth) { matched++; continue; }
-    if (spVal === val) matched++;
+    // booleans stored as JS booleans, filter values are strings
+    const spVal = sp[key];
+    const filterVal = val === 'true' ? true : val === 'false' ? false : val;
+    if (spVal === filterVal) matched++;
   }
   return { matched, total: keys.length, ratio: matched / keys.length };
 }
@@ -447,6 +458,10 @@ function renderRow(sp, filters) {
 
   const isTopMatch = hasFilters && matched === total && total > 0;
   const rowClass = isTopMatch ? 'top-match' : '';
+
+  const origin = sp.native_to_ca === true  ? '<span class="pill pill-native">Native</span>'
+    : sp.native_to_ca === false ? '<span class="pill pill-intro">Introduced</span>'
+    : na();
 
   const dur = sp.duration === 'annual' ? '<span class="pill pill-ann">Annual</span>'
     : sp.duration === 'perennial' ? '<span class="pill pill-per">Perennial</span>'
@@ -488,6 +503,7 @@ function renderRow(sp, filters) {
       <div class="com-name">${sp.common_name || ''}</div>
       <div><span class="obs-badge">${sp.inat_obs_sf} obs</span></div>
     </td>
+    <td>${origin}</td>
     <td>${dur}</td>
     <td>${lig}</td>
     <td>${awns}</td>
