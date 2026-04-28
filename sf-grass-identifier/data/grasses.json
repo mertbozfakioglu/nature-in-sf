@@ -21,7 +21,7 @@
     "florets_max": 20,
     "has_awns": false,
     "native_range": "species is Macaronesia to Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -41,7 +41,7 @@
     "inflorescence": "panicle_contracted",
     "has_awns": false,
     "native_range": "species is Eritrea to S",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -70,7 +70,7 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -98,7 +98,7 @@
     "awn_length_mm_max": 40.0,
     "awn_length_class": "long",
     "native_range": "species is Macaronesia, Europe, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -127,7 +127,7 @@
     "awn_length_class": "long",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -156,7 +156,7 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -181,8 +181,8 @@
     "florets_max": 15,
     "has_awns": false,
     "native_range": "species is Temp",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 52808,
@@ -206,7 +206,7 @@
     "florets_max": 10,
     "has_awns": false,
     "native_range": "species is Temp",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -233,7 +233,7 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -261,7 +261,7 @@
     "awn_length_mm_max": 7.0,
     "awn_length_class": "medium",
     "native_range": "species is Macaronesia, W",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -290,8 +290,8 @@
     "awn_length_class": "long",
     "awn_type": "geniculate",
     "native_range": "species is California to NW",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 52714,
@@ -315,7 +315,7 @@
     "florets_max": 5,
     "has_awns": false,
     "native_range": "species is Colombia to NW",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -340,7 +340,7 @@
     "florets_max": 8,
     "has_awns": false,
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -369,7 +369,7 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -394,8 +394,8 @@
     "florets_max": 5,
     "has_awns": false,
     "native_range": "species is N",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 61071,
@@ -416,8 +416,8 @@
     "florets_max": 5,
     "has_awns": false,
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 942779,
@@ -442,7 +442,7 @@
     "has_awns": true,
     "awn_type": "geniculate",
     "native_range": "species is Canary Islands, Europe to Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -469,8 +469,8 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 52720,
@@ -498,7 +498,7 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -521,7 +521,7 @@
     "has_awns": true,
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -549,7 +549,7 @@
     "awn_length_mm_max": 10.0,
     "awn_length_class": "medium",
     "native_range": "species is Macaronesia, Sahara, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -577,8 +577,8 @@
     "awn_length_mm_max": 4.0,
     "awn_length_class": "short",
     "native_range": "species is Russian Far East, N",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 57192,
@@ -600,8 +600,8 @@
     "inflorescence": "panicle",
     "has_awns": false,
     "native_range": "species is Oregon to California",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 52698,
@@ -629,7 +629,7 @@
     "awn_length_class": "long",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Temp",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -649,7 +649,7 @@
     "leaf_width_class": "medium",
     "has_awns": false,
     "native_range": "species is Eritrea to S",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -678,8 +678,8 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is N",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 60276,
@@ -707,7 +707,7 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Venezuela to S",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -732,7 +732,7 @@
     "florets_max": 14,
     "has_awns": false,
     "native_range": "species is Macaronesia, N",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -757,7 +757,7 @@
     "florets_max": 7,
     "has_awns": false,
     "native_range": "species is Bolivia to S",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -782,8 +782,8 @@
     "florets_max": 6,
     "has_awns": false,
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 71142,
@@ -811,8 +811,8 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Oregon to California",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 57183,
@@ -836,8 +836,8 @@
     "florets_max": 3,
     "has_awns": true,
     "native_range": "species is Temp",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 57186,
@@ -861,8 +861,8 @@
     "florets_max": 4,
     "has_awns": false,
     "native_range": "species is Oregon to California",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 47695,
@@ -871,7 +871,7 @@
     "rank": "species",
     "inat_obs_sf": 15,
     "ipni_id": "329499-2",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -900,8 +900,8 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Yukon to Central America, Venezuela, Peru",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 61061,
@@ -926,8 +926,8 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Subarctic & Temp",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 61063,
@@ -952,8 +952,8 @@
     "has_awns": true,
     "awn_type": "geniculate",
     "native_range": "species is Kamchatka to W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 77136,
@@ -980,7 +980,7 @@
     "awn_length_mm_max": 12.0,
     "awn_length_class": "medium",
     "native_range": "species is Macaronesia, Europe to Caucasus, Sahara to Kenya, SW",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1009,7 +1009,7 @@
     "awn_length_class": "long",
     "awn_type": "geniculate",
     "native_range": "species is S",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1034,7 +1034,7 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is Temp",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1062,7 +1062,7 @@
     "awn_length_mm_max": 40.0,
     "awn_length_class": "medium",
     "native_range": "species is as a cultigen from Transcaucasus to Israel and NW",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1091,7 +1091,7 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Europe to Taiwan and Sri Lanka, Macaronesia to Arabian Peninsula and N",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1116,8 +1116,8 @@
     "florets_max": 2,
     "has_awns": false,
     "native_range": "species is California",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 76639,
@@ -1141,8 +1141,8 @@
     "florets_max": 2,
     "has_awns": true,
     "native_range": "species is Subarctic & Temp",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 52802,
@@ -1166,8 +1166,8 @@
     "florets_max": 2,
     "has_awns": false,
     "native_range": "species is SW",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 57169,
@@ -1194,8 +1194,8 @@
     "awn_length_mm_max": 2.0,
     "awn_length_class": "short",
     "native_range": "species is Oregon to California",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 58379,
@@ -1221,7 +1221,7 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1243,7 +1243,7 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is Macaronesia, W",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1268,8 +1268,8 @@
     "florets_max": 6,
     "has_awns": false,
     "native_range": "species is California",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 164708,
@@ -1294,7 +1294,7 @@
     "awn_length_mm_max": 4.0,
     "awn_length_class": "short",
     "native_range": "species is Europe to Xinjiang and Himalaya, Macaronesia to N",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1317,7 +1317,7 @@
     "inflorescence": "raceme",
     "has_awns": false,
     "native_range": "species is SE",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1336,7 +1336,7 @@
     "has_awns": true,
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Europe to Mongolia, NW",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1364,8 +1364,8 @@
     "awn_length_mm_max": 20.0,
     "awn_length_class": "medium",
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 430581,
@@ -1387,7 +1387,7 @@
     "inflorescence": "panicle",
     "has_awns": false,
     "native_range": "species is N",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1416,7 +1416,7 @@
     "awn_length_class": "short",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1445,7 +1445,7 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1472,7 +1472,7 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia to Central Asia and Indo-China",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1526,8 +1526,8 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is California to Mexico (Baja California)",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 52692,
@@ -1551,8 +1551,8 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 57188,
@@ -1574,7 +1574,7 @@
     "inflorescence": "panicle",
     "has_awns": false,
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1597,7 +1597,7 @@
     "inflorescence": "raceme",
     "has_awns": false,
     "native_range": "species is Central & SW",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1622,7 +1622,7 @@
     "awn_length_mm_max": 5.0,
     "awn_length_class": "short",
     "native_range": "species is Macaronesia, Europe to Central Asia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1650,7 +1650,7 @@
     "awn_length_mm_max": 10.0,
     "awn_length_class": "medium",
     "native_range": "species is E",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1676,8 +1676,8 @@
     "awn_length_mm_max": 100.0,
     "awn_length_class": "long",
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 59210,
@@ -1705,7 +1705,7 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Canary Islands, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1730,8 +1730,8 @@
     "florets_max": 6,
     "has_awns": false,
     "native_range": "species is California to N",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 430578,
@@ -1753,7 +1753,7 @@
     "inflorescence": "panicle_contracted",
     "has_awns": false,
     "native_range": "species is NE",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1816,7 +1816,7 @@
     "awn_length_mm_max": 5.0,
     "awn_length_class": "short",
     "native_range": "species is W",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1841,7 +1841,7 @@
     "florets_max": 5,
     "has_awns": true,
     "native_range": "species is W",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1866,7 +1866,7 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is Macaronesia to NW",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1894,7 +1894,7 @@
     "awn_length_mm_max": 12.0,
     "awn_length_class": "medium",
     "native_range": "species is Juan Fern\u00e1ndez Islands, Chile to S",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1904,7 +1904,7 @@
     "rank": "hybrid",
     "inat_obs_sf": 2,
     "ipni_id": null,
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1930,7 +1930,7 @@
     "has_awns": true,
     "awn_type": "geniculate",
     "native_range": "species is as a cultigen from W",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -1957,8 +1957,8 @@
     "awn_length_class": "long",
     "awn_type": "geniculate",
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 57191,
@@ -1980,7 +1980,7 @@
     "inflorescence": "panicle",
     "has_awns": false,
     "native_range": "species is Canary Islands, Morocco",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2009,7 +2009,7 @@
     "awn_length_class": "medium",
     "awn_type": "geniculate",
     "native_range": "species is Europe to Mongolia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2033,7 +2033,7 @@
     "has_awns": true,
     "awn_type": "geniculate",
     "native_range": "species is Africa, Indian Subcontinent",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2058,8 +2058,8 @@
     "florets_max": 4,
     "has_awns": false,
     "native_range": "species is W",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 69931,
@@ -2083,7 +2083,7 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is Madeira, Temp",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2093,7 +2093,7 @@
     "rank": "species",
     "inat_obs_sf": 1,
     "ipni_id": "387089-1",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2141,7 +2141,7 @@
     "florets_max": 13,
     "has_awns": false,
     "native_range": "species is Temp",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2197,7 +2197,7 @@
     "awn_length_mm_max": 3.0,
     "awn_length_class": "short",
     "native_range": "species is as a cultigen from S",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2220,8 +2220,8 @@
     "inflorescence": "panicle",
     "has_awns": false,
     "native_range": "species is New World",
-    "establishment_means": null,
-    "native_to_ca": false
+    "establishment_means": "native",
+    "native_to_ca": true
   },
   {
     "inat_id": 204259,
@@ -2248,7 +2248,7 @@
     "awn_length_mm_max": 40.0,
     "awn_length_class": "long",
     "native_range": "species is Canary Islands to Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2276,7 +2276,7 @@
     "awn_length_mm_max": 1.5,
     "awn_length_class": "short",
     "native_range": "species is NE",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2298,7 +2298,7 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is Temp",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   },
   {
@@ -2323,7 +2323,7 @@
     "florets_max": 1,
     "has_awns": false,
     "native_range": "species is Macaronesia, Medit",
-    "establishment_means": null,
+    "establishment_means": "introduced",
     "native_to_ca": false
   }
 ]
