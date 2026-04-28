@@ -444,7 +444,7 @@ function renderRankings() {
     const sel   = state.selectedId === id ? 'row-selected' : '';
     const n     = v => v != null ? v.toLocaleString() : '–';
     const cats  = mode === 'sf' ? d.sf_native_cats : d.cats;
-    const total = d.total;
+    const total = mode === 'sf' ? d.sfNativeCount : d.total;
     return `<tr class="${sel}" data-pid="${esc(id)}">
       <td class="td-rank">${i + 1}</td>
       <td class="td-name" title="${esc(name)}">${esc(name)}</td>
