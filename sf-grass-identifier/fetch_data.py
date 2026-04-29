@@ -114,14 +114,22 @@ def parse_grassbase(html):
         feats['height_max_cm'] = int(m.group(2))
 
     # Ligule
-    if re.search(r'[Ll]igule\b[^.]*fringe of hairs', gb):
-        feats['ligule'] = 'ciliate'
-    elif re.search(r'[Ll]igule\b[^.]*membran', gb):
-        feats['ligule'] = 'membranous'
-    elif re.search(r'[Ll]igule\b[^.]*eciliate membran', gb):
-        feats['ligule'] = 'membranous'
-    elif re.search(r'[Ll]igule\b[^.]*ciliate', gb):
-        feats['ligule'] = 'ciliate'
+    m = re.search(r'([Ll]igule\b[^.]{0,250})', gb)
+    if m:
+        lig = m.group(1)
+        is_mem  = bool(re.search(r'membran', lig, re.I))
+        is_cil  = bool(re.search(r'fringe of hairs|ciliate', lig, re.I))
+        is_ecil = bool(re.search(r'eciliate', lig, re.I))
+        if is_cil and not is_ecil and is_mem:
+            feats['ligule'] = 'variable'
+        elif re.search(r'fringe of hairs', lig, re.I):
+            feats['ligule'] = 'ciliate'
+        elif is_ecil and is_mem:
+            feats['ligule'] = 'membranous'
+        elif is_mem:
+            feats['ligule'] = 'membranous'
+        elif is_cil and not is_ecil:
+            feats['ligule'] = 'ciliate'
 
     # Leaf blade width
     m = re.search(r'Leaf.blades[^.]*?(\d+(?:\.\d+)?)[–\-](\d+(?:\.\d+)?)\s*mm\s*wide', gb)
@@ -170,8 +178,14 @@ def parse_grassbase(html):
     if m:
         awn_section = m.group(1)
 
-    if re.search(r'\bAwn\b|\bawned\b', gb, re.I) and not re.search(r'awnless', gb, re.I):
+    has_awn   = bool(re.search(r'\bAwn\b|\bawned\b', gb, re.I))
+    has_noawn = bool(re.search(r'\bawnless\b|\bmuticous\b|\bexapiculate\b', gb, re.I))
+    if has_awn and has_noawn:
+        feats['has_awns'] = 'variable'
+    elif has_awn:
         feats['has_awns'] = True
+
+    if feats.get('has_awns') in (True, 'variable'):
         # awn length
         m = re.search(r'[Aa]wn[^.]*?(\d+(?:\.\d+)?)[–\-](\d+(?:\.\d+)?)\s*mm\s*long', gb)
         if m:
@@ -189,7 +203,7 @@ def parse_grassbase(html):
             feats['awn_type'] = 'geniculate'
         elif re.search(r'straight', awn_section, re.I):
             feats['awn_type'] = 'straight'
-    else:
+    elif 'has_awns' not in feats:
         feats['has_awns'] = False
 
     # ── Leaf blade shape ──────────────────────────────────────────────────────
