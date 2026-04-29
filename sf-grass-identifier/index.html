@@ -215,6 +215,7 @@
     .pill-native { background: #d1fae5; color: #065f46; }
     .pill-intro  { background: #fee2e2; color: #991b1b; }
     .pill-habit  { background: #ede9fe; color: #5b21b6; }
+    .pill-var    { background: #fef3c7; color: #92400e; }
 
     .no-data { color: #ccc; font-size: .8rem; }
 
@@ -453,6 +454,34 @@
       </div>
     </div>
 
+    <div class="filter-group">
+      <label class="group-label">Culm habit <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-culm-habit" data-multi="true">
+        <div class="chip" data-filter="culm_habit" data-value="erect">Erect</div>
+        <div class="chip" data-filter="culm_habit" data-value="decumbent">Decumbent</div>
+        <div class="chip" data-filter="culm_habit" data-value="geniculate">Geniculate (bent)</div>
+        <div class="chip" data-filter="culm_habit" data-value="ascending">Ascending</div>
+        <div class="chip" data-filter="culm_habit" data-value="prostrate">Prostrate</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label class="group-label">Leaf sheath</label>
+      <div class="chip-row" id="f-sheath">
+        <div class="chip" data-filter="leaf_sheath" data-value="open">Open</div>
+        <div class="chip" data-filter="leaf_sheath" data-value="closed">Closed</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label class="group-label">Glume size <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-glume" data-multi="true">
+        <div class="chip" data-filter="glume_relative" data-value="shorter">Shorter than florets</div>
+        <div class="chip" data-filter="glume_relative" data-value="subequal">Subequal to florets</div>
+        <div class="chip" data-filter="glume_relative" data-value="exceeding">Exceeding florets</div>
+      </div>
+    </div>
+
     <button id="clear-btn">Clear all filters</button>
   </aside>
 
@@ -477,12 +506,19 @@
           <th data-col="leaf_width_min_mm">Leaf width</th>
           <th data-col="height_min_cm">Height</th>
           <th data-col="caespitose">Habit</th>
+          <th data-col="culm_habit">Culm habit</th>
+          <th data-col="leaf_sheath">Leaf sheath</th>
           <th data-col="spikelet_compression">Spikelet</th>
           <th data-col="spikelet_length_mm_min">Spikelet length</th>
+          <th data-col="spikelet_width_mm_min">Spikelet width</th>
+          <th data-col="glume_relative">Glumes</th>
           <th data-col="anther_count">Anthers</th>
           <th data-col="lemma_surface">Lemma surface</th>
+          <th data-col="lemma_length_mm_min">Lemma length</th>
+          <th data-col="lemma_veins">Lemma veins</th>
           <th data-col="leaf_blade_shape">Blade shape</th>
           <th data-col="auricles">Auricles</th>
+          <th data-col="ligule_length_mm_min">Ligule length</th>
           <th data-col="inat_obs_sf">SF obs.</th>
         </tr>
       </thead>
@@ -553,10 +589,12 @@ function scoreSpecies(sp, filters) {
   for (const [key, vals] of Object.entries(filters)) {
     // duration: annual_or_perennial matches either chip
     if (key === 'duration' && sp._durationBoth) { matched++; continue; }
-    // leaf_blade_shape: flat_or_involute matches either 'flat' or 'involute' chip
+    // leaf_blade_shape: flat_or_involute matches 'flat', 'involute', or 'flat_or_involute' chip
     if (key === 'leaf_blade_shape' && sp.leaf_blade_shape === 'flat_or_involute') {
       if (vals.has('flat') || vals.has('involute') || vals.has('flat_or_involute')) { matched++; continue; }
     }
+    // 'variable' on any field: always counts as a match — the plant can show any observed state
+    if (sp[key] === 'variable') { matched++; continue; }
 
     const spVal = sp[key];
     // vals is a Set<string>; coerce species value to string for comparison,
@@ -627,10 +665,12 @@ function renderRow(sp, filters) {
 
   const lig = sp.ligule === 'membranous' ? 'Membranous'
     : sp.ligule === 'ciliate' ? 'Hairy / Ciliate'
+    : sp.ligule === 'variable' ? '<span class="pill pill-var">Variable</span>'
     : na();
 
   const awns = sp.has_awns === true ? '<span class="pill pill-yes">Yes</span>'
     : sp.has_awns === false ? '<span class="pill pill-no">No</span>'
+    : sp.has_awns === 'variable' ? '<span class="pill pill-var">Variable</span>'
     : na();
 
   const awnLen = sp.awn_length_mm_min != null
@@ -665,23 +705,49 @@ function renderRow(sp, filters) {
     sp.stoloniferous ? '<span class="pill pill-habit">Stoloniferous</span>' : '',
   ].filter(Boolean).join(' ') || na();
 
-  const COMPRESSION_LABELS = { lateral: 'Lateral', dorsiventral: 'Dorsiventral' };
-  const compression = sp.spikelet_compression ? COMPRESSION_LABELS[sp.spikelet_compression] || sp.spikelet_compression : na();
+  const CULM_LABELS = { erect: 'Erect', decumbent: 'Decumbent', geniculate: 'Geniculate', ascending: 'Ascending', prostrate: 'Prostrate', variable: '<span class="pill pill-var">Variable</span>' };
+  const culmHabit = sp.culm_habit ? (CULM_LABELS[sp.culm_habit] || sp.culm_habit) : na();
+
+  const SHEATH_LABELS = { open: 'Open', closed: 'Closed', variable: '<span class="pill pill-var">Variable</span>' };
+  const leafSheath = sp.leaf_sheath ? (SHEATH_LABELS[sp.leaf_sheath] || sp.leaf_sheath) : na();
+
+  const GLUME_LABELS = { shorter: 'Shorter', subequal: 'Subequal', exceeding: 'Exceeding' };
+  const glumes = sp.glume_relative ? (GLUME_LABELS[sp.glume_relative] || sp.glume_relative) : na();
+
+  const COMPRESSION_LABELS = { lateral: 'Lateral', dorsiventral: 'Dorsiventral', variable: '<span class="pill pill-var">Variable</span>' };
+  const compression = sp.spikelet_compression ? (COMPRESSION_LABELS[sp.spikelet_compression] || sp.spikelet_compression) : na();
 
   const spikeLen = sp.spikelet_length_mm_min != null
     ? `${sp.spikelet_length_mm_min}–${sp.spikelet_length_mm_max} mm`
     : na();
 
+  const spikeWid = sp.spikelet_width_mm_min != null
+    ? `${sp.spikelet_width_mm_min}–${sp.spikelet_width_mm_max} mm`
+    : na();
+
   const anthers = sp.anther_count != null ? String(sp.anther_count) : na();
 
-  const LEMMA_LABELS = { glabrous: 'Glabrous', pubescent: 'Pubescent', scabrous: 'Scabrous', hairy: 'Hairy' };
+  const LEMMA_LABELS = { glabrous: 'Glabrous', pubescent: 'Pubescent', scabrous: 'Scabrous', hairy: 'Hairy', variable: '<span class="pill pill-var">Variable</span>' };
   const lemmaSurf = sp.lemma_surface ? (LEMMA_LABELS[sp.lemma_surface] || sp.lemma_surface) : na();
+
+  const lemmaLen = sp.lemma_length_mm_min != null
+    ? `${sp.lemma_length_mm_min}–${sp.lemma_length_mm_max} mm`
+    : na();
+
+  const lemmaVeins = sp.lemma_veins != null ? String(sp.lemma_veins) : na();
+
+  const liguLen = sp.ligule_length_mm_min != null
+    ? (sp.ligule_length_mm_min === sp.ligule_length_mm_max
+        ? `${sp.ligule_length_mm_min} mm`
+        : `${sp.ligule_length_mm_min}–${sp.ligule_length_mm_max} mm`)
+    : na();
 
   const BLADE_LABELS = { flat: 'Flat', involute: 'Involute', flat_or_involute: 'Flat/involute', folded: 'Folded', convolute: 'Convolute' };
   const bladeShape = sp.leaf_blade_shape ? (BLADE_LABELS[sp.leaf_blade_shape] || sp.leaf_blade_shape) : na();
 
   const auricles = sp.auricles === true ? '<span class="pill pill-yes">Present</span>'
     : sp.auricles === false ? '<span class="pill pill-no">Absent</span>'
+    : sp.auricles === 'variable' ? '<span class="pill pill-var">Variable</span>'
     : na();
 
   const photoEl = sp.photo_url
@@ -713,12 +779,19 @@ function renderRow(sp, filters) {
     <td>${lw}</td>
     <td>${ht}</td>
     <td>${habitPills}</td>
+    <td>${culmHabit}</td>
+    <td>${leafSheath}</td>
     <td>${compression}</td>
     <td>${spikeLen}</td>
+    <td>${spikeWid}</td>
+    <td>${glumes}</td>
     <td>${anthers}</td>
     <td>${lemmaSurf}</td>
+    <td>${lemmaLen}</td>
+    <td>${lemmaVeins}</td>
     <td>${bladeShape}</td>
     <td>${auricles}</td>
+    <td>${liguLen}</td>
     <td>${sp.inat_obs_sf}</td>
   </tr>`;
 }
