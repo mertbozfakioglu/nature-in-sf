@@ -283,6 +283,29 @@
       margin-left: 4px;
     }
 
+    /* ── Filter breakdown row ── */
+    .filter-result-row td {
+      padding: 3px 12px 7px 76px; /* indent past photo */
+      background: #f9f8f6;
+      border-bottom: 1px solid #f0ece4;
+    }
+    tbody tr.top-match + .filter-result-row td { background: #edfaf2; }
+    tbody tr.filter-result-row:hover { background: inherit; }
+    .filter-breakdown { display: flex; flex-wrap: wrap; gap: 4px; }
+    .fchip {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: .68rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .fchip-match { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .fchip-miss  { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .fchip-var   { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+
     /* ── Empty state ── */
     #empty {
       display: none;
@@ -628,6 +651,78 @@ function histogramSVG(taxonId) {
   return `<svg class="sp-histogram" viewBox="0 0 ${totalW} ${H+LABEL_H}" width="${totalW}" height="${H+LABEL_H}" aria-hidden="true">${bars}${labels}</svg>`;
 }
 
+// ── Filter breakdown helpers ───────────────────────────────────────────────
+const FILTER_LABELS = {
+  duration: 'Duration', ligule: 'Ligule', has_awns: 'Awns',
+  awn_length_class: 'Awn length', awn_type: 'Awn type',
+  inflorescence: 'Inflorescence', florets_bin: 'Florets',
+  leaf_width_class: 'Leaf width', height_class: 'Height',
+  native_to_ca: 'Origin', caespitose: 'Caespitose',
+  rhizomatous: 'Rhizomatous', stoloniferous: 'Stoloniferous',
+  spikelet_compression: 'Spikelet compression', anther_count: 'Anthers',
+  lemma_surface: 'Lemma surface', leaf_blade_shape: 'Blade shape',
+  auricles: 'Auricles', culm_habit: 'Culm habit',
+  leaf_sheath: 'Leaf sheath', glume_relative: 'Glume size',
+};
+
+const VALUE_LABELS = {
+  annual: 'Annual', perennial: 'Perennial',
+  membranous: 'Membranous', ciliate: 'Hairy/Ciliate',
+  true: 'Yes', false: 'No',
+  short: 'Short', medium: 'Medium', long: 'Long', tall: 'Tall',
+  geniculate: 'Geniculate', straight: 'Straight',
+  spike: 'Spike', panicle_open: 'Open panicle',
+  panicle_contracted: 'Contracted panicle', digitate: 'Digitate',
+  filiform: 'Filiform', narrow: 'Narrow', wide: 'Wide',
+  lateral: 'Lateral', dorsiventral: 'Dorsiventral',
+  glabrous: 'Glabrous', pubescent: 'Pubescent', scabrous: 'Scabrous',
+  flat: 'Flat', involute: 'Involute', flat_or_involute: 'Flat/involute',
+  folded: 'Folded', convolute: 'Convolute',
+  erect: 'Erect', decumbent: 'Decumbent',
+  ascending: 'Ascending', prostrate: 'Prostrate',
+  open: 'Open', closed: 'Closed',
+  shorter: 'Shorter', subequal: 'Subequal', exceeding: 'Exceeding',
+  '1': '1', '2': '2', '3': '3',
+  '3-5': '3–5', '6-10': '6–10', '11+': '11+',
+};
+
+function filterBreakdownRow(sp, filters, isTopMatch) {
+  if (!Object.keys(filters).length) return '';
+  const colspan = 27;
+  const chips = [];
+
+  for (const [key, vals] of Object.entries(filters)) {
+    // mirror scoreSpecies logic
+    let isVar = false;
+    let matched = false;
+    if (key === 'duration' && sp._durationBoth) {
+      matched = true;
+    } else if (key === 'leaf_blade_shape' && sp.leaf_blade_shape === 'flat_or_involute') {
+      matched = vals.has('flat') || vals.has('involute') || vals.has('flat_or_involute');
+    } else if (sp[key] === 'variable') {
+      matched = true; isVar = true;
+    } else {
+      const spVal = sp[key];
+      for (const v of vals) {
+        const fv = v === 'true' ? true : v === 'false' ? false : v;
+        if (spVal === fv) { matched = true; break; }
+        if (typeof spVal === 'number' && spVal === Number(v)) { matched = true; break; }
+      }
+    }
+
+    const label = FILTER_LABELS[key] || key;
+    const valStr = [...vals].map(v => VALUE_LABELS[v] || v).join(' / ');
+    const cls = isVar ? 'fchip fchip-var' : matched ? 'fchip fchip-match' : 'fchip fchip-miss';
+    const icon = isVar ? '~' : matched ? '✓' : '✗';
+    chips.push(`<span class="${cls}">${label}: ${valStr} ${icon}</span>`);
+  }
+
+  const rowBg = isTopMatch ? 'top-match' : '';
+  return `<tr class="filter-result-row ${rowBg}">
+    <td colspan="${colspan}"><div class="filter-breakdown">${chips.join('')}</div></td>
+  </tr>`;
+}
+
 // ── Render ─────────────────────────────────────────────────────────────────
 const INFLO_LABELS = {
   spike: 'Spike',
@@ -755,7 +850,7 @@ function renderRow(sp, filters) {
     : `<div class="sp-photo-placeholder"></div>`;
   const hist = histogramSVG(sp.inat_id);
 
-  return `<tr class="${rowClass}">
+  const mainRow = `<tr class="${rowClass}">
     <td class="match-cell">${hasFilters ? matchPill(matched, total) : '<span class="no-data">—</span>'}</td>
     <td class="species-cell">
       <div class="species-inner">
@@ -794,6 +889,7 @@ function renderRow(sp, filters) {
     <td>${liguLen}</td>
     <td>${sp.inat_obs_sf}</td>
   </tr>`;
+  return mainRow + filterBreakdownRow(sp, filters, isTopMatch);
 }
 
 function render() {
