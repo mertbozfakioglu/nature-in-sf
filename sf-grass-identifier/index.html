@@ -217,6 +217,15 @@
 
     .no-data { color: #ccc; font-size: .8rem; }
 
+    .multi-hint {
+      font-size: .65rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-left: 4px;
+    }
+
     /* ── Empty state ── */
     #empty {
       display: none;
@@ -270,8 +279,8 @@
     </div>
 
     <div class="filter-group">
-      <label class="group-label">Awn length</label>
-      <div class="chip-row" id="f-awn-length">
+      <label class="group-label">Awn length <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-awn-length" data-multi="true">
         <div class="chip" data-filter="awn_length_class" data-value="short">Short (&le;5 mm)</div>
         <div class="chip" data-filter="awn_length_class" data-value="medium">Medium (5–20 mm)</div>
         <div class="chip" data-filter="awn_length_class" data-value="long">Long (&gt;20 mm)</div>
@@ -287,8 +296,8 @@
     </div>
 
     <div class="filter-group">
-      <label class="group-label">Inflorescence</label>
-      <div class="chip-row" id="f-inflorescence">
+      <label class="group-label">Inflorescence <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-inflorescence" data-multi="true">
         <div class="chip" data-filter="inflorescence" data-value="spike">Spike</div>
         <div class="chip" data-filter="inflorescence" data-value="panicle_open">Open panicle</div>
         <div class="chip" data-filter="inflorescence" data-value="panicle_contracted">Contracted panicle</div>
@@ -297,8 +306,8 @@
     </div>
 
     <div class="filter-group">
-      <label class="group-label">Florets per spikelet</label>
-      <div class="chip-row" id="f-florets">
+      <label class="group-label">Florets per spikelet <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-florets" data-multi="true">
         <div class="chip" data-filter="florets_bin" data-value="1">1</div>
         <div class="chip" data-filter="florets_bin" data-value="2">2</div>
         <div class="chip" data-filter="florets_bin" data-value="3-5">3–5</div>
@@ -308,8 +317,8 @@
     </div>
 
     <div class="filter-group">
-      <label class="group-label">Leaf width</label>
-      <div class="chip-row" id="f-leaf-width">
+      <label class="group-label">Leaf width <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-leaf-width" data-multi="true">
         <div class="chip" data-filter="leaf_width_class" data-value="filiform">Filiform (&lt;1 mm)</div>
         <div class="chip" data-filter="leaf_width_class" data-value="narrow">Narrow (1–3 mm)</div>
         <div class="chip" data-filter="leaf_width_class" data-value="medium">Medium (3–8 mm)</div>
@@ -318,8 +327,8 @@
     </div>
 
     <div class="filter-group">
-      <label class="group-label">Plant height</label>
-      <div class="chip-row" id="f-height">
+      <label class="group-label">Plant height <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-height" data-multi="true">
         <div class="chip" data-filter="height_class" data-value="short">Short (&lt;30 cm)</div>
         <div class="chip" data-filter="height_class" data-value="medium">Medium (30–100 cm)</div>
         <div class="chip" data-filter="height_class" data-value="tall">Tall (&gt;100 cm)</div>
@@ -379,7 +388,10 @@
 
 <script>
 // ── State ──────────────────────────────────────────────────────────────────
-const activeFilters = {};   // { filterKey: value }
+// activeFilters: { filterKey: Set<string> }
+// Single-select groups always have a Set of size 0 or 1.
+// Multi-select groups (data-multi="true") can have Sets of any size.
+const activeFilters = {};
 let sortCol = 'match';
 let sortAsc = false;
 let allSpecies = [];
@@ -422,13 +434,19 @@ function scoreSpecies(sp, filters) {
   if (!keys.length) return { matched: 0, total: 0, ratio: null };
 
   let matched = 0;
-  for (const [key, val] of Object.entries(filters)) {
-    // duration: annual_or_perennial matches both
+  for (const [key, vals] of Object.entries(filters)) {
+    // duration: annual_or_perennial matches either chip
     if (key === 'duration' && sp._durationBoth) { matched++; continue; }
-    // booleans stored as JS booleans, filter values are strings
+
     const spVal = sp[key];
-    const filterVal = val === 'true' ? true : val === 'false' ? false : val;
-    if (spVal === filterVal) matched++;
+    // vals is a Set<string>; coerce species value to string for comparison,
+    // but also handle booleans stored as JS booleans
+    let hit = false;
+    for (const v of vals) {
+      const filterVal = v === 'true' ? true : v === 'false' ? false : v;
+      if (spVal === filterVal) { hit = true; break; }
+    }
+    if (hit) matched++;
   }
   return { matched, total: keys.length, ratio: matched / keys.length };
 }
@@ -552,6 +570,9 @@ function render() {
   } else {
     const perfect = rows.filter(r => r.score.matched === r.score.total).length;
     const active = Object.keys(filters).length;
+    const criteriaDesc = Object.entries(filters).map(([k, s]) =>
+      s.size > 1 ? `${k} (${[...s].join(' or ')})` : [...s][0]
+    ).join(', ');
     bar.textContent = `${active} filter${active > 1 ? 's' : ''} active · ${perfect} species match all · sorted by match score`;
   }
 }
@@ -559,17 +580,34 @@ function render() {
 // ── Filter chips ──────────────────────────────────────────────────────────
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
-    const key = chip.dataset.filter;
-    const val = chip.dataset.value;
+    const key  = chip.dataset.filter;
+    const val  = chip.dataset.value;
+    const isMulti = chip.closest('[data-multi="true"]') !== null;
+    const isActive = chip.classList.contains('active');
 
-    if (chip.classList.contains('active')) {
-      chip.classList.remove('active');
-      delete activeFilters[key];
+    if (isMulti) {
+      // Toggle this chip independently; maintain a Set for the key
+      if (isActive) {
+        chip.classList.remove('active');
+        if (activeFilters[key]) {
+          activeFilters[key].delete(val);
+          if (activeFilters[key].size === 0) delete activeFilters[key];
+        }
+      } else {
+        chip.classList.add('active');
+        if (!activeFilters[key]) activeFilters[key] = new Set();
+        activeFilters[key].add(val);
+      }
     } else {
-      // deactivate siblings in same group
-      document.querySelectorAll(`.chip[data-filter="${key}"]`).forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      activeFilters[key] = val;
+      // Single-select: deactivate all siblings first
+      if (isActive) {
+        chip.classList.remove('active');
+        delete activeFilters[key];
+      } else {
+        document.querySelectorAll(`.chip[data-filter="${key}"]`).forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeFilters[key] = new Set([val]);
+      }
     }
     render();
   });
