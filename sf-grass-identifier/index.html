@@ -304,6 +304,7 @@
     .fchip-match { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
     .fchip-miss  { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
     .fchip-var   { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .fchip-na    { background: #f3f4f6; color: #9ca3af; border: 1px solid #e5e7eb; }
 
     /* ── Empty state ── */
     #empty {
@@ -604,33 +605,29 @@ function enrich(sp) {
 
 // ── Match scoring ──────────────────────────────────────────────────────────
 function scoreSpecies(sp, filters) {
-  const keys = Object.keys(filters);
-  if (!keys.length) return { matched: 0, total: 0, ratio: null };
+  if (!Object.keys(filters).length) return { matched: 0, total: 0, ratio: null };
 
-  let matched = 0;
+  let matched = 0, total = 0;
   for (const [key, vals] of Object.entries(filters)) {
-    // duration: annual_or_perennial matches either chip
-    if (key === 'duration' && sp._durationBoth) { matched++; continue; }
-    // leaf_blade_shape: flat_or_involute matches 'flat', 'involute', or 'flat_or_involute' chip
+    if (key === 'duration' && sp._durationBoth) { matched++; total++; continue; }
     if (key === 'leaf_blade_shape' && sp.leaf_blade_shape === 'flat_or_involute') {
-      if (vals.has('flat') || vals.has('involute') || vals.has('flat_or_involute')) { matched++; continue; }
+      if (vals.has('flat') || vals.has('involute') || vals.has('flat_or_involute')) { matched++; total++; continue; }
     }
-    // 'variable' on any field: always counts as a match — the plant can show any observed state
-    if (sp[key] === 'variable') { matched++; continue; }
+    if (sp[key] === 'variable') { matched++; total++; continue; }
 
     const spVal = sp[key];
-    // vals is a Set<string>; coerce species value to string for comparison,
-    // but also handle booleans stored as JS booleans
+    if (spVal == null) continue; // no data — exclude from score entirely
+
+    total++;
     let hit = false;
     for (const v of vals) {
       const filterVal = v === 'true' ? true : v === 'false' ? false : v;
       if (spVal === filterVal) { hit = true; break; }
-      // handle numeric species values vs string filter chips (e.g. anther_count)
       if (typeof spVal === 'number' && spVal === Number(v)) { hit = true; break; }
     }
     if (hit) matched++;
   }
-  return { matched, total: keys.length, ratio: matched / keys.length };
+  return { matched, total, ratio: total > 0 ? matched / total : null };
 }
 
 // ── Histogram SVG ─────────────────────────────────────────────────────────
@@ -698,6 +695,10 @@ function filterChips(sp, filters) {
       matched = vals.has('flat') || vals.has('involute') || vals.has('flat_or_involute');
     } else if (sp[key] === 'variable') {
       matched = true; isVar = true;
+    } else if (sp[key] == null) {
+      const label = FILTER_LABELS[key] || key;
+      chips.push(`<span class="fchip fchip-na">${label} —</span>`);
+      continue;
     } else {
       const spVal = sp[key];
       for (const v of vals) {
@@ -708,7 +709,6 @@ function filterChips(sp, filters) {
     }
 
     const label = FILTER_LABELS[key] || key;
-    const valStr = [...vals].map(v => VALUE_LABELS[v] || v).join('/');
     const cls = isVar ? 'fchip fchip-var' : matched ? 'fchip fchip-match' : 'fchip fchip-miss';
     const icon = isVar ? '~' : matched ? '✓' : '✗';
     chips.push(`<span class="${cls}">${label} ${icon}</span>`);
