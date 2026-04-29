@@ -22,7 +22,9 @@
     "has_awns": false,
     "native_range": "species is Macaronesia to Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/254236867/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/254236867/medium.jpg"
   },
   {
     "inat_id": 64140,
@@ -42,7 +44,9 @@
     "has_awns": false,
     "native_range": "species is Eritrea to S",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55523828/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/55523828/medium.jpg"
   },
   {
     "inat_id": 61068,
@@ -71,7 +75,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/518537870/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/518537870/medium.jpg"
   },
   {
     "inat_id": 52796,
@@ -99,7 +105,9 @@
     "awn_length_class": "long",
     "native_range": "species is Macaronesia, Europe, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12852/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/12852/medium.jpg"
   },
   {
     "inat_id": 52702,
@@ -128,7 +136,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/131068365/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/131068365/medium.jpeg"
   },
   {
     "inat_id": 52703,
@@ -157,7 +167,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130309776/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/130309776/medium.jpeg"
   },
   {
     "inat_id": 58372,
@@ -182,7 +194,9 @@
     "has_awns": false,
     "native_range": "species is Temp",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://static.inaturalist.org/photos/51439487/square.jpeg",
+    "photo_medium": "https://static.inaturalist.org/photos/51439487/medium.jpeg"
   },
   {
     "inat_id": 52808,
@@ -207,7 +221,9 @@
     "has_awns": false,
     "native_range": "species is Temp",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/119472992/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/119472992/medium.jpeg"
   },
   {
     "inat_id": 52793,
@@ -234,7 +250,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/233046284/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/233046284/medium.jpg"
   },
   {
     "inat_id": 57197,
@@ -262,7 +280,9 @@
     "awn_length_class": "medium",
     "native_range": "species is Macaronesia, W",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4096256/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/4096256/medium.jpg"
   },
   {
     "inat_id": 165659,
@@ -291,7 +311,9 @@
     "awn_type": "geniculate",
     "native_range": "species is California to NW",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/361771071/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/361771071/medium.jpg"
   },
   {
     "inat_id": 52714,
@@ -316,7 +338,9 @@
     "has_awns": false,
     "native_range": "species is Colombia to NW",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27335442/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/27335442/medium.jpg"
   },
   {
     "inat_id": 57162,
@@ -341,7 +365,9 @@
     "has_awns": false,
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/34264/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/34264/medium.jpg"
   },
   {
     "inat_id": 52696,
@@ -370,7 +396,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6259588/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/6259588/medium.jpg"
   },
   {
     "inat_id": 61067,
@@ -395,7 +423,9 @@
     "has_awns": false,
     "native_range": "species is N",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://static.inaturalist.org/photos/158210072/square.jpg",
+    "photo_medium": "https://static.inaturalist.org/photos/158210072/medium.jpg"
   },
   {
     "inat_id": 61071,
@@ -417,7 +447,9 @@
     "has_awns": false,
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/468543/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/468543/medium.jpeg"
   },
   {
     "inat_id": 942779,
@@ -443,7 +475,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Canary Islands, Europe to Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4243775/square.JPG",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/4243775/medium.JPG"
   },
   {
     "inat_id": 57165,
@@ -470,7 +504,9 @@
     "awn_type": "geniculate",
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/431713/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/431713/medium.jpg"
   },
   {
     "inat_id": 52720,
@@ -499,7 +535,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/103010705/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/103010705/medium.jpeg"
   },
   {
     "inat_id": 52694,
@@ -522,7 +560,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12075346/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/12075346/medium.jpg"
   },
   {
     "inat_id": 68479,
@@ -550,7 +590,9 @@
     "awn_length_class": "medium",
     "native_range": "species is Macaronesia, Sahara, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10693239/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/10693239/medium.jpg"
   },
   {
     "inat_id": 57173,
@@ -578,7 +620,9 @@
     "awn_length_class": "short",
     "native_range": "species is Russian Far East, N",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/148856992/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/148856992/medium.jpeg"
   },
   {
     "inat_id": 57192,
@@ -601,7 +645,9 @@
     "has_awns": false,
     "native_range": "species is Oregon to California",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/839097/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/839097/medium.jpg"
   },
   {
     "inat_id": 52698,
@@ -630,7 +676,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Temp",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/268294240/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/268294240/medium.jpeg"
   },
   {
     "inat_id": 60298,
@@ -650,7 +698,9 @@
     "has_awns": false,
     "native_range": "species is Eritrea to S",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/256038282/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/256038282/medium.jpg"
   },
   {
     "inat_id": 52791,
@@ -679,7 +729,9 @@
     "awn_type": "geniculate",
     "native_range": "species is N",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://static.inaturalist.org/photos/75985465/square.jpg",
+    "photo_medium": "https://static.inaturalist.org/photos/75985465/medium.jpg"
   },
   {
     "inat_id": 60276,
@@ -708,7 +760,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Venezuela to S",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173722843/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/173722843/medium.jpg"
   },
   {
     "inat_id": 52801,
@@ -733,7 +787,9 @@
     "has_awns": false,
     "native_range": "species is Macaronesia, N",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/238799434/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/238799434/medium.jpg"
   },
   {
     "inat_id": 64240,
@@ -758,7 +814,9 @@
     "has_awns": false,
     "native_range": "species is Bolivia to S",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173109660/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/173109660/medium.jpg"
   },
   {
     "inat_id": 57184,
@@ -783,7 +841,9 @@
     "has_awns": false,
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12614241/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/12614241/medium.jpeg"
   },
   {
     "inat_id": 71142,
@@ -812,7 +872,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Oregon to California",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/468548/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/468548/medium.jpg"
   },
   {
     "inat_id": 57183,
@@ -837,7 +899,9 @@
     "has_awns": true,
     "native_range": "species is Temp",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/42363755/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/42363755/medium.jpg"
   },
   {
     "inat_id": 57186,
@@ -862,7 +926,9 @@
     "has_awns": false,
     "native_range": "species is Oregon to California",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6814579/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/6814579/medium.jpeg"
   },
   {
     "inat_id": 47695,
@@ -872,7 +938,9 @@
     "inat_obs_sf": 15,
     "ipni_id": "329499-2",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/438248468/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/438248468/medium.jpeg"
   },
   {
     "inat_id": 52700,
@@ -901,7 +969,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Yukon to Central America, Venezuela, Peru",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/399068532/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/399068532/medium.jpg"
   },
   {
     "inat_id": 61061,
@@ -927,7 +997,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Subarctic & Temp",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/33024046/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/33024046/medium.jpg"
   },
   {
     "inat_id": 61063,
@@ -953,7 +1025,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Kamchatka to W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/225985208/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/225985208/medium.jpeg"
   },
   {
     "inat_id": 77136,
@@ -981,7 +1055,9 @@
     "awn_length_class": "medium",
     "native_range": "species is Macaronesia, Europe to Caucasus, Sahara to Kenya, SW",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://static.inaturalist.org/photos/12954865/square.jpg",
+    "photo_medium": "https://static.inaturalist.org/photos/12954865/medium.jpg"
   },
   {
     "inat_id": 165660,
@@ -1010,7 +1086,9 @@
     "awn_type": "geniculate",
     "native_range": "species is S",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/16420772/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/16420772/medium.jpg"
   },
   {
     "inat_id": 58371,
@@ -1035,7 +1113,9 @@
     "has_awns": false,
     "native_range": "species is Temp",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/583408803/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/583408803/medium.jpg"
   },
   {
     "inat_id": 64161,
@@ -1063,7 +1143,9 @@
     "awn_length_class": "medium",
     "native_range": "species is as a cultigen from Transcaucasus to Israel and NW",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/127585014/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/127585014/medium.jpeg"
   },
   {
     "inat_id": 77140,
@@ -1092,7 +1174,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Europe to Taiwan and Sri Lanka, Macaronesia to Arabian Peninsula and N",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/381229715/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/381229715/medium.jpg"
   },
   {
     "inat_id": 52804,
@@ -1117,7 +1201,9 @@
     "has_awns": false,
     "native_range": "species is California",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/593910/square.JPG",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/593910/medium.JPG"
   },
   {
     "inat_id": 76639,
@@ -1142,7 +1228,9 @@
     "has_awns": true,
     "native_range": "species is Subarctic & Temp",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/108225556/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/108225556/medium.jpeg"
   },
   {
     "inat_id": 52802,
@@ -1167,7 +1255,9 @@
     "has_awns": false,
     "native_range": "species is SW",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/37740773/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/37740773/medium.jpg"
   },
   {
     "inat_id": 57169,
@@ -1195,7 +1285,9 @@
     "awn_length_class": "short",
     "native_range": "species is Oregon to California",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/17802550/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/17802550/medium.jpeg"
   },
   {
     "inat_id": 58379,
@@ -1222,7 +1314,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://static.inaturalist.org/photos/426312020/square.jpg",
+    "photo_medium": "https://static.inaturalist.org/photos/426312020/medium.jpg"
   },
   {
     "inat_id": 60294,
@@ -1244,7 +1338,9 @@
     "has_awns": false,
     "native_range": "species is Macaronesia, W",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28241281/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/28241281/medium.jpg"
   },
   {
     "inat_id": 164677,
@@ -1269,7 +1365,9 @@
     "has_awns": false,
     "native_range": "species is California",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/278231517/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/278231517/medium.jpg"
   },
   {
     "inat_id": 164708,
@@ -1295,7 +1393,9 @@
     "awn_length_class": "short",
     "native_range": "species is Europe to Xinjiang and Himalaya, Macaronesia to N",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55763040/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/55763040/medium.jpeg"
   },
   {
     "inat_id": 60295,
@@ -1318,7 +1418,9 @@
     "has_awns": false,
     "native_range": "species is SE",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/321349275/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/321349275/medium.jpg"
   },
   {
     "inat_id": 75475,
@@ -1337,7 +1439,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Europe to Mongolia, NW",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/73830271/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/73830271/medium.jpeg"
   },
   {
     "inat_id": 77138,
@@ -1365,7 +1469,9 @@
     "awn_length_class": "medium",
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/74242227/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/74242227/medium.jpeg"
   },
   {
     "inat_id": 430581,
@@ -1388,7 +1494,9 @@
     "has_awns": false,
     "native_range": "species is N",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6748173/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/6748173/medium.jpg"
   },
   {
     "inat_id": 524183,
@@ -1417,7 +1525,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/68985268/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/68985268/medium.jpg"
   },
   {
     "inat_id": 52707,
@@ -1446,7 +1556,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/127689145/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/127689145/medium.jpeg"
   },
   {
     "inat_id": 58387,
@@ -1473,7 +1585,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Macaronesia to Central Asia and Indo-China",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/78416044/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/78416044/medium.jpg"
   },
   {
     "inat_id": 165656,
@@ -1502,7 +1616,9 @@
     "awn_type": "geniculate",
     "native_range": "species is California to Mexico (Baja California), Guadalupe",
     "establishment_means": null,
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://static.inaturalist.org/photos/185504835/square.jpg",
+    "photo_medium": "https://static.inaturalist.org/photos/185504835/medium.jpg"
   },
   {
     "inat_id": 772992,
@@ -1527,7 +1643,9 @@
     "has_awns": false,
     "native_range": "species is California to Mexico (Baja California)",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49344182/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/49344182/medium.jpg"
   },
   {
     "inat_id": 52692,
@@ -1552,7 +1670,9 @@
     "has_awns": false,
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/317775663/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/317775663/medium.jpg"
   },
   {
     "inat_id": 57188,
@@ -1575,7 +1695,9 @@
     "has_awns": false,
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/244905231/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/244905231/medium.jpeg"
   },
   {
     "inat_id": 48448,
@@ -1598,7 +1720,9 @@
     "has_awns": false,
     "native_range": "species is Central & SW",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://static.inaturalist.org/photos/88716363/square.jpeg",
+    "photo_medium": "https://static.inaturalist.org/photos/88716363/medium.jpeg"
   },
   {
     "inat_id": 57181,
@@ -1623,7 +1747,9 @@
     "awn_length_class": "short",
     "native_range": "species is Macaronesia, Europe to Central Asia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/273100623/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/273100623/medium.jpeg"
   },
   {
     "inat_id": 57182,
@@ -1651,7 +1777,9 @@
     "awn_length_class": "medium",
     "native_range": "species is E",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/76716288/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/76716288/medium.jpg"
   },
   {
     "inat_id": 58376,
@@ -1677,7 +1805,9 @@
     "awn_length_class": "long",
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/77063444/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/77063444/medium.jpg"
   },
   {
     "inat_id": 59210,
@@ -1706,7 +1836,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Canary Islands, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32783733/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/32783733/medium.jpg"
   },
   {
     "inat_id": 164673,
@@ -1731,7 +1863,9 @@
     "has_awns": false,
     "native_range": "species is California to N",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/66056/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/66056/medium.jpg"
   },
   {
     "inat_id": 430578,
@@ -1754,7 +1888,9 @@
     "has_awns": false,
     "native_range": "species is NE",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1742834/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/1742834/medium.jpg"
   },
   {
     "inat_id": 1550239,
@@ -1764,7 +1900,9 @@
     "inat_obs_sf": 3,
     "ipni_id": "396678-1",
     "establishment_means": null,
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/369672416/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/369672416/medium.jpeg"
   },
   {
     "inat_id": 59094,
@@ -1789,7 +1927,9 @@
     "has_awns": false,
     "native_range": "species is SW",
     "establishment_means": null,
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://static.inaturalist.org/photos/123270171/square.jpeg",
+    "photo_medium": "https://static.inaturalist.org/photos/123270171/medium.jpeg"
   },
   {
     "inat_id": 59099,
@@ -1817,7 +1957,9 @@
     "awn_length_class": "short",
     "native_range": "species is W",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/22985404/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/22985404/medium.jpeg"
   },
   {
     "inat_id": 64017,
@@ -1842,7 +1984,9 @@
     "has_awns": true,
     "native_range": "species is W",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/627890218/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/627890218/medium.jpg"
   },
   {
     "inat_id": 64144,
@@ -1867,7 +2011,9 @@
     "has_awns": false,
     "native_range": "species is Macaronesia to NW",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1816527/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/1816527/medium.jpg"
   },
   {
     "inat_id": 325917,
@@ -1895,7 +2041,9 @@
     "awn_length_class": "medium",
     "native_range": "species is Juan Fern\u00e1ndez Islands, Chile to S",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/481373804/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/481373804/medium.jpg"
   },
   {
     "inat_id": 1199528,
@@ -1905,7 +2053,9 @@
     "inat_obs_sf": 2,
     "ipni_id": null,
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250070847/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/250070847/medium.jpg"
   },
   {
     "inat_id": 57156,
@@ -1931,7 +2081,9 @@
     "awn_type": "geniculate",
     "native_range": "species is as a cultigen from W",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/51273833/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/51273833/medium.jpg"
   },
   {
     "inat_id": 57167,
@@ -1958,7 +2110,9 @@
     "awn_type": "geniculate",
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/40193265/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/40193265/medium.jpeg"
   },
   {
     "inat_id": 57191,
@@ -1981,7 +2135,9 @@
     "has_awns": false,
     "native_range": "species is Canary Islands, Morocco",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/528247421/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/528247421/medium.jpg"
   },
   {
     "inat_id": 58369,
@@ -2010,7 +2166,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Europe to Mongolia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/58336299/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/58336299/medium.jpeg"
   },
   {
     "inat_id": 58389,
@@ -2034,7 +2192,9 @@
     "awn_type": "geniculate",
     "native_range": "species is Africa, Indian Subcontinent",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55135120/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/55135120/medium.jpg"
   },
   {
     "inat_id": 61070,
@@ -2059,7 +2219,9 @@
     "has_awns": false,
     "native_range": "species is W",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/38089095/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/38089095/medium.jpeg"
   },
   {
     "inat_id": 69931,
@@ -2084,7 +2246,9 @@
     "has_awns": false,
     "native_range": "species is Madeira, Temp",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/527929316/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/527929316/medium.jpg"
   },
   {
     "inat_id": 71140,
@@ -2094,7 +2258,9 @@
     "inat_obs_sf": 1,
     "ipni_id": "387089-1",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/286599127/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/286599127/medium.jpeg"
   },
   {
     "inat_id": 75474,
@@ -2117,7 +2283,9 @@
     "has_awns": false,
     "native_range": "species is W",
     "establishment_means": null,
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://static.inaturalist.org/photos/16748012/square.jpg",
+    "photo_medium": "https://static.inaturalist.org/photos/16748012/medium.jpg"
   },
   {
     "inat_id": 75903,
@@ -2142,7 +2310,9 @@
     "has_awns": false,
     "native_range": "species is Temp",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/449379438/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/449379438/medium.jpeg"
   },
   {
     "inat_id": 75912,
@@ -2170,7 +2340,9 @@
     "awn_length_class": "medium",
     "native_range": "species is Aleutian Islands to California",
     "establishment_means": null,
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/135599191/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/135599191/medium.jpeg"
   },
   {
     "inat_id": 79021,
@@ -2198,7 +2370,9 @@
     "awn_length_class": "short",
     "native_range": "species is as a cultigen from S",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8346266/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/8346266/medium.jpeg"
   },
   {
     "inat_id": 79068,
@@ -2221,7 +2395,9 @@
     "has_awns": false,
     "native_range": "species is New World",
     "establishment_means": "native",
-    "native_to_ca": true
+    "native_to_ca": true,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/50707544/square.jpeg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/50707544/medium.jpeg"
   },
   {
     "inat_id": 204259,
@@ -2249,7 +2425,9 @@
     "awn_length_class": "long",
     "native_range": "species is Canary Islands to Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4194440/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/4194440/medium.jpg"
   },
   {
     "inat_id": 431011,
@@ -2277,7 +2455,9 @@
     "awn_length_class": "short",
     "native_range": "species is NE",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/123857131/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/123857131/medium.jpg"
   },
   {
     "inat_id": 773038,
@@ -2299,7 +2479,9 @@
     "has_awns": false,
     "native_range": "species is Temp",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://static.inaturalist.org/photos/144474552/square.jpeg",
+    "photo_medium": "https://static.inaturalist.org/photos/144474552/medium.jpeg"
   },
   {
     "inat_id": 1477514,
@@ -2324,6 +2506,8 @@
     "has_awns": false,
     "native_range": "species is Macaronesia, Medit",
     "establishment_means": "introduced",
-    "native_to_ca": false
+    "native_to_ca": false,
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/283540454/square.jpg",
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/283540454/medium.jpg"
   }
 ]
