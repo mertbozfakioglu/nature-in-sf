@@ -41,30 +41,56 @@
     header p  { font-size: .8rem; opacity: .75; }
 
     /* ── Layout ── */
-    #app { display: flex; height: calc(100vh - 54px); }
+    #app { display: flex; flex-direction: column; min-height: calc(100vh - 54px); }
 
-    /* ── Filter panel ── */
-    #filters {
-      width: 260px;
-      min-width: 220px;
-      background: #fff;
-      border-right: 1px solid var(--border);
-      overflow-y: auto;
-      padding: 14px 14px 40px;
-      flex-shrink: 0;
+    /* ── Filter control bar ── */
+    #filter-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--green-light);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    #filters h2 {
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--muted);
-      margin-bottom: 10px;
+    #filter-toggle {
+      padding: 5px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--green);
+      background: #fff;
+      color: var(--green-dark);
+      cursor: pointer;
+      font-size: .8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all .15s;
+    }
+    #filter-toggle.has-active { background: var(--green); color: #fff; }
+    #match-summary { flex: 1; font-size: .8rem; color: var(--green-dark); font-weight: 600; }
+
+    /* ── Filter panel (collapsible) ── */
+    #filters {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .3s ease;
+    }
+    #filters.open { max-height: 70vh; overflow-y: auto; }
+    #filters-inner {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0 24px;
     }
 
     .filter-group {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 14px;
+      padding-bottom: 12px;
     }
     .filter-group label.group-label {
       display: block;
@@ -104,40 +130,24 @@
     .range-row span { color: var(--muted); font-size: .8rem; }
 
     #clear-btn {
-      width: 100%;
-      padding: 7px;
-      background: var(--green-light);
+      padding: 5px 14px;
       border: 1px solid var(--green);
+      background: transparent;
       color: var(--green-dark);
       border-radius: var(--radius);
       font-size: .8rem;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: none;
+      transition: all .15s;
     }
+    #clear-btn.visible { display: block; }
     #clear-btn:hover { background: var(--green); color: #fff; }
 
     /* ── Table panel ── */
-    #table-wrap {
-      flex: 1;
-      overflow: auto;
-    }
-
-    /* match bar above table */
-    #match-bar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--green-light);
-      border-bottom: 1px solid var(--border);
-      padding: 7px 16px;
-      font-size: .8rem;
-      color: var(--green-dark);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    #match-bar span { font-weight: 600; }
+    #table-wrap { flex: 1; overflow: auto; }
 
     table {
       border-collapse: collapse;
@@ -147,7 +157,7 @@
     }
     thead th {
       position: sticky;
-      top: 37px;
+      top: 0;
       background: var(--green-dark);
       color: #fff;
       text-align: left;
@@ -315,9 +325,8 @@
     }
     #empty h3 { font-size: 1.1rem; margin-bottom: 8px; }
 
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      #filters { width: 200px; }
+    @media (max-width: 480px) {
+      #filters-inner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -330,9 +339,16 @@
 
 <div id="app">
 
-  <!-- Filter panel -->
+  <!-- Control bar -->
+  <div id="filter-bar">
+    <button id="filter-toggle">▼ Filters</button>
+    <span id="match-summary">No filters active — showing all species</span>
+    <button id="clear-btn">Clear all</button>
+  </div>
+
+  <!-- Filter panel (collapsible) -->
   <aside id="filters">
-    <h2>Filter by features</h2>
+    <div id="filters-inner">
 
     <div class="filter-group">
       <label class="group-label">Duration</label>
@@ -505,14 +521,11 @@
       </div>
     </div>
 
-    <button id="clear-btn">Clear all filters</button>
+    </div><!-- /filters-inner -->
   </aside>
 
   <!-- Table -->
   <div id="table-wrap">
-    <div id="match-bar">
-      <span id="match-summary">No filters active — showing all species</span>
-    </div>
     <table id="grass-table">
       <thead>
         <tr>
@@ -914,17 +927,22 @@ function render() {
   const tbody = document.getElementById('grass-tbody');
   tbody.innerHTML = rows.map(({ sp }) => renderRow(sp, filters)).join('');
 
-  // summary bar
+  // summary bar + toggle button
   const bar = document.getElementById('match-summary');
+  const toggleBtn = document.getElementById('filter-toggle');
+  const clearBtn = document.getElementById('clear-btn');
+  const activeCount = Object.keys(filters).length;
   if (!hasFilters) {
     bar.textContent = `No filters active — showing all ${rows.length} species`;
+    toggleBtn.textContent = '▼ Filters';
+    toggleBtn.classList.remove('has-active');
+    clearBtn.classList.remove('visible');
   } else {
-    const perfect = rows.filter(r => r.score.matched === r.score.total).length;
-    const active = Object.keys(filters).length;
-    const criteriaDesc = Object.entries(filters).map(([k, s]) =>
-      s.size > 1 ? `${k} (${[...s].join(' or ')})` : [...s][0]
-    ).join(', ');
-    bar.textContent = `${active} filter${active > 1 ? 's' : ''} active · ${perfect} species match all · sorted by match score`;
+    const perfect = rows.filter(r => r.score.matched === r.score.total && r.score.total > 0).length;
+    bar.textContent = `${activeCount} filter${activeCount > 1 ? 's' : ''} active · ${perfect} match all`;
+    toggleBtn.textContent = `▼ Filters (${activeCount})`;
+    toggleBtn.classList.add('has-active');
+    clearBtn.classList.add('visible');
   }
 }
 
@@ -968,6 +986,10 @@ document.getElementById('clear-btn').addEventListener('click', () => {
   document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
   Object.keys(activeFilters).forEach(k => delete activeFilters[k]);
   render();
+});
+
+document.getElementById('filter-toggle').addEventListener('click', () => {
+  document.getElementById('filters').classList.toggle('open');
 });
 
 // ── Column sort ───────────────────────────────────────────────────────────
