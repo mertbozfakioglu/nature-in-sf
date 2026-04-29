@@ -408,6 +408,51 @@
       </div>
     </div>
 
+    <div class="filter-group">
+      <label class="group-label">Spikelet compression</label>
+      <div class="chip-row" id="f-compression">
+        <div class="chip" data-filter="spikelet_compression" data-value="lateral">Laterally compressed</div>
+        <div class="chip" data-filter="spikelet_compression" data-value="dorsiventral">Dorsiventrally compressed</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label class="group-label">Anthers per floret <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-anthers" data-multi="true">
+        <div class="chip" data-filter="anther_count" data-value="1">1</div>
+        <div class="chip" data-filter="anther_count" data-value="2">2</div>
+        <div class="chip" data-filter="anther_count" data-value="3">3</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label class="group-label">Lemma surface <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-lemma" data-multi="true">
+        <div class="chip" data-filter="lemma_surface" data-value="glabrous">Glabrous</div>
+        <div class="chip" data-filter="lemma_surface" data-value="pubescent">Pubescent</div>
+        <div class="chip" data-filter="lemma_surface" data-value="scabrous">Scabrous</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label class="group-label">Leaf blade shape <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-blade-shape" data-multi="true">
+        <div class="chip" data-filter="leaf_blade_shape" data-value="flat">Flat</div>
+        <div class="chip" data-filter="leaf_blade_shape" data-value="flat_or_involute">Flat or involute</div>
+        <div class="chip" data-filter="leaf_blade_shape" data-value="involute">Involute (inrolled)</div>
+        <div class="chip" data-filter="leaf_blade_shape" data-value="folded">Folded</div>
+        <div class="chip" data-filter="leaf_blade_shape" data-value="convolute">Convolute</div>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <label class="group-label">Auricles</label>
+      <div class="chip-row" id="f-auricles">
+        <div class="chip" data-filter="auricles" data-value="true">Present</div>
+        <div class="chip" data-filter="auricles" data-value="false">Absent</div>
+      </div>
+    </div>
+
     <button id="clear-btn">Clear all filters</button>
   </aside>
 
@@ -432,6 +477,12 @@
           <th data-col="leaf_width_min_mm">Leaf width</th>
           <th data-col="height_min_cm">Height</th>
           <th data-col="caespitose">Habit</th>
+          <th data-col="spikelet_compression">Spikelet</th>
+          <th data-col="spikelet_length_mm_min">Spikelet length</th>
+          <th data-col="anther_count">Anthers</th>
+          <th data-col="lemma_surface">Lemma surface</th>
+          <th data-col="leaf_blade_shape">Blade shape</th>
+          <th data-col="auricles">Auricles</th>
           <th data-col="inat_obs_sf">SF obs.</th>
         </tr>
       </thead>
@@ -502,6 +553,10 @@ function scoreSpecies(sp, filters) {
   for (const [key, vals] of Object.entries(filters)) {
     // duration: annual_or_perennial matches either chip
     if (key === 'duration' && sp._durationBoth) { matched++; continue; }
+    // leaf_blade_shape: flat_or_involute matches either 'flat' or 'involute' chip
+    if (key === 'leaf_blade_shape' && sp.leaf_blade_shape === 'flat_or_involute') {
+      if (vals.has('flat') || vals.has('involute') || vals.has('flat_or_involute')) { matched++; continue; }
+    }
 
     const spVal = sp[key];
     // vals is a Set<string>; coerce species value to string for comparison,
@@ -510,6 +565,8 @@ function scoreSpecies(sp, filters) {
     for (const v of vals) {
       const filterVal = v === 'true' ? true : v === 'false' ? false : v;
       if (spVal === filterVal) { hit = true; break; }
+      // handle numeric species values vs string filter chips (e.g. anther_count)
+      if (typeof spVal === 'number' && spVal === Number(v)) { hit = true; break; }
     }
     if (hit) matched++;
   }
@@ -608,6 +665,25 @@ function renderRow(sp, filters) {
     sp.stoloniferous ? '<span class="pill pill-habit">Stoloniferous</span>' : '',
   ].filter(Boolean).join(' ') || na();
 
+  const COMPRESSION_LABELS = { lateral: 'Lateral', dorsiventral: 'Dorsiventral' };
+  const compression = sp.spikelet_compression ? COMPRESSION_LABELS[sp.spikelet_compression] || sp.spikelet_compression : na();
+
+  const spikeLen = sp.spikelet_length_mm_min != null
+    ? `${sp.spikelet_length_mm_min}–${sp.spikelet_length_mm_max} mm`
+    : na();
+
+  const anthers = sp.anther_count != null ? String(sp.anther_count) : na();
+
+  const LEMMA_LABELS = { glabrous: 'Glabrous', pubescent: 'Pubescent', scabrous: 'Scabrous', hairy: 'Hairy' };
+  const lemmaSurf = sp.lemma_surface ? (LEMMA_LABELS[sp.lemma_surface] || sp.lemma_surface) : na();
+
+  const BLADE_LABELS = { flat: 'Flat', involute: 'Involute', flat_or_involute: 'Flat/involute', folded: 'Folded', convolute: 'Convolute' };
+  const bladeShape = sp.leaf_blade_shape ? (BLADE_LABELS[sp.leaf_blade_shape] || sp.leaf_blade_shape) : na();
+
+  const auricles = sp.auricles === true ? '<span class="pill pill-yes">Present</span>'
+    : sp.auricles === false ? '<span class="pill pill-no">Absent</span>'
+    : na();
+
   const photoEl = sp.photo_url
     ? `<img class="sp-photo" src="${sp.photo_url}" alt="${sp.sci_name}" loading="lazy" data-medium="${sp.photo_medium || sp.photo_url}">`
     : `<div class="sp-photo-placeholder"></div>`;
@@ -637,6 +713,12 @@ function renderRow(sp, filters) {
     <td>${lw}</td>
     <td>${ht}</td>
     <td>${habitPills}</td>
+    <td>${compression}</td>
+    <td>${spikeLen}</td>
+    <td>${anthers}</td>
+    <td>${lemmaSurf}</td>
+    <td>${bladeShape}</td>
+    <td>${auricles}</td>
     <td>${sp.inat_obs_sf}</td>
   </tr>`;
 }
