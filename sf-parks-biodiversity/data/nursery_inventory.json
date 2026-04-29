@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-28",
+  "lastUpdated": "2026-04-29",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -204,6 +204,9 @@
       "missionblue",
       "larnerseeds"
     ],
+    "Eriogonum nudum": [
+      "oaktown"
+    ],
     "Eriophyllum lanatum": [
       "heronshead"
     ],
@@ -278,6 +281,7 @@
       "larnerseeds"
     ],
     "Helenium puberulum": [
+      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -368,7 +372,6 @@
       "larnerseeds"
     ],
     "Lupinus succulentus": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
