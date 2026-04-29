@@ -217,6 +217,61 @@
 
     .no-data { color: #ccc; font-size: .8rem; }
 
+    /* ── Species cell: photo + text ── */
+    .species-inner { display: flex; gap: 10px; align-items: flex-start; }
+    .sp-photo {
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      border-radius: 5px;
+      flex-shrink: 0;
+      background: var(--border);
+      cursor: pointer;
+    }
+    .sp-photo-placeholder {
+      width: 62px;
+      height: 62px;
+      border-radius: 5px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .sp-text { flex: 1; min-width: 0; }
+
+    /* ── Histogram ── */
+    .sp-histogram { display: block; margin-top: 5px; }
+    .sp-histogram rect { fill: var(--green); }
+    .sp-hist-label {
+      font-size: 6px;
+      fill: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.6);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      user-select: none;
+    }
+
     .multi-hint {
       font-size: .65rem;
       font-weight: 400;
@@ -386,6 +441,12 @@
   </div>
 </div>
 
+<!-- Lightbox -->
+<div id="lightbox">
+  <span id="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
 // ── State ──────────────────────────────────────────────────────────────────
 // activeFilters: { filterKey: Set<string> }
@@ -395,6 +456,7 @@ const activeFilters = {};
 let sortCol = 'match';
 let sortAsc = false;
 let allSpecies = [];
+let histograms = {};   // taxon_id (string) → [jan…dec counts]
 
 // ── Derived fields ─────────────────────────────────────────────────────────
 function enrich(sp) {
@@ -449,6 +511,23 @@ function scoreSpecies(sp, filters) {
     if (hit) matched++;
   }
   return { matched, total: keys.length, ratio: matched / keys.length };
+}
+
+// ── Histogram SVG ─────────────────────────────────────────────────────────
+function histogramSVG(taxonId) {
+  const counts = histograms[String(taxonId)];
+  if (!counts || counts.every(c => c === 0)) return '';
+  const max = Math.max(...counts, 1);
+  const MONTHS = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+  const H = 22, W = 8, GAP = 1, LABEL_H = 9, totalW = 12 * (W + GAP) - GAP;
+  const bars = counts.map((c, i) => {
+    const h = Math.max(Math.round((c / max) * H), c > 0 ? 1 : 0);
+    return `<rect x="${i*(W+GAP)}" y="${H-h}" width="${W}" height="${h}" rx="1"/>`;
+  }).join('');
+  const labels = MONTHS.map((m, i) =>
+    `<text x="${i*(W+GAP)+W/2}" y="${H+LABEL_H-1}" text-anchor="middle" class="sp-hist-label">${m}</text>`
+  ).join('');
+  return `<svg class="sp-histogram" viewBox="0 0 ${totalW} ${H+LABEL_H}" width="${totalW}" height="${H+LABEL_H}" aria-hidden="true">${bars}${labels}</svg>`;
 }
 
 // ── Render ─────────────────────────────────────────────────────────────────
@@ -514,12 +593,23 @@ function renderRow(sp, filters) {
     ? ({ short: '<30 cm', medium: '30–100 cm', tall: '>100 cm' }[sp.height_class])
     : na();
 
+  const photoEl = sp.photo_url
+    ? `<img class="sp-photo" src="${sp.photo_url}" alt="${sp.sci_name}" loading="lazy" data-medium="${sp.photo_medium || sp.photo_url}">`
+    : `<div class="sp-photo-placeholder"></div>`;
+  const hist = histogramSVG(sp.inat_id);
+
   return `<tr class="${rowClass}">
     <td class="match-cell">${hasFilters ? matchPill(matched, total) : '<span class="no-data">—</span>'}</td>
     <td class="species-cell">
-      <div class="sci-name">${sp.sci_name}</div>
-      <div class="com-name">${sp.common_name || ''}</div>
-      <div><span class="obs-badge">${sp.inat_obs_sf} obs</span></div>
+      <div class="species-inner">
+        ${photoEl}
+        <div class="sp-text">
+          <div class="sci-name">${sp.sci_name}</div>
+          <div class="com-name">${sp.common_name || ''}</div>
+          <div><span class="obs-badge">${sp.inat_obs_sf} obs SF</span></div>
+          ${hist}
+        </div>
+      </div>
     </td>
     <td>${origin}</td>
     <td>${dur}</td>
@@ -643,17 +733,31 @@ document.querySelectorAll('thead th[data-col]').forEach(th => {
   });
 });
 
+// ── Lightbox ──────────────────────────────────────────────────────────────
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === e.currentTarget || e.target.id === 'lightbox-close')
+    e.currentTarget.classList.remove('open');
+});
+document.getElementById('table-wrap').addEventListener('click', e => {
+  const img = e.target.closest('.sp-photo');
+  if (!img) return;
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = img.dataset.medium || img.src;
+  lb.classList.add('open');
+});
+
 // ── Load data ─────────────────────────────────────────────────────────────
-fetch('data/grasses.json')
-  .then(r => r.json())
-  .then(data => {
-    allSpecies = data.map(enrich);
-    render();
-  })
-  .catch(err => {
-    console.error(err);
-    document.getElementById('empty').style.display = 'block';
-  });
+Promise.all([
+  fetch('data/grasses.json').then(r => r.json()),
+  fetch('data/histograms_ca.json').then(r => r.json()).catch(() => ({})),
+]).then(([grassData, histData]) => {
+  histograms = histData;
+  allSpecies = grassData.map(enrich);
+  render();
+}).catch(err => {
+  console.error(err);
+  document.getElementById('empty').style.display = 'block';
+});
 </script>
 </body>
 </html>
