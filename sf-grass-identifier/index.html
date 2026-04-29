@@ -214,6 +214,7 @@
     .pill-per   { background: #dbeafe; color: #1e40af; }
     .pill-native { background: #d1fae5; color: #065f46; }
     .pill-intro  { background: #fee2e2; color: #991b1b; }
+    .pill-habit  { background: #ede9fe; color: #5b21b6; }
 
     .no-data { color: #ccc; font-size: .8rem; }
 
@@ -401,7 +402,8 @@
     <div class="filter-group">
       <label class="group-label">Growth habit</label>
       <div class="chip-row" id="f-habit">
-        <div class="chip" data-filter="rhizomatous" data-value="true">Rhizomatous</div>
+        <div class="chip" data-filter="caespitose"    data-value="true">Caespitose (tufted)</div>
+        <div class="chip" data-filter="rhizomatous"   data-value="true">Rhizomatous</div>
         <div class="chip" data-filter="stoloniferous" data-value="true">Stoloniferous</div>
       </div>
     </div>
@@ -427,8 +429,9 @@
           <th data-col="awn_type">Awn type</th>
           <th data-col="inflorescence">Inflorescence</th>
           <th data-col="florets_display">Florets/spikelet</th>
-          <th data-col="leaf_width_class">Leaf width</th>
-          <th data-col="height_class">Height</th>
+          <th data-col="leaf_width_min_mm">Leaf width</th>
+          <th data-col="height_min_cm">Height</th>
+          <th data-col="caespitose">Habit</th>
           <th data-col="inat_obs_sf">SF obs.</th>
         </tr>
       </thead>
@@ -573,9 +576,11 @@ function renderRow(sp, filters) {
     : sp.has_awns === false ? '<span class="pill pill-no">No</span>'
     : na();
 
-  const awnLen = sp.awn_length_class
-    ? ({ short: '≤5 mm', medium: '5–20 mm', long: '>20 mm' }[sp.awn_length_class] || sp.awn_length_class)
-    : na();
+  const awnLen = sp.awn_length_mm_min != null
+    ? `${sp.awn_length_mm_min}–${sp.awn_length_mm_max} mm`
+    : sp.awn_length_class
+      ? ({ short: '≤5 mm', medium: '5–20 mm', long: '>20 mm' }[sp.awn_length_class] || sp.awn_length_class)
+      : na();
 
   const awnType = sp.awn_type
     ? (sp.awn_type === 'geniculate' ? 'Geniculate' : 'Straight')
@@ -585,13 +590,23 @@ function renderRow(sp, filters) {
 
   const florets = sp.florets_display || na();
 
-  const lw = sp.leaf_width_class
-    ? ({ filiform: '<1 mm', narrow: '1–3 mm', medium: '3–8 mm', wide: '>8 mm' }[sp.leaf_width_class])
-    : na();
+  const lw = sp.leaf_width_min_mm != null
+    ? `${sp.leaf_width_min_mm}–${sp.leaf_width_max_mm} mm`
+    : sp.leaf_width_class
+      ? ({ filiform: '<1 mm', narrow: '1–3 mm', medium: '3–8 mm', wide: '>8 mm' }[sp.leaf_width_class])
+      : na();
 
-  const ht = sp.height_class
-    ? ({ short: '<30 cm', medium: '30–100 cm', tall: '>100 cm' }[sp.height_class])
-    : na();
+  const ht = sp.height_min_cm != null
+    ? `${sp.height_min_cm}–${sp.height_max_cm} cm`
+    : sp.height_class
+      ? ({ short: '<30 cm', medium: '30–100 cm', tall: '>100 cm' }[sp.height_class])
+      : na();
+
+  const habitPills = [
+    sp.caespitose    ? '<span class="pill pill-habit">Caespitose</span>'  : '',
+    sp.rhizomatous   ? '<span class="pill pill-habit">Rhizomatous</span>' : '',
+    sp.stoloniferous ? '<span class="pill pill-habit">Stoloniferous</span>' : '',
+  ].filter(Boolean).join(' ') || na();
 
   const photoEl = sp.photo_url
     ? `<img class="sp-photo" src="${sp.photo_url}" alt="${sp.sci_name}" loading="lazy" data-medium="${sp.photo_medium || sp.photo_url}">`
@@ -621,6 +636,7 @@ function renderRow(sp, filters) {
     <td>${florets}</td>
     <td>${lw}</td>
     <td>${ht}</td>
+    <td>${habitPills}</td>
     <td>${sp.inat_obs_sf}</td>
   </tr>`;
 }
