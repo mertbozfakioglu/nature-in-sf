@@ -192,6 +192,58 @@ def parse_grassbase(html):
     else:
         feats['has_awns'] = False
 
+    # ── Leaf blade shape ──────────────────────────────────────────────────────
+    lb_section = ''
+    m = re.search(r'(Leaf.blades?[^;.]{0,200})', gb, re.I)
+    if m:
+        lb_section = m.group(1)
+    if re.search(r'\bflat\b', lb_section, re.I) and not re.search(r'\binvolute\b', lb_section, re.I):
+        feats['leaf_blade_shape'] = 'flat'
+    elif re.search(r'\binvolute\b', lb_section, re.I) and not re.search(r'\bflat\b', lb_section, re.I):
+        feats['leaf_blade_shape'] = 'involute'
+    elif re.search(r'\bflat\b', lb_section, re.I) and re.search(r'\binvolute\b', lb_section, re.I):
+        feats['leaf_blade_shape'] = 'flat_or_involute'
+    elif re.search(r'\bfolded\b', lb_section, re.I):
+        feats['leaf_blade_shape'] = 'folded'
+    elif re.search(r'\bconvolute\b', lb_section, re.I):
+        feats['leaf_blade_shape'] = 'convolute'
+
+    # ── Auricles ──────────────────────────────────────────────────────────────
+    if re.search(r'\bauricles?\b', gb, re.I):
+        feats['auricles'] = not bool(re.search(r'auricles?\s+absent', gb, re.I))
+
+    # ── Anther count ──────────────────────────────────────────────────────────
+    m = re.search(r'Anthers?\s+(\d)\b', gb, re.I)
+    if m:
+        feats['anther_count'] = int(m.group(1))
+
+    # ── Lemma surface ─────────────────────────────────────────────────────────
+    m = re.search(r'Lemma surface\s+([^;.]{0,80})', gb, re.I)
+    if m:
+        surf = m.group(1)
+        if re.search(r'\bglabrous\b', surf, re.I):
+            feats['lemma_surface'] = 'glabrous'
+        elif re.search(r'\bpubescent\b', surf, re.I):
+            feats['lemma_surface'] = 'pubescent'
+        elif re.search(r'\bscabrous\b', surf, re.I):
+            feats['lemma_surface'] = 'scabrous'
+        elif re.search(r'\bhairy\b', surf, re.I):
+            feats['lemma_surface'] = 'hairy'
+        elif re.search(r'\bsmooth\b', surf, re.I):
+            feats['lemma_surface'] = 'glabrous'
+
+    # ── Spikelet compression ──────────────────────────────────────────────────
+    if re.search(r'laterally\s+compressed', gb, re.I):
+        feats['spikelet_compression'] = 'lateral'
+    elif re.search(r'dorsiventrally\s+compressed|dorsally\s+compressed', gb, re.I):
+        feats['spikelet_compression'] = 'dorsiventral'
+
+    # ── Spikelet length ───────────────────────────────────────────────────────
+    m = re.search(r'Spikelets?[^.]*?(\d+(?:\.\d+)?)[–\-](\d+(?:\.\d+)?)\s*mm\s*(long|in\s+length)', gb, re.I)
+    if m:
+        feats['spikelet_length_mm_min'] = float(m.group(1))
+        feats['spikelet_length_mm_max'] = float(m.group(2))
+
     # Native range (not in GrassBase but appears earlier on page)
     m = re.search(r'native range[^.]*?is\s+([^.]+)', text, re.I)
     if m:
