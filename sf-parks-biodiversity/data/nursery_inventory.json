@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-30",
+  "lastUpdated": "2026-05-01",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -140,7 +140,6 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
-      "oaktown",
       "missionblue"
     ],
     "Collinsia heterophylla": [
@@ -266,7 +265,6 @@
       "heronshead"
     ],
     "Gilia capitata": [
-      "oaktown",
       "larnerseeds"
     ],
     "Grindelia camporum": [
@@ -317,8 +315,7 @@
     ],
     "Iris douglasiana": [
       "oaktown",
-      "heronshead",
-      "missionblue"
+      "heronshead"
     ],
     "Juncus balticus": [
       "oaktown"
@@ -396,6 +393,7 @@
       "larnerseeds"
     ],
     "Oenothera elata": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -430,6 +428,7 @@
       "larnerseeds"
     ],
     "Prunus ilicifolia": [
+      "oaktown",
       "heronshead"
     ],
     "Pseudognaphalium stramineum": [
@@ -469,6 +468,9 @@
       "missionblue",
       "larnerseeds"
     ],
+    "Rosa californica": [
+      "oaktown"
+    ],
     "Rosa gymnocarpa": [
       "oaktown"
     ],
@@ -479,17 +481,12 @@
       "oaktown"
     ],
     "Salvia spathacea": [
+      "oaktown",
       "heronshead",
       "missionblue"
     ],
-    "Sambucus nigra": [
-      "oaktown"
-    ],
     "Sambucus racemosa": [
       "missionblue"
-    ],
-    "Sanicula crassicaulis": [
-      "oaktown"
     ],
     "Scrophularia californica": [
       "oaktown",
@@ -514,7 +511,6 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
