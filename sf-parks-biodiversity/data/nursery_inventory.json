@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-01",
+  "lastUpdated": "2026-05-02",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -484,6 +484,9 @@
       "oaktown",
       "heronshead",
       "missionblue"
+    ],
+    "Sambucus nigra": [
+      "oaktown"
     ],
     "Sambucus racemosa": [
       "missionblue"
