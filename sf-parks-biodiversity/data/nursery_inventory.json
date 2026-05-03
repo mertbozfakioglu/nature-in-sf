@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-02",
+  "lastUpdated": "2026-05-03",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -35,8 +35,7 @@
       "oaktown"
     ],
     "Aquilegia formosa": [
-      "oaktown",
-      "heronshead"
+      "oaktown"
     ],
     "Arbutus menziesii": [
       "oaktown"
@@ -143,7 +142,6 @@
       "missionblue"
     ],
     "Collinsia heterophylla": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -242,7 +240,6 @@
       "larnerseeds"
     ],
     "Festuca idahoensis": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -336,7 +333,6 @@
       "oaktown"
     ],
     "Koeleria macrantha": [
-      "oaktown",
       "larnerseeds"
     ],
     "Lasthenia californica": [
@@ -372,14 +368,12 @@
       "larnerseeds"
     ],
     "Madia elegans": [
-      "oaktown",
       "larnerseeds"
     ],
     "Melica californica": [
       "larnerseeds"
     ],
     "Melica torreyana": [
-      "oaktown",
       "larnerseeds"
     ],
     "Monardella villosa": [
@@ -498,7 +492,6 @@
       "larnerseeds"
     ],
     "Sedum spathulifolium": [
-      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -547,9 +540,6 @@
     "Thalictrum fendleri": [
       "oaktown",
       "larnerseeds"
-    ],
-    "Toxicoscordion fremontii": [
-      "oaktown"
     ],
     "Trifolium fucatum": [
       "larnerseeds"
