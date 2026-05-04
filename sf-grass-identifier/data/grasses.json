@@ -1076,7 +1076,10 @@
     "lemma_length_mm_max": 7,
     "lemma_veins": 5,
     "florets_min": 4,
-    "florets_max": 14
+    "florets_max": 14,
+    "leaf_width_min_mm": 2.0,
+    "leaf_width_max_mm": 6.0,
+    "leaf_width_class": "medium"
   },
   {
     "inat_id": 64240,
@@ -2161,7 +2164,7 @@
     "culm_habit": "variable",
     "height_min_cm": 50,
     "height_max_cm": 300,
-    "ligule": "ciliate",
+    "ligule": "membranous",
     "leaf_width_min_mm": 5.0,
     "leaf_width_max_mm": 40.0,
     "inflorescence": "panicle_open",
@@ -2665,7 +2668,10 @@
     "lemma_length_mm_min": 1.0,
     "lemma_length_mm_max": 1.0,
     "lemma_veins": 5,
-    "anther_count": 3
+    "anther_count": 3,
+    "leaf_width_min_mm": 4.0,
+    "leaf_width_max_mm": 6.0,
+    "leaf_width_class": "medium"
   },
   {
     "inat_id": 64017,
@@ -2735,7 +2741,10 @@
     "lemma_length_mm_min": 1.0,
     "lemma_length_mm_max": 1.5,
     "lemma_veins": 5,
-    "anther_count": 3
+    "anther_count": 3,
+    "leaf_width_min_mm": 2.0,
+    "leaf_width_max_mm": 7.0,
+    "leaf_width_class": "medium"
   },
   {
     "inat_id": 325917,
@@ -2966,7 +2975,7 @@
     "ligule_length_mm_max": 3.0,
     "leaf_width_min_mm": 5.0,
     "leaf_width_max_mm": 10.0,
-    "inflorescence": "panicle",
+    "inflorescence": "variable",
     "spikelet_compression": "dorsiventral",
     "spikelet_length_mm_min": 3.0,
     "spikelet_length_mm_max": 10.0,
@@ -3148,7 +3157,7 @@
     "ligule": "membranous",
     "leaf_width_min_mm": 4.0,
     "leaf_width_max_mm": 8.0,
-    "inflorescence": "panicle",
+    "inflorescence": "variable",
     "spikelet_compression": "lateral",
     "spikelet_length_mm_min": 15.0,
     "spikelet_length_mm_max": 25.0,
@@ -3458,7 +3467,7 @@
     "leaf_blade_shape": "flat",
     "leaf_width_min_mm": 2.0,
     "leaf_width_max_mm": 4.0,
-    "inflorescence": "panicle",
+    "inflorescence": "variable",
     "spikelet_compression": "lateral",
     "spikelet_length_mm_min": 4.0,
     "spikelet_length_mm_max": 6.0,
@@ -3574,7 +3583,7 @@
     "ligule_length_mm_max": 5.0,
     "leaf_width_min_mm": 1.0,
     "leaf_width_max_mm": 3.0,
-    "inflorescence": "panicle",
+    "inflorescence": "variable",
     "spikelet_compression": "lateral",
     "spikelet_length_mm_min": 3.5,
     "spikelet_length_mm_max": 9.0,
@@ -3981,7 +3990,10 @@
     "lemma_veins": 5,
     "florets_min": 2,
     "florets_max": 2,
-    "anther_count": 3
+    "anther_count": 3,
+    "leaf_width_min_mm": 1.0,
+    "leaf_width_max_mm": 1.5,
+    "leaf_width_class": "narrow"
   },
   {
     "inat_id": 59088,
