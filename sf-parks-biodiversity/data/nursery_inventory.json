@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-03",
+  "lastUpdated": "2026-05-04",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -244,6 +244,7 @@
       "larnerseeds"
     ],
     "Festuca rubra": [
+      "oaktown",
       "larnerseeds"
     ],
     "Fragaria chiloensis": [
@@ -371,6 +372,7 @@
       "larnerseeds"
     ],
     "Melica californica": [
+      "oaktown",
       "larnerseeds"
     ],
     "Melica torreyana": [
@@ -442,8 +444,7 @@
       "heronshead"
     ],
     "Rhododendron occidentale": [
-      "oaktown",
-      "heronshead"
+      "oaktown"
     ],
     "Ribes divaricatum": [
       "oaktown"
@@ -521,6 +522,7 @@
       "larnerseeds"
     ],
     "Stipa pulchra": [
+      "oaktown",
       "larnerseeds"
     ],
     "Symphoricarpos albus": [
