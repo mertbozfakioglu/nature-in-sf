@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-04",
+  "lastUpdated": "2026-05-05",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -166,6 +166,7 @@
       "larnerseeds"
     ],
     "Diplacus aurantiacus": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -480,9 +481,6 @@
       "heronshead",
       "missionblue"
     ],
-    "Sambucus nigra": [
-      "oaktown"
-    ],
     "Sambucus racemosa": [
       "missionblue"
     ],
@@ -508,6 +506,7 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -533,6 +532,7 @@
       "heronshead"
     ],
     "Symphyotrichum chilense": [
+      "oaktown",
       "missionblue"
     ],
     "Tellima grandiflora": [
@@ -563,6 +563,7 @@
       "oaktown"
     ],
     "Vaccinium ovatum": [
+      "oaktown",
       "heronshead"
     ],
     "Viola adunca": [
