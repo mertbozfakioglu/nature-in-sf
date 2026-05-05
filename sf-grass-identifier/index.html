@@ -521,6 +521,13 @@
       </div>
     </div>
 
+    <div class="filter-group">
+      <label class="group-label">Genus <span class="multi-hint">multi-select</span></label>
+      <div class="chip-row" id="f-genus" data-multi="true">
+        <!-- populated dynamically after data loads -->
+      </div>
+    </div>
+
     </div><!-- /filters-inner -->
   </aside>
 
@@ -586,6 +593,9 @@ let histograms = {};   // taxon_id (string) → [jan…dec counts]
 
 // ── Derived fields ─────────────────────────────────────────────────────────
 function enrich(sp) {
+  // genus from first word of sci_name
+  sp.genus = sp.sci_name.split(' ')[0];
+
   // height class from raw min/max
   const hMid = sp.height_min_cm != null && sp.height_max_cm != null
     ? (sp.height_min_cm + sp.height_max_cm) / 2
@@ -905,12 +915,22 @@ function renderRow(sp, filters) {
 
 function render() {
   const filters = activeFilters;
-  const hasFilters = Object.keys(filters).length > 0;
+
+  // genus is a hard pre-filter, not part of match scoring
+  const genusFilter = filters.genus;
+  const scoreFilters = genusFilter
+    ? Object.fromEntries(Object.entries(filters).filter(([k]) => k !== 'genus'))
+    : filters;
+  const hasFilters = Object.keys(scoreFilters).length > 0;
+
+  const visibleSpecies = genusFilter
+    ? allSpecies.filter(sp => genusFilter.has(sp.genus))
+    : allSpecies;
 
   // score and sort
-  let rows = allSpecies.map(sp => ({
+  let rows = visibleSpecies.map(sp => ({
     sp,
-    score: scoreSpecies(sp, filters),
+    score: scoreSpecies(sp, scoreFilters),
   }));
 
   if (hasFilters && sortCol === 'match') {
@@ -1040,6 +1060,34 @@ Promise.all([
 ]).then(([grassData, histData]) => {
   histograms = histData;
   allSpecies = grassData.map(enrich);
+
+  // Populate genus chips dynamically
+  const genera = [...new Set(allSpecies.map(sp => sp.genus))].sort();
+  const genusRow = document.getElementById('f-genus');
+  genera.forEach(genus => {
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.dataset.filter = 'genus';
+    chip.dataset.value = genus;
+    chip.textContent = genus;
+    chip.addEventListener('click', () => {
+      const isActive = chip.classList.contains('active');
+      if (isActive) {
+        chip.classList.remove('active');
+        if (activeFilters.genus) {
+          activeFilters.genus.delete(genus);
+          if (activeFilters.genus.size === 0) delete activeFilters.genus;
+        }
+      } else {
+        chip.classList.add('active');
+        if (!activeFilters.genus) activeFilters.genus = new Set();
+        activeFilters.genus.add(genus);
+      }
+      render();
+    });
+    genusRow.appendChild(chip);
+  });
+
   render();
 }).catch(err => {
   console.error(err);
