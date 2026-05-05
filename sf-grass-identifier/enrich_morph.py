@@ -23,7 +23,7 @@ FIELDS = [
     'leaf_sheath', 'leaf_blade_shape', 'auricles', 'culm_habit',
     'inflorescence', 'rhizomatous',
     'anther_count', 'lemma_surface', 'lemma_length_mm_min', 'lemma_length_mm_max',
-    'lemma_veins', 'spikelet_compression',
+    'lemma_veins_min', 'lemma_veins_max', 'spikelet_compression',
     'spikelet_length_mm_min', 'spikelet_length_mm_max',
     'spikelet_width_mm_min', 'spikelet_width_mm_max',
     'glume_relative',
@@ -228,11 +228,13 @@ def parse_fields(gb):
                 feats['lemma_length_mm_max'] = float(ml.group(1))
         mv = re.search(r'(\d+)[–\-](\d+)\s*-veined', lem, re.I)
         if mv:
-            feats['lemma_veins'] = round((int(mv.group(1)) + int(mv.group(2))) / 2)
+            feats['lemma_veins_min'] = int(mv.group(1))
+            feats['lemma_veins_max'] = int(mv.group(2))
         else:
             mv = re.search(r'(\d+)\s*-veined', lem, re.I)
             if mv:
-                feats['lemma_veins'] = int(mv.group(1))
+                feats['lemma_veins_min'] = int(mv.group(1))
+                feats['lemma_veins_max'] = int(mv.group(1))
 
     # ── Spikelet compression ──────────────────────────────────────────────────
     has_lat  = bool(re.search(r'laterally\s+compressed', gb, re.I))

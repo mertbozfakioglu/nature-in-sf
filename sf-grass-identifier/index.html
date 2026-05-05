@@ -551,7 +551,7 @@
           <th data-col="anther_count">Anthers</th>
           <th data-col="lemma_surface">Lemma surface</th>
           <th data-col="lemma_length_mm_min">Lemma length</th>
-          <th data-col="lemma_veins">Lemma veins</th>
+          <th data-col="lemma_veins_min">Lemma veins</th>
           <th data-col="leaf_blade_shape">Blade shape</th>
           <th data-col="auricles">Auricles</th>
           <th data-col="ligule_length_mm_min">Ligule length</th>
@@ -836,7 +836,11 @@ function renderRow(sp, filters) {
     ? `${sp.lemma_length_mm_min}–${sp.lemma_length_mm_max} mm`
     : na();
 
-  const lemmaVeins = sp.lemma_veins != null ? String(sp.lemma_veins) : na();
+  const lemmaVeins = sp.lemma_veins_min != null
+    ? (sp.lemma_veins_min === sp.lemma_veins_max
+        ? String(sp.lemma_veins_min)
+        : `${sp.lemma_veins_min}–${sp.lemma_veins_max}`)
+    : na();
 
   const liguLen = sp.ligule_length_mm_min != null
     ? (sp.ligule_length_mm_min === sp.ligule_length_mm_max
