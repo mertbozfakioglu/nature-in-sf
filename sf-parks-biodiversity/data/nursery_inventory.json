@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-05",
+  "lastUpdated": "2026-05-06",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -211,8 +211,7 @@
     "Eriophyllum staechadifolium": [
       "oaktown",
       "heronshead",
-      "missionblue",
-      "larnerseeds"
+      "missionblue"
     ],
     "Erysimum franciscanum": [
       "sutro"
@@ -241,6 +240,7 @@
       "larnerseeds"
     ],
     "Festuca idahoensis": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -348,6 +348,9 @@
       "larnerseeds"
     ],
     "Lepechinia calycina": [
+      "oaktown"
+    ],
+    "Lilium pardalinum": [
       "oaktown"
     ],
     "Lonicera involucrata": [
@@ -500,6 +503,7 @@
       "larnerseeds"
     ],
     "Sisyrinchium californicum": [
+      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
