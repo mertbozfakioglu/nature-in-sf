@@ -702,6 +702,7 @@ function clearSpeciesFilter() {
 }
 
 let _dropdownActive = -1;
+let _suppressInput  = false;
 
 function initSearch() {
   const input    = document.getElementById('species-search');
@@ -735,8 +736,9 @@ function initSearch() {
   }
 
   function selectResult(sp) {
+    _suppressInput = true;
     input.value = sp.common || sp.name;
-    dropdown.classList.add('hidden');
+    hideDropdown();
     clearBtn.classList.remove('hidden');
     applySpeciesFilter(sp);
   }
@@ -744,6 +746,7 @@ function initSearch() {
   function hideDropdown() { dropdown.classList.add('hidden'); _dropdownActive = -1; }
 
   input.addEventListener('input', () => {
+    if (_suppressInput) { _suppressInput = false; return; }
     const q = input.value.trim();
     if (!q) { clearSpeciesFilter(); clearBtn.classList.add('hidden'); hideDropdown(); return; }
     showDropdown(searchSpecies(q));
