@@ -178,6 +178,9 @@ html, body {
   overflow: hidden;
 }
 
+#species-dropdown.hidden { display: none; }
+#species-search-clear.hidden { display: none; }
+
 .sp-result {
   display: flex;
   align-items: center;
