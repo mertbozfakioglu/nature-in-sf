@@ -126,6 +126,112 @@ html, body {
   color: #fff;
 }
 
+/* ─── Species search ────────────────────────────── */
+#species-search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+  min-width: 160px;
+}
+
+#species-search {
+  width: 100%;
+  padding: 6px 28px 6px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-card);
+  font-size: 0.74rem;
+  color: var(--text);
+  outline: none;
+  box-sizing: border-box;
+}
+
+#species-search:focus {
+  border-color: var(--green-mid);
+  background: var(--bg-panel);
+}
+
+#species-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 2px 4px;
+  line-height: 1;
+}
+
+#species-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.sp-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-soft);
+}
+.sp-result:last-child { border-bottom: none; }
+.sp-result:hover, .sp-result.active { background: var(--green-pale); }
+
+.sp-result-photo {
+  width: 34px;
+  height: 34px;
+  border-radius: 5px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.sp-result-no-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  font-size: 1rem;
+}
+
+.sp-result-names { flex: 1; min-width: 0; }
+
+.sp-result-common {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-result-sci {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-result-count {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
 /* ─── Body layout ───────────────────────────────── */
 #body-wrap {
   flex: 1;
