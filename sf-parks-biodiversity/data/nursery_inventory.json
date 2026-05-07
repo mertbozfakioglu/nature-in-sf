@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-06",
+  "lastUpdated": "2026-05-07",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -30,9 +30,6 @@
     ],
     "Anaphalis margaritacea": [
       "missionblue"
-    ],
-    "Anisocarpus madioides": [
-      "oaktown"
     ],
     "Aquilegia formosa": [
       "oaktown"
@@ -99,9 +96,6 @@
     "Carex densa": [
       "oaktown"
     ],
-    "Carex pansa": [
-      "oaktown"
-    ],
     "Carex praegracilis": [
       "heronshead",
       "larnerseeds"
@@ -166,7 +160,6 @@
       "larnerseeds"
     ],
     "Diplacus aurantiacus": [
-      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -355,9 +348,6 @@
     ],
     "Lonicera involucrata": [
       "sutro"
-    ],
-    "Lupinus albifrons": [
-      "oaktown"
     ],
     "Lupinus bicolor": [
       "larnerseeds"
