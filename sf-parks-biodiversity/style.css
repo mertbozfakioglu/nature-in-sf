@@ -129,9 +129,8 @@ html, body {
 /* ─── Species search ────────────────────────────── */
 #species-search-wrap {
   position: relative;
-  flex: 1;
-  max-width: 320px;
-  min-width: 160px;
+  width: 260px;
+  flex-shrink: 1;
 }
 
 #species-search {
