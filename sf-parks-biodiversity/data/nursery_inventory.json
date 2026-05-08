@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-07",
+  "lastUpdated": "2026-05-08",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -247,7 +247,8 @@
     ],
     "Fragaria vesca": [
       "oaktown",
-      "sutro"
+      "sutro",
+      "heronshead"
     ],
     "Frangula californica": [
       "oaktown"
@@ -469,10 +470,16 @@
     "Rubus ursinus": [
       "oaktown"
     ],
+    "Salix laevigata": [
+      "oaktown"
+    ],
     "Salvia spathacea": [
       "oaktown",
       "heronshead",
       "missionblue"
+    ],
+    "Sambucus nigra": [
+      "oaktown"
     ],
     "Sambucus racemosa": [
       "missionblue"
