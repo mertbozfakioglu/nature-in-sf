@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-08",
+  "lastUpdated": "2026-05-09",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -96,12 +96,14 @@
     "Carex densa": [
       "oaktown"
     ],
+    "Carex pansa": [
+      "oaktown"
+    ],
     "Carex praegracilis": [
       "heronshead",
       "larnerseeds"
     ],
     "Carex tumulicola": [
-      "oaktown",
       "heronshead"
     ],
     "Castilleja exserta": [
@@ -292,6 +294,7 @@
       "larnerseeds"
     ],
     "Heuchera micrantha": [
+      "oaktown",
       "heronshead"
     ],
     "Holodiscus discolor": [
@@ -465,7 +468,8 @@
       "oaktown"
     ],
     "Rubus parviflorus": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Rubus ursinus": [
       "oaktown"
@@ -474,7 +478,6 @@
       "oaktown"
     ],
     "Salvia spathacea": [
-      "oaktown",
       "heronshead",
       "missionblue"
     ],
