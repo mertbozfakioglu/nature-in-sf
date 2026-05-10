@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-09",
+  "lastUpdated": "2026-05-10",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -50,7 +50,6 @@
       "larnerseeds"
     ],
     "Artemisia californica": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -211,9 +210,6 @@
     "Erysimum franciscanum": [
       "sutro"
     ],
-    "Erythranthe cardinalis": [
-      "oaktown"
-    ],
     "Erythranthe guttata": [
       "oaktown",
       "sutro"
@@ -299,6 +295,7 @@
     ],
     "Holodiscus discolor": [
       "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Hordeum brachyantherum": [
@@ -353,6 +350,9 @@
     "Lonicera involucrata": [
       "sutro"
     ],
+    "Lupinus albifrons": [
+      "oaktown"
+    ],
     "Lupinus bicolor": [
       "larnerseeds"
     ],
@@ -381,6 +381,7 @@
       "heronshead"
     ],
     "Morella californica": [
+      "oaktown",
       "larnerseeds"
     ],
     "Nemophila menziesii": [
