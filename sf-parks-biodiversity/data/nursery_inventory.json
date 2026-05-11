@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-10",
+  "lastUpdated": "2026-05-11",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -165,7 +165,6 @@
       "larnerseeds"
     ],
     "Drymocallis glandulosa": [
-      "oaktown",
       "missionblue"
     ],
     "Dudleya farinosa": [
@@ -184,7 +183,6 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue"
@@ -472,6 +470,9 @@
       "oaktown",
       "heronshead"
     ],
+    "Rubus spectabilis": [
+      "oaktown"
+    ],
     "Rubus ursinus": [
       "oaktown"
     ],
@@ -499,7 +500,6 @@
       "missionblue"
     ],
     "Sisyrinchium bellum": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
