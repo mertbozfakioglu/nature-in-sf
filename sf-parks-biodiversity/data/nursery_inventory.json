@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-12",
+  "lastUpdated": "2026-05-13",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -89,9 +89,6 @@
       "oaktown",
       "heronshead"
     ],
-    "Carex barbarae": [
-      "oaktown"
-    ],
     "Carex densa": [
       "oaktown"
     ],
@@ -134,8 +131,7 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
-      "oaktown",
-      "missionblue"
+      "oaktown"
     ],
     "Collinsia heterophylla": [
       "heronshead",
@@ -162,6 +158,7 @@
       "larnerseeds"
     ],
     "Diplacus aurantiacus": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -339,9 +336,6 @@
     ],
     "Layia platyglossa": [
       "larnerseeds"
-    ],
-    "Lepechinia calycina": [
-      "oaktown"
     ],
     "Lilium pardalinum": [
       "oaktown"
