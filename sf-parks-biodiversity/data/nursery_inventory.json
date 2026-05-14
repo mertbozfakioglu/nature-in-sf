@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-13",
+  "lastUpdated": "2026-05-14",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -30,9 +30,6 @@
     ],
     "Anaphalis margaritacea": [
       "missionblue"
-    ],
-    "Aquilegia formosa": [
-      "oaktown"
     ],
     "Arbutus menziesii": [
       "oaktown"
@@ -127,7 +124,6 @@
       "larnerseeds"
     ],
     "Clarkia rubicunda": [
-      "oaktown",
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
@@ -181,6 +177,7 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
+      "oaktown",
       "sutro",
       "heronshead",
       "missionblue"
@@ -214,6 +211,7 @@
       "larnerseeds"
     ],
     "Eschscholzia californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -354,6 +352,9 @@
     ],
     "Lupinus nanus": [
       "larnerseeds"
+    ],
+    "Lupinus polyphyllus": [
+      "oaktown"
     ],
     "Lupinus succulentus": [
       "heronshead",
@@ -563,7 +564,6 @@
       "oaktown"
     ],
     "Vaccinium ovatum": [
-      "oaktown",
       "heronshead"
     ],
     "Viola adunca": [
