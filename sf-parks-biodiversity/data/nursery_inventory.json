@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-14",
+  "lastUpdated": "2026-05-15",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -192,6 +192,9 @@
     "Eriogonum nudum": [
       "oaktown"
     ],
+    "Eriophyllum confertiflorum": [
+      "oaktown"
+    ],
     "Eriophyllum lanatum": [
       "heronshead"
     ],
@@ -238,7 +241,6 @@
       "heronshead"
     ],
     "Fragaria vesca": [
-      "oaktown",
       "sutro",
       "heronshead"
     ],
@@ -284,7 +286,6 @@
       "larnerseeds"
     ],
     "Heuchera micrantha": [
-      "oaktown",
       "heronshead"
     ],
     "Holodiscus discolor": [
@@ -338,7 +339,11 @@
     "Lilium pardalinum": [
       "oaktown"
     ],
+    "Lonicera hispidula": [
+      "oaktown"
+    ],
     "Lonicera involucrata": [
+      "oaktown",
       "sutro"
     ],
     "Lupinus albifrons": [
@@ -496,6 +501,7 @@
       "missionblue"
     ],
     "Sisyrinchium bellum": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -573,7 +579,7 @@
       "heronshead"
     ],
     "Wyethia angustifolia": [
-      "larnerseeds"
+      "oaktown"
     ],
     "Wyethia helenioides": [
       "oaktown"
