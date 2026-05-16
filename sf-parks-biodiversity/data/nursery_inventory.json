@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-15",
+  "lastUpdated": "2026-05-16",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -52,6 +52,7 @@
       "larnerseeds"
     ],
     "Artemisia douglasiana": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -154,7 +155,6 @@
       "larnerseeds"
     ],
     "Diplacus aurantiacus": [
-      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
