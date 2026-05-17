@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-16",
+  "lastUpdated": "2026-05-17",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -8,6 +8,7 @@
       "missionblue"
     ],
     "Acer negundo": [
+      "oaktown",
       "heronshead"
     ],
     "Achillea millefolium": [
@@ -138,6 +139,7 @@
       "missionblue"
     ],
     "Corylus cornuta": [
+      "oaktown",
       "larnerseeds"
     ],
     "Danthonia californica": [
@@ -410,6 +412,9 @@
     "Plantago subnuda": [
       "larnerseeds"
     ],
+    "Platystemon californicus": [
+      "oaktown"
+    ],
     "Polypodium californicum": [
       "oaktown"
     ],
@@ -501,7 +506,6 @@
       "missionblue"
     ],
     "Sisyrinchium bellum": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -570,6 +574,7 @@
       "oaktown"
     ],
     "Vaccinium ovatum": [
+      "oaktown",
       "heronshead"
     ],
     "Viola adunca": [
