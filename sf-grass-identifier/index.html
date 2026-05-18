@@ -562,6 +562,7 @@
           <th data-col="leaf_blade_shape">Blade shape</th>
           <th data-col="auricles">Auricles</th>
           <th data-col="ligule_length_mm_min">Ligule length</th>
+          <th data-col="peak_month">Peak month</th>
           <th data-col="inat_obs_sf">SF obs.</th>
         </tr>
       </thead>
@@ -908,6 +909,7 @@ function renderRow(sp, filters) {
     <td>${bladeShape}</td>
     <td>${auricles}</td>
     <td>${liguLen}</td>
+    <td>${sp.peak_month != null ? ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][sp.peak_month - 1] : na()}</td>
     <td>${sp.inat_obs_sf}</td>
   </tr>`;
   return mainRow;
@@ -941,7 +943,11 @@ function render() {
     });
   } else {
     rows.sort((a, b) => {
-      let av = a.sp[sortCol] ?? '', bv = b.sp[sortCol] ?? '';
+      let av = a.sp[sortCol], bv = b.sp[sortCol];
+      // nulls always last
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
       if (typeof av === 'number') return sortAsc ? av - bv : bv - av;
       av = String(av).toLowerCase(); bv = String(bv).toLowerCase();
       return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);

@@ -37,7 +37,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 5
   },
   {
     "inat_id": 64140,
@@ -75,7 +76,8 @@
     "anther_count": 6,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 61068,
@@ -117,7 +119,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 52796,
@@ -158,7 +161,8 @@
     "leaf_width_class": "medium",
     "glume_relative": "exceeding",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 52702,
@@ -199,7 +203,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 4
   },
   {
     "inat_id": 52703,
@@ -242,7 +247,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 4
   },
   {
     "inat_id": 58372,
@@ -277,7 +283,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 11
+    "lemma_veins_max": 11,
+    "peak_month": 4
   },
   {
     "inat_id": 52808,
@@ -316,7 +323,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 52793,
@@ -356,7 +364,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 57197,
@@ -396,7 +405,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 165659,
@@ -436,7 +446,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 52714,
@@ -473,7 +484,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 9
   },
   {
     "inat_id": 57162,
@@ -513,7 +525,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 4
   },
   {
     "inat_id": 52696,
@@ -555,7 +568,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 9,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 4
   },
   {
     "inat_id": 61067,
@@ -597,7 +611,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 61071,
@@ -635,7 +650,8 @@
     "leaf_width_class": "narrow",
     "caespitose": false,
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 4
   },
   {
     "inat_id": 942779,
@@ -675,7 +691,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 9
   },
   {
     "inat_id": 57165,
@@ -716,7 +733,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 52720,
@@ -756,7 +774,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 52694,
@@ -798,7 +817,8 @@
     "anther_count": 3,
     "leaf_width_class": "filiform",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 68479,
@@ -839,7 +859,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 57173,
@@ -879,7 +900,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 57192,
@@ -916,7 +938,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 52698,
@@ -957,7 +980,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 4
   },
   {
     "inat_id": 60298,
@@ -994,7 +1018,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 8,
-    "lemma_veins_max": 12
+    "lemma_veins_max": 12,
+    "peak_month": 4
   },
   {
     "inat_id": 52791,
@@ -1033,7 +1058,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 60276,
@@ -1074,7 +1100,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 9,
-    "lemma_veins_max": 13
+    "lemma_veins_max": 13,
+    "peak_month": 4
   },
   {
     "inat_id": 52801,
@@ -1109,7 +1136,8 @@
     "leaf_width_max_mm": 6.0,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 64240,
@@ -1145,7 +1173,8 @@
     "florets_max": 7,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 9
   },
   {
     "inat_id": 57184,
@@ -1182,7 +1211,8 @@
     "florets_max": 6,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 71142,
@@ -1222,7 +1252,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 9,
-    "lemma_veins_max": 11
+    "lemma_veins_max": 11,
+    "peak_month": 4
   },
   {
     "inat_id": 57183,
@@ -1261,7 +1292,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 5
   },
   {
     "inat_id": 57186,
@@ -1297,7 +1329,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 4
   },
   {
     "inat_id": 47695,
@@ -1337,7 +1370,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 52700,
@@ -1379,7 +1413,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 4
   },
   {
     "inat_id": 61061,
@@ -1422,7 +1457,8 @@
     "anther_count": 3,
     "leaf_width_class": "filiform",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 61063,
@@ -1465,7 +1501,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 7
   },
   {
     "inat_id": 77136,
@@ -1506,7 +1543,8 @@
     "anther_count": 1,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 165660,
@@ -1547,7 +1585,8 @@
     "anther_count": 3,
     "leaf_width_class": "filiform",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 58371,
@@ -1585,7 +1624,8 @@
     "florets_max": 1,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 9
   },
   {
     "inat_id": 64161,
@@ -1628,7 +1668,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 77140,
@@ -1669,7 +1710,8 @@
     "anther_count": 1,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 52804,
@@ -1704,7 +1746,8 @@
     "florets_min": 1,
     "florets_max": 2,
     "anther_count": 3,
-    "leaf_width_class": "narrow"
+    "leaf_width_class": "narrow",
+    "peak_month": 4
   },
   {
     "inat_id": 76639,
@@ -1746,7 +1789,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 52802,
@@ -1779,7 +1823,8 @@
     "florets_min": 1,
     "florets_max": 2,
     "anther_count": 3,
-    "leaf_width_class": "medium"
+    "leaf_width_class": "medium",
+    "peak_month": 4
   },
   {
     "inat_id": 57169,
@@ -1819,7 +1864,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 58379,
@@ -1856,7 +1902,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 60294,
@@ -1893,7 +1940,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 4
   },
   {
     "inat_id": 164677,
@@ -1928,7 +1976,8 @@
     "florets_max": 6,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 164708,
@@ -1972,7 +2021,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 60295,
@@ -2003,7 +2053,8 @@
     "has_awns": false,
     "florets_min": 1,
     "florets_max": 1,
-    "leaf_width_class": "medium"
+    "leaf_width_class": "medium",
+    "peak_month": 9
   },
   {
     "inat_id": 75475,
@@ -2044,7 +2095,8 @@
     "anther_count": 2,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 77138,
@@ -2084,7 +2136,8 @@
     "florets_max": 6,
     "leaf_width_class": "filiform",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 430581,
@@ -2119,7 +2172,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 524183,
@@ -2157,7 +2211,8 @@
     "florets_max": 1,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 4
   },
   {
     "inat_id": 52707,
@@ -2200,7 +2255,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 4
   },
   {
     "inat_id": 58387,
@@ -2234,7 +2290,8 @@
     "awn_type": "geniculate",
     "florets_min": 1,
     "florets_max": 1,
-    "leaf_width_class": "wide"
+    "leaf_width_class": "wide",
+    "peak_month": 7
   },
   {
     "inat_id": 165656,
@@ -2276,7 +2333,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 772992,
@@ -2316,7 +2374,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 9
   },
   {
     "inat_id": 52692,
@@ -2354,7 +2413,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 57188,
@@ -2390,7 +2450,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 48448,
@@ -2413,7 +2474,8 @@
     "has_awns": false,
     "florets_min": 1,
     "florets_max": 1,
-    "anther_count": 3
+    "anther_count": 3,
+    "peak_month": 9
   },
   {
     "inat_id": 57181,
@@ -2452,7 +2514,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 57182,
@@ -2493,7 +2556,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 58376,
@@ -2531,7 +2595,8 @@
     "lemma_length_mm_max": 10.0,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 7
   },
   {
     "inat_id": 59210,
@@ -2573,7 +2638,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 4
   },
   {
     "inat_id": 164673,
@@ -2609,7 +2675,8 @@
     "lemma_length_mm_max": 13.0,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 430578,
@@ -2645,7 +2712,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 10
   },
   {
     "inat_id": 1550239,
@@ -2658,7 +2726,8 @@
     "native_to_ca": false,
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/369672416/square.jpeg",
     "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/369672416/medium.jpeg",
-    "duration": "annual"
+    "duration": "annual",
+    "peak_month": 4
   },
   {
     "inat_id": 59094,
@@ -2697,7 +2766,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 4
   },
   {
     "inat_id": 59099,
@@ -2738,7 +2808,8 @@
     "leaf_width_max_mm": 6.0,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 64017,
@@ -2775,7 +2846,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 4
   },
   {
     "inat_id": 64144,
@@ -2813,7 +2885,8 @@
     "leaf_width_max_mm": 7.0,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 325917,
@@ -2854,7 +2927,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 4
   },
   {
     "inat_id": 1199528,
@@ -2866,7 +2940,8 @@
     "establishment_means": "introduced",
     "native_to_ca": false,
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250070847/square.jpg",
-    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/250070847/medium.jpg"
+    "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/250070847/medium.jpg",
+    "peak_month": 5
   },
   {
     "inat_id": 57156,
@@ -2907,7 +2982,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": 5
   },
   {
     "inat_id": 57167,
@@ -2946,7 +3022,8 @@
     "lemma_length_mm_max": 10.0,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 57191,
@@ -2984,7 +3061,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 6
   },
   {
     "inat_id": 58369,
@@ -3025,7 +3103,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 5
   },
   {
     "inat_id": 58389,
@@ -3061,7 +3140,8 @@
     "lemma_length_mm_max": 3.0,
     "leaf_width_class": "medium",
     "lemma_veins_min": 1,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 9
   },
   {
     "inat_id": 61070,
@@ -3097,7 +3177,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 69931,
@@ -3135,7 +3216,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 9
   },
   {
     "inat_id": 71140,
@@ -3175,7 +3257,8 @@
     "florets_max": 1,
     "anther_count": 3,
     "lemma_veins_min": 4,
-    "lemma_veins_max": 4
+    "lemma_veins_max": 4,
+    "peak_month": 3
   },
   {
     "inat_id": 75474,
@@ -3211,7 +3294,8 @@
     "lemma_length_mm_min": 4.5,
     "lemma_length_mm_max": 4.5,
     "anther_count": 2,
-    "leaf_width_class": "wide"
+    "leaf_width_class": "wide",
+    "peak_month": 3
   },
   {
     "inat_id": 75903,
@@ -3254,7 +3338,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 7
   },
   {
     "inat_id": 75912,
@@ -3294,7 +3379,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": 3
   },
   {
     "inat_id": 79021,
@@ -3336,7 +3422,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 7
   },
   {
     "inat_id": 79068,
@@ -3373,7 +3460,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 9
   },
   {
     "inat_id": 204259,
@@ -3413,7 +3501,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 4
   },
   {
     "inat_id": 431011,
@@ -3456,7 +3545,8 @@
     "anther_count": 3,
     "leaf_width_class": "filiform",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": 5
   },
   {
     "inat_id": 773038,
@@ -3490,7 +3580,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 1,
-    "lemma_veins_max": 1
+    "lemma_veins_max": 1,
+    "peak_month": 8
   },
   {
     "inat_id": 1477514,
@@ -3528,7 +3619,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": 5
   },
   {
     "inat_id": 60307,
@@ -3566,7 +3658,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 165474,
@@ -3607,7 +3700,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 1,
-    "lemma_veins_max": 1
+    "lemma_veins_max": 1,
+    "peak_month": null
   },
   {
     "inat_id": 61200,
@@ -3649,7 +3743,8 @@
     "anther_count": 3,
     "leaf_width_class": "filiform",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 57198,
@@ -3686,7 +3781,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 63337,
@@ -3724,7 +3820,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 57163,
@@ -3765,7 +3862,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": null
   },
   {
     "inat_id": 71257,
@@ -3802,7 +3900,8 @@
     "florets_max": 1,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": null
   },
   {
     "inat_id": 60283,
@@ -3838,7 +3937,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 57155,
@@ -3873,7 +3973,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 76794,
@@ -3911,7 +4012,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 79210,
@@ -3944,7 +4046,8 @@
     "florets_max": 1,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 772903,
@@ -3981,7 +4084,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 1,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 51633,
@@ -4014,7 +4118,8 @@
     "florets_min": 1,
     "florets_max": 1,
     "anther_count": 3,
-    "leaf_width_class": "medium"
+    "leaf_width_class": "medium",
+    "peak_month": null
   },
   {
     "inat_id": 52722,
@@ -4056,7 +4161,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 57164,
@@ -4094,7 +4200,8 @@
     "leaf_width_max_mm": 1.5,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 59088,
@@ -4133,7 +4240,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 71141,
@@ -4172,7 +4280,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 75915,
@@ -4210,7 +4319,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 7,
-    "lemma_veins_max": 7
+    "lemma_veins_max": 7,
+    "peak_month": null
   },
   {
     "inat_id": 78919,
@@ -4249,7 +4359,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 9,
-    "lemma_veins_max": 9
+    "lemma_veins_max": 9,
+    "peak_month": null
   },
   {
     "inat_id": 167588,
@@ -4288,7 +4399,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 167999,
@@ -4326,7 +4438,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 169951,
@@ -4361,7 +4474,8 @@
     "florets_max": 11,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": null
   },
   {
     "inat_id": 204260,
@@ -4403,7 +4517,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": null
   },
   {
     "inat_id": 534935,
@@ -4440,7 +4555,8 @@
     "anther_count": 3,
     "leaf_width_class": "wide",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": null
   },
   {
     "inat_id": 59091,
@@ -4479,7 +4595,8 @@
     "anther_count": 3,
     "leaf_width_class": "filiform",
     "lemma_veins_min": 5,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 75312,
@@ -4515,7 +4632,8 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 5
+    "lemma_veins_max": 5,
+    "peak_month": null
   },
   {
     "inat_id": 76790,
@@ -4550,7 +4668,8 @@
     "florets_max": 9,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": null
   },
   {
     "inat_id": 78340,
@@ -4581,7 +4700,8 @@
     "lemma_length_mm_max": 3.5,
     "florets_min": 1,
     "florets_max": 1,
-    "leaf_width_class": "wide"
+    "leaf_width_class": "wide",
+    "peak_month": null
   },
   {
     "inat_id": 116710,
@@ -4613,7 +4733,8 @@
     "florets_min": 1,
     "florets_max": 1,
     "anther_count": 3,
-    "leaf_width_class": "wide"
+    "leaf_width_class": "wide",
+    "peak_month": null
   },
   {
     "inat_id": 123728,
@@ -4645,7 +4766,8 @@
     "florets_min": 1,
     "florets_max": 1,
     "anther_count": 3,
-    "leaf_width_class": "wide"
+    "leaf_width_class": "wide",
+    "peak_month": null
   },
   {
     "inat_id": 128270,
@@ -4676,7 +4798,8 @@
     "florets_min": 1,
     "florets_max": 1,
     "anther_count": 3,
-    "leaf_width_class": "wide"
+    "leaf_width_class": "wide",
+    "peak_month": null
   },
   {
     "inat_id": 165543,
@@ -4717,7 +4840,8 @@
     "anther_count": 3,
     "leaf_width_class": "narrow",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": null
   },
   {
     "inat_id": 363725,
@@ -4729,7 +4853,8 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5103265/small.jpeg",
     "photo_medium": "https://inaturalist-open-data.s3.amazonaws.com/photos/5103265/medium.jpeg",
     "native_to_ca": false,
-    "duration": "perennial"
+    "duration": "perennial",
+    "peak_month": null
   },
   {
     "inat_id": 1377294,
@@ -4768,6 +4893,7 @@
     "anther_count": 3,
     "leaf_width_class": "medium",
     "lemma_veins_min": 3,
-    "lemma_veins_max": 3
+    "lemma_veins_max": 3,
+    "peak_month": null
   }
 ]
