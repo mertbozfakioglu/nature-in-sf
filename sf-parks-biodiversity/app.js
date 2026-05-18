@@ -34,6 +34,8 @@ const state = {
   nurseryIndex: new Map(),  // 'Genus species' → ['nursery_id', …]
   histograms:   {},         // taxon_id (string) → [jan…dec counts]
   spSort:       'obs',      // 'obs' | 'month'
+  speciesIndex: [],         // [{id, name, common, iconic, photo, parks:[…]}]
+  speciesFilter: null,      // Set<parkId> when a species is selected, else null
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -52,9 +54,11 @@ function initMap() {
 }
 
 const STYLE = {
-  normal:   { fillColor: '#7ab88a', fillOpacity: 0.30, color: '#4a7a56', weight: 1.5 },
-  hover:    { fillColor: '#5a9e6e', fillOpacity: 0.50, color: '#3a6a46', weight: 2 },
-  selected: { fillColor: '#3a8e56', fillOpacity: 0.60, color: '#2a6a3e', weight: 2.5 },
+  normal:    { fillColor: '#7ab88a', fillOpacity: 0.30, color: '#4a7a56', weight: 1.5 },
+  hover:     { fillColor: '#5a9e6e', fillOpacity: 0.50, color: '#3a6a46', weight: 2 },
+  selected:  { fillColor: '#3a8e56', fillOpacity: 0.60, color: '#2a6a3e', weight: 2.5 },
+  highlight: { fillColor: '#e07b20', fillOpacity: 0.55, color: '#b85a0a', weight: 2.5 },
+  dim:       { fillColor: '#999',    fillOpacity: 0.07, color: '#bbb',    weight: 1 },
 };
 
 function pid(feature) {
@@ -72,7 +76,10 @@ function pname(feature) {
 
 function resetStyles() {
   parksLayer?.eachLayer(l => {
-    l.setStyle(pid(l.feature) === state.selectedId ? STYLE.selected : STYLE.normal);
+    const id = pid(l.feature);
+    if (id === state.selectedId)       l.setStyle(STYLE.selected);
+    else if (state.speciesFilter)      l.setStyle(state.speciesFilter.has(id) ? STYLE.highlight : STYLE.dim);
+    else                               l.setStyle(STYLE.normal);
   });
 }
 
@@ -84,13 +91,19 @@ function addParksToMap(features) {
       const id   = pid(feature);
       const name = pname(feature);
       layer.on('mouseover', () => {
-        if (id !== state.selectedId) layer.setStyle(STYLE.hover);
+        if (id !== state.selectedId) {
+          const inFilter = !state.speciesFilter || state.speciesFilter.has(id);
+          if (inFilter) layer.setStyle(STYLE.hover);
+        }
         layer.bindTooltip(esc(name), {
           permanent: false, className: 'park-tooltip', direction: 'top', offset: [0,-4],
         }).openTooltip();
       });
       layer.on('mouseout', () => {
-        if (id !== state.selectedId) layer.setStyle(STYLE.normal);
+        if (id !== state.selectedId) {
+          if (state.speciesFilter) layer.setStyle(state.speciesFilter.has(id) ? STYLE.highlight : STYLE.dim);
+          else layer.setStyle(STYLE.normal);
+        }
       });
       layer.on('click', e => {
         L.DomEvent.stopPropagation(e);
@@ -592,6 +605,7 @@ async function init() {
 
   loadNurseries();
   loadHistograms();
+  loadSpeciesIndex().then(initSearch);
 
   document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
   document.getElementById('natives-btn').addEventListener('click', toggleNativeMode);
@@ -621,6 +635,148 @@ async function init() {
         b.classList.toggle('active', b.dataset.col === state.sortCol));
       renderRankings();
     });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Species search
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function loadSpeciesIndex() {
+  try {
+    state.speciesIndex = await loadJSON(`${DATA_ROOT}/species_index.json`);
+  } catch (e) {
+    console.warn('Species index not available:', e.message);
+  }
+}
+
+function fuzzyScore(query, sp) {
+  const q  = query.toLowerCase();
+  const sc = (sp.name   || '').toLowerCase();
+  const cm = (sp.common || '').toLowerCase();
+  let score = 0;
+  if (sc.startsWith(q))   score = Math.max(score, 100);
+  else if (cm.startsWith(q))   score = Math.max(score, 95);
+  else if (sc.includes(q))     score = Math.max(score, 70);
+  else if (cm.includes(q))     score = Math.max(score, 65);
+  else {
+    // character-sequence fuzzy match
+    const fuzzy = (str) => {
+      let qi = 0;
+      for (let i = 0; i < str.length && qi < q.length; i++)
+        if (str[i] === q[qi]) qi++;
+      return qi === q.length;
+    };
+    if (fuzzy(sc)) score = Math.max(score, 30);
+    if (fuzzy(cm)) score = Math.max(score, 25);
+  }
+  return score;
+}
+
+function searchSpecies(query) {
+  if (query.length < 2) return [];
+  const results = [];
+  for (const sp of state.speciesIndex) {
+    const s = fuzzyScore(query, sp);
+    if (s > 0) results.push({ sp, s });
+  }
+  results.sort((a, b) => b.s - a.s);
+  return results.slice(0, 8).map(r => r.sp);
+}
+
+function applySpeciesFilter(sp) {
+  state.speciesFilter = new Set(sp.parks);
+  resetStyles();
+  // fit map to highlighted parks
+  const layers = [];
+  parksLayer?.eachLayer(l => { if (state.speciesFilter.has(pid(l.feature))) layers.push(l); });
+  if (layers.length) {
+    const group = L.featureGroup(layers);
+    map.fitBounds(group.getBounds(), { padding: [40, 40], maxZoom: 14 });
+  }
+}
+
+function clearSpeciesFilter() {
+  state.speciesFilter = null;
+  resetStyles();
+}
+
+let _dropdownActive = -1;
+let _suppressInput  = false;
+
+function initSearch() {
+  const input    = document.getElementById('species-search');
+  const dropdown = document.getElementById('species-dropdown');
+  const clearBtn = document.getElementById('species-search-clear');
+
+  function showDropdown(results) {
+    if (!results.length) { dropdown.classList.add('hidden'); return; }
+    const CAT_ICON = { Plantae:'🌿', Aves:'🐦', Insecta:'🦋', Mammalia:'🦊',
+                       Fungi:'🍄', Reptilia:'🦎', Amphibia:'🐸', Arachnida:'🕷️', Mollusca:'🐌' };
+    dropdown.innerHTML = results.map((sp, i) => `
+      <div class="sp-result" data-idx="${i}" tabindex="-1">
+        ${sp.photo
+          ? `<img class="sp-result-photo" src="${esc(sp.photo)}" alt="" loading="lazy">`
+          : `<div class="sp-result-photo sp-result-no-photo">${CAT_ICON[sp.iconic] ?? '🔬'}</div>`}
+        <div class="sp-result-names">
+          <div class="sp-result-common">${esc(sp.common || sp.name)}</div>
+          ${sp.common ? `<div class="sp-result-sci">${esc(sp.name)}</div>` : ''}
+        </div>
+        <div class="sp-result-count">${sp.parks.length} park${sp.parks.length !== 1 ? 's' : ''}</div>
+      </div>`).join('');
+    _dropdownActive = -1;
+    dropdown.classList.remove('hidden');
+
+    dropdown.querySelectorAll('.sp-result').forEach((el, i) => {
+      el.addEventListener('mousedown', e => {
+        e.preventDefault();
+        selectResult(results[i]);
+      });
+    });
+  }
+
+  function selectResult(sp) {
+    _suppressInput = true;
+    input.value = sp.common || sp.name;
+    hideDropdown();
+    clearBtn.classList.remove('hidden');
+    applySpeciesFilter(sp);
+  }
+
+  function hideDropdown() { dropdown.classList.add('hidden'); _dropdownActive = -1; }
+
+  input.addEventListener('input', () => {
+    if (_suppressInput) { _suppressInput = false; return; }
+    const q = input.value.trim();
+    if (!q) { clearSpeciesFilter(); clearBtn.classList.add('hidden'); hideDropdown(); return; }
+    showDropdown(searchSpecies(q));
+  });
+
+  input.addEventListener('keydown', e => {
+    const items = dropdown.querySelectorAll('.sp-result');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      _dropdownActive = Math.min(_dropdownActive + 1, items.length - 1);
+      items.forEach((el, i) => el.classList.toggle('active', i === _dropdownActive));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      _dropdownActive = Math.max(_dropdownActive - 1, -1);
+      items.forEach((el, i) => el.classList.toggle('active', i === _dropdownActive));
+    } else if (e.key === 'Enter' && _dropdownActive >= 0) {
+      e.preventDefault();
+      items[_dropdownActive].dispatchEvent(new MouseEvent('mousedown'));
+    } else if (e.key === 'Escape') {
+      hideDropdown();
+    }
+  });
+
+  input.addEventListener('blur', () => setTimeout(hideDropdown, 150));
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    clearBtn.classList.add('hidden');
+    clearSpeciesFilter();
+    hideDropdown();
   });
 }
 

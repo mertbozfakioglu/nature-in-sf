@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-04",
+  "lastUpdated": "2026-05-17",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -8,6 +8,7 @@
       "missionblue"
     ],
     "Acer negundo": [
+      "oaktown",
       "heronshead"
     ],
     "Achillea millefolium": [
@@ -31,12 +32,6 @@
     "Anaphalis margaritacea": [
       "missionblue"
     ],
-    "Anisocarpus madioides": [
-      "oaktown"
-    ],
-    "Aquilegia formosa": [
-      "oaktown"
-    ],
     "Arbutus menziesii": [
       "oaktown"
     ],
@@ -53,12 +48,12 @@
       "larnerseeds"
     ],
     "Artemisia californica": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
     ],
     "Artemisia douglasiana": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -93,10 +88,10 @@
       "oaktown",
       "heronshead"
     ],
-    "Carex barbarae": [
+    "Carex densa": [
       "oaktown"
     ],
-    "Carex densa": [
+    "Carex obnupta": [
       "oaktown"
     ],
     "Carex pansa": [
@@ -107,7 +102,6 @@
       "larnerseeds"
     ],
     "Carex tumulicola": [
-      "oaktown",
       "heronshead"
     ],
     "Castilleja exserta": [
@@ -124,9 +118,6 @@
     "Chlorogalum pomeridianum": [
       "larnerseeds"
     ],
-    "Cirsium occidentale": [
-      "oaktown"
-    ],
     "Clarkia amoena": [
       "heronshead",
       "larnerseeds"
@@ -135,11 +126,10 @@
       "larnerseeds"
     ],
     "Clarkia rubicunda": [
-      "oaktown",
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
-      "missionblue"
+      "oaktown"
     ],
     "Collinsia heterophylla": [
       "heronshead",
@@ -149,6 +139,7 @@
       "missionblue"
     ],
     "Corylus cornuta": [
+      "oaktown",
       "larnerseeds"
     ],
     "Danthonia californica": [
@@ -170,7 +161,6 @@
       "larnerseeds"
     ],
     "Drymocallis glandulosa": [
-      "oaktown",
       "missionblue"
     ],
     "Dudleya farinosa": [
@@ -204,20 +194,19 @@
     "Eriogonum nudum": [
       "oaktown"
     ],
+    "Eriophyllum confertiflorum": [
+      "oaktown"
+    ],
     "Eriophyllum lanatum": [
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
       "oaktown",
       "heronshead",
-      "missionblue",
-      "larnerseeds"
+      "missionblue"
     ],
     "Erysimum franciscanum": [
       "sutro"
-    ],
-    "Erythranthe cardinalis": [
-      "oaktown"
     ],
     "Erythranthe guttata": [
       "oaktown",
@@ -227,6 +216,7 @@
       "larnerseeds"
     ],
     "Eschscholzia californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -240,6 +230,7 @@
       "larnerseeds"
     ],
     "Festuca idahoensis": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -252,8 +243,8 @@
       "heronshead"
     ],
     "Fragaria vesca": [
-      "oaktown",
-      "sutro"
+      "sutro",
+      "heronshead"
     ],
     "Frangula californica": [
       "oaktown"
@@ -301,6 +292,7 @@
     ],
     "Holodiscus discolor": [
       "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Hordeum brachyantherum": [
@@ -346,10 +338,14 @@
     "Layia platyglossa": [
       "larnerseeds"
     ],
-    "Lepechinia calycina": [
+    "Lilium pardalinum": [
+      "oaktown"
+    ],
+    "Lonicera hispidula": [
       "oaktown"
     ],
     "Lonicera involucrata": [
+      "oaktown",
       "sutro"
     ],
     "Lupinus albifrons": [
@@ -363,6 +359,9 @@
     ],
     "Lupinus nanus": [
       "larnerseeds"
+    ],
+    "Lupinus polyphyllus": [
+      "oaktown"
     ],
     "Lupinus succulentus": [
       "heronshead",
@@ -383,6 +382,7 @@
       "heronshead"
     ],
     "Morella californica": [
+      "oaktown",
       "larnerseeds"
     ],
     "Nemophila menziesii": [
@@ -411,6 +411,9 @@
     ],
     "Plantago subnuda": [
       "larnerseeds"
+    ],
+    "Platystemon californicus": [
+      "oaktown"
     ],
     "Polypodium californicum": [
       "oaktown"
@@ -470,13 +473,19 @@
       "oaktown"
     ],
     "Rubus parviflorus": [
+      "oaktown",
+      "heronshead"
+    ],
+    "Rubus spectabilis": [
       "oaktown"
     ],
     "Rubus ursinus": [
       "oaktown"
     ],
+    "Salix laevigata": [
+      "oaktown"
+    ],
     "Salvia spathacea": [
-      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -497,17 +506,18 @@
       "missionblue"
     ],
     "Sisyrinchium bellum": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
     "Sisyrinchium californicum": [
+      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
     ],
     "Solidago velutina": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -519,6 +529,7 @@
       "larnerseeds"
     ],
     "Stipa lepida": [
+      "oaktown",
       "larnerseeds"
     ],
     "Stipa pulchra": [
@@ -563,6 +574,7 @@
       "oaktown"
     ],
     "Vaccinium ovatum": [
+      "oaktown",
       "heronshead"
     ],
     "Viola adunca": [
@@ -572,7 +584,10 @@
       "heronshead"
     ],
     "Wyethia angustifolia": [
-      "larnerseeds"
+      "oaktown"
+    ],
+    "Wyethia helenioides": [
+      "oaktown"
     ]
   }
 }
