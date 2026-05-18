@@ -597,6 +597,14 @@ function enrich(sp) {
   // genus from first word of sci_name
   sp.genus = sp.sci_name.split(' ')[0];
 
+  // derive peak_month from histogram data (Jan=1 … Dec=12)
+  const hCounts = histograms[String(sp.inat_id)];
+  if (hCounts && hCounts.some(c => c > 0)) {
+    sp.peak_month = hCounts.indexOf(Math.max(...hCounts)) + 1;
+  } else {
+    sp.peak_month = null;
+  }
+
   // height class from raw min/max
   const hMid = sp.height_min_cm != null && sp.height_max_cm != null
     ? (sp.height_min_cm + sp.height_max_cm) / 2
