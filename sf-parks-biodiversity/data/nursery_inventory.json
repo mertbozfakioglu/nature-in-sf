@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-18",
+  "lastUpdated": "2026-05-19",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -42,11 +42,13 @@
       "heronshead"
     ],
     "Armeria maritima": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
     ],
     "Artemisia californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -197,6 +199,7 @@
       "oaktown"
     ],
     "Eriophyllum lanatum": [
+      "oaktown",
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
@@ -328,7 +331,6 @@
       "larnerseeds"
     ],
     "Lasthenia californica": [
-      "oaktown",
       "larnerseeds"
     ],
     "Lasthenia glabrata": [
@@ -415,13 +417,15 @@
       "oaktown"
     ],
     "Polypodium californicum": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Polystichum munitum": [
       "oaktown",
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
