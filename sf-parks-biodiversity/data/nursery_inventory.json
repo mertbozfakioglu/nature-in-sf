@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-19",
+  "lastUpdated": "2026-05-20",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -119,6 +119,9 @@
     "Chlorogalum pomeridianum": [
       "larnerseeds"
     ],
+    "Cirsium occidentale": [
+      "oaktown"
+    ],
     "Clarkia amoena": [
       "heronshead",
       "larnerseeds"
@@ -158,6 +161,7 @@
       "larnerseeds"
     ],
     "Diplacus aurantiacus": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -350,7 +354,8 @@
       "sutro"
     ],
     "Lupinus albifrons": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Lupinus bicolor": [
       "larnerseeds"
