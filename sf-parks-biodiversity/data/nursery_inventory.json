@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-17",
+  "lastUpdated": "2026-05-21",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -48,6 +48,7 @@
       "larnerseeds"
     ],
     "Artemisia californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -116,7 +117,11 @@
       "larnerseeds"
     ],
     "Chlorogalum pomeridianum": [
+      "oaktown",
       "larnerseeds"
+    ],
+    "Cirsium occidentale": [
+      "oaktown"
     ],
     "Clarkia amoena": [
       "heronshead",
@@ -157,6 +162,7 @@
       "larnerseeds"
     ],
     "Diplacus aurantiacus": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -198,6 +204,7 @@
       "oaktown"
     ],
     "Eriophyllum lanatum": [
+      "oaktown",
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
@@ -329,7 +336,6 @@
       "larnerseeds"
     ],
     "Lasthenia californica": [
-      "oaktown",
       "larnerseeds"
     ],
     "Lasthenia glabrata": [
@@ -349,7 +355,8 @@
       "sutro"
     ],
     "Lupinus albifrons": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Lupinus bicolor": [
       "larnerseeds"
@@ -416,13 +423,15 @@
       "oaktown"
     ],
     "Polypodium californicum": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Polystichum munitum": [
       "oaktown",
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -547,7 +556,7 @@
       "missionblue"
     ],
     "Tellima grandiflora": [
-      "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Thalictrum fendleri": [
@@ -566,9 +575,6 @@
     "Trifolium wormskioldii": [
       "missionblue",
       "larnerseeds"
-    ],
-    "Triteleia laxa": [
-      "oaktown"
     ],
     "Urtica dioica": [
       "oaktown"
