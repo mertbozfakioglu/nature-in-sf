@@ -1424,7 +1424,7 @@
     "leaf_sheath": "variable",
     "leaf_width_min_mm": 3,
     "leaf_width_max_mm": 12,
-    "auricles": true,
+    "auricles": "variable",
     "inflorescence": "panicle_open",
     "spikelet_compression": "lateral",
     "spikelet_length_mm_min": 15,
