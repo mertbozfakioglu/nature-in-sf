@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-20",
+  "lastUpdated": "2026-05-21",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -117,6 +117,7 @@
       "larnerseeds"
     ],
     "Chlorogalum pomeridianum": [
+      "oaktown",
       "larnerseeds"
     ],
     "Cirsium occidentale": [
@@ -555,6 +556,7 @@
       "missionblue"
     ],
     "Tellima grandiflora": [
+      "heronshead",
       "larnerseeds"
     ],
     "Thalictrum fendleri": [
@@ -573,9 +575,6 @@
     "Trifolium wormskioldii": [
       "missionblue",
       "larnerseeds"
-    ],
-    "Triteleia laxa": [
-      "oaktown"
     ],
     "Urtica dioica": [
       "oaktown"
