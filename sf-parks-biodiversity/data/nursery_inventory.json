@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-21",
+  "lastUpdated": "2026-05-22",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -64,6 +64,9 @@
     ],
     "Asarum caudatum": [
       "heronshead"
+    ],
+    "Athyrium filix-femina": [
+      "oaktown"
     ],
     "Baccharis pilularis": [
       "oaktown",
@@ -250,6 +253,7 @@
       "heronshead"
     ],
     "Fragaria vesca": [
+      "oaktown",
       "sutro",
       "heronshead"
     ],
@@ -515,6 +519,7 @@
       "missionblue"
     ],
     "Sisyrinchium bellum": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -587,6 +592,7 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
+      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
