@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-24",
+  "lastUpdated": "2026-05-25",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -25,6 +25,9 @@
       "oaktown",
       "heronshead",
       "missionblue"
+    ],
+    "Agrostis exarata": [
+      "oaktown"
     ],
     "Ambrosia chamissonis": [
       "heronshead"
@@ -122,9 +125,6 @@
     "Chlorogalum pomeridianum": [
       "oaktown",
       "larnerseeds"
-    ],
-    "Cirsium occidentale": [
-      "oaktown"
     ],
     "Clarkia amoena": [
       "heronshead",
@@ -226,7 +226,6 @@
       "larnerseeds"
     ],
     "Eschscholzia californica": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -345,9 +344,6 @@
     ],
     "Layia platyglossa": [
       "larnerseeds"
-    ],
-    "Lilium pardalinum": [
-      "oaktown"
     ],
     "Lonicera hispidula": [
       "oaktown"
@@ -507,7 +503,6 @@
       "missionblue"
     ],
     "Scrophularia californica": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -583,7 +578,6 @@
       "oaktown"
     ],
     "Vaccinium ovatum": [
-      "oaktown",
       "heronshead"
     ],
     "Viola adunca": [
