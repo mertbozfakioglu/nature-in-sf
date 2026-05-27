@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-25",
+  "lastUpdated": "2026-05-27",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -16,6 +16,9 @@
       "sutro",
       "heronshead",
       "missionblue",
+      "larnerseeds"
+    ],
+    "Achyrachaena mollis": [
       "larnerseeds"
     ],
     "Acmispon heermannii": [
@@ -92,7 +95,6 @@
       "heronshead"
     ],
     "Camissoniopsis cheiranthifolia": [
-      "oaktown",
       "heronshead"
     ],
     "Carex densa": [
@@ -152,9 +154,6 @@
     ],
     "Danthonia californica": [
       "oaktown",
-      "larnerseeds"
-    ],
-    "Delphinium hesperium": [
       "larnerseeds"
     ],
     "Deschampsia cespitosa": [
@@ -453,7 +452,8 @@
       "heronshead"
     ],
     "Rhododendron occidentale": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Ribes divaricatum": [
       "oaktown"
@@ -526,7 +526,6 @@
     "Solidago velutina": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Stachys chamissonis": [
