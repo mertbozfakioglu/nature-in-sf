@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-27",
+  "lastUpdated": "2026-05-28",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -39,7 +39,8 @@
       "missionblue"
     ],
     "Arbutus menziesii": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Arctostaphylos manzanita": [
       "heronshead"
@@ -284,6 +285,7 @@
       "oaktown"
     ],
     "Hemizonia congesta": [
+      "oaktown",
       "larnerseeds"
     ],
     "Heracleum maximum": [
@@ -442,6 +444,9 @@
       "oaktown",
       "heronshead"
     ],
+    "Quercus chrysolepis": [
+      "heronshead"
+    ],
     "Quercus parvula": [
       "oaktown"
     ],
@@ -489,6 +494,9 @@
       "oaktown"
     ],
     "Salix laevigata": [
+      "oaktown"
+    ],
+    "Salix lasiolepis": [
       "oaktown"
     ],
     "Salvia spathacea": [
