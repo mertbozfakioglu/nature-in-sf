@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-28",
+  "lastUpdated": "2026-05-29",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -121,6 +121,9 @@
       "oaktown",
       "heronshead",
       "larnerseeds"
+    ],
+    "Cercocarpus betuloides": [
+      "oaktown"
     ],
     "Chenopodium californicum": [
       "larnerseeds"
@@ -252,7 +255,6 @@
       "heronshead"
     ],
     "Fragaria vesca": [
-      "oaktown",
       "sutro",
       "heronshead"
     ],
@@ -289,7 +291,6 @@
       "larnerseeds"
     ],
     "Heracleum maximum": [
-      "oaktown",
       "larnerseeds"
     ],
     "Heteromeles arbutifolia": [
@@ -299,6 +300,7 @@
       "larnerseeds"
     ],
     "Heuchera micrantha": [
+      "oaktown",
       "heronshead"
     ],
     "Holodiscus discolor": [
@@ -491,6 +493,9 @@
       "oaktown"
     ],
     "Rubus ursinus": [
+      "oaktown"
+    ],
+    "Salix exigua": [
       "oaktown"
     ],
     "Salix laevigata": [
