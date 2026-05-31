@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-30",
+  "lastUpdated": "2026-05-31",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -458,7 +458,6 @@
       "heronshead"
     ],
     "Rhododendron occidentale": [
-      "oaktown",
       "heronshead"
     ],
     "Ribes divaricatum": [
@@ -565,6 +564,7 @@
       "missionblue"
     ],
     "Tellima grandiflora": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
