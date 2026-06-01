@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-31",
+  "lastUpdated": "2026-06-01",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -78,7 +78,6 @@
     "Baccharis pilularis": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Bromus carinatus": [
@@ -243,7 +242,6 @@
     ],
     "Festuca idahoensis": [
       "oaktown",
-      "heronshead",
       "larnerseeds"
     ],
     "Festuca rubra": [
@@ -437,6 +435,9 @@
     "Prunus ilicifolia": [
       "oaktown",
       "heronshead"
+    ],
+    "Prunus virginiana": [
+      "oaktown"
     ],
     "Pseudognaphalium stramineum": [
       "heronshead"
