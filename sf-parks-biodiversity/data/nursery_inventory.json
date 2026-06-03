@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-02",
+  "lastUpdated": "2026-06-03",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -413,9 +413,6 @@
     "Plantago subnuda": [
       "larnerseeds"
     ],
-    "Platystemon californicus": [
-      "oaktown"
-    ],
     "Polypodium californicum": [
       "oaktown",
       "heronshead"
@@ -434,6 +431,9 @@
       "heronshead"
     ],
     "Prunus virginiana": [
+      "oaktown"
+    ],
+    "Pseudognaphalium californicum": [
       "oaktown"
     ],
     "Pseudognaphalium stramineum": [
