@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-05",
+  "lastUpdated": "2026-06-06",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -34,6 +34,9 @@
     ],
     "Anaphalis margaritacea": [
       "missionblue"
+    ],
+    "Aquilegia formosa": [
+      "oaktown"
     ],
     "Arbutus menziesii": [
       "oaktown",
@@ -553,6 +556,7 @@
       "heronshead"
     ],
     "Symphyotrichum chilense": [
+      "oaktown",
       "missionblue"
     ],
     "Tellima grandiflora": [
