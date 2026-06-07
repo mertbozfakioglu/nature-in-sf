@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-06",
+  "lastUpdated": "2026-06-07",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -359,9 +359,6 @@
     "Lupinus nanus": [
       "larnerseeds"
     ],
-    "Lupinus polyphyllus": [
-      "oaktown"
-    ],
     "Lupinus succulentus": [
       "heronshead",
       "larnerseeds"
@@ -530,7 +527,6 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -560,7 +556,6 @@
       "missionblue"
     ],
     "Tellima grandiflora": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
