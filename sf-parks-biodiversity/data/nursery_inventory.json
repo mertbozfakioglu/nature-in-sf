@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-07",
+  "lastUpdated": "2026-06-08",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -307,7 +307,6 @@
       "missionblue"
     ],
     "Iris douglasiana": [
-      "oaktown",
       "heronshead"
     ],
     "Juncus balticus": [
@@ -408,7 +407,9 @@
       "larnerseeds"
     ],
     "Polypodium californicum": [
-      "oaktown",
+      "oaktown"
+    ],
+    "Polypodium glycyrrhiza": [
       "heronshead"
     ],
     "Polystichum munitum": [
@@ -506,6 +507,7 @@
       "missionblue"
     ],
     "Scrophularia californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
