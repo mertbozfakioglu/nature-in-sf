@@ -37,14 +37,60 @@ MIRROR   = {'hasHost':'hostOf','eatenBy':'eats','pollinatedBy':'pollinates',
 MIN_SF_OBS = 10
 MIN_DEGREE = 5
 
-def is_plant(p): return any(k in (p or '') for k in
-    ('Plantae','Angiosperms','Viridiplantae','Tracheophyta','Gymnosperms','Bryophyta'))
+def is_plant(p): return any(k in (p or '') for k in (
+    'Plantae','Angiosperms','Viridiplantae','Tracheophyta','Spermatophytes',
+    'Gymnosperms','Bryophyta','Equisetopsida','Pteridophytes','Pteridobiotina',
+    'Fagales','Poales','Caryophyllales','Lamiales','Asterales','Rosales',
+    'Fabales','Malpighiales','Ericales','Solanales','Apiales',
+    'Ranunculales','Myrtales','Malvales','lamiids',
+))
 
 def kingdom(p):
-    for k,kw in [('Insecta','Insecta'),('Plantae','Angiosperms'),('Plantae','Viridiplantae'),
-                 ('Plantae','Tracheophyta'),('Aves','Aves'),('Mammalia','Mammalia'),
-                 ('Arachnida','Arachnida'),('Fungi','Fungi')]:
-        if kw in (p or ''): return k
+    p = p or ''
+    for k,kw in [
+        ('Insecta','Insecta'),
+        ('Insecta','Hemiptera'),('Insecta','Hymenoptera'),
+        ('Insecta','Lepidoptera'),('Insecta','Coleoptera'),('Insecta','Diptera'),
+        ('Insecta','Orthoptera'),('Insecta','Thysanoptera'),('Insecta','Neuroptera'),
+        ('Insecta','Trichoptera'),('Insecta','Odonata'),('Insecta','Blattodea'),
+        ('Insecta','Noctuoidea'),('Insecta','Geometroidea'),('Insecta','Bombycoidea'),
+        ('Insecta','Papilionoidea'),
+        ('Insecta','Aschiza'),('Insecta','Schizophora'),
+        ('Insecta','Cicadellidae'),('Insecta','Tropiduchidae'),('Insecta','Miridae'),
+        ('Insecta','Aphididae'),('Insecta','Membracidae'),('Insecta','Cercopidae'),
+        ('Insecta','Psyllidae'),('Insecta','Tingidae'),('Insecta','Lygaeidae'),
+        ('Insecta','Pentatomidae'),
+        ('Insecta','Megachilidae'),('Insecta','Apidae'),('Insecta','Vespidae'),
+        ('Insecta','Eumeninae'),('Insecta','Ichneumonidae'),('Insecta','Braconidae'),
+        ('Insecta','Formicidae'),
+        ('Insecta','Tortricidae'),('Insecta','Noctuidae'),('Insecta','Geometridae'),
+        ('Insecta','Hesperiidae'),('Insecta','Pterophoridae'),('Insecta','Nymphalidae'),
+        ('Insecta','Lycaenidae'),('Insecta','Pieridae'),('Insecta','Papilionidae'),
+        ('Insecta','Saturniidae'),('Insecta','Sphingidae'),
+        ('Insecta','Syrphidae'),('Insecta','Tachinidae'),
+        ('Insecta','Cerambycidae'),('Insecta','Curculionidae'),('Insecta','Chrysomelidae'),
+        ('Insecta','Coccinellidae'),('Insecta','Buprestidae'),
+        ('Insecta','Polyommatini'),
+        ('Arachnida','Arachnida'),
+        ('Aves','Aves'),('Aves','Australavis'),
+        ('Mammalia','Mammalia'),('Mammalia','Theria'),
+        ('Fungi','Fungi'),('Fungi','Ascomycota'),('Fungi','Basidiomycota'),
+        ('Fungi','Puccinia'),('Fungi','Coleosporium'),('Fungi','Exobasidium'),
+        ('Fungi','Podosphaera'),('Fungi','Erysiphe'),('Fungi','Ramularia'),
+        ('Fungi','Harknessia'),('Fungi','Stamnaria'),('Fungi','Otidea'),
+        ('Fungi','Ovularia'),('Fungi','Graphyllium'),
+        ('Plantae','Plantae'),('Plantae','Angiosperms'),('Plantae','Viridiplantae'),
+        ('Plantae','Tracheophyta'),('Plantae','Spermatophytes'),('Plantae','Gymnosperms'),
+        ('Plantae','Bryophyta'),('Plantae','Equisetopsida'),
+        ('Plantae','Pteridophytes'),('Plantae','Pteridobiotina'),
+        ('Plantae','Fagales'),('Plantae','Poales'),('Plantae','Caryophyllales'),
+        ('Plantae','Lamiales'),('Plantae','Asterales'),('Plantae','Rosales'),
+        ('Plantae','Fabales'),('Plantae','Malpighiales'),('Plantae','Ericales'),
+        ('Plantae','Solanales'),('Plantae','Apiales'),('Plantae','Ranunculales'),
+        ('Plantae','Myrtales'),('Plantae','Malvales'),('Plantae','lamiids'),
+        ('Nematoda','Nematoda'),('Bacteria','Bacteria'),
+    ]:
+        if kw in p: return k
     return 'Other'
 
 path_of = {}
@@ -60,7 +106,7 @@ for r in raw + araw:
     tn = (r.get('target_taxon_name') or '').strip()
     if sn: path_of[sn] = sp
     if tn: path_of[tn] = tp
-    if itype in NOISE: continue
+    if itype in NOISE and is_plant(sp) and is_plant(tp): continue
     if is_plant(sp) and is_plant(tp) and itype not in PARASITIC: continue
     if sn in EXCLUDE or tn in EXCLUDE: continue
     if sn in sf_natives and sn not in sf_pass: continue

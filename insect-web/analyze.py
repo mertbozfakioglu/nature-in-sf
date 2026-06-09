@@ -50,16 +50,114 @@ def taxon_kingdom(path: str) -> str:
     if not path:
         return "Other"
     for group, kw in [
+        # Animals — check before plants so insect orders/families don't fall through
         ("Insecta",   "Insecta"),
+        # Insect orders
+        ("Insecta",   "Hemiptera"),
+        ("Insecta",   "Hymenoptera"),
+        ("Insecta",   "Lepidoptera"),
+        ("Insecta",   "Coleoptera"),
+        ("Insecta",   "Diptera"),
+        ("Insecta",   "Orthoptera"),
+        ("Insecta",   "Thysanoptera"),
+        ("Insecta",   "Neuroptera"),
+        ("Insecta",   "Trichoptera"),
+        ("Insecta",   "Odonata"),
+        ("Insecta",   "Blattodea"),
+        ("Insecta",   "Psocodea"),
+        # Insect superfamilies / series
+        ("Insecta",   "Noctuoidea"),
+        ("Insecta",   "Geometroidea"),
+        ("Insecta",   "Bombycoidea"),
+        ("Insecta",   "Papilionoidea"),
+        ("Insecta",   "Aschiza"),       # Diptera section (hoverflies etc.)
+        ("Insecta",   "Schizophora"),   # Diptera section
+        # Insect families — paths from some GloBI sources start at family level
+        ("Insecta",   "Cicadellidae"),  # leafhoppers
+        ("Insecta",   "Tropiduchidae"), # planthoppers
+        ("Insecta",   "Miridae"),       # plant bugs
+        ("Insecta",   "Aphididae"),
+        ("Insecta",   "Membracidae"),   # treehoppers
+        ("Insecta",   "Cercopidae"),    # spittlebugs
+        ("Insecta",   "Psyllidae"),
+        ("Insecta",   "Tingidae"),
+        ("Insecta",   "Lygaeidae"),
+        ("Insecta",   "Pentatomidae"),
+        ("Insecta",   "Megachilidae"),  # mason/leafcutter bees
+        ("Insecta",   "Apidae"),        # honey/bumble bees
+        ("Insecta",   "Vespidae"),
+        ("Insecta",   "Eumeninae"),     # mason wasps
+        ("Insecta",   "Ichneumonidae"),
+        ("Insecta",   "Braconidae"),
+        ("Insecta",   "Formicidae"),    # ants
+        ("Insecta",   "Tortricidae"),   # tortrix moths
+        ("Insecta",   "Noctuidae"),
+        ("Insecta",   "Geometridae"),
+        ("Insecta",   "Hesperiidae"),   # skippers
+        ("Insecta",   "Pterophoridae"), # plume moths
+        ("Insecta",   "Nymphalidae"),
+        ("Insecta",   "Lycaenidae"),
+        ("Insecta",   "Pieridae"),
+        ("Insecta",   "Papilionidae"),
+        ("Insecta",   "Saturniidae"),
+        ("Insecta",   "Sphingidae"),
+        ("Insecta",   "Syrphidae"),     # hoverflies
+        ("Insecta",   "Tachinidae"),
+        ("Insecta",   "Cerambycidae"),
+        ("Insecta",   "Curculionidae"),
+        ("Insecta",   "Chrysomelidae"),
+        ("Insecta",   "Coccinellidae"),
+        ("Insecta",   "Buprestidae"),
+        ("Insecta",   "Polyommatini"),  # blues tribe
         ("Arachnida", "Arachnida"),
         ("Aves",      "Aves"),
+        ("Aves",      "Australavis"),
         ("Mammalia",  "Mammalia"),
+        ("Mammalia",  "Theria"),
+        # Fungi — before Plantae; also catch genus-level paths
         ("Fungi",     "Fungi"),
-        ("Nematoda",  "Nematoda"),
-        ("Bacteria",  "Bacteria"),
+        ("Fungi",     "Ascomycota"),
+        ("Fungi",     "Basidiomycota"),
+        ("Fungi",     "Puccinia"),      # rust fungi
+        ("Fungi",     "Coleosporium"),
+        ("Fungi",     "Exobasidium"),
+        ("Fungi",     "Podosphaera"),   # powdery mildew
+        ("Fungi",     "Erysiphe"),
+        ("Fungi",     "Ramularia"),
+        ("Fungi",     "Harknessia"),
+        ("Fungi",     "Stamnaria"),
+        ("Fungi",     "Otidea"),
+        ("Fungi",     "Ovularia"),
+        ("Fungi",     "Graphyllium"),
+        # Plants — multiple path root conventions used by different GloBI sources
         ("Plantae",   "Plantae"),
         ("Plantae",   "Angiosperms"),
         ("Plantae",   "Viridiplantae"),
+        ("Plantae",   "Tracheophyta"),
+        ("Plantae",   "Spermatophytes"),
+        ("Plantae",   "Gymnosperms"),
+        ("Plantae",   "Bryophyta"),
+        ("Plantae",   "Equisetopsida"), # APG land-plant class
+        ("Plantae",   "Pteridophytes"),
+        ("Plantae",   "Pteridobiotina"),
+        # Plant orders whose paths sometimes root here without higher ranks
+        ("Plantae",   "Fagales"),       # oaks, beeches, birches
+        ("Plantae",   "Poales"),        # grasses, sedges
+        ("Plantae",   "Caryophyllales"),
+        ("Plantae",   "Lamiales"),
+        ("Plantae",   "Asterales"),
+        ("Plantae",   "Rosales"),
+        ("Plantae",   "Fabales"),
+        ("Plantae",   "Malpighiales"),
+        ("Plantae",   "Ericales"),
+        ("Plantae",   "Solanales"),
+        ("Plantae",   "Apiales"),
+        ("Plantae",   "Ranunculales"),
+        ("Plantae",   "Myrtales"),
+        ("Plantae",   "Malvales"),
+        ("Plantae",   "lamiids"),
+        ("Nematoda",  "Nematoda"),
+        ("Bacteria",  "Bacteria"),
     ]:
         if kw in path:
             return group
@@ -78,12 +176,18 @@ def is_animal(path: str) -> bool:
     return taxon_kingdom(path) in ("Insecta", "Arachnida", "Aves", "Mammalia")
 
 def is_plant(path: str) -> bool:
-    return any(k in (path or "") for k in
-               ("Plantae", "Angiosperms", "Viridiplantae", "Tracheophyta", "Gymnosperms", "Bryophyta"))
+    return any(k in (path or "") for k in (
+        "Plantae", "Angiosperms", "Viridiplantae", "Tracheophyta", "Spermatophytes",
+        "Gymnosperms", "Bryophyta", "Equisetopsida", "Pteridophytes", "Pteridobiotina",
+        "Fagales", "Poales", "Caryophyllales", "Lamiales", "Asterales", "Rosales",
+        "Fabales", "Malpighiales", "Ericales", "Solanales", "Apiales",
+        "Ranunculales", "Myrtales", "Malvales", "lamiids",
+    ))
 
 PARASITIC_TYPES = {"parasiteOf", "hasParasite", "hostOf", "hasHost"}
 
-# Vague / co-occurrence types with no specific ecological meaning
+# Vague / co-occurrence types — only drop when BOTH endpoints are plants
+# (plant↔plant co-occurrence = noise; plant↔insect/fungi co-occurrence = signal)
 NOISE_TYPES = {
     "interactsWith", "coOccursWith", "adjacentTo",
     "visits", "visitedBy",
@@ -124,7 +228,7 @@ for r in records:
 # drop rows missing both names
 rows = [r for r in rows if r["src_name"] or r["tgt_name"]]
 
-# drop non-parasitic plant↔plant interactions
+# drop plant↔plant interactions unless they are parasitic
 before = len(rows)
 rows = [
     r for r in rows
@@ -133,9 +237,14 @@ rows = [
 ]
 pp_removed = before - len(rows)
 
-# drop all globally vague / co-occurrence interaction types
+# drop vague/co-occurrence types ONLY when both endpoints are plants
+# (non-plant pairs keep interactsWith etc. — they carry real co-occurrence signal)
 before = len(rows)
-rows = [r for r in rows if r["itype"] not in NOISE_TYPES]
+rows = [
+    r for r in rows
+    if not (r["itype"] in NOISE_TYPES
+            and is_plant(r["src_path"]) and is_plant(r["tgt_path"]))
+]
 noise_removed = before - len(rows)
 
 # drop interactions where either endpoint is a confirmed non-native species
