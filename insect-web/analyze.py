@@ -83,6 +83,14 @@ def is_plant(path: str) -> bool:
 
 PARASITIC_TYPES = {"parasiteOf", "hasParasite", "hostOf", "hasHost"}
 
+# Vague / co-occurrence types with no specific ecological meaning
+NOISE_TYPES = {
+    "interactsWith", "coOccursWith", "adjacentTo",
+    "visits", "visitedBy",
+    "livesOn", "livedOnBy",
+    "ecologicallyRelatedTo",
+}
+
 # ── load data ──────────────────────────────────────────────────────────────────
 records = json.loads(RAW_FILE.read_text())
 animal_records = json.loads(ANIMAL_RAW_FILE.read_text()) if ANIMAL_RAW_FILE.exists() else []
@@ -109,14 +117,23 @@ for r in records:
 # drop rows missing both names
 rows = [r for r in rows if r["src_name"] or r["tgt_name"]]
 
-# drop non-parasitic plant↔plant interactions (co-occurrence noise)
+# drop non-parasitic plant↔plant interactions
 before = len(rows)
 rows = [
     r for r in rows
     if not (is_plant(r["src_path"]) and is_plant(r["tgt_path"])
             and r["itype"] not in PARASITIC_TYPES)
 ]
-print(f"Clean rows: {len(rows)} (removed {before - len(rows)} non-parasitic plant↔plant)")
+pp_removed = before - len(rows)
+
+# drop all globally vague / co-occurrence interaction types
+before = len(rows)
+rows = [r for r in rows if r["itype"] not in NOISE_TYPES]
+noise_removed = before - len(rows)
+
+print(f"Clean rows: {len(rows)} "
+      f"(removed {pp_removed} non-parasitic plant↔plant, "
+      f"{noise_removed} co-occurrence/generic)")
 
 # classify each endpoint
 for r in rows:
