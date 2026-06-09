@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-08",
+  "lastUpdated": "2026-06-09",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -150,6 +150,7 @@
     ],
     "Corylus cornuta": [
       "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Danthonia californica": [
@@ -169,6 +170,7 @@
       "larnerseeds"
     ],
     "Drymocallis glandulosa": [
+      "oaktown",
       "missionblue"
     ],
     "Dudleya farinosa": [
@@ -247,6 +249,7 @@
       "heronshead"
     ],
     "Fragaria vesca": [
+      "oaktown",
       "sutro",
       "heronshead"
     ],
