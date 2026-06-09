@@ -95,10 +95,14 @@ NOISE_TYPES = {
 records = json.loads(RAW_FILE.read_text())
 animal_records = json.loads(ANIMAL_RAW_FILE.read_text()) if ANIMAL_RAW_FILE.exists() else []
 nativity = json.loads((DATA_DIR / "nativity.json").read_text())
-NON_NATIVE = {name for name, status in nativity.items() if status == "non_native"}
+NON_NATIVE = {name for name, status in nativity.items()
+              if status in ("non_native", "no_ca_obs")}
 print(f"Loaded {len(records)} plant-interaction records")
 print(f"Loaded {len(animal_records)} animal↔animal records")
-print(f"Non-native species to exclude: {len(NON_NATIVE)}")
+non_native_count = sum(1 for s in nativity.values() if s == "non_native")
+no_ca_obs_count  = sum(1 for s in nativity.values() if s == "no_ca_obs")
+print(f"Species to exclude: {len(NON_NATIVE)} "
+      f"({non_native_count} non-native + {no_ca_obs_count} never observed in CA)")
 
 # ── flatten / clean ────────────────────────────────────────────────────────────
 def get(rec, *keys):
