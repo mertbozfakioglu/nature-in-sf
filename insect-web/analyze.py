@@ -78,7 +78,10 @@ def is_animal(path: str) -> bool:
     return taxon_kingdom(path) in ("Insecta", "Arachnida", "Aves", "Mammalia")
 
 def is_plant(path: str) -> bool:
-    return taxon_kingdom(path) == "Plantae"
+    return any(k in (path or "") for k in
+               ("Plantae", "Angiosperms", "Viridiplantae", "Tracheophyta", "Gymnosperms", "Bryophyta"))
+
+PARASITIC_TYPES = {"parasiteOf", "hasParasite", "hostOf", "hasHost"}
 
 # ── load data ──────────────────────────────────────────────────────────────────
 records = json.loads(RAW_FILE.read_text())
@@ -105,7 +108,15 @@ for r in records:
 
 # drop rows missing both names
 rows = [r for r in rows if r["src_name"] or r["tgt_name"]]
-print(f"Clean rows: {len(rows)}")
+
+# drop non-parasitic plant↔plant interactions (co-occurrence noise)
+before = len(rows)
+rows = [
+    r for r in rows
+    if not (is_plant(r["src_path"]) and is_plant(r["tgt_path"])
+            and r["itype"] not in PARASITIC_TYPES)
+]
+print(f"Clean rows: {len(rows)} (removed {before - len(rows)} non-parasitic plant↔plant)")
 
 # classify each endpoint
 for r in rows:
