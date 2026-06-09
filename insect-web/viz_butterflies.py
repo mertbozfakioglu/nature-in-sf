@@ -19,14 +19,19 @@ OUT_DIR  = DATA_DIR / "charts"
 OUT_DIR.mkdir(exist_ok=True)
 
 # ── load ───────────────────────────────────────────────────────────────────────
-raw      = json.load(open(DATA_DIR / "raw_interactions.json"))
-nat      = json.load(open(DATA_DIR / "nativity.json"))
-sf_obs   = json.load(open(DATA_DIR / "sf_obs_cache.json"))
+raw           = json.load(open(DATA_DIR / "raw_interactions.json"))
+nat           = json.load(open(DATA_DIR / "nativity.json"))
+sf_obs        = json.load(open(DATA_DIR / "sf_obs_cache.json"))
+bfly_sf_obs   = json.load(open(DATA_DIR / "butterfly_sf_obs_cache.json"))
 sf_nat   = {l.strip() for l in
     (DATA_DIR.parent / "sf-parks-biodiversity/data/sf_natives.csv")
     .read_text().splitlines() if l.strip()}
 
 EXCLUDE = {k for k, v in nat.items() if v in ("non_native", "no_ca_obs")}
+
+# butterflies with confirmed SF iNaturalist observations (count > 0)
+SF_BUTTERFLIES = {name for name, cnt in bfly_sf_obs.items() if cnt > 0}
+print(f"Butterflies with SF iNat observations: {len(SF_BUTTERFLIES)}")
 
 # ── butterfly family detection ─────────────────────────────────────────────────
 FAMILY_KW = {
@@ -84,12 +89,14 @@ for r in raw:
     if sn in EXCLUDE or tn in EXCLUDE:
         continue
     if is_butterfly(sp) and is_plant(tp):
-        pairs[(sn, tn)] = itype
+        if sn in SF_BUTTERFLIES:
+            pairs[(sn, tn)] = itype
     elif is_plant(sp) and is_butterfly(tp):
-        pairs[(tn, sn)] = itype
+        if tn in SF_BUTTERFLIES:
+            pairs[(tn, sn)] = itype
 
 # ── degree filter: min 3 connections on each side ─────────────────────────────
-MIN_DEG = 3
+MIN_DEG = 2
 
 def filter_degrees(pair_set, min_deg):
     b_deg = Counter(b for b, _ in pair_set)
