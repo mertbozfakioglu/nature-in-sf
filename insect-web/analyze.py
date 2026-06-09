@@ -94,8 +94,11 @@ NOISE_TYPES = {
 # ── load data ──────────────────────────────────────────────────────────────────
 records = json.loads(RAW_FILE.read_text())
 animal_records = json.loads(ANIMAL_RAW_FILE.read_text()) if ANIMAL_RAW_FILE.exists() else []
+nativity = json.loads((DATA_DIR / "nativity.json").read_text())
+NON_NATIVE = {name for name, status in nativity.items() if status == "non_native"}
 print(f"Loaded {len(records)} plant-interaction records")
 print(f"Loaded {len(animal_records)} animal↔animal records")
+print(f"Non-native species to exclude: {len(NON_NATIVE)}")
 
 # ── flatten / clean ────────────────────────────────────────────────────────────
 def get(rec, *keys):
@@ -131,9 +134,16 @@ before = len(rows)
 rows = [r for r in rows if r["itype"] not in NOISE_TYPES]
 noise_removed = before - len(rows)
 
+# drop interactions where either endpoint is a confirmed non-native species
+before = len(rows)
+rows = [r for r in rows
+        if r["src_name"] not in NON_NATIVE and r["tgt_name"] not in NON_NATIVE]
+non_native_removed = before - len(rows)
+
 print(f"Clean rows: {len(rows)} "
       f"(removed {pp_removed} non-parasitic plant↔plant, "
-      f"{noise_removed} co-occurrence/generic)")
+      f"{noise_removed} co-occurrence/generic, "
+      f"{non_native_removed} involving non-native species)")
 
 # classify each endpoint
 for r in rows:
