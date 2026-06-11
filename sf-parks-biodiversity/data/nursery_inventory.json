@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-10",
+  "lastUpdated": "2026-06-11",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -46,6 +46,7 @@
       "heronshead"
     ],
     "Aristolochia californica": [
+      "oaktown",
       "heronshead"
     ],
     "Armeria maritima": [
@@ -315,6 +316,7 @@
       "missionblue"
     ],
     "Iris douglasiana": [
+      "oaktown",
       "heronshead"
     ],
     "Juncus balticus": [
@@ -367,6 +369,7 @@
       "larnerseeds"
     ],
     "Lupinus succulentus": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -381,7 +384,6 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
-      "oaktown",
       "heronshead"
     ],
     "Morella californica": [
@@ -409,6 +411,7 @@
       "larnerseeds"
     ],
     "Plantago maritima": [
+      "oaktown",
       "larnerseeds"
     ],
     "Plantago subnuda": [
