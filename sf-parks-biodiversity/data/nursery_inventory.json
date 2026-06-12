@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-11",
+  "lastUpdated": "2026-06-12",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -91,9 +91,6 @@
       "larnerseeds"
     ],
     "Calystegia occidentalis": [
-      "heronshead"
-    ],
-    "Camissoniopsis cheiranthifolia": [
       "heronshead"
     ],
     "Carex densa": [
@@ -189,7 +186,6 @@
       "larnerseeds"
     ],
     "Erigeron glaucus": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue"
@@ -217,6 +213,7 @@
       "missionblue"
     ],
     "Erysimum franciscanum": [
+      "oaktown",
       "sutro"
     ],
     "Erythranthe guttata": [
@@ -305,6 +302,7 @@
       "heronshead"
     ],
     "Holodiscus discolor": [
+      "oaktown",
       "heronshead"
     ],
     "Hordeum brachyantherum": [
