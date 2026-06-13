@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12",
+  "lastUpdated": "2026-06-13",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -212,8 +212,10 @@
       "heronshead",
       "missionblue"
     ],
+    "Erysimum capitatum": [
+      "oaktown"
+    ],
     "Erysimum franciscanum": [
-      "oaktown",
       "sutro"
     ],
     "Erythranthe guttata": [
@@ -415,9 +417,6 @@
     "Plantago subnuda": [
       "larnerseeds"
     ],
-    "Polypodium californicum": [
-      "oaktown"
-    ],
     "Polypodium glycyrrhiza": [
       "heronshead"
     ],
@@ -493,7 +492,8 @@
       "oaktown"
     ],
     "Rubus ursinus": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Salix exigua": [
       "oaktown"
@@ -538,6 +538,7 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
