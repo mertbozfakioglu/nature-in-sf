@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-13",
+  "lastUpdated": "2026-06-14",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -71,6 +71,7 @@
       "larnerseeds"
     ],
     "Asarum caudatum": [
+      "oaktown",
       "heronshead"
     ],
     "Baccharis pilularis": [
@@ -138,7 +139,6 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
-      "oaktown",
       "missionblue"
     ],
     "Collinsia heterophylla": [
@@ -239,7 +239,6 @@
       "larnerseeds"
     ],
     "Festuca idahoensis": [
-      "oaktown",
       "larnerseeds"
     ],
     "Festuca rubra": [
