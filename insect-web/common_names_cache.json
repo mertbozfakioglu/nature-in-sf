@@ -203,6 +203,10 @@
     "common": "California mustard",
     "id": 76165
   },
+  "Ceanothus thyrsiflorus": {
+    "common": "blueblossom",
+    "id": 56617
+  },
   "Celastrina echo": {
     "common": "Echo Azure",
     "id": 52484
@@ -470,6 +474,10 @@
   "Lonicera hispidula": {
     "common": "Pink Honeysuckle",
     "id": 53416
+  },
+  "Lotus wrangelianus": {
+    "common": "Chile trefoil",
+    "id": 57050
   },
   "Lupinus bicolor": {
     "common": "Miniature Lupine",
