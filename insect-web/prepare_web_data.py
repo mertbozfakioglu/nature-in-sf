@@ -100,6 +100,18 @@ edge_set = set(pairs.keys())
 for _ in range(3):
     edge_set = filter_deg(edge_set, MIN_DEG)
 
+# Add confirmed host-plant pairs that the degree filter dropped:
+# butterfly already survives the filter, plant has ≥5 SF iNat observations
+base_bflies = {b for b, _ in edge_set}
+host_bonus = {
+    (b, p) for (b, p), v in pairs.items()
+    if v["host"] and b in base_bflies
+    and sf_obs_p.get(p, 0) >= 5
+    and (b, p) not in edge_set
+}
+edge_set |= host_bonus
+print(f"Host-plant bonus edges added: {len(host_bonus)}")
+
 butterflies = {b for b, _ in edge_set}
 plants      = {p for _, p in edge_set}
 print(f"Network: {len(butterflies)} butterflies, {len(plants)} plants, {len(edge_set)} edges")

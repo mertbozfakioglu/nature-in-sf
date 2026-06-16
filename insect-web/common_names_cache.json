@@ -23,6 +23,10 @@
     "common": "strigose lotus",
     "id": 75281
   },
+  "Acmispon wrangelianus": {
+    "common": "Chile trefoil",
+    "id": 57050
+  },
   "Aesculus californica": {
     "common": "California buckeye",
     "id": 53348
@@ -55,6 +59,10 @@
     "common": "pearly everlasting",
     "id": 52833
   },
+  "Angelica hendersonii": {
+    "common": "Henderson's angelica",
+    "id": 64289
+  },
   "Anthocharis sara": {
     "common": "Sara Orangetip",
     "id": 59124
@@ -67,9 +75,17 @@
     "common": "western columbine",
     "id": 48244
   },
+  "Arabis blepharophylla": {
+    "common": "Coast Rockcress",
+    "id": 60983
+  },
   "Arabis glabra": {
     "common": "Tower Mustard",
     "id": 79460
+  },
+  "Arctostaphylos crustacea": {
+    "common": "Brittleleaf Manzanita",
+    "id": 75507
   },
   "Arctostaphylos manzanita": {
     "common": "Common Manzanita",
@@ -106,6 +122,10 @@
   "Athysanus pusillus": {
     "common": "common sandweed",
     "id": 58069
+  },
+  "Atriplex leucophylla": {
+    "common": "beach saltbush",
+    "id": 60994
   },
   "Barbarea orthoceras": {
     "common": "American yellowrocket",
@@ -319,6 +339,10 @@
     "common": "Silvery Blue",
     "id": 56776
   },
+  "Grindelia hirsutula": {
+    "common": "Hairy Gumweed",
+    "id": 55364
+  },
   "Helenium puberulum": {
     "common": "Rosilla",
     "id": 53092
@@ -334,6 +358,10 @@
   "Heracleum maximum": {
     "common": "common cowparsnip",
     "id": 53094
+  },
+  "Hesperolinon congestum": {
+    "common": "Marin dwarf-flax",
+    "id": 57134
   },
   "Heterotheca sessiliflora": {
     "common": "sessileflower false goldenaster",
@@ -370,6 +398,10 @@
   "Incisalia eryphon": {
     "common": "Western Pine Elfin",
     "id": 81967
+  },
+  "Iris douglasiana": {
+    "common": "Douglas iris",
+    "id": 50854
   },
   "Isotrema californicum": {
     "common": "California Dutchman's Pipe",
@@ -535,6 +567,10 @@
     "common": "Lacy phacelia",
     "id": 58185
   },
+  "Phalaris californica": {
+    "common": "California canarygrass",
+    "id": 57192
+  },
   "Pieris napi": {
     "common": "Green-veined White",
     "id": 54087
@@ -563,6 +599,10 @@
     "common": "chokecherry",
     "id": 54835
   },
+  "Pseudognaphalium ramosissimum": {
+    "common": "pink everlasting",
+    "id": 53088
+  },
   "Rafinesquia californica": {
     "common": "California chicory",
     "id": 53193
@@ -574,6 +614,14 @@
   "Rosa californica": {
     "common": "California Wild Rose",
     "id": 53437
+  },
+  "Salicornia pacifica": {
+    "common": "Pacific Glasswort",
+    "id": 78931
+  },
+  "Salix lasiolepis": {
+    "common": "Arroyo Willow",
+    "id": 53452
   },
   "Salix lucida lasiandra": {
     "common": "shining willow",
@@ -587,13 +635,25 @@
     "common": "Hummingbird Sage",
     "id": 64133
   },
+  "Sidalcea malviflora": {
+    "common": "checkerbloom",
+    "id": 48795
+  },
   "Solidago elongata": {
     "common": "west coast Canada goldenrod",
     "id": 79150
   },
+  "Solidago spathulata": {
+    "common": "coast goldenrod",
+    "id": 60978
+  },
   "Speyeria coronis": {
     "common": "Coronis Fritillary",
     "id": 1456579
+  },
+  "Stachys chamissonis": {
+    "common": "Coastal Hedge-nettle",
+    "id": 52625
   },
   "Streptanthus lasiophyllus": {
     "common": "California mustard",
@@ -606,6 +666,10 @@
   "Symphyotrichum subspicatum": {
     "common": "Douglas' Aster",
     "id": 79303
+  },
+  "Tanacetum bipinnatum": {
+    "common": "dune tansy",
+    "id": 79314
   },
   "Taraxia ovata": {
     "common": "Sun Cup",
