@@ -20,7 +20,12 @@ bfly_sf  = json.load(open(DATA_DIR / "butterfly_sf_obs_cache.json"))
 sf_obs_p = json.load(open(DATA_DIR / "sf_obs_cache.json"))
 
 EXCLUDE       = {k for k, v in nat.items() if v in ("non_native", "no_ca_obs")}
-SF_BUTTERFLIES = {n for n, c in bfly_sf.items() if c > 0}
+
+# iNaturalist synonymizes these with a CA species, inflating their SF obs counts
+# Papilio polyxenes (Black Swallowtail, eastern US) → returns P. zelicaon obs
+SF_OBS_FALSE_POSITIVES = {"Papilio polyxenes"}
+
+SF_BUTTERFLIES = {n for n, c in bfly_sf.items() if c > 0} - SF_OBS_FALSE_POSITIVES
 
 # ── interaction categorization ─────────────────────────────────────────────────
 HOST_TYPES   = {"eats","eatenBy","hostOf","hasHost","laysEggsOn","hasEggsLayedOnBy"}
