@@ -28,8 +28,9 @@ SF_OBS_FALSE_POSITIVES = {"Papilio polyxenes"}
 SF_BUTTERFLIES = {n for n, c in bfly_sf.items() if c > 0} - SF_OBS_FALSE_POSITIVES
 
 # ── interaction categorization ─────────────────────────────────────────────────
-HOST_TYPES   = {"eats","eatenBy","hostOf","hasHost","laysEggsOn","hasEggsLayedOnBy"}
-NECTAR_TYPES = {"flowersVisitedBy","visitsFlowersOf","pollinates","pollinatedBy","visits","visitedBy"}
+# eats/eatenBy = adult feeding on plant (nectaring), not larval host
+HOST_TYPES   = {"hostOf","hasHost","laysEggsOn","hasEggsLayedOnBy"}
+NECTAR_TYPES = {"flowersVisitedBy","visitsFlowersOf","pollinates","pollinatedBy","visits","visitedBy","eats","eatenBy"}
 
 # ── taxonomy helpers ────────────────────────────────────────────────────────────
 FAMILY_KW = {
