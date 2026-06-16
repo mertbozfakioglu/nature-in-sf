@@ -21,7 +21,14 @@ sf_obs_p = json.load(open(DATA_DIR / "sf_obs_cache.json"))
 
 def to_species(name: str) -> str:
     parts = name.split()
-    return " ".join(parts[:2]) if len(parts) >= 2 else name
+    name = " ".join(parts[:2]) if len(parts) >= 2 else name
+    return SYNONYMS.get(name, name)
+
+# GloBI carries both old and currently-accepted names for the same iNaturalist
+# taxon; map the old name to the accepted one so they merge into one node.
+SYNONYMS = {
+    "Arabis glabra": "Turritis glabra",
+}
 
 EXCLUDE       = {to_species(k) for k, v in nat.items() if v in ("non_native", "no_ca_obs")}
 
