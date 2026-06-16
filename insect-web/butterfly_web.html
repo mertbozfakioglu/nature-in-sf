@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SF Butterfly × Plant Explorer</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────── */
+#sidebar {
+  width: 270px;
+  min-width: 270px;
+  background: #161b22;
+  border-right: 1px solid #30363d;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 18px 14px;
+  gap: 18px;
+}
+
+#sidebar h1 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #58a6ff;
+  letter-spacing: .3px;
+}
+#sidebar h1 span { color: #79c0ff; font-weight: 400; font-size: 12px; display: block; margin-top: 2px; }
+
+.section { display: flex; flex-direction: column; gap: 8px; }
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: #8b949e;
+}
+
+/* search */
+#search {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  font-size: 13px;
+  padding: 6px 10px;
+  width: 100%;
+  outline: none;
+}
+#search:focus { border-color: #58a6ff; }
+#search::placeholder { color: #484f58; }
+
+/* relationship pills */
+.rel-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.rel-pill {
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1.5px solid transparent;
+  user-select: none;
+  transition: opacity .15s, transform .1s;
+}
+.rel-pill:active { transform: scale(.96); }
+.rel-pill.host   { background: rgba(220,80,50,.18); border-color: #dc5032; color: #ff8060; }
+.rel-pill.nectar { background: rgba(240,185,50,.18); border-color: #f0b932; color: #f0d060; }
+.rel-pill.other  { background: rgba(120,120,130,.15); border-color: #555; color: #8b949e; }
+.rel-pill.off    { opacity: .35; }
+
+/* butterfly family pills */
+.family-pills { display: flex; gap: 5px; flex-wrap: wrap; }
+.fam-pill {
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11.5px;
+  font-weight: 500;
+  border: 1.5px solid;
+  user-select: none;
+  transition: opacity .15s;
+}
+.fam-pill.off { opacity: .28; }
+
+/* plant family select */
+#plant-fam-select {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  font-size: 12px;
+  padding: 5px 8px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+#plant-fam-select:focus { border-color: #58a6ff; }
+
+/* stats */
+#stats {
+  font-size: 11.5px;
+  color: #8b949e;
+  line-height: 1.6;
+  border-top: 1px solid #30363d;
+  padding-top: 10px;
+  margin-top: auto;
+}
+#stats strong { color: #e6edf3; }
+
+/* legend */
+.legend { display: flex; flex-direction: column; gap: 5px; }
+.legend-row { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: #8b949e; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.legend-diamond {
+  width: 10px; height: 10px; flex-shrink: 0;
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+.legend-line { width: 20px; height: 2px; flex-shrink: 0; border-radius: 1px; }
+
+/* ── Graph area ───────────────────────────────────────────────────── */
+#graph-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+#graph {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────────────── */
+#tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(22, 27, 34, 0.97);
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 10px 14px;
+  max-width: 220px;
+  z-index: 200;
+  box-shadow: 0 4px 16px rgba(0,0,0,.5);
+  display: none;
+}
+#tooltip .tt-common { font-size: 14px; font-weight: 600; color: #e6edf3; margin-bottom: 2px; }
+#tooltip .tt-latin  { font-size: 11.5px; font-style: italic; color: #8b949e; margin-bottom: 6px; }
+#tooltip .tt-family { font-size: 11px; color: #58a6ff; margin-bottom: 3px; }
+#tooltip .tt-obs    { font-size: 11px; color: #8b949e; }
+#tooltip .tt-degree { font-size: 11px; color: #8b949e; }
+
+/* ── Info panel (focused node) ───────────────────────────────────── */
+#info-panel {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(22,27,34,.96);
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 14px 18px;
+  max-width: 280px;
+  display: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,.6);
+}
+#info-panel .ip-common { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+#info-panel .ip-latin  { font-size: 12px; font-style: italic; color: #8b949e; margin-bottom: 8px; }
+#info-panel .ip-meta   { font-size: 12px; color: #8b949e; line-height: 1.7; }
+#info-panel .ip-close  {
+  position: absolute; top: 10px; right: 12px;
+  cursor: pointer; font-size: 16px; color: #8b949e;
+  background: none; border: none; line-height: 1;
+}
+#info-panel .ip-close:hover { color: #e6edf3; }
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+  <div>
+    <h1>SF Butterfly × Plant
+      <span>iNaturalist-verified SF species</span>
+    </h1>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Search</div>
+    <input id="search" type="text" placeholder="Species name…">
+  </div>
+
+  <div class="section">
+    <div class="section-title">Relationship</div>
+    <div class="rel-pills">
+      <div class="rel-pill host"   data-rel="host">🔴 Host plant</div>
+      <div class="rel-pill nectar" data-rel="nectar">🟡 Nectar plant</div>
+      <div class="rel-pill other off" data-rel="other">⚪ Other</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Butterfly Family</div>
+    <div class="family-pills" id="bfly-family-pills"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Plant Family</div>
+    <select id="plant-fam-select">
+      <option value="">All plant families</option>
+    </select>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Legend</div>
+    <div class="legend">
+      <div class="legend-row"><div class="legend-dot" style="background:#4ecb71"></div> Native plant (size = # butterflies)</div>
+      <div id="bfly-legend" class="legend" style="margin-top:2px"></div>
+      <div style="height:4px"></div>
+      <div class="legend-row"><div class="legend-line" style="background:#dc5032"></div> Host plant (larvae feed)</div>
+      <div class="legend-row"><div class="legend-line" style="background:#f0b932"></div> Nectar plant (adults feed)</div>
+    </div>
+  </div>
+
+  <div id="stats"></div>
+</div>
+
+<div id="graph-wrap">
+  <svg id="graph"></svg>
+</div>
+
+<div id="tooltip">
+  <div class="tt-common"></div>
+  <div class="tt-latin"></div>
+  <div class="tt-family"></div>
+  <div class="tt-obs"></div>
+  <div class="tt-degree"></div>
+</div>
+
+<div id="info-panel">
+  <button class="ip-close">✕</button>
+  <div class="ip-common"></div>
+  <div class="ip-latin"></div>
+  <div class="ip-meta"></div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+// ── palette ──────────────────────────────────────────────────────────────────
+const BFLY_COLORS = {
+  Papilionidae: "#f5c842",
+  Pieridae:     "#c8e06a",
+  Lycaenidae:   "#6ab5e8",
+  Nymphalidae:  "#e8834a",
+  Hesperiidae:  "#c47de0",
+  Riodinidae:   "#e84a8a",
+  Unknown:      "#aaaaaa",
+};
+const PLANT_COLOR  = "#4ecb71";
+const EDGE_HOST    = "#dc5032";
+const EDGE_NECTAR  = "#f0b932";
+const EDGE_OTHER   = "#555566";
+
+// ── state ────────────────────────────────────────────────────────────────────
+const state = {
+  showHost:    true,
+  showNectar:  true,
+  showOther:   false,
+  bflyFamilies: new Set(),
+  plantFamily: "",
+  focusId:     null,
+  searchQuery: "",
+};
+
+// ── load data ─────────────────────────────────────────────────────────────────
+fetch("butterfly_web_data.json")
+  .then(r => r.json())
+  .then(data => init(data))
+  .catch(() => {
+    document.body.innerHTML =
+      `<div style="color:#ff8060;padding:40px;font-size:14px">
+        Could not load butterfly_web_data.json.<br>
+        Serve this directory with: <code>python3 -m http.server 8000</code>
+        and open <a href="http://localhost:8000/butterfly_web.html" style="color:#58a6ff">localhost:8000/butterfly_web.html</a>
+      </div>`;
+  });
+
+function init(DATA) {
+  // index nodes by id
+  const nodeById = Object.fromEntries(DATA.nodes.map(n => [n.id, n]));
+
+  // populate butterfly families
+  const bflyFams = [...new Set(DATA.nodes.filter(n=>n.type==="butterfly").map(n=>n.family))].sort();
+  bflyFams.forEach(f => state.bflyFamilies.add(f));
+
+  // populate plant families
+  const plantFams = [...new Set(DATA.nodes.filter(n=>n.type==="plant").map(n=>n.family))].sort();
+
+  // ── build sidebar controls ─────────────────────────────────────────────────
+  const pillsEl = document.getElementById("bfly-family-pills");
+  bflyFams.forEach(fam => {
+    const col = BFLY_COLORS[fam] || "#aaaaaa";
+    const el = document.createElement("div");
+    el.className = "fam-pill";
+    el.dataset.fam = fam;
+    el.textContent = fam;
+    el.style.borderColor = col;
+    el.style.color = col;
+    el.style.background = hexToRgba(col, 0.12);
+    el.addEventListener("click", () => {
+      if (state.bflyFamilies.has(fam)) {
+        if (state.bflyFamilies.size > 1) state.bflyFamilies.delete(fam);
+      } else {
+        state.bflyFamilies.add(fam);
+      }
+      update();
+    });
+    pillsEl.appendChild(el);
+  });
+
+  // legend for butterfly families
+  const legEl = document.getElementById("bfly-legend");
+  bflyFams.forEach(fam => {
+    const col = BFLY_COLORS[fam] || "#aaa";
+    const row = document.createElement("div");
+    row.className = "legend-row";
+    row.innerHTML = `<div class="legend-diamond" style="background:${col}"></div> ${fam}`;
+    legEl.appendChild(row);
+  });
+
+  // plant family select
+  const plantSel = document.getElementById("plant-fam-select");
+  plantFams.forEach(f => {
+    const opt = document.createElement("option");
+    opt.value = f; opt.textContent = f;
+    plantSel.appendChild(opt);
+  });
+  plantSel.addEventListener("change", () => {
+    state.plantFamily = plantSel.value;
+    update();
+  });
+
+  // relationship pills
+  document.querySelectorAll(".rel-pill").forEach(el => {
+    el.addEventListener("click", () => {
+      const rel = el.dataset.rel;
+      if (rel === "host")   state.showHost   = !state.showHost;
+      if (rel === "nectar") state.showNectar = !state.showNectar;
+      if (rel === "other")  state.showOther  = !state.showOther;
+      update();
+    });
+  });
+
+  // search
+  document.getElementById("search").addEventListener("input", e => {
+    state.searchQuery = e.target.value.toLowerCase().trim();
+    update();
+  });
+
+  // info panel close
+  document.querySelector(".ip-close").addEventListener("click", () => {
+    state.focusId = null;
+    update();
+  });
+
+  // ── D3 setup ──────────────────────────────────────────────────────────────
+  const svg = d3.select("#graph");
+  const wrap = document.getElementById("graph-wrap");
+  let W = wrap.clientWidth;
+  let H = wrap.clientHeight;
+  svg.attr("width", W).attr("height", H);
+
+  const g = svg.append("g");
+
+  // transparent background to catch deselect clicks
+  g.append("rect")
+    .attr("class", "bg")
+    .attr("x", -50000).attr("y", -50000)
+    .attr("width", 100000).attr("height", 100000)
+    .attr("fill", "transparent")
+    .on("click", () => {
+      state.focusId = null;
+      document.getElementById("info-panel").style.display = "none";
+      update();
+    });
+
+  // zoom + pan
+  const zoom = d3.zoom()
+    .scaleExtent([0.1, 6])
+    .on("zoom", e => g.attr("transform", e.transform));
+  svg.call(zoom);
+
+  // ── tooltip ───────────────────────────────────────────────────────────────
+  const tooltip = document.getElementById("tooltip");
+  function showTooltip(event, d) {
+    const common = d.common_name || d.id;
+    const latin  = d.common_name ? d.id : "";
+    const famLabel = d.type === "butterfly"
+      ? `${d.family}`
+      : `${d.family}`;
+    const obsStr = d.sf_obs > 0 ? `${d.sf_obs.toLocaleString()} SF observations` : "";
+    const degStr = `${d.degree} ${d.type === "butterfly" ? "host/nectar plants" : "butterfly species"}`;
+    tooltip.querySelector(".tt-common").textContent = common;
+    tooltip.querySelector(".tt-latin").textContent  = latin;
+    tooltip.querySelector(".tt-family").textContent = famLabel;
+    tooltip.querySelector(".tt-obs").textContent    = obsStr;
+    tooltip.querySelector(".tt-degree").textContent = degStr;
+    tooltip.style.display = "block";
+    moveTooltip(event);
+  }
+  function moveTooltip(event) {
+    let x = event.clientX + 14;
+    let y = event.clientY - 10;
+    if (x + 240 > window.innerWidth) x = event.clientX - 240;
+    if (y + 120 > window.innerHeight) y = event.clientY - 120;
+    tooltip.style.left = x + "px";
+    tooltip.style.top  = y + "px";
+  }
+  function hideTooltip() { tooltip.style.display = "none"; }
+
+  // ── info panel ───────────────────────────────────────────────────────────
+  function showInfoPanel(d) {
+    const panel = document.getElementById("info-panel");
+    const common = d.common_name || d.id;
+    const latin  = d.common_name ? d.id : "";
+    panel.querySelector(".ip-common").textContent = common;
+    panel.querySelector(".ip-common").style.color = d.type === "butterfly"
+      ? (BFLY_COLORS[d.family] || "#aaa") : PLANT_COLOR;
+    panel.querySelector(".ip-latin").textContent = latin;
+    const neighbors = DATA.edges
+      .filter(e => e.source === d.id || e.target === d.id ||
+                   e.source?.id === d.id || e.target?.id === d.id)
+      .map(e => {
+        const sid = e.source?.id ?? e.source;
+        const tid = e.target?.id ?? e.target;
+        const nid = sid === d.id ? tid : sid;
+        const nb  = nodeById[nid];
+        const rel = [e.host && "host", e.nectar && "nectar"].filter(Boolean).join("/") || "other";
+        return `${nb?.common_name || nid} (${rel})`;
+      });
+    const meta = [
+      d.type === "butterfly" ? `Family: ${d.family}` : `Plant family: ${d.family}`,
+      d.sf_obs > 0 ? `SF observations: ${d.sf_obs.toLocaleString()}` : "",
+      `Connections: ${d.degree}`,
+    ].filter(Boolean).join("\n");
+    panel.querySelector(".ip-meta").style.whiteSpace = "pre-line";
+    panel.querySelector(".ip-meta").textContent = meta;
+    panel.style.display = "block";
+  }
+
+  // ── simulation ────────────────────────────────────────────────────────────
+  // clone nodes to avoid D3 mutating original data
+  const simNodes = DATA.nodes.map(d => ({...d}));
+  const simEdges = DATA.edges.map(e => ({...e}));
+  const simNodeById = Object.fromEntries(simNodes.map(n => [n.id, n]));
+
+  const sim = d3.forceSimulation(simNodes)
+    .force("link", d3.forceLink(simEdges)
+      .id(d => d.id)
+      .distance(d => {
+        // host links slightly shorter than nectar
+        return d.host ? 70 : 90;
+      })
+      .strength(0.4))
+    .force("charge", d3.forceManyBody().strength(-220))
+    .force("center", d3.forceCenter(W / 2, H / 2))
+    .force("collide", d3.forceCollide().radius(d => nodeRadius(d) + 4))
+    .alphaDecay(0.025)
+    .on("tick", ticked);
+
+  // ── render ────────────────────────────────────────────────────────────────
+  let edgeSel = g.append("g").attr("class","edges").selectAll("line");
+  let nodeSel = g.append("g").attr("class","nodes").selectAll("path,circle");
+
+  function nodeRadius(d) {
+    return d.type === "plant"
+      ? 5 + Math.sqrt(d.degree) * 3.5
+      : 5 + Math.sqrt(d.degree) * 2.8;
+  }
+
+  function nodeColor(d) {
+    return d.type === "plant" ? PLANT_COLOR : (BFLY_COLORS[d.family] || "#aaa");
+  }
+
+  function edgeColor(e) {
+    if (e.host && e.nectar) return EDGE_HOST; // host takes priority
+    if (e.host)   return EDGE_HOST;
+    if (e.nectar) return EDGE_NECTAR;
+    return EDGE_OTHER;
+  }
+
+  function edgeWidth(e) {
+    return (e.host && e.nectar) ? 2.5 : 1.5;
+  }
+
+  // ── update function (called on filter changes) ─────────────────────────────
+  function getVisibleIds() {
+    // determine which node IDs pass all current filters
+    const searchQ = state.searchQuery;
+
+    const visibleEdges = DATA.edges.filter(e => {
+      const sid = e.source?.id ?? e.source;
+      const tid = e.target?.id ?? e.target;
+      const sn  = nodeById[sid];
+      const tn  = nodeById[tid];
+      const butterfly = sn?.type === "butterfly" ? sn : tn;
+      const plant     = sn?.type === "plant"     ? sn : tn;
+      if (!butterfly || !plant) return false;
+      if (!state.bflyFamilies.has(butterfly.family)) return false;
+      if (state.plantFamily && plant.family !== state.plantFamily) return false;
+      const typeOk = (state.showHost && e.host) ||
+                     (state.showNectar && e.nectar) ||
+                     (state.showOther && !e.host && !e.nectar);
+      return typeOk;
+    });
+
+    const visibleNodeIds = new Set();
+    visibleEdges.forEach(e => {
+      visibleNodeIds.add(e.source?.id ?? e.source);
+      visibleNodeIds.add(e.target?.id ?? e.target);
+    });
+
+    // apply search: dim non-matching, but keep graph structure
+    let searchHitIds = null;
+    if (searchQ) {
+      searchHitIds = new Set(
+        DATA.nodes
+          .filter(n => n.id.toLowerCase().includes(searchQ) ||
+                       n.common_name.toLowerCase().includes(searchQ))
+          .map(n => n.id)
+      );
+    }
+
+    // focused node neighbors
+    let focusNeighborIds = null;
+    if (state.focusId) {
+      focusNeighborIds = new Set([state.focusId]);
+      DATA.edges.forEach(e => {
+        const sid = e.source?.id ?? e.source;
+        const tid = e.target?.id ?? e.target;
+        if (sid === state.focusId) focusNeighborIds.add(tid);
+        if (tid === state.focusId) focusNeighborIds.add(sid);
+      });
+    }
+
+    return { visibleNodeIds, visibleEdges, searchHitIds, focusNeighborIds };
+  }
+
+  function update() {
+    // ── update pill UI ───────────────────────────────────────────────────────
+    document.querySelector(".rel-pill.host").classList.toggle("off", !state.showHost);
+    document.querySelector(".rel-pill.nectar").classList.toggle("off", !state.showNectar);
+    document.querySelector(".rel-pill.other").classList.toggle("off", !state.showOther);
+    document.querySelectorAll(".fam-pill").forEach(el => {
+      el.classList.toggle("off", !state.bflyFamilies.has(el.dataset.fam));
+    });
+
+    const { visibleNodeIds, visibleEdges, searchHitIds, focusNeighborIds } = getVisibleIds();
+
+    // ── edges ────────────────────────────────────────────────────────────────
+    edgeSel = g.select(".edges")
+      .selectAll("line")
+      .data(simEdges, e => `${e.source?.id ?? e.source}|${e.target?.id ?? e.target}`)
+      .join("line");
+
+    edgeSel
+      .attr("stroke", e => edgeColor(e))
+      .attr("stroke-width", e => edgeWidth(e))
+      .transition().duration(200)
+      .attr("stroke-opacity", e => {
+        const sid = e.source?.id ?? e.source;
+        const tid = e.target?.id ?? e.target;
+        if (!visibleNodeIds.has(sid) || !visibleNodeIds.has(tid)) return 0;
+        // check edge type visibility
+        const typeOk = (state.showHost && e.host) ||
+                       (state.showNectar && e.nectar) ||
+                       (state.showOther && !e.host && !e.nectar);
+        if (!typeOk) return 0;
+        if (focusNeighborIds) {
+          return (focusNeighborIds.has(sid) && focusNeighborIds.has(tid)) ? 0.75 : 0.04;
+        }
+        if (searchHitIds && (searchHitIds.has(sid) || searchHitIds.has(tid))) return 0.75;
+        if (searchHitIds) return 0.06;
+        return 0.35;
+      });
+
+    // ── nodes ────────────────────────────────────────────────────────────────
+    nodeSel = g.select(".nodes")
+      .selectAll("g.node")
+      .data(simNodes, d => d.id)
+      .join(enter => {
+        const gn = enter.append("g").attr("class", "node").style("cursor", "pointer");
+
+        // shape: circle for plants, diamond for butterflies
+        gn.each(function(d) {
+          const el = d3.select(this);
+          if (d.type === "plant") {
+            el.append("circle")
+              .attr("r", nodeRadius(d))
+              .attr("fill", PLANT_COLOR)
+              .attr("stroke", "#fff")
+              .attr("stroke-width", 0.8);
+          } else {
+            const r = nodeRadius(d);
+            const sym = d3.symbol().type(d3.symbolDiamond).size(r * r * 4.5);
+            el.append("path")
+              .attr("d", sym)
+              .attr("fill", nodeColor(d))
+              .attr("stroke", "#fff")
+              .attr("stroke-width", 0.8);
+          }
+        });
+
+        gn.on("mouseover", (event, d) => {
+          showTooltip(event, d);
+          d3.select(event.currentTarget).select("circle,path")
+            .attr("stroke-width", 2).attr("stroke", "#fff");
+        })
+        .on("mousemove", moveTooltip)
+        .on("mouseout", (event, d) => {
+          hideTooltip();
+          d3.select(event.currentTarget).select("circle,path")
+            .attr("stroke-width", 0.8).attr("stroke", "#fff");
+        })
+        .on("click", (event, d) => {
+          event.stopPropagation();
+          state.focusId = state.focusId === d.id ? null : d.id;
+          if (state.focusId) showInfoPanel(d);
+          else document.getElementById("info-panel").style.display = "none";
+          update();
+        })
+        .call(d3.drag()
+          .on("start", (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+          .on("drag",  (e, d) => { d.fx=e.x; d.fy=e.y; })
+          .on("end",   (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+
+        return gn;
+      });
+
+    nodeSel.transition().duration(200)
+      .attr("opacity", d => {
+        if (!visibleNodeIds.has(d.id)) return 0;
+        if (focusNeighborIds) return focusNeighborIds.has(d.id) ? 1 : 0.1;
+        if (searchHitIds) return searchHitIds.has(d.id) ? 1 : 0.12;
+        return 1;
+      });
+
+    // pointer-events: disable on hidden nodes
+    nodeSel.style("pointer-events", d => visibleNodeIds.has(d.id) ? "auto" : "none");
+
+    // ── stats ────────────────────────────────────────────────────────────────
+    const visiBflies = [...visibleNodeIds].filter(id => nodeById[id]?.type === "butterfly").length;
+    const visiPlants = [...visibleNodeIds].filter(id => nodeById[id]?.type === "plant").length;
+    const visiEdges  = visibleEdges.length;
+    const hostCnt    = visibleEdges.filter(e => e.host).length;
+    const nectarCnt  = visibleEdges.filter(e => e.nectar).length;
+    document.getElementById("stats").innerHTML =
+      `<strong>${visiBflies}</strong> butterflies · <strong>${visiPlants}</strong> plants<br>
+       <strong>${visiEdges}</strong> interactions
+       <span style="color:#dc5032">(${hostCnt} host</span> ·
+       <span style="color:#f0b932">${nectarCnt} nectar)</span>`;
+  }
+
+  function ticked() {
+    edgeSel
+      .attr("x1", e => e.source.x).attr("y1", e => e.source.y)
+      .attr("x2", e => e.target.x).attr("y2", e => e.target.y);
+    nodeSel.attr("transform", d => `translate(${d.x},${d.y})`);
+  }
+
+  // initial render
+  update();
+
+  // resize
+  window.addEventListener("resize", () => {
+    W = wrap.clientWidth; H = wrap.clientHeight;
+    svg.attr("width", W).attr("height", H);
+    sim.force("center", d3.forceCenter(W/2, H/2)).alpha(0.2).restart();
+  });
+}
+
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+</script>
+</body>
+</html>

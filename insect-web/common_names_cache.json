@@ -1,0 +1,666 @@
+{
+  "Abronia latifolia": {
+    "common": "Yellow Sand Verbena",
+    "id": 52618
+  },
+  "Abronia umbellata": {
+    "common": "Pink Sand Verbena",
+    "id": 53801
+  },
+  "Achillea lanulosa": {
+    "common": "Mountain Yarrow",
+    "id": 322552
+  },
+  "Achyrachaena mollis": {
+    "common": "Blow Wives",
+    "id": 56852
+  },
+  "Acmispon americanus": {
+    "common": "Spanish clover",
+    "id": 57049
+  },
+  "Acmispon strigosus": {
+    "common": "strigose lotus",
+    "id": 75281
+  },
+  "Aesculus californica": {
+    "common": "California buckeye",
+    "id": 53348
+  },
+  "Agoseris heterophylla": {
+    "common": "Annual Agoseris",
+    "id": 56856
+  },
+  "Allium unifolium": {
+    "common": "oneleaf onion",
+    "id": 59781
+  },
+  "Ambrosia chamissonis": {
+    "common": "silver beachweed",
+    "id": 71135
+  },
+  "Amsinckia intermedia": {
+    "common": "Rancher's fiddleneck",
+    "id": 49141
+  },
+  "Amsinckia lycopsoides": {
+    "common": "tarweed fiddleneck",
+    "id": 58048
+  },
+  "Amsinckia menziesii": {
+    "common": "Common Fiddleneck",
+    "id": 55436
+  },
+  "Anaphalis margaritacea": {
+    "common": "pearly everlasting",
+    "id": 52833
+  },
+  "Anthocharis sara": {
+    "common": "Sara Orangetip",
+    "id": 59124
+  },
+  "Anthocharis sara sara": {
+    "common": "Sara Orangetip",
+    "id": 59124
+  },
+  "Aquilegia formosa": {
+    "common": "western columbine",
+    "id": 48244
+  },
+  "Arabis glabra": {
+    "common": "Tower Mustard",
+    "id": 79460
+  },
+  "Arctostaphylos manzanita": {
+    "common": "Common Manzanita",
+    "id": 55137
+  },
+  "Arctostaphylos montana": {
+    "common": "Mount Tamalpais manzanita",
+    "id": 75522
+  },
+  "Argynnis coronis": {
+    "common": "Coronis Fritillary",
+    "id": 1456579
+  },
+  "Artemisia californica": {
+    "common": "California sagebrush",
+    "id": 53357
+  },
+  "Artemisia douglasiana": {
+    "common": "California mugwort",
+    "id": 52854
+  },
+  "Artemisia pycnocephala": {
+    "common": "coastal sagewort",
+    "id": 60952
+  },
+  "Astragalus gambelianus": {
+    "common": "Gambel's milkvetch",
+    "id": 57042
+  },
+  "Atalopedes campestris": {
+    "common": "Field Skipper",
+    "id": 52075
+  },
+  "Athysanus pusillus": {
+    "common": "common sandweed",
+    "id": 58069
+  },
+  "Barbarea orthoceras": {
+    "common": "American yellowrocket",
+    "id": 52976
+  },
+  "Battus philenor": {
+    "common": "Pipevine Swallowtail",
+    "id": 49972
+  },
+  "Battus philenor hirsuta": {
+    "common": "Pipevine Swallowtail",
+    "id": 49972
+  },
+  "Bidens cernua": {
+    "common": "Nodding Beggarticks",
+    "id": 75765
+  },
+  "Bidens laevis": {
+    "common": "Smooth Beggarticks",
+    "id": 75766
+  },
+  "Brephidium exilis": {
+    "common": "Western Pygmy-Blue",
+    "id": 53843
+  },
+  "Brodiaea elegans": {
+    "common": "harvest brodiaea",
+    "id": 51752
+  },
+  "Burnsius communis": {
+    "common": "Common Checkered-Skipper",
+    "id": 1038408
+  },
+  "Calochortus luteus": {
+    "common": "Yellow Mariposa Lily",
+    "id": 51077
+  },
+  "Calystegia purpurata": {
+    "common": "Pacific False Bindweed",
+    "id": 61319
+  },
+  "Camissoniopsis cheiranthifolia": {
+    "common": "beach suncup",
+    "id": 75976
+  },
+  "Cardamine californica": {
+    "common": "milkmaids",
+    "id": 49651
+  },
+  "Castilleja affinis": {
+    "common": "Coast Paintbrush",
+    "id": 50042
+  },
+  "Castilleja densiflora": {
+    "common": "dense-flowered owl's-clover",
+    "id": 55508
+  },
+  "Castilleja exserta": {
+    "common": "purple owl's-clover",
+    "id": 49343
+  },
+  "Castilleja foliolosa": {
+    "common": "woolly paintbrush",
+    "id": 56760
+  },
+  "Castilleja latifolia": {
+    "common": "Monterey paintbrush",
+    "id": 57267
+  },
+  "Caulanthus lasiophyllus": {
+    "common": "California mustard",
+    "id": 76165
+  },
+  "Celastrina echo": {
+    "common": "Echo Azure",
+    "id": 52484
+  },
+  "Centromadia pungens": {
+    "common": "Common Spikeweed",
+    "id": 64209
+  },
+  "Cercyonis pegala": {
+    "common": "Common Wood-Nymph",
+    "id": 58606
+  },
+  "Chlorogalum pomeridianum": {
+    "common": "wavy-leafed soap plant",
+    "id": 47597
+  },
+  "Chlosyne palla": {
+    "common": "Northern Checkerspot",
+    "id": 53893
+  },
+  "Cirsium brevistylum": {
+    "common": "Short-styled Thistle",
+    "id": 52993
+  },
+  "Clarkia amoena": {
+    "common": "Farewell-To-Spring",
+    "id": 61048
+  },
+  "Clarkia rubicunda": {
+    "common": "ruby chalice clarkia",
+    "id": 57148
+  },
+  "Coenonympha california": {
+    "common": "Common Ringlet",
+    "id": 69145
+  },
+  "Coenonympha california california": {
+    "common": "Common Ringlet",
+    "id": 69145
+  },
+  "Coenonympha tullia": {
+    "common": "Large Heath",
+    "id": 59185
+  },
+  "Colias eurytheme": {
+    "common": "Orange Sulphur",
+    "id": 58532
+  },
+  "Croton setiger": {
+    "common": "turkey mullein",
+    "id": 154156
+  },
+  "Cupido comyntas": {
+    "common": "Eastern Tailed-Blue",
+    "id": 122381
+  },
+  "Cynthia cardui": {
+    "common": "Painted Lady",
+    "id": 48548
+  },
+  "Danaus plexippus": {
+    "common": "Monarch",
+    "id": 48662
+  },
+  "Daucus pusillus": {
+    "common": "American wild carrot",
+    "id": 56726
+  },
+  "Dichelostemma capitatum": {
+    "common": "blue dicks",
+    "id": 1196784
+  },
+  "Epilobium brachycarpum": {
+    "common": "panicled willowherb",
+    "id": 52971
+  },
+  "Eriastrum densifolium": {
+    "common": "giant woollystar",
+    "id": 58232
+  },
+  "Erigeron philadelphicus": {
+    "common": "Philadelphia fleabane",
+    "id": 67820
+  },
+  "Eriogonum latifolium": {
+    "common": "Seaside Buckwheat",
+    "id": 57211
+  },
+  "Eriogonum nudum": {
+    "common": "Naked Buckwheat",
+    "id": 53046
+  },
+  "Erynnis funeralis": {
+    "common": "Funereal Duskywing",
+    "id": 59188
+  },
+  "Erynnis tristis": {
+    "common": "Mournful Duskywing",
+    "id": 59189
+  },
+  "Erysimum capitatum": {
+    "common": "Western Wallflower",
+    "id": 50628
+  },
+  "Erysimum franciscanum": {
+    "common": "San Francisco wallflower",
+    "id": 57402
+  },
+  "Euchloe ausonides": {
+    "common": "Large Marble",
+    "id": 59120
+  },
+  "Euphydryas chalcedona": {
+    "common": "Variable Checkerspot",
+    "id": 50892
+  },
+  "Euphydryas chalcedona chalcedona": {
+    "common": "Variable Checkerspot",
+    "id": 50892
+  },
+  "Euphydryas editha": {
+    "common": "Edith's Checkerspot",
+    "id": 59182
+  },
+  "Frankenia salina": {
+    "common": "Alkali Heath",
+    "id": 58168
+  },
+  "Gilia capitata": {
+    "common": "bluehead gilia",
+    "id": 57793
+  },
+  "Gilia capitata chamissonis": {
+    "common": "bluehead gilia",
+    "id": 57793
+  },
+  "Glaucopsyche lygdamus": {
+    "common": "Silvery Blue",
+    "id": 56776
+  },
+  "Helenium puberulum": {
+    "common": "Rosilla",
+    "id": 53092
+  },
+  "Hemizonia congesta": {
+    "common": "Hayfield Tarweed",
+    "id": 56960
+  },
+  "Hemizonia congesta lutescens": {
+    "common": "Hayfield Tarweed",
+    "id": 56960
+  },
+  "Heracleum maximum": {
+    "common": "common cowparsnip",
+    "id": 53094
+  },
+  "Heterotheca sessiliflora": {
+    "common": "sessileflower false goldenaster",
+    "id": 57988
+  },
+  "Holodiscus discolor": {
+    "common": "Ocean spray",
+    "id": 53414
+  },
+  "Hosackia crassifolia": {
+    "common": "Big deervetch",
+    "id": 77455
+  },
+  "Hosackia gracilis": {
+    "common": "witch's-teeth",
+    "id": 50841
+  },
+  "Hylephila phyleus": {
+    "common": "Fiery Skipper",
+    "id": 50340
+  },
+  "Hylephila phyleus phyleus": {
+    "common": "Fiery Skipper",
+    "id": 50340
+  },
+  "Icaricia acmon": {
+    "common": "Acmon Blue",
+    "id": 520456
+  },
+  "Icaricia icarioides": {
+    "common": "Boisduval's Blue",
+    "id": 520457
+  },
+  "Incisalia eryphon": {
+    "common": "Western Pine Elfin",
+    "id": 81967
+  },
+  "Isotrema californicum": {
+    "common": "California Dutchman's Pipe",
+    "id": 55190
+  },
+  "Junonia coenia": {
+    "common": "Common Buckeye",
+    "id": 48505
+  },
+  "Junonia grisea": {
+    "common": "Gray Buckeye",
+    "id": 1021509
+  },
+  "Lasthenia californica": {
+    "common": "California goldfields",
+    "id": 50987
+  },
+  "Lathyrus vestitus": {
+    "common": "Pacific pea",
+    "id": 50320
+  },
+  "Layia chrysanthemoides": {
+    "common": "smooth tidytips",
+    "id": 60139
+  },
+  "Layia platyglossa": {
+    "common": "tidy tips",
+    "id": 50876
+  },
+  "Lepechinia calycina": {
+    "common": "California Pitcher Sage",
+    "id": 57114
+  },
+  "Leptotes marina": {
+    "common": "Marine Blue",
+    "id": 59152
+  },
+  "Lessingia germanorum": {
+    "common": "San Francisco lessingia",
+    "id": 61925
+  },
+  "Lilium pardalinum": {
+    "common": "Leopard Lily",
+    "id": 57129
+  },
+  "Limenitis lorquini": {
+    "common": "Lorquin's Admiral",
+    "id": 50880
+  },
+  "Lomatium hendersonii": {
+    "common": "henderson's lomatium",
+    "id": 77810
+  },
+  "Lomatium macrocarpum": {
+    "common": "bigseed biscuitroot",
+    "id": 56826
+  },
+  "Lon melane": {
+    "common": "Umber Skipper",
+    "id": 1081332
+  },
+  "Lonicera hispidula": {
+    "common": "Pink Honeysuckle",
+    "id": 53416
+  },
+  "Lupinus bicolor": {
+    "common": "Miniature Lupine",
+    "id": 50614
+  },
+  "Lupinus nanus": {
+    "common": "Sky Lupine",
+    "id": 50612
+  },
+  "Lupinus polyphyllus bernardinus": {
+    "common": "Large-leaved lupine",
+    "id": 59549
+  },
+  "Lupinus sericeus": {
+    "common": "Silky Lupine",
+    "id": 164926
+  },
+  "Lupinus variicolor": {
+    "common": "Varied Lupine",
+    "id": 61018
+  },
+  "Lycaenidae": {
+    "common": "",
+    "id": null
+  },
+  "Madia elegans": {
+    "common": "Common Madia",
+    "id": 56974
+  },
+  "Madia sativa": {
+    "common": "coast tarweed",
+    "id": 53143
+  },
+  "Monardella villosa": {
+    "common": "Coyote Mint",
+    "id": 52181
+  },
+  "Nymphalidae": {
+    "common": "",
+    "id": null
+  },
+  "Nymphalis antiopa": {
+    "common": "Mourning Cloak",
+    "id": 56832
+  },
+  "Nymphalis californica": {
+    "common": "California Tortoiseshell",
+    "id": 49920
+  },
+  "Occidryas chalcedona": {
+    "common": "Variable Checkerspot",
+    "id": 50892
+  },
+  "Ochlodes agricola": {
+    "common": "Rural Skipper",
+    "id": 55785
+  },
+  "Ochlodes sylvanoides": {
+    "common": "Woodland Skipper",
+    "id": 59194
+  },
+  "Oenothera elata": {
+    "common": "tall evening primrose",
+    "id": 51813
+  },
+  "Orobanche fasciculata": {
+    "common": "yellow clustered broomrape",
+    "id": 1303043
+  },
+  "Papilio eurymedon": {
+    "common": "Pale Swallowtail",
+    "id": 55521
+  },
+  "Papilio polyxenes": {
+    "common": "Black Swallowtail",
+    "id": 58523
+  },
+  "Papilio rutulus": {
+    "common": "Western Tiger Swallowtail",
+    "id": 47226
+  },
+  "Papilio zelicaon": {
+    "common": "Anise Swallowtail",
+    "id": 51097
+  },
+  "Phacelia californica": {
+    "common": "California phacelia",
+    "id": 53170
+  },
+  "Phacelia imbricata": {
+    "common": "Mountain Phacelia",
+    "id": 53171
+  },
+  "Phacelia malvifolia": {
+    "common": "stinging phacelia",
+    "id": 58923
+  },
+  "Phacelia tanacetifolia": {
+    "common": "Lacy phacelia",
+    "id": 58185
+  },
+  "Pieris napi": {
+    "common": "Green-veined White",
+    "id": 54087
+  },
+  "Pieris rapae": {
+    "common": "Small White",
+    "id": 55626
+  },
+  "Polygonum paronychia": {
+    "common": "beach knotweed",
+    "id": 60734
+  },
+  "Pontia occidentalis": {
+    "common": "Western White",
+    "id": 209718
+  },
+  "Pontia protodice": {
+    "common": "Checkered White",
+    "id": 59119
+  },
+  "Prunella vulgaris": {
+    "common": "common selfheal",
+    "id": 52764
+  },
+  "Prunus virginiana": {
+    "common": "chokecherry",
+    "id": 54835
+  },
+  "Rafinesquia californica": {
+    "common": "California chicory",
+    "id": 53193
+  },
+  "Rhododendron occidentale": {
+    "common": "western azalea",
+    "id": 60527
+  },
+  "Rosa californica": {
+    "common": "California Wild Rose",
+    "id": 53437
+  },
+  "Salix lucida lasiandra": {
+    "common": "shining willow",
+    "id": 54846
+  },
+  "Salix scouleriana": {
+    "common": "Scouler's willow",
+    "id": 71076
+  },
+  "Salvia spathacea": {
+    "common": "Hummingbird Sage",
+    "id": 64133
+  },
+  "Solidago elongata": {
+    "common": "west coast Canada goldenrod",
+    "id": 79150
+  },
+  "Speyeria coronis": {
+    "common": "Coronis Fritillary",
+    "id": 1456579
+  },
+  "Streptanthus lasiophyllus": {
+    "common": "California mustard",
+    "id": 76165
+  },
+  "Symphyotrichum chilense": {
+    "common": "Pacific Aster",
+    "id": 56861
+  },
+  "Symphyotrichum subspicatum": {
+    "common": "Douglas' Aster",
+    "id": 79303
+  },
+  "Taraxia ovata": {
+    "common": "Sun Cup",
+    "id": 68182
+  },
+  "Trifolium fucatum": {
+    "common": "bull clover",
+    "id": 53901
+  },
+  "Trifolium wormskioldii": {
+    "common": "springbank clover",
+    "id": 71146
+  },
+  "Triteleia hyacinthina": {
+    "common": "white brodiaea",
+    "id": 57132
+  },
+  "Turritis glabra": {
+    "common": "Tower Mustard",
+    "id": 79460
+  },
+  "Vanessa annabella": {
+    "common": "West Coast Lady",
+    "id": 50786
+  },
+  "Vanessa atalanta": {
+    "common": "Red Admiral",
+    "id": 49133
+  },
+  "Vanessa cardui": {
+    "common": "Painted Lady",
+    "id": 48548
+  },
+  "Vanessa virginiensis": {
+    "common": "American Lady",
+    "id": 48549
+  },
+  "Veronica serpyllifolia": {
+    "common": "thyme-leaved speedwell",
+    "id": 55749
+  },
+  "Vicia ramosissima": {
+    "common": "",
+    "id": null
+  },
+  "Wyethia angustifolia": {
+    "common": "narrowleaf mule-ears",
+    "id": 56987
+  },
+  "Wyethia helenioides": {
+    "common": "Gray Mule-Ears",
+    "id": 50799
+  },
+  "Zerene eurydice": {
+    "common": "California Dogface",
+    "id": 117317
+  }
+}
