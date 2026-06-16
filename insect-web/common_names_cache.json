@@ -55,6 +55,10 @@
     "common": "Common Fiddleneck",
     "id": 55436
   },
+  "Amsinckia spectabilis": {
+    "common": "woolly breeches",
+    "id": 71045
+  },
   "Anaphalis margaritacea": {
     "common": "pearly everlasting",
     "id": 52833
@@ -475,6 +479,10 @@
     "common": "Sky Lupine",
     "id": 50612
   },
+  "Lupinus polyphyllus": {
+    "common": "Large-leaved lupine",
+    "id": 59549
+  },
   "Lupinus polyphyllus bernardinus": {
     "common": "Large-leaved lupine",
     "id": 59549
@@ -571,6 +579,10 @@
     "common": "California canarygrass",
     "id": 57192
   },
+  "Pieridae": {
+    "common": "",
+    "id": null
+  },
   "Pieris napi": {
     "common": "Green-veined White",
     "id": 54087
@@ -622,6 +634,10 @@
   "Salix lasiolepis": {
     "common": "Arroyo Willow",
     "id": 53452
+  },
+  "Salix lucida": {
+    "common": "shining willow",
+    "id": 54846
   },
   "Salix lucida lasiandra": {
     "common": "shining willow",

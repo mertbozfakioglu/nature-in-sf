@@ -19,13 +19,17 @@ nat      = json.load(open(DATA_DIR / "nativity.json"))
 bfly_sf  = json.load(open(DATA_DIR / "butterfly_sf_obs_cache.json"))
 sf_obs_p = json.load(open(DATA_DIR / "sf_obs_cache.json"))
 
-EXCLUDE       = {k for k, v in nat.items() if v in ("non_native", "no_ca_obs")}
+def to_species(name: str) -> str:
+    parts = name.split()
+    return " ".join(parts[:2]) if len(parts) >= 2 else name
+
+EXCLUDE       = {to_species(k) for k, v in nat.items() if v in ("non_native", "no_ca_obs")}
 
 # iNaturalist synonymizes these with a CA species, inflating their SF obs counts
 # Papilio polyxenes (Black Swallowtail, eastern US) → returns P. zelicaon obs
 SF_OBS_FALSE_POSITIVES = {"Papilio polyxenes"}
 
-SF_BUTTERFLIES = {n for n, c in bfly_sf.items() if c > 0} - SF_OBS_FALSE_POSITIVES
+SF_BUTTERFLIES = {to_species(n) for n, c in bfly_sf.items() if c > 0} - SF_OBS_FALSE_POSITIVES
 
 # ── interaction categorization ─────────────────────────────────────────────────
 # eats/eatenBy = adult feeding on plant (nectaring), not larval host
@@ -69,8 +73,8 @@ path_of = {}
 pairs   = defaultdict(lambda: {"host": False, "nectar": False, "other": False})
 
 for r in raw:
-    sn    = (r.get("source_taxon_name") or "").strip()
-    tn    = (r.get("target_taxon_name") or "").strip()
+    sn    = to_species((r.get("source_taxon_name") or "").strip())
+    tn    = to_species((r.get("target_taxon_name") or "").strip())
     sp    = r.get("source_taxon_path") or ""
     tp    = r.get("target_taxon_path") or ""
     itype = r.get("interaction_type", "")
@@ -83,7 +87,7 @@ for r in raw:
         b, p = sn, tn
     elif is_plant(sp) and is_butterfly(tp) and tn in SF_BUTTERFLIES:
         b, p = tn, sn
-    if b and p:
+    if b and p and len(b.split()) == 2 and len(p.split()) == 2:
         key = (b, p)
         if itype in HOST_TYPES:    pairs[key]["host"]   = True
         elif itype in NECTAR_TYPES: pairs[key]["nectar"] = True
