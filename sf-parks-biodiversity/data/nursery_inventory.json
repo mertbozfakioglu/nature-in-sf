@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16",
+  "lastUpdated": "2026-06-17",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -71,8 +71,7 @@
       "larnerseeds"
     ],
     "Asarum caudatum": [
-      "oaktown",
-      "heronshead"
+      "oaktown"
     ],
     "Baccharis pilularis": [
       "oaktown",
@@ -234,11 +233,13 @@
       "oaktown"
     ],
     "Festuca californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
     ],
     "Festuca idahoensis": [
+      "oaktown",
       "larnerseeds"
     ],
     "Festuca rubra": [
@@ -329,6 +330,7 @@
       "oaktown"
     ],
     "Juncus patens": [
+      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -431,9 +433,6 @@
     "Prunus ilicifolia": [
       "oaktown",
       "heronshead"
-    ],
-    "Prunus virginiana": [
-      "oaktown"
     ],
     "Pseudognaphalium californicum": [
       "oaktown"
