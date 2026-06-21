@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20",
+  "lastUpdated": "2026-06-21",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -46,8 +46,7 @@
       "heronshead"
     ],
     "Aristolochia californica": [
-      "oaktown",
-      "heronshead"
+      "oaktown"
     ],
     "Armeria maritima": [
       "oaktown",
@@ -92,6 +91,9 @@
     ],
     "Calystegia occidentalis": [
       "heronshead"
+    ],
+    "Camissoniopsis cheiranthifolia": [
+      "oaktown"
     ],
     "Carex densa": [
       "oaktown"
@@ -207,7 +209,6 @@
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
-      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -345,6 +346,9 @@
     ],
     "Lasthenia glabrata": [
       "larnerseeds"
+    ],
+    "Lathyrus vestitus": [
+      "heronshead"
     ],
     "Layia platyglossa": [
       "larnerseeds"
@@ -523,6 +527,9 @@
       "heronshead",
       "missionblue"
     ],
+    "Silene laciniata": [
+      "oaktown"
+    ],
     "Sisyrinchium bellum": [
       "oaktown",
       "heronshead",
@@ -539,6 +546,9 @@
       "oaktown",
       "heronshead",
       "larnerseeds"
+    ],
+    "Stachys bullata": [
+      "oaktown"
     ],
     "Stachys chamissonis": [
       "oaktown"
