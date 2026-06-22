@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21",
+  "lastUpdated": "2026-06-22",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -95,10 +95,7 @@
     "Camissoniopsis cheiranthifolia": [
       "oaktown"
     ],
-    "Carex densa": [
-      "oaktown"
-    ],
-    "Carex obnupta": [
+    "Carex barbarae": [
       "oaktown"
     ],
     "Carex pansa": [
@@ -389,6 +386,7 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
+      "oaktown",
       "heronshead"
     ],
     "Morella californica": [
@@ -397,6 +395,9 @@
     ],
     "Nemophila menziesii": [
       "larnerseeds"
+    ],
+    "Oemleria cerasiformis": [
+      "heronshead"
     ],
     "Oenothera elata": [
       "oaktown",
@@ -453,9 +454,6 @@
     ],
     "Quercus parvula": [
       "oaktown"
-    ],
-    "Ranunculus californicus": [
-      "heronshead"
     ],
     "Rhamnus crocea": [
       "heronshead"
@@ -527,16 +525,12 @@
       "heronshead",
       "missionblue"
     ],
-    "Silene laciniata": [
-      "oaktown"
-    ],
     "Sisyrinchium bellum": [
       "oaktown",
       "heronshead",
       "larnerseeds"
     ],
     "Sisyrinchium californicum": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
@@ -547,7 +541,7 @@
       "heronshead",
       "larnerseeds"
     ],
-    "Stachys bullata": [
+    "Stachys ajugoides": [
       "oaktown"
     ],
     "Stachys chamissonis": [
@@ -610,9 +604,6 @@
       "heronshead"
     ],
     "Wyethia angustifolia": [
-      "oaktown"
-    ],
-    "Wyethia helenioides": [
       "oaktown"
     ]
   }
