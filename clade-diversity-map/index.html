@@ -11,8 +11,8 @@
   html, body {
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #10131a;
-    color: #d7dce5;
+    background: #f4f5f8;
+    color: #1d2230;
     overflow: hidden;
   }
 
@@ -26,8 +26,8 @@
   /* ── Header ── */
   #header {
     flex: 0 0 auto;
-    background: #0a0c11;
-    border-bottom: 1px solid #232838;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e4ea;
     padding: 9px 16px;
     display: flex;
     align-items: center;
@@ -37,8 +37,8 @@
   #menu-btn {
     display: none;
     background: transparent;
-    border: 1px solid #2a3145;
-    color: #aeb6cc;
+    border: 1px solid #d3d7e0;
+    color: #4b5468;
     border-radius: 6px;
     width: 32px; height: 32px;
     font-size: 1rem;
@@ -46,18 +46,18 @@
     flex-shrink: 0;
   }
 
-  #title-block h1 { font-size: 0.98rem; font-weight: 600; color: #cfd7ea; white-space: nowrap; }
-  #title-block .header-sub { font-size: 0.67rem; color: #565f78; margin-top: 1px; }
+  #title-block h1 { font-size: 0.98rem; font-weight: 600; color: #1d2230; white-space: nowrap; }
+  #title-block .header-sub { font-size: 0.67rem; color: #6b7280; margin-top: 1px; }
 
   #header-stats {
     margin-left: auto;
     display: flex;
     gap: 14px;
     font-size: 0.76rem;
-    color: #6a7390;
+    color: #6b7280;
     white-space: nowrap;
   }
-  #header-stats strong { color: #d7dce5; font-size: 0.88rem; }
+  #header-stats strong { color: #1d2230; font-size: 0.88rem; }
 
   /* ── Body layout ── */
   #body { flex: 1; display: flex; min-height: 0; position: relative; }
@@ -65,8 +65,8 @@
   #sidebar {
     width: 320px;
     flex: 0 0 auto;
-    background: #0d0f16;
-    border-right: 1px solid #232838;
+    background: #fafbfc;
+    border-right: 1px solid #e1e4ea;
     display: flex;
     flex-direction: column;
     min-height: 0;
@@ -88,10 +88,10 @@
   #taxon-search {
     width: 100%;
     padding: 9px 30px 9px 11px;
-    background: #161a26;
-    border: 1px solid #2a3145;
+    background: #ffffff;
+    border: 1px solid #d3d7e0;
     border-radius: 8px;
-    color: #e2e6ef;
+    color: #1d2230;
     font-size: 0.85rem;
     outline: none;
   }
@@ -101,7 +101,7 @@
     position: absolute;
     right: 7px; top: 50%; transform: translateY(-50%);
     background: transparent; border: none;
-    color: #565f78; cursor: pointer; font-size: 0.85rem;
+    color: #6b7280; cursor: pointer; font-size: 0.85rem;
     display: none;
   }
 
@@ -109,13 +109,13 @@
     position: absolute;
     top: calc(100% + 4px);
     left: 0; right: 0;
-    background: #161a26;
-    border: 1px solid #2a3145;
+    background: #ffffff;
+    border: 1px solid #d3d7e0;
     border-radius: 8px;
     max-height: 280px;
     overflow-y: auto;
     z-index: 1000;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 24px rgba(20,24,40,0.14);
     display: none;
   }
   #search-dropdown.open { display: block; }
@@ -127,59 +127,59 @@
     align-items: baseline;
     justify-content: space-between;
     gap: 8px;
-    border-bottom: 1px solid #1c2030;
+    border-bottom: 1px solid #eef0f4;
   }
   .sd-item:last-child { border-bottom: none; }
-  .sd-item:hover, .sd-item.hl { background: #1d2233; }
-  .sd-name { font-size: 0.82rem; color: #e2e6ef; }
-  .sd-name em { font-style: italic; color: #8b94b0; display: block; font-size: 0.72rem; }
+  .sd-item:hover, .sd-item.hl { background: #eef1f8; }
+  .sd-name { font-size: 0.82rem; color: #1d2230; }
+  .sd-name em { font-style: italic; color: #6b7280; display: block; font-size: 0.72rem; }
   .sd-rank {
     font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #6a7390; background: #1f2436; padding: 2px 6px; border-radius: 10px;
+    color: #5b6478; background: #eef0f4; padding: 2px 6px; border-radius: 10px;
     flex-shrink: 0;
   }
-  .sd-empty { padding: 10px 11px; font-size: 0.78rem; color: #565f78; }
+  .sd-empty { padding: 10px 11px; font-size: 0.78rem; color: #8a93a8; }
 
   /* ── Example chips ── */
   #examples { display: flex; flex-wrap: wrap; gap: 6px; }
   .chip {
-    background: #161a26; border: 1px solid #2a3145; color: #9aa3c0;
+    background: #eef1f7; border: 1px solid #d3d7e0; color: #5b6478;
     border-radius: 14px; padding: 4px 10px; font-size: 0.72rem; cursor: pointer;
   }
-  .chip:hover { border-color: #4d6fd6; color: #cfd7ea; }
+  .chip:hover { border-color: #4d6fd6; color: #1d2230; }
 
   /* ── Taxon info ── */
   #taxon-info {
     display: none;
-    background: #141826;
-    border: 1px solid #232a40;
+    background: #eef1f7;
+    border: 1px solid #d8dde8;
     border-radius: 8px;
     padding: 10px 12px;
   }
   #taxon-info.shown { display: block; }
   #ti-rank {
     font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.05em;
-    color: #6a7390;
+    color: #6b7280;
   }
-  #ti-name { font-size: 1rem; font-weight: 600; color: #eef1f8; margin-top: 2px; }
-  #ti-common { font-style: italic; color: #9aa3c0; font-size: 0.78rem; margin-top: 1px; }
-  #ti-link { font-size: 0.72rem; color: #6f93f5; text-decoration: none; display: inline-block; margin-top: 6px; }
+  #ti-name { font-size: 1rem; font-weight: 600; color: #14182a; margin-top: 2px; }
+  #ti-common { font-style: italic; color: #5b6478; font-size: 0.78rem; margin-top: 1px; }
+  #ti-link { font-size: 0.72rem; color: #3a5fe0; text-decoration: none; display: inline-block; margin-top: 6px; }
   #ti-link:hover { text-decoration: underline; }
 
   /* ── Options ── */
-  #options { font-size: 0.78rem; color: #9aa3c0; }
+  #options { font-size: 0.78rem; color: #5b6478; }
   #options label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
   #options input[type=checkbox] { accent-color: #4d6fd6; width: 14px; height: 14px; }
-  #options .opt-hint { font-size: 0.68rem; color: #565f78; margin: 3px 0 0 21px; }
+  #options .opt-hint { font-size: 0.68rem; color: #8a93a8; margin: 3px 0 0 21px; }
 
   /* ── Progress ── */
-  #progress-wrap { display: none; font-size: 0.76rem; color: #9aa3c0; }
+  #progress-wrap { display: none; font-size: 0.76rem; color: #5b6478; }
   #progress-wrap.shown { display: block; }
-  #progress-bar-track { background: #1c2030; border-radius: 3px; height: 5px; overflow: hidden; margin-top: 6px; }
+  #progress-bar-track { background: #e7eaf0; border-radius: 3px; height: 5px; overflow: hidden; margin-top: 6px; }
   #progress-bar-fill { background: #4d6fd6; height: 100%; width: 0%; transition: width 0.2s; }
   #progress-msg { margin-top: 5px; min-height: 1.1em; }
   #cancel-btn {
-    margin-top: 6px; background: transparent; border: 1px solid #3a2030; color: #d68a8a;
+    margin-top: 6px; background: transparent; border: 1px solid #f0c9c9; color: #b94d4d;
     border-radius: 6px; padding: 3px 9px; font-size: 0.7rem; cursor: pointer;
   }
 
@@ -188,11 +188,11 @@
   #legend-section.shown { display: flex; }
   #legend-header {
     display: flex; align-items: center; justify-content: space-between;
-    font-size: 0.78rem; color: #9aa3c0; margin-bottom: 6px;
+    font-size: 0.78rem; color: #5b6478; margin-bottom: 6px;
   }
-  #legend-header .lbl strong { color: #d7dce5; }
+  #legend-header .lbl strong { color: #1d2230; }
   #legend-actions button {
-    background: transparent; border: none; color: #6f93f5; font-size: 0.7rem; cursor: pointer;
+    background: transparent; border: none; color: #3a5fe0; font-size: 0.7rem; cursor: pointer;
     padding: 2px 4px;
   }
   #legend-actions button:hover { text-decoration: underline; }
@@ -203,18 +203,24 @@
     display: flex; align-items: center; gap: 8px;
     padding: 5px 6px; border-radius: 6px; cursor: pointer;
   }
-  .leg-row:hover { background: #161a26; }
+  .leg-row:hover { background: #f1f3f8; }
   .leg-row input[type=checkbox] { flex-shrink: 0; cursor: pointer; }
-  .leg-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.25); }
+  .leg-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.15); }
+  .leg-dot.square { border-radius: 2px; }
+  #legend-key { font-size: 0.68rem; color: #8a93a8; display: flex; align-items: center; gap: 12px; margin: 2px 2px 8px; }
+  #legend-key span { display: inline-flex; align-items: center; gap: 5px; }
+  #legend-key i { width: 9px; height: 9px; border: 1px solid rgba(0,0,0,0.3); background: #8a93a8; flex-shrink: 0; }
+  #legend-key i.dot { border-radius: 50%; }
+  #legend-key i.sq { border-radius: 2px; }
   .leg-text { flex: 1; min-width: 0; }
-  .leg-text .ln { font-size: 0.78rem; color: #d7dce5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .leg-text .ln em { font-style: italic; color: #8b94b0; }
-  .leg-count { font-size: 0.7rem; color: #6a7390; flex-shrink: 0; }
-  .leg-row.dimmed .leg-text, .leg-row.dimmed .leg-count { opacity: 0.35; }
+  .leg-text .ln { font-size: 0.78rem; color: #1d2230; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .leg-text .ln em { font-style: italic; color: #6b7280; }
+  .leg-count { font-size: 0.7rem; color: #6b7280; flex-shrink: 0; }
+  .leg-row.dimmed .leg-text, .leg-row.dimmed .leg-count { opacity: 0.4; }
 
   /* ── Empty / placeholder state ── */
   #placeholder {
-    font-size: 0.78rem; color: #565f78; line-height: 1.6;
+    font-size: 0.78rem; color: #6b7280; line-height: 1.6;
   }
 
   /* ── Map ── */
@@ -223,30 +229,30 @@
   /* ── Error / status banner ── */
   #status-banner {
     display: none;
-    background: #2a1c1c; color: #e0a8a8; border: 1px solid #4a2a2a;
+    background: #fdecec; color: #a83a3a; border: 1px solid #f3c4c4;
     border-radius: 8px; padding: 8px 10px; font-size: 0.76rem; line-height: 1.45;
   }
   #status-banner.shown { display: block; }
-  #status-banner.info { background: #1c2436; color: #9ab0e0; border-color: #2a3a52; }
+  #status-banner.info { background: #eaf1fd; color: #2f5fb3; border-color: #cfe0fa; }
 
   /* ── Popup ── */
   .leaflet-popup-content-wrapper {
-    background: #161a26 !important;
-    color: #d7dce5 !important;
-    border: 1px solid #2a3145 !important;
+    background: #ffffff !important;
+    color: #1d2230 !important;
+    border: 1px solid #d8dde8 !important;
     border-radius: 8px !important;
   }
-  .leaflet-popup-tip { background: #161a26 !important; }
-  .leaflet-popup-close-button { color: #6a7390 !important; }
+  .leaflet-popup-tip { background: #ffffff !important; }
+  .leaflet-popup-close-button { color: #6b7280 !important; }
   .popup-body { font-size: 0.8rem; line-height: 1.55; }
-  .popup-sci { font-style: italic; color: #aeb6cc; }
-  .popup-body a { color: #6f93f5; text-decoration: none; }
+  .popup-sci { font-style: italic; color: #5b6478; }
+  .popup-body a { color: #3a5fe0; text-decoration: none; }
   .popup-body a:hover { text-decoration: underline; }
 
   /* ── Loading overlay (initial map load only) ── */
   #map-loading {
     position: absolute; inset: 0;
-    background: rgba(10,12,17,0.85);
+    background: rgba(244,245,248,0.85);
     display: none;
     align-items: center; justify-content: center;
     z-index: 800;
@@ -255,7 +261,7 @@
   #map-loading.shown { display: flex; }
   .spinner {
     width: 30px; height: 30px;
-    border: 3px solid #232838;
+    border: 3px solid #e1e4ea;
     border-top-color: #4d6fd6;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
@@ -274,12 +280,12 @@
       transition: transform 0.22s ease;
       width: 86vw;
       max-width: 340px;
-      box-shadow: 4px 0 18px rgba(0,0,0,0.5);
+      box-shadow: 4px 0 18px rgba(20,24,40,0.18);
     }
     #sidebar.open { transform: translateX(0); }
     #sidebar-backdrop {
       display: none;
-      position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 450;
+      position: absolute; inset: 0; background: rgba(20,24,40,0.25); z-index: 450;
     }
     #sidebar-backdrop.shown { display: block; }
   }
@@ -350,6 +356,10 @@
               <button id="legend-none">none</button>
             </span>
           </div>
+          <div id="legend-key">
+            <span><i class="dot"></i>native</span>
+            <span><i class="sq"></i>non-native</span>
+          </div>
           <div id="legend-list"></div>
         </div>
 
@@ -368,7 +378,7 @@
 const SF_PLACE_ID = 854;
 const OBS_URL = 'https://api.inaturalist.org/v2/observations';
 const AUTOCOMPLETE_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete';
-const FIELDS = '(id:!t,taxon:(id:!t,name:!t,rank:!t,preferred_common_name:!t),geojson:!t,observed_on:!t,quality_grade:!t)';
+const FIELDS = '(id:!t,taxon:(id:!t,name:!t,rank:!t,preferred_common_name:!t,native:!t,introduced:!t,endemic:!t),geojson:!t,observed_on:!t,quality_grade:!t)';
 const PER_PAGE = 200;
 const FETCH_CAP = 20000;       // hard safety cap on observations fetched per query
 const REQUEST_GAP_MS = 300;    // be polite to the API between pages
@@ -377,11 +387,25 @@ const REQUEST_GAP_MS = 300;    // be polite to the API between pages
 const map = L.map('map', { preferCanvas: true }).setView([37.7595, -122.4492], 13);
 const renderer = L.canvas({ padding: 0.5 });
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
   subdomains: 'abcd',
   maxZoom: 19
 }).addTo(map);
+
+// Square marker for non-native species — same canvas renderer as CircleMarker,
+// just swaps the arc for a rect so natives vs. non-natives read as a shape
+// difference at a glance, not just a color difference.
+const SquareMarker = L.CircleMarker.extend({
+  _updatePath: function () {
+    const ctx = this._renderer._ctx;
+    const p = this._point;
+    const s = Math.max(Math.round(this._radius * 0.85), 1);
+    ctx.beginPath();
+    ctx.rect(p.x - s, p.y - s, s * 2, s * 2);
+    this._renderer._fillStroke(ctx, this);
+  }
+});
 
 // ── State ─────────────────────────────────────────────────────────────────
 let abortController = null;
@@ -414,8 +438,8 @@ function debounce(fn, ms) {
 
 function speciesColor(idx) {
   const hue = (idx * 137.508) % 360;
-  const light = idx % 2 === 0 ? 58 : 70;
-  const sat = 75;
+  const light = idx % 2 === 0 ? 42 : 52;
+  const sat = 80;
   return `hsl(${hue.toFixed(1)} ${sat}% ${light}%)`;
 }
 
@@ -594,6 +618,7 @@ async function loadClade(taxon) {
       const params = new URLSearchParams({
         taxon_id: taxon.id,
         place_id: SF_PLACE_ID,
+        preferred_place_id: SF_PLACE_ID,
         hrank: 'species',
         lrank: 'species',
         per_page: PER_PAGE,
@@ -674,7 +699,8 @@ function renderObservations(observations) {
     const t = obs.taxon;
     if (!t || t.rank !== 'species') continue;
     if (!groups.has(t.id)) {
-      groups.set(t.id, { id: t.id, name: t.name, commonName: t.preferred_common_name, points: [] });
+      const nonNative = t.introduced === true || t.native === false;
+      groups.set(t.id, { id: t.id, name: t.name, commonName: t.preferred_common_name, nonNative, points: [] });
     }
     const [lng, lat] = obs.geojson.coordinates;
     groups.get(t.id).points.push({ lat, lng, id: obs.id, date: obs.observed_on });
@@ -688,9 +714,10 @@ function renderObservations(observations) {
   speciesList.forEach((sp, idx) => {
     const color = speciesColor(idx);
     const layerGroup = L.layerGroup();
+    const MarkerClass = sp.nonNative ? SquareMarker : L.CircleMarker;
 
     for (const pt of sp.points) {
-      L.circleMarker([pt.lat, pt.lng], {
+      new MarkerClass([pt.lat, pt.lng], {
         renderer,
         radius: 5,
         weight: 1,
@@ -702,6 +729,7 @@ function renderObservations(observations) {
         <div class="popup-body">
           <div><strong>${sp.commonName || sp.name}</strong></div>
           <div class="popup-sci">${sp.name}</div>
+          <div>${sp.nonNative ? 'Non-native to SF' : 'Native to SF'}</div>
           <div>Observed: ${pt.date || 'unknown'}</div>
           <div><a href="https://www.inaturalist.org/observations/${pt.id}" target="_blank" rel="noopener">View on iNaturalist ↗</a></div>
         </div>
@@ -710,7 +738,7 @@ function renderObservations(observations) {
     }
 
     layerGroup.addTo(map);
-    speciesLayers.set(sp.id, { layerGroup, color, name: sp.name, commonName: sp.commonName, count: sp.points.length });
+    speciesLayers.set(sp.id, { layerGroup, color, name: sp.name, commonName: sp.commonName, nonNative: sp.nonNative, count: sp.points.length });
     totalPoints += sp.points.length;
   });
 
@@ -742,7 +770,7 @@ function buildLegend(speciesList) {
     row.className = 'leg-row';
     row.innerHTML = `
       <input type="checkbox" checked data-id="${sp.id}">
-      <span class="leg-dot" style="background:${meta.color}"></span>
+      <span class="leg-dot${meta.nonNative ? ' square' : ''}" style="background:${meta.color}"></span>
       <span class="leg-text">
         <div class="ln">${sp.commonName || `<em>${sp.name}</em>`}</div>
       </span>
