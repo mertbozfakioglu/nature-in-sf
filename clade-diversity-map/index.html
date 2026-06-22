@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>SF Clade Diversity Mapper</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #10131a;
+    color: #d7dce5;
+    overflow: hidden;
+  }
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* ── Header ── */
+  #header {
+    flex: 0 0 auto;
+    background: #0a0c11;
+    border-bottom: 1px solid #232838;
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid #2a3145;
+    color: #aeb6cc;
+    border-radius: 6px;
+    width: 32px; height: 32px;
+    font-size: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  #title-block h1 { font-size: 0.98rem; font-weight: 600; color: #cfd7ea; white-space: nowrap; }
+  #title-block .header-sub { font-size: 0.67rem; color: #565f78; margin-top: 1px; }
+
+  #header-stats {
+    margin-left: auto;
+    display: flex;
+    gap: 14px;
+    font-size: 0.76rem;
+    color: #6a7390;
+    white-space: nowrap;
+  }
+  #header-stats strong { color: #d7dce5; font-size: 0.88rem; }
+
+  /* ── Body layout ── */
+  #body { flex: 1; display: flex; min-height: 0; position: relative; }
+
+  #sidebar {
+    width: 320px;
+    flex: 0 0 auto;
+    background: #0d0f16;
+    border-right: 1px solid #232838;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    z-index: 500;
+  }
+
+  #sidebar-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ── Search ── */
+  #search-wrap { position: relative; }
+
+  #taxon-search {
+    width: 100%;
+    padding: 9px 30px 9px 11px;
+    background: #161a26;
+    border: 1px solid #2a3145;
+    border-radius: 8px;
+    color: #e2e6ef;
+    font-size: 0.85rem;
+    outline: none;
+  }
+  #taxon-search:focus { border-color: #4d6fd6; }
+
+  #search-clear {
+    position: absolute;
+    right: 7px; top: 50%; transform: translateY(-50%);
+    background: transparent; border: none;
+    color: #565f78; cursor: pointer; font-size: 0.85rem;
+    display: none;
+  }
+
+  #search-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0; right: 0;
+    background: #161a26;
+    border: 1px solid #2a3145;
+    border-radius: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    display: none;
+  }
+  #search-dropdown.open { display: block; }
+
+  .sd-item {
+    padding: 8px 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    border-bottom: 1px solid #1c2030;
+  }
+  .sd-item:last-child { border-bottom: none; }
+  .sd-item:hover, .sd-item.hl { background: #1d2233; }
+  .sd-name { font-size: 0.82rem; color: #e2e6ef; }
+  .sd-name em { font-style: italic; color: #8b94b0; display: block; font-size: 0.72rem; }
+  .sd-rank {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #6a7390; background: #1f2436; padding: 2px 6px; border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .sd-empty { padding: 10px 11px; font-size: 0.78rem; color: #565f78; }
+
+  /* ── Example chips ── */
+  #examples { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    background: #161a26; border: 1px solid #2a3145; color: #9aa3c0;
+    border-radius: 14px; padding: 4px 10px; font-size: 0.72rem; cursor: pointer;
+  }
+  .chip:hover { border-color: #4d6fd6; color: #cfd7ea; }
+
+  /* ── Taxon info ── */
+  #taxon-info {
+    display: none;
+    background: #141826;
+    border: 1px solid #232a40;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  #taxon-info.shown { display: block; }
+  #ti-rank {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: #6a7390;
+  }
+  #ti-name { font-size: 1rem; font-weight: 600; color: #eef1f8; margin-top: 2px; }
+  #ti-common { font-style: italic; color: #9aa3c0; font-size: 0.78rem; margin-top: 1px; }
+  #ti-link { font-size: 0.72rem; color: #6f93f5; text-decoration: none; display: inline-block; margin-top: 6px; }
+  #ti-link:hover { text-decoration: underline; }
+
+  /* ── Options ── */
+  #options { font-size: 0.78rem; color: #9aa3c0; }
+  #options label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+  #options input[type=checkbox] { accent-color: #4d6fd6; width: 14px; height: 14px; }
+  #options .opt-hint { font-size: 0.68rem; color: #565f78; margin: 3px 0 0 21px; }
+
+  /* ── Progress ── */
+  #progress-wrap { display: none; font-size: 0.76rem; color: #9aa3c0; }
+  #progress-wrap.shown { display: block; }
+  #progress-bar-track { background: #1c2030; border-radius: 3px; height: 5px; overflow: hidden; margin-top: 6px; }
+  #progress-bar-fill { background: #4d6fd6; height: 100%; width: 0%; transition: width 0.2s; }
+  #progress-msg { margin-top: 5px; min-height: 1.1em; }
+  #cancel-btn {
+    margin-top: 6px; background: transparent; border: 1px solid #3a2030; color: #d68a8a;
+    border-radius: 6px; padding: 3px 9px; font-size: 0.7rem; cursor: pointer;
+  }
+
+  /* ── Legend ── */
+  #legend-section { display: none; flex-direction: column; min-height: 0; flex: 1; }
+  #legend-section.shown { display: flex; }
+  #legend-header {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.78rem; color: #9aa3c0; margin-bottom: 6px;
+  }
+  #legend-header .lbl strong { color: #d7dce5; }
+  #legend-actions button {
+    background: transparent; border: none; color: #6f93f5; font-size: 0.7rem; cursor: pointer;
+    padding: 2px 4px;
+  }
+  #legend-actions button:hover { text-decoration: underline; }
+
+  #legend-list { overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 1px; }
+
+  .leg-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 5px 6px; border-radius: 6px; cursor: pointer;
+  }
+  .leg-row:hover { background: #161a26; }
+  .leg-row input[type=checkbox] { flex-shrink: 0; cursor: pointer; }
+  .leg-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.25); }
+  .leg-text { flex: 1; min-width: 0; }
+  .leg-text .ln { font-size: 0.78rem; color: #d7dce5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .leg-text .ln em { font-style: italic; color: #8b94b0; }
+  .leg-count { font-size: 0.7rem; color: #6a7390; flex-shrink: 0; }
+  .leg-row.dimmed .leg-text, .leg-row.dimmed .leg-count { opacity: 0.35; }
+
+  /* ── Empty / placeholder state ── */
+  #placeholder {
+    font-size: 0.78rem; color: #565f78; line-height: 1.6;
+  }
+
+  /* ── Map ── */
+  #map { flex: 1; min-height: 0; }
+
+  /* ── Error / status banner ── */
+  #status-banner {
+    display: none;
+    background: #2a1c1c; color: #e0a8a8; border: 1px solid #4a2a2a;
+    border-radius: 8px; padding: 8px 10px; font-size: 0.76rem; line-height: 1.45;
+  }
+  #status-banner.shown { display: block; }
+  #status-banner.info { background: #1c2436; color: #9ab0e0; border-color: #2a3a52; }
+
+  /* ── Popup ── */
+  .leaflet-popup-content-wrapper {
+    background: #161a26 !important;
+    color: #d7dce5 !important;
+    border: 1px solid #2a3145 !important;
+    border-radius: 8px !important;
+  }
+  .leaflet-popup-tip { background: #161a26 !important; }
+  .leaflet-popup-close-button { color: #6a7390 !important; }
+  .popup-body { font-size: 0.8rem; line-height: 1.55; }
+  .popup-sci { font-style: italic; color: #aeb6cc; }
+  .popup-body a { color: #6f93f5; text-decoration: none; }
+  .popup-body a:hover { text-decoration: underline; }
+
+  /* ── Loading overlay (initial map load only) ── */
+  #map-loading {
+    position: absolute; inset: 0;
+    background: rgba(10,12,17,0.85);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 800;
+    pointer-events: none;
+  }
+  #map-loading.shown { display: flex; }
+  .spinner {
+    width: 30px; height: 30px;
+    border: 3px solid #232838;
+    border-top-color: #4d6fd6;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Mobile ── */
+  @media (max-width: 760px) {
+    #menu-btn { display: block; }
+    #title-block .header-sub { display: none; }
+    #header-stats { gap: 9px; font-size: 0.7rem; }
+    #sidebar {
+      position: absolute;
+      top: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      transition: transform 0.22s ease;
+      width: 86vw;
+      max-width: 340px;
+      box-shadow: 4px 0 18px rgba(0,0,0,0.5);
+    }
+    #sidebar.open { transform: translateX(0); }
+    #sidebar-backdrop {
+      display: none;
+      position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 450;
+    }
+    #sidebar-backdrop.shown { display: block; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div id="header">
+    <button id="menu-btn" title="Toggle panel">☰</button>
+    <div id="title-block">
+      <h1>SF Clade Diversity Mapper</h1>
+      <div class="header-sub">iNaturalist · San Francisco · species-level occurrences</div>
+    </div>
+    <div id="header-stats">
+      <span><strong id="hs-species">–</strong> species</span>
+      <span><strong id="hs-obs">–</strong> points</span>
+    </div>
+  </div>
+
+  <div id="body">
+    <div id="sidebar-backdrop"></div>
+    <aside id="sidebar">
+      <div id="sidebar-scroll">
+
+        <div id="search-wrap">
+          <input id="taxon-search" type="text" placeholder="Search a family or genus…" autocomplete="off" spellcheck="false">
+          <button id="search-clear" title="Clear">✕</button>
+          <div id="search-dropdown"></div>
+        </div>
+
+        <div id="examples">
+          <span class="chip" data-id="47604" data-name="Asteraceae" data-rank="family">Asteraceae</span>
+          <span class="chip" data-id="47851" data-name="Quercus" data-rank="genus">Quercus</span>
+          <span class="chip" data-id="6912" data-name="Anatidae" data-rank="family">Anatidae</span>
+          <span class="chip" data-id="52775" data-name="Bombus" data-rank="genus">Bombus</span>
+        </div>
+
+        <div id="status-banner"></div>
+
+        <div id="taxon-info">
+          <div id="ti-rank"></div>
+          <div id="ti-name"></div>
+          <div id="ti-common"></div>
+          <a id="ti-link" href="#" target="_blank" rel="noopener">View taxon on iNaturalist ↗</a>
+        </div>
+
+        <div id="options">
+          <label><input type="checkbox" id="research-only" checked> Research-grade only</label>
+          <div class="opt-hint">Community-confirmed species ID with evidence. Uncheck to also include unconfirmed (needs ID) records.</div>
+        </div>
+
+        <div id="progress-wrap">
+          <div id="progress-msg">Loading…</div>
+          <div id="progress-bar-track"><div id="progress-bar-fill"></div></div>
+          <button id="cancel-btn">Cancel</button>
+        </div>
+
+        <div id="placeholder">
+          Pick a family or genus above (or try one of the examples) to plot every iNaturalist species-level occurrence of that clade within San Francisco. Each species gets its own color — dense, multicolored clusters are diversity hotspots.
+        </div>
+
+        <div id="legend-section">
+          <div id="legend-header">
+            <span class="lbl"><strong id="lg-count">0</strong> species shown</span>
+            <span id="legend-actions">
+              <button id="legend-all">all</button>
+              <button id="legend-none">none</button>
+            </span>
+          </div>
+          <div id="legend-list"></div>
+        </div>
+
+      </div>
+    </aside>
+
+    <div id="map">
+      <div id="map-loading"><div class="spinner"></div></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const SF_PLACE_ID = 854;
+const OBS_URL = 'https://api.inaturalist.org/v2/observations';
+const AUTOCOMPLETE_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete';
+const FIELDS = '(id:!t,taxon:(id:!t,name:!t,rank:!t,preferred_common_name:!t),geojson:!t,observed_on:!t,quality_grade:!t)';
+const PER_PAGE = 200;
+const FETCH_CAP = 20000;       // hard safety cap on observations fetched per query
+const REQUEST_GAP_MS = 300;    // be polite to the API between pages
+
+// ── Map setup ──────────────────────────────────────────────────────────────
+const map = L.map('map', { preferCanvas: true }).setView([37.7595, -122.4492], 13);
+const renderer = L.canvas({ padding: 0.5 });
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+// ── State ─────────────────────────────────────────────────────────────────
+let abortController = null;
+let speciesLayers = new Map(); // taxonId -> { layerGroup, color, name, commonName, count }
+let fetchToken = 0;
+
+// ── DOM refs ──────────────────────────────────────────────────────────────
+const $ = (id) => document.getElementById(id);
+const searchInput   = $('taxon-search');
+const searchClear   = $('search-clear');
+const searchDropdown= $('search-dropdown');
+const taxonInfo     = $('taxon-info');
+const placeholder   = $('placeholder');
+const legendSection = $('legend-section');
+const legendList    = $('legend-list');
+const progressWrap  = $('progress-wrap');
+const progressMsg   = $('progress-msg');
+const progressFill  = $('progress-bar-fill');
+const statusBanner  = $('status-banner');
+const researchOnly  = $('research-only');
+const mapLoading    = $('map-loading');
+
+// ── Utility ───────────────────────────────────────────────────────────────
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+function speciesColor(idx) {
+  const hue = (idx * 137.508) % 360;
+  const light = idx % 2 === 0 ? 58 : 70;
+  const sat = 75;
+  return `hsl(${hue.toFixed(1)} ${sat}% ${light}%)`;
+}
+
+function setBanner(msg, kind) {
+  if (!msg) { statusBanner.classList.remove('shown', 'info'); return; }
+  statusBanner.textContent = msg;
+  statusBanner.classList.add('shown');
+  statusBanner.classList.toggle('info', kind === 'info');
+}
+
+// ── Sidebar toggle (mobile) ──────────────────────────────────────────────
+const sidebar = $('sidebar');
+const sidebarBackdrop = $('sidebar-backdrop');
+$('menu-btn').addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  sidebarBackdrop.classList.toggle('shown');
+});
+sidebarBackdrop.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  sidebarBackdrop.classList.remove('shown');
+});
+
+// ── Autocomplete search ──────────────────────────────────────────────────
+let dropdownItems = [];
+let highlightIdx = -1;
+
+async function runSearch(q) {
+  if (!q || q.length < 2) {
+    searchDropdown.classList.remove('open');
+    searchDropdown.innerHTML = '';
+    return;
+  }
+  try {
+    const url = `${AUTOCOMPLETE_URL}?q=${encodeURIComponent(q)}&per_page=10&rank=genus,family&is_active=true`;
+    const resp = await fetch(url);
+    const data = await resp.json();
+    dropdownItems = (data.results || []).filter(r => r.rank === 'genus' || r.rank === 'family');
+    renderDropdown();
+  } catch (err) {
+    // silent fail on search — not critical
+  }
+}
+const debouncedSearch = debounce(runSearch, 250);
+
+function renderDropdown() {
+  highlightIdx = -1;
+  if (dropdownItems.length === 0) {
+    searchDropdown.innerHTML = '<div class="sd-empty">No matching family or genus found</div>';
+    searchDropdown.classList.add('open');
+    return;
+  }
+  searchDropdown.innerHTML = dropdownItems.map((r, i) => `
+    <div class="sd-item" data-idx="${i}">
+      <div class="sd-name">${r.name}${r.preferred_common_name ? `<em>${r.preferred_common_name}</em>` : ''}</div>
+      <div class="sd-rank">${r.rank}</div>
+    </div>
+  `).join('');
+  searchDropdown.classList.add('open');
+  searchDropdown.querySelectorAll('.sd-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const item = dropdownItems[parseInt(el.dataset.idx)];
+      selectTaxon(item.id, item.name, item.rank, item.preferred_common_name);
+    });
+  });
+}
+
+searchInput.addEventListener('input', () => {
+  searchClear.style.display = searchInput.value ? 'block' : 'none';
+  debouncedSearch(searchInput.value.trim());
+});
+
+searchInput.addEventListener('keydown', (e) => {
+  if (!searchDropdown.classList.contains('open')) return;
+  const items = searchDropdown.querySelectorAll('.sd-item');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    highlightIdx = Math.min(highlightIdx + 1, items.length - 1);
+    items.forEach((el, i) => el.classList.toggle('hl', i === highlightIdx));
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    highlightIdx = Math.max(highlightIdx - 1, 0);
+    items.forEach((el, i) => el.classList.toggle('hl', i === highlightIdx));
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    const idx = highlightIdx >= 0 ? highlightIdx : 0;
+    const item = dropdownItems[idx];
+    if (item) selectTaxon(item.id, item.name, item.rank, item.preferred_common_name);
+  } else if (e.key === 'Escape') {
+    searchDropdown.classList.remove('open');
+  }
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  searchClear.style.display = 'none';
+  searchDropdown.classList.remove('open');
+  searchInput.focus();
+});
+
+document.addEventListener('click', (e) => {
+  if (!searchDropdown.contains(e.target) && e.target !== searchInput) {
+    searchDropdown.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    selectTaxon(parseInt(chip.dataset.id), chip.dataset.name, chip.dataset.rank, null);
+  });
+});
+
+researchOnly.addEventListener('change', () => {
+  if (currentTaxon) loadClade(currentTaxon);
+});
+
+$('cancel-btn').addEventListener('click', () => {
+  if (abortController) abortController.abort();
+});
+
+$('legend-all').addEventListener('click', () => setAllSpeciesVisible(true));
+$('legend-none').addEventListener('click', () => setAllSpeciesVisible(false));
+
+// ── Taxon selection ───────────────────────────────────────────────────────
+let currentTaxon = null;
+
+function selectTaxon(id, name, rank, commonName) {
+  currentTaxon = { id, name, rank, commonName };
+  searchInput.value = name;
+  searchDropdown.classList.remove('open');
+  sidebar.classList.remove('open');
+  sidebarBackdrop.classList.remove('shown');
+
+  taxonInfo.classList.add('shown');
+  $('ti-rank').textContent = rank;
+  $('ti-name').textContent = name;
+  $('ti-common').textContent = commonName || '';
+  $('ti-link').href = `https://www.inaturalist.org/taxa/${id}`;
+
+  loadClade(currentTaxon);
+}
+
+// ── Clearing previous map state ─────────────────────────────────────────
+function clearMap() {
+  for (const sp of speciesLayers.values()) {
+    if (map.hasLayer(sp.layerGroup)) map.removeLayer(sp.layerGroup);
+  }
+  speciesLayers.clear();
+  legendList.innerHTML = '';
+  legendSection.classList.remove('shown');
+  $('hs-species').textContent = '–';
+  $('hs-obs').textContent = '–';
+}
+
+// ── Fetch + render a clade ───────────────────────────────────────────────
+async function loadClade(taxon) {
+  if (abortController) abortController.abort();
+  abortController = new AbortController();
+  const { signal } = abortController;
+  const myToken = ++fetchToken;
+
+  clearMap();
+  placeholder.style.display = 'none';
+  setBanner(null);
+  progressWrap.classList.add('shown');
+  progressFill.style.width = '0%';
+  progressMsg.textContent = 'Starting…';
+  mapLoading.classList.add('shown');
+
+  const collected = [];
+  let idAbove = null;
+  let total = null;
+  let truncated = false;
+
+  try {
+    while (true) {
+      const params = new URLSearchParams({
+        taxon_id: taxon.id,
+        place_id: SF_PLACE_ID,
+        hrank: 'species',
+        lrank: 'species',
+        per_page: PER_PAGE,
+        order_by: 'id',
+        order: 'asc',
+        fields: FIELDS
+      });
+      if (researchOnly.checked) params.set('quality_grade', 'research');
+      if (idAbove !== null) params.set('id_above', idAbove);
+
+      const data = await fetchWithRetry(`${OBS_URL}?${params.toString()}`, signal);
+      if (myToken !== fetchToken) return; // superseded by a newer request
+
+      if (total === null) total = data.total_results;
+      collected.push(...data.results);
+
+      const pct = total > 0 ? Math.min(100, (collected.length / Math.min(total, FETCH_CAP)) * 100) : 100;
+      progressFill.style.width = `${pct}%`;
+      progressMsg.textContent = `Loaded ${collected.length.toLocaleString()} of ${total.toLocaleString()} observations…`;
+
+      if (data.results.length < PER_PAGE) break;
+      if (collected.length >= FETCH_CAP) { truncated = true; break; }
+
+      idAbove = data.results[data.results.length - 1].id;
+      await sleep(REQUEST_GAP_MS);
+    }
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      progressWrap.classList.remove('shown');
+      mapLoading.classList.remove('shown');
+      setBanner('Cancelled.', 'info');
+      placeholder.style.display = 'block';
+      return;
+    }
+    progressWrap.classList.remove('shown');
+    mapLoading.classList.remove('shown');
+    setBanner(`Error loading data: ${err.message}. Try again or pick a narrower taxon.`);
+    placeholder.style.display = 'block';
+    return;
+  }
+
+  progressWrap.classList.remove('shown');
+  mapLoading.classList.remove('shown');
+
+  if (collected.length === 0) {
+    setBanner(`No species-level${researchOnly.checked ? ' research-grade' : ''} observations found for ${taxon.name} in San Francisco.`, 'info');
+    placeholder.style.display = 'block';
+    return;
+  }
+
+  if (truncated) {
+    setBanner(`Showing the first ${collected.length.toLocaleString()} of ${total.toLocaleString()} observations (capped for performance). Try a narrower genus for full coverage.`, 'info');
+  }
+
+  renderObservations(collected);
+}
+
+async function fetchWithRetry(url, signal, retries = 5) {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    const resp = await fetch(url, { signal });
+    if (resp.status === 429 || resp.status === 503) {
+      const wait = Math.min(2000 * Math.pow(2, attempt), 20000);
+      await sleep(wait);
+      continue;
+    }
+    if (!resp.ok) throw new Error(`iNaturalist API returned ${resp.status}`);
+    return resp.json();
+  }
+  throw new Error('Rate limited by iNaturalist API — please try again shortly');
+}
+
+// ── Render markers + legend ──────────────────────────────────────────────
+function renderObservations(observations) {
+  // Group by species taxon id
+  const groups = new Map();
+  for (const obs of observations) {
+    if (!obs.geojson || !obs.geojson.coordinates) continue;
+    const t = obs.taxon;
+    if (!t || t.rank !== 'species') continue;
+    if (!groups.has(t.id)) {
+      groups.set(t.id, { id: t.id, name: t.name, commonName: t.preferred_common_name, points: [] });
+    }
+    const [lng, lat] = obs.geojson.coordinates;
+    groups.get(t.id).points.push({ lat, lng, id: obs.id, date: obs.observed_on });
+  }
+
+  const speciesList = Array.from(groups.values()).sort((a, b) => a.name.localeCompare(b.name));
+
+  let totalPoints = 0;
+  const bounds = [];
+
+  speciesList.forEach((sp, idx) => {
+    const color = speciesColor(idx);
+    const layerGroup = L.layerGroup();
+
+    for (const pt of sp.points) {
+      L.circleMarker([pt.lat, pt.lng], {
+        renderer,
+        radius: 5,
+        weight: 1,
+        color: color,
+        fillColor: color,
+        fillOpacity: 0.72,
+        opacity: 0.9
+      }).bindPopup(`
+        <div class="popup-body">
+          <div><strong>${sp.commonName || sp.name}</strong></div>
+          <div class="popup-sci">${sp.name}</div>
+          <div>Observed: ${pt.date || 'unknown'}</div>
+          <div><a href="https://www.inaturalist.org/observations/${pt.id}" target="_blank" rel="noopener">View on iNaturalist ↗</a></div>
+        </div>
+      `, { maxWidth: 230 }).addTo(layerGroup);
+      bounds.push([pt.lat, pt.lng]);
+    }
+
+    layerGroup.addTo(map);
+    speciesLayers.set(sp.id, { layerGroup, color, name: sp.name, commonName: sp.commonName, count: sp.points.length });
+    totalPoints += sp.points.length;
+  });
+
+  $('hs-species').textContent = speciesList.length.toLocaleString();
+  $('hs-obs').textContent = totalPoints.toLocaleString();
+
+  buildLegend(speciesList);
+
+  if (bounds.length > 0) {
+    map.fitBounds(bounds, { padding: [30, 30], maxZoom: 16 });
+  }
+}
+
+function buildLegend(speciesList) {
+  legendSection.classList.add('shown');
+  $('lg-count').textContent = speciesList.length;
+  legendList.innerHTML = '';
+
+  // Sort legend by observation count, descending, for readability
+  const sorted = [...speciesList].sort((a, b) => {
+    const ca = speciesLayers.get(a.id).count;
+    const cb = speciesLayers.get(b.id).count;
+    return cb - ca;
+  });
+
+  for (const sp of sorted) {
+    const meta = speciesLayers.get(sp.id);
+    const row = document.createElement('div');
+    row.className = 'leg-row';
+    row.innerHTML = `
+      <input type="checkbox" checked data-id="${sp.id}">
+      <span class="leg-dot" style="background:${meta.color}"></span>
+      <span class="leg-text">
+        <div class="ln">${sp.commonName || `<em>${sp.name}</em>`}</div>
+      </span>
+      <span class="leg-count">${meta.count}</span>
+    `;
+    const checkbox = row.querySelector('input');
+    checkbox.addEventListener('change', () => {
+      toggleSpecies(sp.id, checkbox.checked);
+      row.classList.toggle('dimmed', !checkbox.checked);
+    });
+    row.addEventListener('click', (e) => {
+      if (e.target === checkbox) return;
+      if (meta.layerGroup.getLayers().length === 0) return;
+      const b = L.featureGroup(meta.layerGroup.getLayers()).getBounds();
+      if (b.isValid()) map.fitBounds(b, { padding: [40, 40], maxZoom: 17 });
+    });
+    legendList.appendChild(row);
+  }
+}
+
+function toggleSpecies(taxonId, visible) {
+  const sp = speciesLayers.get(taxonId);
+  if (!sp) return;
+  if (visible && !map.hasLayer(sp.layerGroup)) sp.layerGroup.addTo(map);
+  if (!visible && map.hasLayer(sp.layerGroup)) map.removeLayer(sp.layerGroup);
+}
+
+function setAllSpeciesVisible(visible) {
+  legendList.querySelectorAll('.leg-row').forEach(row => {
+    const checkbox = row.querySelector('input');
+    checkbox.checked = visible;
+    row.classList.toggle('dimmed', !visible);
+    toggleSpecies(parseInt(checkbox.dataset.id), visible);
+  });
+}
+</script>
+</body>
+</html>
