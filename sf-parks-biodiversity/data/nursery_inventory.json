@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22",
+  "lastUpdated": "2026-06-23",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -46,7 +46,8 @@
       "heronshead"
     ],
     "Aristolochia californica": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Armeria maritima": [
       "oaktown",
@@ -93,9 +94,6 @@
       "heronshead"
     ],
     "Camissoniopsis cheiranthifolia": [
-      "oaktown"
-    ],
-    "Carex barbarae": [
       "oaktown"
     ],
     "Carex pansa": [
@@ -250,7 +248,6 @@
       "missionblue"
     ],
     "Fragaria vesca": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue"
