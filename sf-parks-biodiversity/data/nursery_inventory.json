@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23",
+  "lastUpdated": "2026-06-24",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -36,7 +36,8 @@
       "missionblue"
     ],
     "Aquilegia formosa": [
-      "oaktown"
+      "oaktown",
+      "larnerseeds"
     ],
     "Arbutus menziesii": [
       "oaktown",
@@ -134,6 +135,9 @@
     "Clarkia rubicunda": [
       "larnerseeds"
     ],
+    "Claytonia sibirica": [
+      "larnerseeds"
+    ],
     "Clinopodium douglasii": [
       "missionblue"
     ],
@@ -166,7 +170,6 @@
       "larnerseeds"
     ],
     "Drymocallis glandulosa": [
-      "oaktown",
       "missionblue"
     ],
     "Dudleya farinosa": [
@@ -236,6 +239,7 @@
     ],
     "Festuca idahoensis": [
       "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Festuca rubra": [
@@ -452,6 +456,9 @@
     "Quercus parvula": [
       "oaktown"
     ],
+    "Ranunculus californicus": [
+      "larnerseeds"
+    ],
     "Rhamnus crocea": [
       "heronshead"
     ],
@@ -539,6 +546,9 @@
       "larnerseeds"
     ],
     "Stachys ajugoides": [
+      "oaktown"
+    ],
+    "Stachys bullata": [
       "oaktown"
     ],
     "Stachys chamissonis": [
