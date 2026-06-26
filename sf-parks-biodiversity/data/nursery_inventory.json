@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25",
+  "lastUpdated": "2026-06-26",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -40,7 +40,6 @@
       "larnerseeds"
     ],
     "Arbutus menziesii": [
-      "oaktown",
       "heronshead"
     ],
     "Arctostaphylos manzanita": [
@@ -544,9 +543,6 @@
       "heronshead",
       "larnerseeds"
     ],
-    "Stachys ajugoides": [
-      "oaktown"
-    ],
     "Stachys bullata": [
       "oaktown"
     ],
@@ -557,7 +553,6 @@
       "larnerseeds"
     ],
     "Stipa lepida": [
-      "oaktown",
       "larnerseeds"
     ],
     "Stipa pulchra": [
