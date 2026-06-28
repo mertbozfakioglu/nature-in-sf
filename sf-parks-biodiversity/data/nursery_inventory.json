@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27",
+  "lastUpdated": "2026-06-28",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -138,6 +138,7 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
+      "oaktown",
       "missionblue"
     ],
     "Collinsia heterophylla": [
@@ -314,6 +315,9 @@
     ],
     "Iris douglasiana": [
       "oaktown",
+      "heronshead"
+    ],
+    "Isolepis cernua": [
       "heronshead"
     ],
     "Juncus balticus": [
@@ -526,6 +530,9 @@
     "Sedum spathulifolium": [
       "heronshead",
       "missionblue"
+    ],
+    "Silene laciniata": [
+      "oaktown"
     ],
     "Sisyrinchium bellum": [
       "oaktown",
