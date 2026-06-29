@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28",
+  "lastUpdated": "2026-06-29",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -164,7 +164,6 @@
       "larnerseeds"
     ],
     "Diplacus aurantiacus": [
-      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -202,7 +201,6 @@
       "oaktown"
     ],
     "Eriophyllum lanatum": [
-      "oaktown",
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
@@ -389,7 +387,6 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
-      "oaktown",
       "heronshead"
     ],
     "Morella californica": [
@@ -425,9 +422,6 @@
     ],
     "Plantago subnuda": [
       "larnerseeds"
-    ],
-    "Polypodium glycyrrhiza": [
-      "heronshead"
     ],
     "Polystichum munitum": [
       "oaktown",
