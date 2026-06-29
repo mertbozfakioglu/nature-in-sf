@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>SF Clade Diversity Mapper</title>
+<title>Clade Diversity Mapper</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -166,6 +166,25 @@
   #ti-link { font-size: 0.72rem; color: #3a5fe0; text-decoration: none; display: inline-block; margin-top: 6px; }
   #ti-link:hover { text-decoration: underline; }
 
+  /* ── Search area button ── */
+  #search-area-wrap { display: none; }
+  #search-area-wrap.shown { display: block; }
+  #search-area-btn {
+    width: 100%;
+    background: #3a5fe0;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: background 0.15s;
+  }
+  #search-area-btn:hover:not(:disabled) { background: #2d4fc0; }
+  #search-area-btn:disabled { background: #9ab0e0; cursor: default; }
+
   /* ── Options ── */
   #options { font-size: 0.78rem; color: #5b6478; }
   #options label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
@@ -297,8 +316,8 @@
   <div id="header">
     <button id="menu-btn" title="Toggle panel">☰</button>
     <div id="title-block">
-      <h1>SF Clade Diversity Mapper</h1>
-      <div class="header-sub">iNaturalist · San Francisco · species-level occurrences</div>
+      <h1>Clade Diversity Mapper</h1>
+      <div class="header-sub">iNaturalist · species-level occurrences · current map area</div>
     </div>
     <div id="header-stats">
       <span><strong id="hs-species">–</strong> species</span>
@@ -333,6 +352,10 @@
           <a id="ti-link" href="#" target="_blank" rel="noopener">View taxon on iNaturalist ↗</a>
         </div>
 
+        <div id="search-area-wrap">
+          <button id="search-area-btn">Search this area</button>
+        </div>
+
         <div id="options">
           <label><input type="checkbox" id="research-only" checked> Research-grade only</label>
           <div class="opt-hint">Community-confirmed species ID with evidence. Uncheck to also include unconfirmed (needs ID) records.</div>
@@ -345,7 +368,7 @@
         </div>
 
         <div id="placeholder">
-          Pick a family or genus above (or try one of the examples) to plot every iNaturalist species-level occurrence of that clade within San Francisco. Each species gets its own color — dense, multicolored clusters are diversity hotspots.
+          Search a family or genus, then click <strong>Search this area</strong> to plot every iNaturalist species-level occurrence within the current map view. Each species gets its own color — dense, multicolored clusters are diversity hotspots.
         </div>
 
         <div id="legend-section">
@@ -375,7 +398,6 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const SF_PLACE_ID = 854;
 const OBS_URL = 'https://api.inaturalist.org/v2/observations';
 const AUTOCOMPLETE_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete';
 const FIELDS = '(id:!t,taxon:(id:!t,name:!t,rank:!t,preferred_common_name:!t,native:!t,introduced:!t,endemic:!t),geojson:!t,observed_on:!t,quality_grade:!t)';
@@ -384,7 +406,7 @@ const FETCH_CAP = 20000;       // hard safety cap on observations fetched per qu
 const REQUEST_GAP_MS = 300;    // be polite to the API between pages
 
 // ── Map setup ──────────────────────────────────────────────────────────────
-const map = L.map('map', { preferCanvas: true }).setView([37.7595, -122.4492], 13);
+const map = L.map('map', { preferCanvas: true }).setView([37.7595, -122.4492], 11);
 const renderer = L.canvas({ padding: 0.5 });
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -427,6 +449,8 @@ const progressFill  = $('progress-bar-fill');
 const statusBanner  = $('status-banner');
 const researchOnly  = $('research-only');
 const mapLoading    = $('map-loading');
+const searchAreaWrap = $('search-area-wrap');
+const searchAreaBtn  = $('search-area-btn');
 
 // ── Utility ───────────────────────────────────────────────────────────────
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -555,8 +579,18 @@ researchOnly.addEventListener('change', () => {
   if (currentTaxon) loadClade(currentTaxon);
 });
 
+searchAreaBtn.addEventListener('click', () => {
+  if (currentTaxon) loadClade(currentTaxon);
+});
+
 $('cancel-btn').addEventListener('click', () => {
   if (abortController) abortController.abort();
+});
+
+map.on('moveend', () => {
+  if (currentTaxon && !progressWrap.classList.contains('shown')) {
+    searchAreaBtn.textContent = 'Search this area';
+  }
 });
 
 $('legend-all').addEventListener('click', () => setAllSpeciesVisible(true));
@@ -578,7 +612,9 @@ function selectTaxon(id, name, rank, commonName) {
   $('ti-common').textContent = commonName || '';
   $('ti-link').href = `https://www.inaturalist.org/taxa/${id}`;
 
-  loadClade(currentTaxon);
+  searchAreaWrap.classList.add('shown');
+  searchAreaBtn.textContent = 'Search this area';
+  searchAreaBtn.disabled = false;
 }
 
 // ── Clearing previous map state ─────────────────────────────────────────
@@ -607,6 +643,10 @@ async function loadClade(taxon) {
   progressFill.style.width = '0%';
   progressMsg.textContent = 'Starting…';
   mapLoading.classList.add('shown');
+  searchAreaBtn.disabled = true;
+  searchAreaBtn.textContent = 'Loading…';
+
+  const bbox = map.getBounds();
 
   const collected = [];
   let idAbove = null;
@@ -617,8 +657,10 @@ async function loadClade(taxon) {
     while (true) {
       const params = new URLSearchParams({
         taxon_id: taxon.id,
-        place_id: SF_PLACE_ID,
-        preferred_place_id: SF_PLACE_ID,
+        swlat: bbox.getSouth().toFixed(6),
+        swlng: bbox.getWest().toFixed(6),
+        nelat: bbox.getNorth().toFixed(6),
+        nelng: bbox.getEast().toFixed(6),
         hrank: 'species',
         lrank: 'species',
         per_page: PER_PAGE,
@@ -646,6 +688,8 @@ async function loadClade(taxon) {
       await sleep(REQUEST_GAP_MS);
     }
   } catch (err) {
+    searchAreaBtn.disabled = false;
+    searchAreaBtn.textContent = 'Search this area';
     if (err.name === 'AbortError') {
       progressWrap.classList.remove('shown');
       mapLoading.classList.remove('shown');
@@ -662,9 +706,11 @@ async function loadClade(taxon) {
 
   progressWrap.classList.remove('shown');
   mapLoading.classList.remove('shown');
+  searchAreaBtn.disabled = false;
+  searchAreaBtn.textContent = 'Search this area';
 
   if (collected.length === 0) {
-    setBanner(`No species-level${researchOnly.checked ? ' research-grade' : ''} observations found for ${taxon.name} in San Francisco.`, 'info');
+    setBanner(`No species-level${researchOnly.checked ? ' research-grade' : ''} observations found for ${taxon.name} in this area.`, 'info');
     placeholder.style.display = 'block';
     return;
   }
@@ -709,7 +755,6 @@ function renderObservations(observations) {
   const speciesList = Array.from(groups.values()).sort((a, b) => a.name.localeCompare(b.name));
 
   let totalPoints = 0;
-  const bounds = [];
 
   speciesList.forEach((sp, idx) => {
     const color = speciesColor(idx);
@@ -729,12 +774,11 @@ function renderObservations(observations) {
         <div class="popup-body">
           <div><strong>${sp.commonName || sp.name}</strong></div>
           <div class="popup-sci">${sp.name}</div>
-          <div>${sp.nonNative ? 'Non-native to SF' : 'Native to SF'}</div>
+          <div>${sp.nonNative ? 'Non-native' : 'Native'}</div>
           <div>Observed: ${pt.date || 'unknown'}</div>
           <div><a href="https://www.inaturalist.org/observations/${pt.id}" target="_blank" rel="noopener">View on iNaturalist ↗</a></div>
         </div>
       `, { maxWidth: 230 }).addTo(layerGroup);
-      bounds.push([pt.lat, pt.lng]);
     }
 
     layerGroup.addTo(map);
@@ -746,10 +790,6 @@ function renderObservations(observations) {
   $('hs-obs').textContent = totalPoints.toLocaleString();
 
   buildLegend(speciesList);
-
-  if (bounds.length > 0) {
-    map.fitBounds(bounds, { padding: [30, 30], maxZoom: 16 });
-  }
 }
 
 function buildLegend(speciesList) {
