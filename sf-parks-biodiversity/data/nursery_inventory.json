@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-06-30",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -182,6 +182,9 @@
       "oaktown",
       "larnerseeds"
     ],
+    "Ericameria ericoides": [
+      "heronshead"
+    ],
     "Erigeron glaucus": [
       "sutro",
       "heronshead",
@@ -271,6 +274,7 @@
     ],
     "Grindelia stricta": [
       "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Helenium puberulum": [
