@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02",
+  "lastUpdated": "2026-07-03",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -185,7 +185,8 @@
     "Erigeron glaucus": [
       "sutro",
       "heronshead",
-      "missionblue"
+      "missionblue",
+      "larnerseeds"
     ],
     "Eriogonum latifolium": [
       "oaktown",
@@ -213,6 +214,9 @@
     "Erysimum franciscanum": [
       "sutro"
     ],
+    "Erythranthe cardinalis": [
+      "oaktown"
+    ],
     "Erythranthe guttata": [
       "oaktown",
       "sutro",
@@ -222,6 +226,7 @@
       "larnerseeds"
     ],
     "Eschscholzia californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -236,7 +241,6 @@
       "larnerseeds"
     ],
     "Festuca idahoensis": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -467,7 +471,6 @@
       "oaktown"
     ],
     "Ribes malvaceum": [
-      "oaktown",
       "heronshead"
     ],
     "Ribes menziesii": [
@@ -481,9 +484,6 @@
       "larnerseeds"
     ],
     "Rosa californica": [
-      "oaktown"
-    ],
-    "Rosa gymnocarpa": [
       "oaktown"
     ],
     "Rubus parviflorus": [
@@ -518,7 +518,6 @@
       "missionblue"
     ],
     "Scrophularia californica": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -604,7 +603,6 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
-      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
