@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03",
+  "lastUpdated": "2026-07-04",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -160,12 +160,19 @@
     "Deschampsia elongata": [
       "larnerseeds"
     ],
+    "Dichondra donelliana": [
+      "heronshead"
+    ],
     "Diplacus aurantiacus": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
     "Drymocallis glandulosa": [
       "missionblue"
+    ],
+    "Dudleya caespitosa": [
+      "oaktown"
     ],
     "Dudleya farinosa": [
       "oaktown",
