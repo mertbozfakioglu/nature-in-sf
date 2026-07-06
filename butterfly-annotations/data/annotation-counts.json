@@ -1,0 +1,154 @@
+{
+  "total_observations": 211684,
+  "terms": [
+    {
+      "term": "Alive or Dead",
+      "term_id": 17,
+      "values": [
+        {
+          "value": "Alive",
+          "value_id": 18,
+          "count": 24977
+        },
+        {
+          "value": "Dead",
+          "value_id": 19,
+          "count": 757
+        },
+        {
+          "value": "Cannot Be Determined",
+          "value_id": 20,
+          "count": 44
+        }
+      ]
+    },
+    {
+      "term": "Life Stage",
+      "term_id": 1,
+      "values": [
+        {
+          "value": "Adult",
+          "value_id": 2,
+          "count": 145384
+        },
+        {
+          "value": "Teneral",
+          "value_id": 3,
+          "count": 0
+        },
+        {
+          "value": "Pupa",
+          "value_id": 4,
+          "count": 2209
+        },
+        {
+          "value": "Nymph",
+          "value_id": 5,
+          "count": 0
+        },
+        {
+          "value": "Larva",
+          "value_id": 6,
+          "count": 16926
+        },
+        {
+          "value": "Egg",
+          "value_id": 7,
+          "count": 1156
+        },
+        {
+          "value": "Juvenile",
+          "value_id": 8,
+          "count": 0
+        },
+        {
+          "value": "Subimago",
+          "value_id": 16,
+          "count": 0
+        }
+      ]
+    },
+    {
+      "term": "Sex",
+      "term_id": 9,
+      "values": [
+        {
+          "value": "Female",
+          "value_id": 10,
+          "count": 2104
+        },
+        {
+          "value": "Male",
+          "value_id": 11,
+          "count": 3409
+        },
+        {
+          "value": "Cannot Be Determined",
+          "value_id": 20,
+          "count": 380
+        }
+      ]
+    },
+    {
+      "term": "Evidence of Presence",
+      "term_id": 22,
+      "values": [
+        {
+          "value": "Feather",
+          "value_id": 23,
+          "count": 0
+        },
+        {
+          "value": "Organism",
+          "value_id": 24,
+          "count": 23651
+        },
+        {
+          "value": "Scat",
+          "value_id": 25,
+          "count": 37
+        },
+        {
+          "value": "Gall",
+          "value_id": 29,
+          "count": 0
+        },
+        {
+          "value": "Track",
+          "value_id": 26,
+          "count": 0
+        },
+        {
+          "value": "Bone",
+          "value_id": 27,
+          "count": 0
+        },
+        {
+          "value": "Molt",
+          "value_id": 28,
+          "count": 115
+        },
+        {
+          "value": "Egg",
+          "value_id": 30,
+          "count": 155
+        },
+        {
+          "value": "Hair",
+          "value_id": 31,
+          "count": 0
+        },
+        {
+          "value": "Leafmine",
+          "value_id": 32,
+          "count": 10
+        },
+        {
+          "value": "Construction",
+          "value_id": 35,
+          "count": 46
+        }
+      ]
+    }
+  ]
+}
