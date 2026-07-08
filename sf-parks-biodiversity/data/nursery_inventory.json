@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07",
+  "lastUpdated": "2026-07-08",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -189,6 +189,7 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
+      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
@@ -348,6 +349,7 @@
       "oaktown"
     ],
     "Koeleria macrantha": [
+      "oaktown",
       "larnerseeds"
     ],
     "Lasthenia californica": [
@@ -398,6 +400,7 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
+      "oaktown",
       "heronshead"
     ],
     "Morella californica": [
@@ -595,6 +598,9 @@
       "larnerseeds"
     ],
     "Urtica dioica": [
+      "oaktown"
+    ],
+    "Vaccinium ovatum": [
       "oaktown"
     ],
     "Viola adunca": [
