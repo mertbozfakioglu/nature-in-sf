@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10",
+  "lastUpdated": "2026-07-11",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -189,7 +189,6 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
@@ -234,9 +233,6 @@
       "heronshead",
       "missionblue",
       "larnerseeds"
-    ],
-    "Euthamia occidentalis": [
-      "oaktown"
     ],
     "Festuca californica": [
       "oaktown",
@@ -294,7 +290,6 @@
       "oaktown"
     ],
     "Hemizonia congesta": [
-      "oaktown",
       "larnerseeds"
     ],
     "Heracleum maximum": [
