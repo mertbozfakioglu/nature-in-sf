@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11",
+  "lastUpdated": "2026-07-12",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -434,6 +434,7 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -470,6 +471,7 @@
       "oaktown"
     ],
     "Ribes malvaceum": [
+      "oaktown",
       "heronshead"
     ],
     "Ribes menziesii": [
