@@ -1,0 +1,602 @@
+{
+  "48662": {
+    "name": "Danaus plexippus",
+    "common_name": "Monarch",
+    "obs_count": 19678
+  },
+  "50892": {
+    "name": "Euphydryas chalcedona",
+    "common_name": "Variable Checkerspot",
+    "obs_count": 14289
+  },
+  "1021509": {
+    "name": "Junonia grisea",
+    "common_name": "Gray Buckeye",
+    "obs_count": 12200
+  },
+  "51097": {
+    "name": "Papilio zelicaon",
+    "common_name": "Anise Swallowtail",
+    "obs_count": 10806
+  },
+  "1081332": {
+    "name": "Lon melane",
+    "common_name": "Umber Skipper",
+    "obs_count": 7930
+  },
+  "49972": {
+    "name": "Battus philenor",
+    "common_name": "Pipevine Swallowtail",
+    "obs_count": 7347
+  },
+  "50340": {
+    "name": "Hylephila phyleus",
+    "common_name": "Fiery Skipper",
+    "obs_count": 6962
+  },
+  "55626": {
+    "name": "Pieris rapae",
+    "common_name": "Small White",
+    "obs_count": 6937
+  },
+  "520456": {
+    "name": "Icaricia acmon",
+    "common_name": "Acmon Blue",
+    "obs_count": 6675
+  },
+  "49150": {
+    "name": "Dione vanillae",
+    "common_name": "Gulf Fritillary",
+    "obs_count": 6543
+  },
+  "48548": {
+    "name": "Vanessa cardui",
+    "common_name": "Painted Lady",
+    "obs_count": 6215
+  },
+  "49133": {
+    "name": "Vanessa atalanta",
+    "common_name": "Red Admiral",
+    "obs_count": 5629
+  },
+  "69145": {
+    "name": "Coenonympha california",
+    "common_name": "Common Ringlet",
+    "obs_count": 5548
+  },
+  "59176": {
+    "name": "Phyciodes mylitta",
+    "common_name": "Mylitta Crescent",
+    "obs_count": 5140
+  },
+  "47226": {
+    "name": "Papilio rutulus",
+    "common_name": "Western Tiger Swallowtail",
+    "obs_count": 4908
+  },
+  "1038408": {
+    "name": "Burnsius communis",
+    "common_name": "Common Checkered-Skipper",
+    "obs_count": 4388
+  },
+  "50931": {
+    "name": "Strymon melinus",
+    "common_name": "Gray Hairstreak",
+    "obs_count": 4323
+  },
+  "50786": {
+    "name": "Vanessa annabella",
+    "common_name": "West Coast Lady",
+    "obs_count": 4232
+  },
+  "67560": {
+    "name": "Adelpha californica",
+    "common_name": "California Sister",
+    "obs_count": 4188
+  },
+  "49920": {
+    "name": "Nymphalis californica",
+    "common_name": "California Tortoiseshell",
+    "obs_count": 4172
+  },
+  "52484": {
+    "name": "Celastrina echo",
+    "common_name": "Echo Azure",
+    "obs_count": 3509
+  },
+  "50880": {
+    "name": "Limenitis lorquini",
+    "common_name": "Lorquin's Admiral",
+    "obs_count": 3316
+  },
+  "59194": {
+    "name": "Ochlodes sylvanoides",
+    "common_name": "Woodland Skipper",
+    "obs_count": 3232
+  },
+  "56832": {
+    "name": "Nymphalis antiopa",
+    "common_name": "Mourning Cloak",
+    "obs_count": 2398
+  },
+  "48549": {
+    "name": "Vanessa virginiensis",
+    "common_name": "American Lady",
+    "obs_count": 2305
+  },
+  "82481": {
+    "name": "Pieris marginalis",
+    "common_name": "Margined White",
+    "obs_count": 2250
+  },
+  "82069": {
+    "name": "Phyciodes pulchella",
+    "common_name": "Field Crescent",
+    "obs_count": 2212
+  },
+  "53893": {
+    "name": "Chlosyne palla",
+    "common_name": "Northern Checkerspot",
+    "obs_count": 2179
+  },
+  "58532": {
+    "name": "Colias eurytheme",
+    "common_name": "Orange Sulphur",
+    "obs_count": 2092
+  },
+  "56776": {
+    "name": "Glaucopsyche lygdamus",
+    "common_name": "Silvery Blue",
+    "obs_count": 1924
+  },
+  "55785": {
+    "name": "Ochlodes agricola",
+    "common_name": "Rural Skipper",
+    "obs_count": 1841
+  },
+  "59189": {
+    "name": "Erynnis tristis",
+    "common_name": "Mournful Duskywing",
+    "obs_count": 1834
+  },
+  "55521": {
+    "name": "Papilio eurymedon",
+    "common_name": "Pale Swallowtail",
+    "obs_count": 1805
+  },
+  "59187": {
+    "name": "Erynnis propertius",
+    "common_name": "Propertius Duskywing",
+    "obs_count": 1533
+  },
+  "56644": {
+    "name": "Polygonia satyrus",
+    "common_name": "Satyr Comma",
+    "obs_count": 1499
+  },
+  "53843": {
+    "name": "Brephidium exilis",
+    "common_name": "Western Pygmy-Blue",
+    "obs_count": 1477
+  },
+  "59124": {
+    "name": "Anthocharis sara",
+    "common_name": "Sara Orangetip",
+    "obs_count": 1193
+  },
+  "59192": {
+    "name": "Polites sabuleti",
+    "common_name": "Sandhill Skipper",
+    "obs_count": 1156
+  },
+  "520457": {
+    "name": "Icaricia icarioides",
+    "common_name": "Boisduval's Blue",
+    "obs_count": 1081
+  },
+  "1360314": {
+    "name": "Tharsalea gorgon",
+    "common_name": "Gorgon Copper",
+    "obs_count": 965
+  },
+  "59119": {
+    "name": "Pontia protodice",
+    "common_name": "Checkered White",
+    "obs_count": 944
+  },
+  "58543": {
+    "name": "Callophrys augustinus",
+    "common_name": "Brown Elfin",
+    "obs_count": 914
+  },
+  "58606": {
+    "name": "Cercyonis pegala",
+    "common_name": "Common Wood-Nymph",
+    "obs_count": 889
+  },
+  "346970": {
+    "name": "Callophrys dumetorum",
+    "common_name": "Lotus Hairstreak",
+    "obs_count": 766
+  },
+  "210423": {
+    "name": "Callophrys viridis",
+    "common_name": "Coastal Green Hairstreak",
+    "obs_count": 747
+  },
+  "1360298": {
+    "name": "Tharsalea helloides",
+    "common_name": "Purplish Copper",
+    "obs_count": 742
+  },
+  "117317": {
+    "name": "Zerene eurydice",
+    "common_name": "California Dogface",
+    "obs_count": 565
+  },
+  "59182": {
+    "name": "Euphydryas editha",
+    "common_name": "Edith's Checkerspot",
+    "obs_count": 551
+  },
+  "59120": {
+    "name": "Euchloe ausonides",
+    "common_name": "Large Marble",
+    "obs_count": 537
+  },
+  "1456579": {
+    "name": "Argynnis coronis",
+    "common_name": "Coronis Fritillary",
+    "obs_count": 534
+  },
+  "59138": {
+    "name": "Satyrium saepium",
+    "common_name": "Hedgerow Hairstreak",
+    "obs_count": 530
+  },
+  "1456571": {
+    "name": "Argynnis callippe",
+    "common_name": "Callippe Fritillary",
+    "obs_count": 447
+  },
+  "1360279": {
+    "name": "Tharsalea xanthoides",
+    "common_name": "Great Copper",
+    "obs_count": 426
+  },
+  "1638386": {
+    "name": "Cecropterus pylades",
+    "common_name": "Northern Cloudywing",
+    "obs_count": 390
+  },
+  "52075": {
+    "name": "Atalopedes campestris",
+    "common_name": "Field Skipper",
+    "obs_count": 358
+  },
+  "1360337": {
+    "name": "Tharsalea arota",
+    "common_name": "Tailed Copper",
+    "obs_count": 345
+  },
+  "69824": {
+    "name": "Habrodais grunus",
+    "common_name": "Golden Hairstreak",
+    "obs_count": 339
+  },
+  "83543": {
+    "name": "Pyrgus ruralis",
+    "common_name": "Two-banded Checkered-Skipper",
+    "obs_count": 288
+  },
+  "68263": {
+    "name": "Papilio multicaudata",
+    "common_name": "Two-tailed Swallowtail",
+    "obs_count": 281
+  },
+  "59186": {
+    "name": "Cercyonis sthenele",
+    "common_name": "Great Basin Wood-Nymph",
+    "obs_count": 262
+  },
+  "117345": {
+    "name": "Euphilotes enoptes",
+    "common_name": "Dotted Blue",
+    "obs_count": 252
+  },
+  "1456595": {
+    "name": "Argynnis zerene",
+    "common_name": "Zerene Fritillary",
+    "obs_count": 236
+  },
+  "1360290": {
+    "name": "Tharsalea heteronea",
+    "common_name": "Blue Copper",
+    "obs_count": 228
+  },
+  "122381": {
+    "name": "Cupido comyntas",
+    "common_name": "Eastern Tailed-Blue",
+    "obs_count": 213
+  },
+  "54024": {
+    "name": "Satyrium californica",
+    "common_name": "California Hairstreak",
+    "obs_count": 210
+  },
+  "122379": {
+    "name": "Callophrys muiri",
+    "common_name": "Muir's Hairstreak",
+    "obs_count": 208
+  },
+  "59165": {
+    "name": "Apodemia mormo",
+    "common_name": "Mormon Metalmark",
+    "obs_count": 204
+  },
+  "59188": {
+    "name": "Erynnis funeralis",
+    "common_name": "Funereal Duskywing",
+    "obs_count": 195
+  },
+  "122371": {
+    "name": "Callophrys mossii",
+    "common_name": "Moss's Elfin",
+    "obs_count": 191
+  },
+  "59136": {
+    "name": "Satyrium tetra",
+    "common_name": "Mountain Mahogany Hairstreak",
+    "obs_count": 185
+  },
+  "59153": {
+    "name": "Philotes sonorensis",
+    "common_name": "Sonoran Blue",
+    "obs_count": 185
+  },
+  "59128": {
+    "name": "Atlides halesus",
+    "common_name": "Great Purple Hairstreak",
+    "obs_count": 158
+  },
+  "117764": {
+    "name": "Polygonia oreas",
+    "common_name": "Oreas Comma",
+    "obs_count": 152
+  },
+  "59190": {
+    "name": "Heliopetes ericetorum",
+    "common_name": "Northern White-Skipper",
+    "obs_count": 149
+  },
+  "81559": {
+    "name": "Epargyreus clarus",
+    "common_name": "Silver-spotted Skipper",
+    "obs_count": 147
+  },
+  "59193": {
+    "name": "Hesperia columbia",
+    "common_name": "Columbian Skipper",
+    "obs_count": 146
+  },
+  "81967": {
+    "name": "Callophrys eryphon",
+    "common_name": "Western Pine Elfin",
+    "obs_count": 139
+  },
+  "1456553": {
+    "name": "Argynnis adiaste",
+    "common_name": "Unsilvered Fritillary",
+    "obs_count": 109
+  },
+  "122367": {
+    "name": "Chlosyne leanira",
+    "common_name": "Leanira Checkerspot",
+    "obs_count": 106
+  },
+  "122372": {
+    "name": "Ochlodes yuma",
+    "common_name": "Yuma Skipper",
+    "obs_count": 106
+  },
+  "122364": {
+    "name": "Hesperia lindseyi",
+    "common_name": "Lindsey's Skipper",
+    "obs_count": 103
+  },
+  "1681572": {
+    "name": "Satyrium dryope",
+    "common_name": "Dryope Hairstreak",
+    "obs_count": 100
+  },
+  "117381": {
+    "name": "Hesperia colorado",
+    "common_name": "American Branded Skipper",
+    "obs_count": 96
+  },
+  "68273": {
+    "name": "Boloria epithore",
+    "common_name": "Pacific Fritillary",
+    "obs_count": 95
+  },
+  "59118": {
+    "name": "Pontia sisymbrii",
+    "common_name": "Spring White",
+    "obs_count": 72
+  },
+  "81734": {
+    "name": "Neophasia menapia",
+    "common_name": "Pine White",
+    "obs_count": 61
+  },
+  "122382": {
+    "name": "Cupido amyntula",
+    "common_name": "Western Tailed-Blue",
+    "obs_count": 61
+  },
+  "59134": {
+    "name": "Satyrium sylvinus",
+    "common_name": "Sylvan Hairstreak",
+    "obs_count": 59
+  },
+  "122363": {
+    "name": "Pyrgus scriptura",
+    "common_name": "Small Checkered-Skipper",
+    "obs_count": 50
+  },
+  "69852": {
+    "name": "Euchloe hyantis",
+    "common_name": "California Marble",
+    "obs_count": 35
+  },
+  "59144": {
+    "name": "Callophrys spinetorum",
+    "common_name": "Thicket Hairstreak",
+    "obs_count": 34
+  },
+  "58514": {
+    "name": "Euphyes vestris",
+    "common_name": "Dun Skipper",
+    "obs_count": 32
+  },
+  "58474": {
+    "name": "Erynnis brizo",
+    "common_name": "Sleepy Duskywing",
+    "obs_count": 28
+  },
+  "59195": {
+    "name": "Lerodea eufala",
+    "common_name": "Eufala Skipper",
+    "obs_count": 26
+  },
+  "58479": {
+    "name": "Pholisora catullus",
+    "common_name": "Common Sootywing",
+    "obs_count": 23
+  },
+  "59135": {
+    "name": "Satyrium auretorum",
+    "common_name": "Gold-hunter's Hairstreak",
+    "obs_count": 11
+  },
+  "59152": {
+    "name": "Leptotes marina",
+    "common_name": "Marine Blue",
+    "obs_count": 11
+  },
+  "117373": {
+    "name": "Erynnis persius",
+    "common_name": "Persius Duskywing",
+    "obs_count": 7
+  },
+  "1650172": {
+    "name": "Limochores sonora",
+    "common_name": "Sonoran Skipper",
+    "obs_count": 7
+  },
+  "51743": {
+    "name": "Danaus gilippus",
+    "common_name": "Queen",
+    "obs_count": 6
+  },
+  "84239": {
+    "name": "Callophrys gryneus",
+    "common_name": "Juniper Hairstreak",
+    "obs_count": 6
+  },
+  "1268537": {
+    "name": "Carterocephalus skada",
+    "common_name": "Western Arctic Skipper",
+    "obs_count": 6
+  },
+  "50391": {
+    "name": "Polygonia gracilis",
+    "common_name": "Hoary Comma",
+    "obs_count": 5
+  },
+  "117372": {
+    "name": "Erynnis pacuvius",
+    "common_name": "Pacuvius Duskywing",
+    "obs_count": 5
+  },
+  "48550": {
+    "name": "Phoebis sennae",
+    "common_name": "Cloudless Sulphur",
+    "obs_count": 4
+  },
+  "68262": {
+    "name": "Polygonia faunus",
+    "common_name": "Green Comma",
+    "obs_count": 4
+  },
+  "68265": {
+    "name": "Papilio indra",
+    "common_name": "Indra Swallowtail",
+    "obs_count": 4
+  },
+  "117338": {
+    "name": "Anthocharis lanceolata",
+    "common_name": "Gray Marble",
+    "obs_count": 4
+  },
+  "58531": {
+    "name": "Colias philodice",
+    "common_name": "Clouded Sulphur",
+    "obs_count": 3
+  },
+  "1457202": {
+    "name": "Burnsius albezens",
+    "common_name": "White Checkered-Skipper",
+    "obs_count": 3
+  },
+  "51773": {
+    "name": "Nathalis iole",
+    "common_name": "Dainty Sulphur",
+    "obs_count": 2
+  },
+  "58523": {
+    "name": "Papilio polyxenes",
+    "common_name": "Black Swallowtail",
+    "obs_count": 2
+  },
+  "68244": {
+    "name": "Euptoieta claudia",
+    "common_name": "Variegated Fritillary",
+    "obs_count": 2
+  },
+  "68278": {
+    "name": "Chlosyne acastus",
+    "common_name": "Sagebrush Checkerspot",
+    "obs_count": 2
+  },
+  "122368": {
+    "name": "Colias occidentalis",
+    "common_name": "Western Sulphur",
+    "obs_count": 2
+  },
+  "58518": {
+    "name": "Amblyscirtes vialis",
+    "common_name": "Common Roadside-Skipper",
+    "obs_count": 1
+  },
+  "59170": {
+    "name": "Chlosyne gabbii",
+    "common_name": "Gabb's Checkerspot",
+    "obs_count": 1
+  },
+  "67835": {
+    "name": "Danaus chrysippus",
+    "common_name": "Plain Tiger Butterfly",
+    "obs_count": 1
+  },
+  "207977": {
+    "name": "Aglais io",
+    "common_name": "European Peacock Butterfly",
+    "obs_count": 1
+  },
+  "1456575": {
+    "name": "Argynnis egleis",
+    "common_name": "Great Basin Fritillary",
+    "obs_count": 1
+  }
+}
