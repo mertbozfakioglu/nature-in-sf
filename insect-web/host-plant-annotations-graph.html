@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SF Bay Area Butterflies × Host Plants (iNat annotations)</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+#topbar {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 8px 12px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+.bar-row { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.bar-row-1 { justify-content: space-between; }
+#app-title { font-size: 14px; font-weight: 700; color: #58a6ff; white-space: nowrap; flex-shrink: 0; }
+#app-title span { color: #8b949e; font-weight: 400; font-size: 11px; margin-left: 6px; }
+#search {
+  background: #0d1117; border: 1px solid #30363d; border-radius: 20px;
+  color: #e6edf3; font-size: 12px; padding: 4px 12px; width: 160px; outline: none; flex-shrink: 0;
+}
+#search:focus { border-color: #58a6ff; }
+#search::placeholder { color: #484f58; }
+#stats { font-size: 11px; color: #8b949e; white-space: nowrap; flex-shrink: 0; }
+#stats strong { color: #c9d1d9; }
+.toggle-pills { display: flex; gap: 5px; flex-shrink: 0; }
+.toggle-pill {
+  cursor: pointer; border-radius: 20px; padding: 3px 11px; font-size: 12px;
+  font-weight: 500; border: 1.5px solid transparent; user-select: none;
+  transition: opacity .15s; white-space: nowrap;
+}
+.toggle-pill.connected  { background: rgba(220,80,50,.18); border-color: #dc5032; color: #ff8060; }
+.toggle-pill.unconnected{ background: rgba(120,120,130,.12); border-color: #555; color: #8b949e; }
+.toggle-pill.off { opacity: .3; }
+.bar-row-3 { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; -ms-overflow-style: none; }
+.bar-row-3::-webkit-scrollbar { display: none; }
+.family-pills { display: flex; gap: 5px; }
+.fam-pill {
+  cursor: pointer; border-radius: 20px; padding: 2px 10px; font-size: 11px;
+  font-weight: 500; border: 1.5px solid; user-select: none; transition: opacity .15s;
+  white-space: nowrap; flex-shrink: 0;
+}
+.fam-pill.off { opacity: .25; }
+#graph-wrap { flex: 1; overflow: hidden; position: relative; }
+#graph { width: 100%; height: 100%; }
+#tooltip {
+  position: fixed; pointer-events: none; background: rgba(13,17,23,.97);
+  border: 1px solid #30363d; border-radius: 10px; padding: 10px 13px;
+  max-width: 210px; z-index: 300; box-shadow: 0 4px 20px rgba(0,0,0,.6); display: none;
+}
+#tooltip .tt-common { font-size: 13px; font-weight: 700; margin-bottom: 1px; }
+#tooltip .tt-latin  { font-size: 11px; font-style: italic; color: #8b949e; margin-bottom: 5px; }
+#tooltip .tt-family { font-size: 11px; color: #58a6ff; margin-bottom: 2px; }
+#tooltip .tt-obs    { font-size: 11px; color: #8b949e; }
+#tooltip .tt-deg    { font-size: 11px; color: #8b949e; }
+#info-panel {
+  position: absolute; bottom: 14px; right: 14px; background: rgba(22,27,34,.97);
+  border: 1px solid #30363d; border-radius: 10px; padding: 12px 16px;
+  max-width: 270px; display: none; box-shadow: 0 4px 24px rgba(0,0,0,.6); z-index: 50;
+}
+#info-panel img { width: 100%; max-height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
+#info-panel .ip-name  { font-size: 15px; font-weight: 700; margin-bottom: 1px; }
+#info-panel .ip-latin { font-size: 11px; font-style: italic; color: #8b949e; margin-bottom: 7px; }
+#info-panel .ip-meta  { font-size: 11.5px; color: #8b949e; line-height: 1.7; white-space: pre-line; }
+#info-panel .ip-link  { display: inline-block; margin-top: 8px; font-size: 11px; color: #58a6ff; text-decoration: none; }
+#info-panel .ip-link:hover { text-decoration: underline; }
+#info-panel .ip-close {
+  position: absolute; top: 9px; right: 11px; cursor: pointer; font-size: 15px;
+  color: #555; background: none; border: none; line-height: 1;
+}
+#info-panel .ip-close:hover { color: #e6edf3; }
+#legend {
+  position: absolute; bottom: 14px; left: 14px; background: rgba(13,17,23,.88);
+  border: 1px solid #30363d; border-radius: 8px; padding: 8px 12px;
+  font-size: 11px; color: #8b949e; line-height: 1.9; z-index: 50; pointer-events: none;
+  max-width: 200px;
+}
+.leg-dot  { display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle; }
+.leg-line { display:inline-block;width:18px;height:2px;border-radius:1px;margin-right:5px;vertical-align:middle; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="bar-row bar-row-1">
+    <div id="app-title">🦋 SF Bay Area Butterflies × Host Plants <span>from iNat "Host plant" annotations</span></div>
+    <input id="search" type="search" placeholder="Search…" autocomplete="off">
+    <div id="stats"></div>
+  </div>
+  <div class="bar-row bar-row-2">
+    <div class="toggle-pills">
+      <div class="toggle-pill connected"   data-tog="connected">🔴 Has host-plant tag</div>
+      <div class="toggle-pill unconnected" data-tog="unconnected">⚪ No tag yet</div>
+    </div>
+  </div>
+  <div class="bar-row bar-row-3">
+    <div class="family-pills" id="bfly-family-pills"></div>
+  </div>
+</div>
+
+<div id="graph-wrap">
+  <svg id="graph"></svg>
+  <div id="legend"></div>
+  <div id="info-panel">
+    <button class="ip-close">✕</button>
+    <img class="ip-photo" src="" alt="">
+    <div class="ip-name"></div>
+    <div class="ip-latin"></div>
+    <div class="ip-meta"></div>
+    <a class="ip-link" href="#" target="_blank" rel="noopener">Wikipedia →</a>
+  </div>
+</div>
+
+<div id="tooltip">
+  <div class="tt-common"></div>
+  <div class="tt-latin"></div>
+  <div class="tt-family"></div>
+  <div class="tt-obs"></div>
+  <div class="tt-deg"></div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const BFLY_COLORS = {
+  Papilionidae:"#f5c842", Pieridae:"#c8e06a", Lycaenidae:"#6ab5e8",
+  Nymphalidae:"#e8834a",  Hesperiidae:"#c47de0", Riodinidae:"#e84a8a", Unknown:"#aaaaaa",
+};
+const PLANT_COLOR="#4ecb71", EDGE_HOST="#dc5032";
+
+const state = {
+  showConnected:true, showUnconnected:true,
+  bflyFamilies:new Set(), focusId:null, searchQuery:"",
+};
+
+// legend
+{
+  const leg = document.getElementById("legend");
+  leg.innerHTML =
+    `<div><span class="leg-dot" style="background:${PLANT_COLOR}"></span> Host plant</div>`+
+    Object.entries(BFLY_COLORS).filter(([f])=>f!=="Unknown").map(([f,c])=>
+      `<div><span class="leg-dot" style="border:2.5px solid ${c};background:transparent"></span> ${f}</div>`
+    ).join("")+
+    `<div style="margin-top:4px"><span class="leg-line" style="background:${EDGE_HOST}"></span> Host plant tag (line width = # obs)</div>`+
+    `<div style="margin-top:2px">Node size = # host-plant tags / times used as host</div>`;
+}
+
+fetch("annotation_graph_data.json").then(r=>r.json()).then(init).catch(()=>{
+  document.body.innerHTML=`<div style="color:#ff8060;padding:40px;font-size:13px">Could not load annotation_graph_data.json.<br>Run: <code>python3 -m http.server 8000</code></div>`;
+});
+
+function init(DATA) {
+  const nodeById = Object.fromEntries(DATA.nodes.map(n=>[n.id,n]));
+  const bflyFams = [...new Set(DATA.nodes.filter(n=>n.type==="butterfly").map(n=>n.family))].sort();
+  state.bflyFamilies = new Set(bflyFams);
+
+  const pillsEl = document.getElementById("bfly-family-pills");
+  bflyFams.forEach(fam=>{
+    const col=BFLY_COLORS[fam]||"#aaa";
+    const el=document.createElement("div");
+    el.className="fam-pill"; el.dataset.fam=fam; el.textContent=fam;
+    el.style.cssText=`border-color:${col};color:${col};background:${hexAlpha(col,.12)}`;
+    el.addEventListener("click",()=>{
+      if(state.bflyFamilies.has(fam)&&state.bflyFamilies.size>1) state.bflyFamilies.delete(fam);
+      else state.bflyFamilies.add(fam);
+      update();
+    });
+    pillsEl.appendChild(el);
+  });
+
+  document.querySelectorAll(".toggle-pill").forEach(el=>el.addEventListener("click",()=>{
+    const t=el.dataset.tog;
+    if(t==="connected")   state.showConnected  =!state.showConnected;
+    if(t==="unconnected") state.showUnconnected=!state.showUnconnected;
+    update();
+  }));
+  document.getElementById("search").addEventListener("input",e=>{
+    state.searchQuery=e.target.value.toLowerCase().trim(); update();
+  });
+  document.querySelector(".ip-close").addEventListener("click",()=>{
+    state.focusId=null; document.getElementById("info-panel").style.display="none"; update();
+  });
+
+  const wrap=document.getElementById("graph-wrap");
+  let W=wrap.clientWidth, H=wrap.clientHeight;
+  const svg=d3.select("#graph").attr("width",W).attr("height",H);
+  const defs=svg.append("defs");
+  const g=svg.append("g");
+
+  g.append("rect").attr("x",-50000).attr("y",-50000).attr("width",100000).attr("height",100000)
+    .attr("fill","transparent")
+    .on("click",()=>{ state.focusId=null; document.getElementById("info-panel").style.display="none"; update(); });
+
+  svg.call(d3.zoom().scaleExtent([0.08,8]).on("zoom",e=>g.attr("transform",e.transform)));
+
+  const ttEl=document.getElementById("tooltip");
+  function showTT(ev,d){
+    ttEl.querySelector(".tt-common").textContent=d.common_name||d.name;
+    ttEl.querySelector(".tt-latin").textContent =d.common_name?d.name:"";
+    ttEl.querySelector(".tt-family").textContent=d.family!=="Unknown"?d.family:"";
+    ttEl.querySelector(".tt-obs").textContent   =d.type==="butterfly"&&d.bay_area_obs>0?`${d.bay_area_obs.toLocaleString()} Bay Area obs`:"";
+    ttEl.querySelector(".tt-deg").textContent   =d.degree>0?`${d.degree} ${d.type==="butterfly"?"host plant(s) tagged":"butterfly species using it"}`:"no host-plant tag yet";
+    ttEl.style.display="block"; moveTT(ev);
+  }
+  function moveTT(ev){
+    let x=ev.clientX+14, y=ev.clientY-10;
+    if(x+220>window.innerWidth)  x=ev.clientX-220;
+    if(y+130>window.innerHeight) y=ev.clientY-130;
+    ttEl.style.left=x+"px"; ttEl.style.top=y+"px";
+  }
+  function hideTT(){ ttEl.style.display="none"; }
+
+  function showInfo(d){
+    const p=document.getElementById("info-panel");
+    const photo=p.querySelector(".ip-photo");
+    if(d.photo_url){ photo.src=d.photo_url; photo.style.display="block"; } else { photo.style.display="none"; }
+    p.querySelector(".ip-name").textContent =d.common_name||d.name;
+    p.querySelector(".ip-name").style.color =d.type==="butterfly"?(BFLY_COLORS[d.family]||"#aaa"):PLANT_COLOR;
+    p.querySelector(".ip-latin").textContent=d.common_name?d.name:"";
+    p.querySelector(".ip-meta").textContent =[
+      d.type==="butterfly"?`Family: ${d.family}`:"Host plant",
+      d.type==="butterfly"&&d.bay_area_obs>0?`Bay Area observations: ${d.bay_area_obs.toLocaleString()}`:"",
+      d.degree>0?`${d.type==="butterfly"?"Host plants tagged":"Butterfly species"}: ${d.degree}`:"No host-plant tag on record yet",
+    ].filter(Boolean).join("\n");
+    const link=p.querySelector(".ip-link");
+    if(d.wikipedia_url){ link.href=d.wikipedia_url; link.style.display="inline-block"; } else { link.style.display="none"; }
+    p.style.display="block";
+  }
+
+  function nodeR(d){ return d.type==="plant"?Math.max(13,5+Math.sqrt(d.degree)*4):Math.max(11,4+Math.sqrt(Math.max(d.degree,0.3))*3.2); }
+  function nodeColor(d){ return d.type==="plant"?PLANT_COLOR:(BFLY_COLORS[d.family]||"#aaa"); }
+
+  const simNodes=DATA.nodes.map(d=>({...d}));
+  const simEdges=DATA.edges.map(e=>({...e}));
+  const maxCount=Math.max(1,...simEdges.map(e=>e.count));
+
+  const sim=d3.forceSimulation(simNodes)
+    .force("link",d3.forceLink(simEdges).id(d=>d.id).distance(85).strength(0.3))
+    .force("charge",d3.forceManyBody().strength(-220))
+    .force("center",d3.forceCenter(W/2,H/2))
+    .force("collide",d3.forceCollide().radius(d=>nodeR(d)+5))
+    .alphaDecay(0.022).on("tick",ticked);
+
+  let edgeSel=g.append("g").attr("class","edges").selectAll("line");
+  let nodeSel=g.append("g").attr("class","nodes").selectAll("g.node");
+
+  function getVisible(){
+    const connectedIds=new Set();
+    DATA.edges.forEach(e=>{ connectedIds.add(e.source?.id??e.source); connectedIds.add(e.target?.id??e.target); });
+
+    const visNodes=DATA.nodes.filter(n=>{
+      if(n.type==="butterfly"&&!state.bflyFamilies.has(n.family)) return false;
+      const isConnected=connectedIds.has(n.id);
+      if(isConnected&&!state.showConnected) return false;
+      if(!isConnected&&!state.showUnconnected) return false;
+      return true;
+    });
+    const visIds=new Set(visNodes.map(n=>n.id));
+
+    const visEdges=DATA.edges.filter(e=>{
+      const sid=e.source?.id??e.source, tid=e.target?.id??e.target;
+      return visIds.has(sid)&&visIds.has(tid);
+    });
+
+    let searchIds=null;
+    if(state.searchQuery){
+      searchIds=new Set(DATA.nodes
+        .filter(n=>n.name.toLowerCase().includes(state.searchQuery)||n.common_name.toLowerCase().includes(state.searchQuery))
+        .map(n=>n.id));
+    }
+    let focusIds=null;
+    if(state.focusId){
+      focusIds=new Set([state.focusId]);
+      DATA.edges.forEach(e=>{
+        const sid=e.source?.id??e.source, tid=e.target?.id??e.target;
+        if(sid===state.focusId) focusIds.add(tid);
+        if(tid===state.focusId) focusIds.add(sid);
+      });
+    }
+    return {visEdges,visIds,searchIds,focusIds};
+  }
+
+  function update(){
+    document.querySelector(".toggle-pill.connected").classList.toggle("off",!state.showConnected);
+    document.querySelector(".toggle-pill.unconnected").classList.toggle("off",!state.showUnconnected);
+    document.querySelectorAll(".fam-pill").forEach(el=>el.classList.toggle("off",!state.bflyFamilies.has(el.dataset.fam)));
+
+    const {visEdges,visIds,searchIds,focusIds}=getVisible();
+
+    edgeSel=g.select(".edges").selectAll("line")
+      .data(simEdges,e=>`${e.source?.id??e.source}|${e.target?.id??e.target}`)
+      .join("line").attr("stroke",EDGE_HOST).attr("stroke-width",e=>1+2.5*Math.sqrt(e.count/maxCount));
+    edgeSel.transition().duration(180).attr("stroke-opacity",e=>{
+      const sid=e.source?.id??e.source, tid=e.target?.id??e.target;
+      if(!visIds.has(sid)||!visIds.has(tid)) return 0;
+      if(focusIds) return (focusIds.has(sid)&&focusIds.has(tid))?0.85:0.04;
+      if(searchIds) return (searchIds.has(sid)||searchIds.has(tid))?0.85:0.05;
+      return 0.4;
+    });
+
+    nodeSel=g.select(".nodes").selectAll("g.node")
+      .data(simNodes,d=>d.id)
+      .join(enter=>{
+        const gn=enter.append("g").attr("class","node").style("cursor","pointer");
+        gn.each(function(d){
+          const el=d3.select(this);
+          const r=nodeR(d), col=nodeColor(d);
+          const cid=`clip-${d.id}`;
+          defs.append("clipPath").attr("id",cid).append("circle").attr("r",r);
+          if(d.photo_url){
+            el.append("image")
+              .attr("href",d.photo_url)
+              .attr("x",-r).attr("y",-r)
+              .attr("width",r*2).attr("height",r*2)
+              .attr("clip-path",`url(#${cid})`)
+              .attr("preserveAspectRatio","xMidYMid slice")
+              .on("error",function(){ d3.select(this).remove(); el.insert("circle",":first-child").attr("r",r).attr("fill",col); });
+          } else {
+            el.append("circle").attr("r",r).attr("fill",col);
+          }
+          el.append("circle").attr("r",r).attr("fill","none")
+            .attr("stroke",col).attr("stroke-width",d.type==="butterfly"?3:2.5);
+        });
+        gn.on("mouseover",(ev,d)=>{ showTT(ev,d); d3.select(ev.currentTarget).select("circle:last-child").attr("stroke-width",5); })
+          .on("mousemove",moveTT)
+          .on("mouseout",(ev,d)=>{ hideTT(); d3.select(ev.currentTarget).select("circle:last-child").attr("stroke-width",d.type==="butterfly"?3:2.5); })
+          .on("click",(ev,d)=>{ ev.stopPropagation(); state.focusId=state.focusId===d.id?null:d.id; if(state.focusId)showInfo(d); else document.getElementById("info-panel").style.display="none"; update(); })
+          .call(d3.drag()
+            .on("start",(e,d)=>{ if(!e.active)sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+            .on("drag", (e,d)=>{ d.fx=e.x; d.fy=e.y; })
+            .on("end",  (e,d)=>{ if(!e.active)sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+        return gn;
+      });
+
+    nodeSel.transition().duration(180).attr("opacity",d=>{
+      if(!visIds.has(d.id)) return 0;
+      if(focusIds) return focusIds.has(d.id)?1:0.08;
+      if(searchIds) return searchIds.has(d.id)?1:0.1;
+      return 1;
+    });
+    nodeSel.style("pointer-events",d=>visIds.has(d.id)?"auto":"none");
+
+    const nb=[...visIds].filter(id=>nodeById[id]?.type==="butterfly").length;
+    const np=[...visIds].filter(id=>nodeById[id]?.type==="plant").length;
+    const ne=visEdges.length;
+    document.getElementById("stats").innerHTML=
+      `<strong>${nb}</strong> butterflies &middot; <strong>${np}</strong> host plants &middot; `+
+      `<strong>${ne}</strong> tagged relationships`;
+  }
+
+  function ticked(){
+    edgeSel.attr("x1",e=>e.source.x).attr("y1",e=>e.source.y).attr("x2",e=>e.target.x).attr("y2",e=>e.target.y);
+    nodeSel.attr("transform",d=>`translate(${d.x},${d.y})`);
+  }
+
+  update();
+  window.addEventListener("resize",()=>{
+    W=wrap.clientWidth; H=wrap.clientHeight;
+    svg.attr("width",W).attr("height",H);
+    sim.force("center",d3.forceCenter(W/2,H/2)).alpha(0.2).restart();
+  });
+}
+
+function hexAlpha(hex,a){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+</script>
+</body>
+</html>
