@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-14",
+  "lastUpdated": "2026-07-15",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -10,7 +10,6 @@
     ],
     "Achillea millefolium": [
       "oaktown",
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -189,14 +188,13 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
-      "sutro",
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
     ],
     "Eriogonum latifolium": [
       "oaktown",
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -214,15 +212,11 @@
     "Erysimum capitatum": [
       "oaktown"
     ],
-    "Erysimum franciscanum": [
-      "sutro"
-    ],
     "Erythranthe cardinalis": [
       "oaktown"
     ],
     "Erythranthe guttata": [
       "oaktown",
-      "sutro",
       "larnerseeds"
     ],
     "Eschscholzia caespitosa": [
@@ -241,6 +235,7 @@
       "larnerseeds"
     ],
     "Festuca idahoensis": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -255,7 +250,6 @@
     ],
     "Fragaria vesca": [
       "oaktown",
-      "sutro",
       "heronshead",
       "missionblue"
     ],
@@ -362,8 +356,7 @@
       "oaktown"
     ],
     "Lonicera involucrata": [
-      "oaktown",
-      "sutro"
+      "oaktown"
     ],
     "Lupinus albifrons": [
       "oaktown",
@@ -404,6 +397,7 @@
       "larnerseeds"
     ],
     "Oemleria cerasiformis": [
+      "oaktown",
       "heronshead"
     ],
     "Oenothera elata": [
@@ -476,7 +470,6 @@
     ],
     "Ribes sanguineum": [
       "oaktown",
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -485,7 +478,6 @@
       "oaktown"
     ],
     "Rubus parviflorus": [
-      "oaktown",
       "heronshead"
     ],
     "Rubus spectabilis": [
@@ -533,7 +525,6 @@
       "larnerseeds"
     ],
     "Sisyrinchium californicum": [
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -542,9 +533,6 @@
       "oaktown",
       "heronshead",
       "larnerseeds"
-    ],
-    "Stachys bullata": [
-      "oaktown"
     ],
     "Stachys chamissonis": [
       "oaktown"
