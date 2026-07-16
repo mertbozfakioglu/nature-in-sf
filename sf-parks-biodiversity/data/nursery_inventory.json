@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15",
+  "lastUpdated": "2026-07-16",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -10,6 +10,7 @@
     ],
     "Achillea millefolium": [
       "oaktown",
+      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -189,12 +190,14 @@
     ],
     "Erigeron glaucus": [
       "oaktown",
+      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
     ],
     "Eriogonum latifolium": [
       "oaktown",
+      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -212,11 +215,15 @@
     "Erysimum capitatum": [
       "oaktown"
     ],
+    "Erysimum franciscanum": [
+      "sutro"
+    ],
     "Erythranthe cardinalis": [
       "oaktown"
     ],
     "Erythranthe guttata": [
       "oaktown",
+      "sutro",
       "larnerseeds"
     ],
     "Eschscholzia caespitosa": [
@@ -250,6 +257,7 @@
     ],
     "Fragaria vesca": [
       "oaktown",
+      "sutro",
       "heronshead",
       "missionblue"
     ],
@@ -356,7 +364,8 @@
       "oaktown"
     ],
     "Lonicera involucrata": [
-      "oaktown"
+      "oaktown",
+      "sutro"
     ],
     "Lupinus albifrons": [
       "oaktown",
@@ -470,6 +479,7 @@
     ],
     "Ribes sanguineum": [
       "oaktown",
+      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -525,6 +535,7 @@
       "larnerseeds"
     ],
     "Sisyrinchium californicum": [
+      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
