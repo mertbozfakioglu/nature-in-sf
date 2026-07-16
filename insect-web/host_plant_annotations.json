@@ -1,0 +1,954 @@
+{
+  "total_obs_scanned": 20360,
+  "butterfly_taxa": {
+    "49150": {
+      "name": "Dione vanillae",
+      "common_name": "Gulf Fritillary"
+    },
+    "50892": {
+      "name": "Euphydryas chalcedona",
+      "common_name": "Variable Checkerspot"
+    },
+    "51097": {
+      "name": "Papilio zelicaon",
+      "common_name": "Anise Swallowtail"
+    },
+    "55626": {
+      "name": "Pieris rapae",
+      "common_name": "Small White"
+    },
+    "47226": {
+      "name": "Papilio rutulus",
+      "common_name": "Western Tiger Swallowtail"
+    },
+    "48662": {
+      "name": "Danaus plexippus",
+      "common_name": "Monarch"
+    },
+    "1021509": {
+      "name": "Junonia grisea",
+      "common_name": "Gray Buckeye"
+    },
+    "48548": {
+      "name": "Vanessa cardui",
+      "common_name": "Painted Lady"
+    },
+    "56832": {
+      "name": "Nymphalis antiopa",
+      "common_name": "Mourning Cloak"
+    },
+    "59176": {
+      "name": "Phyciodes mylitta",
+      "common_name": "Mylitta Crescent"
+    },
+    "56644": {
+      "name": "Polygonia satyrus",
+      "common_name": "Satyr Comma"
+    },
+    "50931": {
+      "name": "Strymon melinus",
+      "common_name": "Gray Hairstreak"
+    },
+    "50880": {
+      "name": "Limenitis lorquini",
+      "common_name": "Lorquin's Admiral"
+    },
+    "53843": {
+      "name": "Brephidium exilis",
+      "common_name": "Western Pygmy-Blue"
+    },
+    "48549": {
+      "name": "Vanessa virginiensis",
+      "common_name": "American Lady"
+    },
+    "50786": {
+      "name": "Vanessa annabella",
+      "common_name": "West Coast Lady"
+    },
+    "58532": {
+      "name": "Colias eurytheme",
+      "common_name": "Orange Sulphur"
+    },
+    "49133": {
+      "name": "Vanessa atalanta",
+      "common_name": "Red Admiral"
+    },
+    "58543": {
+      "name": "Callophrys augustinus",
+      "common_name": "Brown Elfin"
+    },
+    "520456": {
+      "name": "Icaricia acmon",
+      "common_name": "Acmon Blue"
+    },
+    "49972": {
+      "name": "Battus philenor",
+      "common_name": "Pipevine Swallowtail"
+    },
+    "59182": {
+      "name": "Euphydryas editha",
+      "common_name": "Edith's Checkerspot"
+    },
+    "49920": {
+      "name": "Nymphalis californica",
+      "common_name": "California Tortoiseshell"
+    },
+    "59118": {
+      "name": "Pontia sisymbrii",
+      "common_name": "Spring White"
+    },
+    "51743": {
+      "name": "Danaus gilippus",
+      "common_name": "Queen"
+    },
+    "59119": {
+      "name": "Pontia protodice",
+      "common_name": "Checkered White"
+    },
+    "59190": {
+      "name": "Heliopetes ericetorum",
+      "common_name": "Northern White-Skipper"
+    },
+    "122367": {
+      "name": "Chlosyne leanira",
+      "common_name": "Leanira Checkerspot"
+    },
+    "59120": {
+      "name": "Euchloe ausonides",
+      "common_name": "Large Marble"
+    },
+    "67560": {
+      "name": "Adelpha californica",
+      "common_name": "California Sister"
+    },
+    "122371": {
+      "name": "Callophrys mossii",
+      "common_name": "Moss's Elfin"
+    },
+    "59189": {
+      "name": "Erynnis tristis",
+      "common_name": "Mournful Duskywing"
+    },
+    "68263": {
+      "name": "Papilio multicaudata",
+      "common_name": "Two-tailed Swallowtail"
+    },
+    "55521": {
+      "name": "Papilio eurymedon",
+      "common_name": "Pale Swallowtail"
+    },
+    "1081332": {
+      "name": "Lon melane",
+      "common_name": "Umber Skipper"
+    },
+    "1038408": {
+      "name": "Burnsius communis",
+      "common_name": "Common Checkered-Skipper"
+    },
+    "117317": {
+      "name": "Zerene eurydice",
+      "common_name": "California Dogface"
+    },
+    "84239": {
+      "name": "Callophrys gryneus",
+      "common_name": "Juniper Hairstreak"
+    },
+    "59165": {
+      "name": "Apodemia mormo",
+      "common_name": "Mormon Metalmark"
+    },
+    "520457": {
+      "name": "Icaricia icarioides",
+      "common_name": "Boisduval's Blue"
+    },
+    "59187": {
+      "name": "Erynnis propertius",
+      "common_name": "Propertius Duskywing"
+    },
+    "59124": {
+      "name": "Anthocharis sara",
+      "common_name": "Sara Orangetip"
+    },
+    "59138": {
+      "name": "Satyrium saepium",
+      "common_name": "Hedgerow Hairstreak"
+    },
+    "210423": {
+      "name": "Callophrys viridis",
+      "common_name": "Coastal Green Hairstreak"
+    },
+    "117381": {
+      "name": "Hesperia colorado",
+      "common_name": "American Branded Skipper"
+    },
+    "82069": {
+      "name": "Phyciodes pulchella",
+      "common_name": "Field Crescent"
+    },
+    "81559": {
+      "name": "Epargyreus clarus",
+      "common_name": "Silver-spotted Skipper"
+    },
+    "52484": {
+      "name": "Celastrina echo",
+      "common_name": "Echo Azure"
+    },
+    "50340": {
+      "name": "Hylephila phyleus",
+      "common_name": "Fiery Skipper"
+    },
+    "53893": {
+      "name": "Chlosyne palla",
+      "common_name": "Northern Checkerspot"
+    },
+    "56776": {
+      "name": "Glaucopsyche lygdamus",
+      "common_name": "Silvery Blue"
+    },
+    "69852": {
+      "name": "Euchloe hyantis",
+      "common_name": "California Marble"
+    },
+    "59128": {
+      "name": "Atlides halesus",
+      "common_name": "Great Purple Hairstreak"
+    },
+    "59136": {
+      "name": "Satyrium tetra",
+      "common_name": "Mountain Mahogany Hairstreak"
+    },
+    "48550": {
+      "name": "Phoebis sennae",
+      "common_name": "Cloudless Sulphur"
+    },
+    "58523": {
+      "name": "Papilio polyxenes",
+      "common_name": "Black Swallowtail"
+    },
+    "1456579": {
+      "name": "Argynnis coronis",
+      "common_name": "Coronis Fritillary"
+    },
+    "59153": {
+      "name": "Philotes sonorensis",
+      "common_name": "Sonoran Blue"
+    },
+    "1360314": {
+      "name": "Tharsalea gorgon",
+      "common_name": "Gorgon Copper"
+    },
+    "1360298": {
+      "name": "Tharsalea helloides",
+      "common_name": "Purplish Copper"
+    }
+  },
+  "host_taxa": {
+    "56838": {
+      "name": "Perideridia kelloggii",
+      "common_name": "Kellogg's yampah",
+      "rank": "species"
+    },
+    "777371": {
+      "name": "Diplacus aurantiacus",
+      "common_name": "orange bush monkeyflower",
+      "rank": "species"
+    },
+    "58784": {
+      "name": "Streptanthus glandulosus",
+      "common_name": "bristly jewelflower",
+      "rank": "species"
+    },
+    "141854": {
+      "name": "Urtica gracilis",
+      "common_name": "slender stinging nettle",
+      "rank": "species"
+    },
+    "56851": {
+      "name": "Asclepias fascicularis",
+      "common_name": "narrowleaf milkweed",
+      "rank": "species"
+    },
+    "51452": {
+      "name": "Passiflora",
+      "common_name": "Passionflowers",
+      "rank": "genus"
+    },
+    "57281": {
+      "name": "Parietaria judaica",
+      "common_name": "pellitory-of-the-wall",
+      "rank": "species"
+    },
+    "79258": {
+      "name": "Streptanthus breweri",
+      "common_name": "Brewer's Jewelflower",
+      "rank": "species"
+    },
+    "47121": {
+      "name": "Lupinus",
+      "common_name": "lupines",
+      "rank": "genus"
+    },
+    "75602": {
+      "name": "Asclepias curassavica",
+      "common_name": "tropical milkweed",
+      "rank": "species"
+    },
+    "56760": {
+      "name": "Castilleja foliolosa",
+      "common_name": "Felt Paintbrush",
+      "rank": "species"
+    },
+    "58202": {
+      "name": "Malva parviflora",
+      "common_name": "cheeseweed mallow",
+      "rank": "species"
+    },
+    "50812": {
+      "name": "Scrophularia californica",
+      "common_name": "California beeplant",
+      "rank": "species"
+    },
+    "55978": {
+      "name": "Malva",
+      "common_name": "Mallows",
+      "rank": "genus"
+    },
+    "47850": {
+      "name": "Quercus agrifolia",
+      "common_name": "coast live oak",
+      "rank": "species"
+    },
+    "47434": {
+      "name": "Poaceae",
+      "common_name": "grasses",
+      "rank": "family"
+    },
+    "1441711": {
+      "name": "Passiflora manicata \u00d7 tarminiana",
+      "common_name": "Passiflora 'Coral Glow'",
+      "rank": "hybrid"
+    },
+    "53052": {
+      "name": "Foeniculum vulgare",
+      "common_name": "fennel",
+      "rank": "species"
+    },
+    "469472": {
+      "name": "Malus domestica",
+      "common_name": "apple",
+      "rank": "species"
+    },
+    "53452": {
+      "name": "Salix lasiolepis",
+      "common_name": "Arroyo Willow",
+      "rank": "species"
+    },
+    "777236": {
+      "name": "Diplacus",
+      "common_name": "bush monkeyflowers",
+      "rank": "section"
+    },
+    "47597": {
+      "name": "Chlorogalum pomeridianum",
+      "common_name": "wavy-leafed soap plant",
+      "rank": "species"
+    },
+    "58829": {
+      "name": "Pseudognaphalium biolettii",
+      "common_name": "two-color rabbit tobacco",
+      "rank": "species"
+    },
+    "51454": {
+      "name": "Passiflora caerulea",
+      "common_name": "Bluecrown passionflower",
+      "rank": "species"
+    },
+    "53078": {
+      "name": "Pseudognaphalium",
+      "common_name": "rabbit-tobaccos",
+      "rank": "genus"
+    },
+    "53082": {
+      "name": "Gnaphalium",
+      "common_name": "cudweeds",
+      "rank": "genus"
+    },
+    "78465": {
+      "name": "Petroselinum crispum",
+      "common_name": "garden parsley",
+      "rank": "species"
+    },
+    "281273": {
+      "name": "Gomphocarpus physocarpus",
+      "common_name": "balloonplant",
+      "rank": "species"
+    },
+    "771827": {
+      "name": "Diplacus layneae",
+      "common_name": "Layne's monkeyflower",
+      "rank": "species"
+    },
+    "157750": {
+      "name": "Diplacus",
+      "common_name": "",
+      "rank": "genus"
+    },
+    "48561": {
+      "name": "Cirsium",
+      "common_name": "Plume Thistles",
+      "rank": "genus"
+    },
+    "58907": {
+      "name": "Melilotus albus",
+      "common_name": "White Sweetclover",
+      "rank": "species"
+    },
+    "49664": {
+      "name": "Platanus",
+      "common_name": "planes",
+      "rank": "genus"
+    },
+    "135331": {
+      "name": "Prunus armeniaca",
+      "common_name": "apricot",
+      "rank": "species"
+    },
+    "48227": {
+      "name": "Acer macrophyllum",
+      "common_name": "bigleaf maple",
+      "rank": "species"
+    },
+    "54500": {
+      "name": "Malus",
+      "common_name": "apples and crabapples",
+      "rank": "genus"
+    },
+    "54806": {
+      "name": "Fraxinus",
+      "common_name": "ashes",
+      "rank": "genus"
+    },
+    "62292": {
+      "name": "Asclepias speciosa",
+      "common_name": "showy milkweed",
+      "rank": "species"
+    },
+    "58788": {
+      "name": "Apium graveolens",
+      "common_name": "Celery",
+      "rank": "species"
+    },
+    "636795": {
+      "name": "Salvia rosmarinus",
+      "common_name": "Rosemary",
+      "rank": "species"
+    },
+    "49674": {
+      "name": "Ceanothus",
+      "common_name": "Ceanothus",
+      "rank": "genus"
+    },
+    "52621": {
+      "name": "Cirsium occidentale",
+      "common_name": "Cobwebby Thistle",
+      "rank": "species"
+    },
+    "53453": {
+      "name": "Salix",
+      "common_name": "Willows",
+      "rank": "genus"
+    },
+    "53423": {
+      "name": "Frangula californica",
+      "common_name": "coffeeberry",
+      "rank": "species"
+    },
+    "51272": {
+      "name": "Asclepias californica",
+      "common_name": "California milkweed",
+      "rank": "species"
+    },
+    "201654": {
+      "name": "Carduoideae",
+      "common_name": "Thistles and Allies",
+      "rank": "subfamily"
+    },
+    "50622": {
+      "name": "Ptelea crenulata",
+      "common_name": "Western Hoptree",
+      "rank": "species"
+    },
+    "50154": {
+      "name": "Sphaeralcea",
+      "common_name": "globemallows",
+      "rank": "genus"
+    },
+    "63194": {
+      "name": "Brassica oleracea botrytis",
+      "common_name": "Cauliflower",
+      "rank": "variety"
+    },
+    "52998": {
+      "name": "Conium maculatum",
+      "common_name": "poison hemlock",
+      "rank": "species"
+    },
+    "54329": {
+      "name": "Tropaeolum majus",
+      "common_name": "garden nasturtium",
+      "rank": "species"
+    },
+    "50636": {
+      "name": "Plantago",
+      "common_name": "plantains",
+      "rank": "genus"
+    },
+    "62206": {
+      "name": "Alcea",
+      "common_name": "hollyhocks",
+      "rank": "genus"
+    },
+    "49340": {
+      "name": "Castilleja",
+      "common_name": "Paintbrushes",
+      "rank": "genus"
+    },
+    "53178": {
+      "name": "Plantago lanceolata",
+      "common_name": "ribwort plantain",
+      "rank": "species"
+    },
+    "55837": {
+      "name": "Prunus cerasifera",
+      "common_name": "Cherry-plum",
+      "rank": "species"
+    },
+    "52287": {
+      "name": "Borago officinalis",
+      "common_name": "Borage",
+      "rank": "species"
+    },
+    "54297": {
+      "name": "Citrus",
+      "common_name": "citrus",
+      "rank": "genus"
+    },
+    "47906": {
+      "name": "Asclepias",
+      "common_name": "milkweeds",
+      "rank": "genus"
+    },
+    "47851": {
+      "name": "Quercus",
+      "common_name": "oaks",
+      "rank": "genus"
+    },
+    "47566": {
+      "name": "Populus",
+      "common_name": "poplars, cottonwoods, and aspens",
+      "rank": "genus"
+    },
+    "47727": {
+      "name": "Acer",
+      "common_name": "maples",
+      "rank": "genus"
+    },
+    "464594": {
+      "name": "Prunus salicina",
+      "common_name": "Chinese plum",
+      "rank": "species"
+    },
+    "54854": {
+      "name": "Tilia americana",
+      "common_name": "basswood",
+      "rank": "species"
+    },
+    "62831": {
+      "name": "Persea americana",
+      "common_name": "Avocado",
+      "rank": "species"
+    },
+    "52120": {
+      "name": "Populus fremontii",
+      "common_name": "Fr\u00e9mont Cottonwood",
+      "rank": "species"
+    },
+    "75832": {
+      "name": "Boehmeria cylindrica",
+      "common_name": "false nettle",
+      "rank": "species"
+    }
+  },
+  "edges": [
+    {
+      "butterfly_id": 51097,
+      "host_id": 56838,
+      "count": 6
+    },
+    {
+      "butterfly_id": 50892,
+      "host_id": 777371,
+      "count": 69
+    },
+    {
+      "butterfly_id": 59118,
+      "host_id": 58784,
+      "count": 1
+    },
+    {
+      "butterfly_id": 49133,
+      "host_id": 141854,
+      "count": 3
+    },
+    {
+      "butterfly_id": 48662,
+      "host_id": 56851,
+      "count": 64
+    },
+    {
+      "butterfly_id": 49150,
+      "host_id": 51452,
+      "count": 39
+    },
+    {
+      "butterfly_id": 49133,
+      "host_id": 57281,
+      "count": 3
+    },
+    {
+      "butterfly_id": 59118,
+      "host_id": 79258,
+      "count": 1
+    },
+    {
+      "butterfly_id": 48548,
+      "host_id": 47121,
+      "count": 2
+    },
+    {
+      "butterfly_id": 48662,
+      "host_id": 75602,
+      "count": 29
+    },
+    {
+      "butterfly_id": 50892,
+      "host_id": 56760,
+      "count": 1
+    },
+    {
+      "butterfly_id": 50786,
+      "host_id": 58202,
+      "count": 1
+    },
+    {
+      "butterfly_id": 50892,
+      "host_id": 50812,
+      "count": 39
+    },
+    {
+      "butterfly_id": 50931,
+      "host_id": 55978,
+      "count": 7
+    },
+    {
+      "butterfly_id": 59189,
+      "host_id": 47850,
+      "count": 3
+    },
+    {
+      "butterfly_id": 1081332,
+      "host_id": 47434,
+      "count": 3
+    },
+    {
+      "butterfly_id": 1038408,
+      "host_id": 55978,
+      "count": 6
+    },
+    {
+      "butterfly_id": 50786,
+      "host_id": 55978,
+      "count": 25
+    },
+    {
+      "butterfly_id": 48548,
+      "host_id": 55978,
+      "count": 1
+    },
+    {
+      "butterfly_id": 49150,
+      "host_id": 1441711,
+      "count": 6
+    },
+    {
+      "butterfly_id": 51097,
+      "host_id": 53052,
+      "count": 164
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 469472,
+      "count": 8
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 53452,
+      "count": 21
+    },
+    {
+      "butterfly_id": 50892,
+      "host_id": 777236,
+      "count": 1
+    },
+    {
+      "butterfly_id": 58543,
+      "host_id": 47597,
+      "count": 8
+    },
+    {
+      "butterfly_id": 48549,
+      "host_id": 58829,
+      "count": 1
+    },
+    {
+      "butterfly_id": 49150,
+      "host_id": 51454,
+      "count": 16
+    },
+    {
+      "butterfly_id": 48549,
+      "host_id": 53078,
+      "count": 3
+    },
+    {
+      "butterfly_id": 48549,
+      "host_id": 53082,
+      "count": 1
+    },
+    {
+      "butterfly_id": 51097,
+      "host_id": 78465,
+      "count": 2
+    },
+    {
+      "butterfly_id": 48662,
+      "host_id": 281273,
+      "count": 1
+    },
+    {
+      "butterfly_id": 1021509,
+      "host_id": 771827,
+      "count": 1
+    },
+    {
+      "butterfly_id": 50892,
+      "host_id": 157750,
+      "count": 1
+    },
+    {
+      "butterfly_id": 48548,
+      "host_id": 48561,
+      "count": 1
+    },
+    {
+      "butterfly_id": 55521,
+      "host_id": 58907,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 49664,
+      "count": 5
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 135331,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 48227,
+      "count": 35
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 54500,
+      "count": 4
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 54806,
+      "count": 21
+    },
+    {
+      "butterfly_id": 48662,
+      "host_id": 62292,
+      "count": 4
+    },
+    {
+      "butterfly_id": 51097,
+      "host_id": 58788,
+      "count": 1
+    },
+    {
+      "butterfly_id": 50880,
+      "host_id": 53452,
+      "count": 4
+    },
+    {
+      "butterfly_id": 50931,
+      "host_id": 636795,
+      "count": 1
+    },
+    {
+      "butterfly_id": 52484,
+      "host_id": 49674,
+      "count": 1
+    },
+    {
+      "butterfly_id": 48548,
+      "host_id": 52621,
+      "count": 1
+    },
+    {
+      "butterfly_id": 50880,
+      "host_id": 53453,
+      "count": 1
+    },
+    {
+      "butterfly_id": 55521,
+      "host_id": 53423,
+      "count": 95
+    },
+    {
+      "butterfly_id": 48662,
+      "host_id": 51272,
+      "count": 7
+    },
+    {
+      "butterfly_id": 48548,
+      "host_id": 201654,
+      "count": 1
+    },
+    {
+      "butterfly_id": 68263,
+      "host_id": 50622,
+      "count": 70
+    },
+    {
+      "butterfly_id": 50931,
+      "host_id": 50154,
+      "count": 9
+    },
+    {
+      "butterfly_id": 50786,
+      "host_id": 50154,
+      "count": 10
+    },
+    {
+      "butterfly_id": 55626,
+      "host_id": 63194,
+      "count": 1
+    },
+    {
+      "butterfly_id": 51097,
+      "host_id": 52998,
+      "count": 1
+    },
+    {
+      "butterfly_id": 50931,
+      "host_id": 53423,
+      "count": 6
+    },
+    {
+      "butterfly_id": 55626,
+      "host_id": 54329,
+      "count": 1
+    },
+    {
+      "butterfly_id": 1021509,
+      "host_id": 50636,
+      "count": 1
+    },
+    {
+      "butterfly_id": 50786,
+      "host_id": 62206,
+      "count": 1
+    },
+    {
+      "butterfly_id": 1021509,
+      "host_id": 49340,
+      "count": 2
+    },
+    {
+      "butterfly_id": 1021509,
+      "host_id": 53178,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 55837,
+      "count": 1
+    },
+    {
+      "butterfly_id": 56832,
+      "host_id": 53453,
+      "count": 1
+    },
+    {
+      "butterfly_id": 48548,
+      "host_id": 52287,
+      "count": 1
+    },
+    {
+      "butterfly_id": 51097,
+      "host_id": 54297,
+      "count": 1
+    },
+    {
+      "butterfly_id": 48662,
+      "host_id": 47906,
+      "count": 1
+    },
+    {
+      "butterfly_id": 59189,
+      "host_id": 47851,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 47566,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 47727,
+      "count": 4
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 464594,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 54854,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 62831,
+      "count": 1
+    },
+    {
+      "butterfly_id": 47226,
+      "host_id": 52120,
+      "count": 1
+    },
+    {
+      "butterfly_id": 49133,
+      "host_id": 75832,
+      "count": 2
+    }
+  ]
+}
