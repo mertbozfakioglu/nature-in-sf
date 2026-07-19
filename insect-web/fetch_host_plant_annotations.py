@@ -102,8 +102,10 @@ def resolve_text_to_taxon(raw_text, cache):
         if t["name"].lower() == key or t.get("preferred_common_name", "").lower() == key:
             result = t
             break
-    if result is None and plant_results:
-        result = plant_results[0]
+    # No fallback to the top fuzzy search result: ambiguous common names
+    # (e.g. "Bee Plant", "Soaproot" apply to multiple unrelated genera) have
+    # produced wrong matches in testing. Better to leave a mention unresolved
+    # than assert an incorrect butterfly<->plant relationship.
     if result:
         cache[key] = {
             "taxon_id": result["id"],
