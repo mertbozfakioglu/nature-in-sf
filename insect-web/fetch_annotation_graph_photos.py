@@ -24,7 +24,7 @@ bay_species = json.loads((DATA_DIR / "bay_area_butterfly_species.json").read_tex
 host_data = json.loads((DATA_DIR / "host_plant_annotations.json").read_text())
 
 all_ids = set(int(k) for k in bay_species.keys())
-all_ids |= set(int(k) for k in host_data["host_taxa"].keys())
+all_ids |= set(int(k) for k in host_data["host_taxa"].keys() if k.isdigit())
 all_ids |= set(int(k) for k in host_data["butterfly_taxa"].keys())
 all_ids = sorted(all_ids)
 print(f"Total taxa needing photos: {len(all_ids)}")
