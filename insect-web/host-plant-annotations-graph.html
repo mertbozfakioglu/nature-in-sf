@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SF Bay Area Butterflies × Host Plants (iNat annotations)</title>
+<title>SF Butterflies × Host Plants (iNat annotations)</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -99,7 +99,7 @@ body {
 
 <div id="topbar">
   <div class="bar-row bar-row-1">
-    <div id="app-title">🦋 SF Bay Area Butterflies × Host Plants <span>from iNat "Host plant" annotations</span></div>
+    <div id="app-title">🦋 SF Butterflies × Host Plants <span>species observed within San Francisco, from Bay Area iNat annotations</span></div>
     <input id="search" type="search" placeholder="Search…" autocomplete="off">
     <div id="stats"></div>
   </div>
@@ -159,7 +159,18 @@ const state = {
     `<div style="margin-top:2px">Node size = # host-plant tags / times used as host</div>`;
 }
 
-fetch("annotation_graph_data.json").then(r=>r.json()).then(init).catch(()=>{
+// The underlying data file covers the whole Bay Area (so it never needs
+// re-fetching just because the display scope changes); this app only
+// shows nodes actually observed within San Francisco itself, dropping
+// any edge that would dangle once its butterfly or plant is hidden.
+function filterToSF(DATA){
+  const nodes = DATA.nodes.filter(n=>n.sf_observed);
+  const keepIds = new Set(nodes.map(n=>n.id));
+  const edges = DATA.edges.filter(e=>keepIds.has(e.source)&&keepIds.has(e.target));
+  return {...DATA, nodes, edges};
+}
+
+fetch("annotation_graph_data.json").then(r=>r.json()).then(filterToSF).then(init).catch(()=>{
   document.body.innerHTML=`<div style="color:#ff8060;padding:40px;font-size:13px">Could not load annotation_graph_data.json.<br>Run: <code>python3 -m http.server 8000</code></div>`;
 });
 

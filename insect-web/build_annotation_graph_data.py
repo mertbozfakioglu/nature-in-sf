@@ -22,12 +22,21 @@ bay_species = json.loads((DATA_DIR / "bay_area_butterfly_species.json").read_tex
 host_data = json.loads((DATA_DIR / "host_plant_annotations.json").read_text())
 photos = json.loads((DATA_DIR / "annotation_graph_photos.json").read_text())
 nativity = json.loads((DATA_DIR / "annotation_graph_nativity.json").read_text())
+sf_presence = json.loads((DATA_DIR / "annotation_graph_sf_presence.json").read_text())
 
 
 def native_status(taxon_id):
     if taxon_id is None:
         return "unknown"
     return nativity.get(str(taxon_id), "unknown")
+
+
+def sf_observed(taxon_id):
+    # Unresolved free-text host mentions have no taxon id to check against;
+    # treat as not confirmed in SF rather than guessing.
+    if taxon_id is None:
+        return False
+    return bool(sf_presence.get(str(taxon_id), False))
 
 
 nodes = []
@@ -43,6 +52,7 @@ for tid_str, info in bay_species.items():
         "name": info["name"],
         "common_name": info.get("common_name") or p.get("common_name", ""),
         "native_status": native_status(tid),
+        "sf_observed": sf_observed(tid),
         "bay_area_obs": info.get("obs_count", 0),
         "photo_url": p.get("photo_url", ""),
         "wikipedia_url": p.get("wikipedia_url", ""),
@@ -72,6 +82,7 @@ for tid_str, info in host_data["host_taxa"].items():
         "name": info["name"],
         "common_name": info.get("common_name") or p.get("common_name", ""),
         "native_status": native_status(tid),
+        "sf_observed": sf_observed(tid),
         "bay_area_obs": 0,
         "photo_url": p.get("photo_url", ""),
         "wikipedia_url": p.get("wikipedia_url", ""),
@@ -126,4 +137,5 @@ ns = {"native": 0, "introduced": 0, "unknown": 0}
 for n in nodes:
     ns[n["native_status"]] += 1
 print(f"Native status: {ns}")
+print(f"Observed in SF: {sum(1 for n in nodes if n['sf_observed'])}/{len(nodes)}")
 print(f"Saved -> {outfile}")
