@@ -23,6 +23,7 @@ host_data = json.loads((DATA_DIR / "host_plant_annotations.json").read_text())
 photos = json.loads((DATA_DIR / "annotation_graph_photos.json").read_text())
 nativity = json.loads((DATA_DIR / "annotation_graph_nativity.json").read_text())
 sf_presence = json.loads((DATA_DIR / "annotation_graph_sf_presence.json").read_text())
+quality = json.loads((DATA_DIR / "annotation_graph_quality.json").read_text())
 
 
 def native_status(taxon_id):
@@ -45,6 +46,7 @@ node_ids = set()
 for tid_str, info in bay_species.items():
     tid = int(tid_str)
     p = photos.get(tid_str, {})
+    q = quality.get(tid_str, {})
     nodes.append({
         "id": f"b{tid}",
         "taxon_id": tid,
@@ -53,6 +55,8 @@ for tid_str, info in bay_species.items():
         "common_name": info.get("common_name") or p.get("common_name", ""),
         "native_status": native_status(tid),
         "sf_observed": sf_observed(tid),
+        "research_grade_sf": q.get("research_grade_sf", False),
+        "geoprivacy_obscured": q.get("geoprivacy_obscured", False),
         "bay_area_obs": info.get("obs_count", 0),
         "photo_url": p.get("photo_url", ""),
         "wikipedia_url": p.get("wikipedia_url", ""),
@@ -138,4 +142,7 @@ for n in nodes:
     ns[n["native_status"]] += 1
 print(f"Native status: {ns}")
 print(f"Observed in SF: {sum(1 for n in nodes if n['sf_observed'])}/{len(nodes)}")
+bflies = [n for n in nodes if n["type"] == "butterfly"]
+print(f"Butterflies research-grade in SF: {sum(1 for n in bflies if n['research_grade_sf'])}/{len(bflies)}")
+print(f"Butterflies geoprivacy-obscured: {sum(1 for n in bflies if n['geoprivacy_obscured'])}/{len(bflies)}")
 print(f"Saved -> {outfile}")

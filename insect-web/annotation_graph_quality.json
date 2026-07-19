@@ -1,0 +1,482 @@
+{
+  "47226": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "48548": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "48549": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "48550": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "48662": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "49133": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "49150": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "49920": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "49972": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "50340": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "50391": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "50786": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "50880": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "50892": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "50931": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "51097": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "51743": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "51773": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "52075": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "52484": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "53843": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "53893": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "54024": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "55521": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "55626": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "55785": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "56644": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "56776": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "56832": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "58474": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "58479": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "58514": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "58518": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "58523": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "58531": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "58532": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "58543": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "58606": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59118": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59119": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59120": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59124": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59128": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59134": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59135": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59136": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59138": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59144": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59152": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59153": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59165": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59170": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59176": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59182": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59186": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59187": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59188": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59189": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59190": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59192": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59193": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "59194": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "59195": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "67560": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "67835": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "68244": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "68262": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "68263": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "68265": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "68273": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "68278": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "69145": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "69824": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "69852": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "81559": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "81734": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "81967": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "82069": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "82481": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "83543": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "84239": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "117317": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": true
+  },
+  "117338": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "117345": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "117372": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "117373": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "117381": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "117764": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122363": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122364": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122367": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122368": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122371": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122372": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122379": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "122381": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "122382": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "207977": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "210423": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "346970": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "520456": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "520457": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": true
+  },
+  "1021509": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "1038408": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "1081332": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "1268537": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1360279": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1360290": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1360298": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "1360314": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1360337": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1456553": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1456571": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1456575": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1456579": {
+    "research_grade_sf": true,
+    "geoprivacy_obscured": false
+  },
+  "1456595": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1457202": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1638386": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1650172": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  },
+  "1681572": {
+    "research_grade_sf": false,
+    "geoprivacy_obscured": false
+  }
+}
