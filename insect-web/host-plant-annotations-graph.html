@@ -48,13 +48,13 @@ body {
 .toggle-pill.off { opacity: .3; }
 .bar-row-3 { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; -ms-overflow-style: none; }
 .bar-row-3::-webkit-scrollbar { display: none; }
-.family-pills { display: flex; gap: 5px; }
-.fam-pill {
+.status-pills { display: flex; gap: 5px; }
+.status-pill {
   cursor: pointer; border-radius: 20px; padding: 2px 10px; font-size: 11px;
   font-weight: 500; border: 1.5px solid; user-select: none; transition: opacity .15s;
   white-space: nowrap; flex-shrink: 0;
 }
-.fam-pill.off { opacity: .25; }
+.status-pill.off { opacity: .25; }
 #graph-wrap { flex: 1; overflow: hidden; position: relative; }
 #graph { width: 100%; height: 100%; }
 #tooltip {
@@ -64,7 +64,7 @@ body {
 }
 #tooltip .tt-common { font-size: 13px; font-weight: 700; margin-bottom: 1px; }
 #tooltip .tt-latin  { font-size: 11px; font-style: italic; color: #8b949e; margin-bottom: 5px; }
-#tooltip .tt-family { font-size: 11px; color: #58a6ff; margin-bottom: 2px; }
+#tooltip .tt-status { font-size: 11px; margin-bottom: 2px; }
 #tooltip .tt-obs    { font-size: 11px; color: #8b949e; }
 #tooltip .tt-deg    { font-size: 11px; color: #8b949e; }
 #info-panel {
@@ -108,7 +108,7 @@ body {
     </div>
   </div>
   <div class="bar-row bar-row-3">
-    <div class="family-pills" id="bfly-family-pills"></div>
+    <div class="status-pills" id="status-pills"></div>
   </div>
 </div>
 
@@ -128,33 +128,31 @@ body {
 <div id="tooltip">
   <div class="tt-common"></div>
   <div class="tt-latin"></div>
-  <div class="tt-family"></div>
+  <div class="tt-status"></div>
   <div class="tt-obs"></div>
   <div class="tt-deg"></div>
 </div>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-const BFLY_COLORS = {
-  Papilionidae:"#f5c842", Pieridae:"#c8e06a", Lycaenidae:"#6ab5e8",
-  Nymphalidae:"#e8834a",  Hesperiidae:"#c47de0", Riodinidae:"#e84a8a", Unknown:"#aaaaaa",
-};
-const PLANT_COLOR="#4ecb71", EDGE_HOST="#dc5032";
+const STATUS_COLORS = { native:"#4ecb71", introduced:"#e8834a", unknown:"#8b949e" };
+const STATUS_LABELS = { native:"Native", introduced:"Introduced", unknown:"Unknown" };
+const EDGE_HOST="#dc5032";
 
 const state = {
   showConnected:true, showUnconnected:true,
-  bflyFamilies:new Set(), focusId:null, searchQuery:"",
+  statuses:new Set(), focusId:null, searchQuery:"",
 };
 
 // legend
 {
   const leg = document.getElementById("legend");
   leg.innerHTML =
-    `<div><span class="leg-dot" style="background:${PLANT_COLOR}"></span> Host plant</div>`+
-    Object.entries(BFLY_COLORS).filter(([f])=>f!=="Unknown").map(([f,c])=>
-      `<div><span class="leg-dot" style="border:2.5px solid ${c};background:transparent"></span> ${f}</div>`
+    Object.entries(STATUS_COLORS).map(([s,c])=>
+      `<div><span class="leg-dot" style="background:${c}"></span> ${STATUS_LABELS[s]}</div>`
     ).join("")+
-    `<div style="margin-top:4px"><span class="leg-line" style="background:${EDGE_HOST}"></span> Host plant tag (line width = # obs)</div>`+
+    `<div style="margin-top:4px">Ring = butterfly, filled circle = plant</div>`+
+    `<div><span class="leg-line" style="background:${EDGE_HOST}"></span> Host plant tag (line width = # obs)</div>`+
     `<div style="margin-top:2px">Node size = # host-plant tags / times used as host</div>`;
 }
 
@@ -164,18 +162,19 @@ fetch("annotation_graph_data.json").then(r=>r.json()).then(init).catch(()=>{
 
 function init(DATA) {
   const nodeById = Object.fromEntries(DATA.nodes.map(n=>[n.id,n]));
-  const bflyFams = [...new Set(DATA.nodes.filter(n=>n.type==="butterfly").map(n=>n.family))].sort();
-  state.bflyFamilies = new Set(bflyFams);
+  const statuses = [...new Set(DATA.nodes.map(n=>n.native_status))]
+    .sort((a,b)=>["native","introduced","unknown"].indexOf(a)-["native","introduced","unknown"].indexOf(b));
+  state.statuses = new Set(statuses);
 
-  const pillsEl = document.getElementById("bfly-family-pills");
-  bflyFams.forEach(fam=>{
-    const col=BFLY_COLORS[fam]||"#aaa";
+  const pillsEl = document.getElementById("status-pills");
+  statuses.forEach(st=>{
+    const col=STATUS_COLORS[st]||"#aaa";
     const el=document.createElement("div");
-    el.className="fam-pill"; el.dataset.fam=fam; el.textContent=fam;
+    el.className="status-pill"; el.dataset.status=st; el.textContent=STATUS_LABELS[st]||st;
     el.style.cssText=`border-color:${col};color:${col};background:${hexAlpha(col,.12)}`;
     el.addEventListener("click",()=>{
-      if(state.bflyFamilies.has(fam)&&state.bflyFamilies.size>1) state.bflyFamilies.delete(fam);
-      else state.bflyFamilies.add(fam);
+      if(state.statuses.has(st)&&state.statuses.size>1) state.statuses.delete(st);
+      else state.statuses.add(st);
       update();
     });
     pillsEl.appendChild(el);
@@ -210,7 +209,9 @@ function init(DATA) {
   function showTT(ev,d){
     ttEl.querySelector(".tt-common").textContent=d.common_name||d.name;
     ttEl.querySelector(".tt-latin").textContent =d.common_name?d.name:"";
-    ttEl.querySelector(".tt-family").textContent=d.family!=="Unknown"?d.family:"";
+    const stEl=ttEl.querySelector(".tt-status");
+    stEl.textContent=STATUS_LABELS[d.native_status]||"";
+    stEl.style.color=STATUS_COLORS[d.native_status]||"#8b949e";
     ttEl.querySelector(".tt-obs").textContent   =d.type==="butterfly"&&d.bay_area_obs>0?`${d.bay_area_obs.toLocaleString()} Bay Area obs`:"";
     ttEl.querySelector(".tt-deg").textContent   =d.degree>0?`${d.degree} ${d.type==="butterfly"?"host plant(s) tagged":"butterfly species using it"}`:"no host-plant tag yet";
     ttEl.style.display="block"; moveTT(ev);
@@ -228,10 +229,10 @@ function init(DATA) {
     const photo=p.querySelector(".ip-photo");
     if(d.photo_url){ photo.src=d.photo_url; photo.style.display="block"; } else { photo.style.display="none"; }
     p.querySelector(".ip-name").textContent =d.common_name||d.name;
-    p.querySelector(".ip-name").style.color =d.type==="butterfly"?(BFLY_COLORS[d.family]||"#aaa"):PLANT_COLOR;
+    p.querySelector(".ip-name").style.color =STATUS_COLORS[d.native_status]||"#aaa";
     p.querySelector(".ip-latin").textContent=d.common_name?d.name:"";
     p.querySelector(".ip-meta").textContent =[
-      d.type==="butterfly"?`Family: ${d.family}`:"Host plant",
+      `${d.type==="butterfly"?"Butterfly":"Host plant"} · ${STATUS_LABELS[d.native_status]||"Unknown"} (CA checklist)`,
       d.type==="butterfly"&&d.bay_area_obs>0?`Bay Area observations: ${d.bay_area_obs.toLocaleString()}`:"",
       d.degree>0?`${d.type==="butterfly"?"Host plants tagged":"Butterfly species"}: ${d.degree}`:"No host-plant tag on record yet",
     ].filter(Boolean).join("\n");
@@ -241,7 +242,7 @@ function init(DATA) {
   }
 
   function nodeR(d){ return d.type==="plant"?Math.max(13,5+Math.sqrt(d.degree)*4):Math.max(11,4+Math.sqrt(Math.max(d.degree,0.3))*3.2); }
-  function nodeColor(d){ return d.type==="plant"?PLANT_COLOR:(BFLY_COLORS[d.family]||"#aaa"); }
+  function nodeColor(d){ return STATUS_COLORS[d.native_status]||"#8b949e"; }
 
   const simNodes=DATA.nodes.map(d=>({...d}));
   const simEdges=DATA.edges.map(e=>({...e}));
@@ -262,7 +263,7 @@ function init(DATA) {
     DATA.edges.forEach(e=>{ connectedIds.add(e.source?.id??e.source); connectedIds.add(e.target?.id??e.target); });
 
     const visNodes=DATA.nodes.filter(n=>{
-      if(n.type==="butterfly"&&!state.bflyFamilies.has(n.family)) return false;
+      if(!state.statuses.has(n.native_status)) return false;
       const isConnected=connectedIds.has(n.id);
       if(isConnected&&!state.showConnected) return false;
       if(!isConnected&&!state.showUnconnected) return false;
@@ -296,7 +297,7 @@ function init(DATA) {
   function update(){
     document.querySelector(".toggle-pill.connected").classList.toggle("off",!state.showConnected);
     document.querySelector(".toggle-pill.unconnected").classList.toggle("off",!state.showUnconnected);
-    document.querySelectorAll(".fam-pill").forEach(el=>el.classList.toggle("off",!state.bflyFamilies.has(el.dataset.fam)));
+    document.querySelectorAll(".status-pill").forEach(el=>el.classList.toggle("off",!state.statuses.has(el.dataset.status)));
 
     const {visEdges,visIds,searchIds,focusIds}=getVisible();
 
