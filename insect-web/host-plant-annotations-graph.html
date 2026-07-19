@@ -168,7 +168,10 @@ const state = {
 // Host plants aren't held to the research-grade/obscured checks --
 // those only apply to the butterfly side, per how this was scoped.
 // Any edge that would dangle once its butterfly or plant is hidden
-// gets dropped too.
+// gets dropped too, and any host plant left with no edge afterward is
+// dropped as well -- unlike butterflies (toggleable via the "No tag
+// yet" pill), a plant only earned its place in this graph by being a
+// tagged host, so one with zero remaining edges has nothing to show.
 function filterToSF(DATA){
   const nodes = DATA.nodes.filter(n=>{
     if(!n.sf_observed) return false;
@@ -177,7 +180,9 @@ function filterToSF(DATA){
   });
   const keepIds = new Set(nodes.map(n=>n.id));
   const edges = DATA.edges.filter(e=>keepIds.has(e.source)&&keepIds.has(e.target));
-  return {...DATA, nodes, edges};
+  const connectedPlantIds = new Set(edges.map(e=>e.target));
+  const finalNodes = nodes.filter(n=>n.type!=="plant"||connectedPlantIds.has(n.id));
+  return {...DATA, nodes:finalNodes, edges};
 }
 
 fetch("annotation_graph_data.json").then(r=>r.json()).then(filterToSF).then(init).catch(()=>{
