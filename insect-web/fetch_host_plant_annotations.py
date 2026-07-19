@@ -64,6 +64,7 @@ def main():
     butterfly_taxa = {}  # taxon_id -> {"name", "common_name", "rank"}
     host_taxa = {}       # taxon_id -> {"name", "common_name", "rank"}
     total_obs = 0
+    rolled_up = 0
 
     for value_id, label in LIFE_STAGES:
         print(f"=== {label} ===", flush=True)
@@ -78,13 +79,23 @@ def main():
                 total_obs += 1
                 stage_total += 1
                 taxon = o.get("taxon") or {}
-                if taxon.get("rank") != "species":
+                # Many Bay Area butterflies (e.g. Battus philenor hirsuta,
+                # the California Pipevine Swallowtail) are identified to
+                # subspecies/variety, not bare species. min_species_taxon_id
+                # is the nearest species-or-finer ancestor's id, which equals
+                # the taxon's own id when it's already species rank -- so
+                # this rolls subspecies/variety/form up to their species
+                # without dropping genuinely coarse (genus/family) IDs,
+                # which have no min_species_taxon_id at all.
+                b_id = taxon.get("min_species_taxon_id")
+                if not b_id:
                     continue
-                b_id = taxon["id"]
-                butterfly_taxa[b_id] = {
+                if b_id != taxon.get("id"):
+                    rolled_up += 1
+                butterfly_taxa.setdefault(b_id, {
                     "name": taxon["name"],
                     "common_name": taxon.get("preferred_common_name", ""),
-                }
+                })
                 for ofv in (o.get("ofvs") or []):
                     if ofv.get("field_id") != HOST_FIELD_ID:
                         continue
@@ -119,7 +130,7 @@ def main():
     with open(outfile, "w") as f:
         json.dump(out, f, indent=2)
 
-    print(f"\nScanned {total_obs} observations")
+    print(f"\nScanned {total_obs} observations ({rolled_up} rolled up from subspecies/variety to species)")
     print(f"Butterfly species with host-tagged obs: {len(butterfly_taxa)}")
     print(f"Distinct host plant taxa: {len(host_taxa)}")
     print(f"Edges (butterfly-host pairs): {len(edges)}")
