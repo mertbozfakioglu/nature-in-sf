@@ -67,32 +67,54 @@ for tid_str, info in bay_species.items():
     })
     node_ids.add(tid)
 
+host_node_id = {}  # host_taxa key (str) -> node id used in edges
+
 for tid_str, info in host_data["host_taxa"].items():
-    tid = int(tid_str)
-    if tid in node_ids:
-        continue
-    p = photos.get(tid_str, {})
+    is_unresolved_text = not tid_str.isdigit()
+    if is_unresolved_text:
+        tid = None
+        node_id = f"h_{tid_str.split(':', 1)[-1]}"
+        photo_key = None
+    else:
+        tid = int(tid_str)
+        node_id = f"h{tid}"
+        photo_key = tid_str
+        if tid in node_ids:
+            host_node_id[tid_str] = f"h{tid}"
+            continue
+    p = photos.get(photo_key, {}) if photo_key else {}
     nodes.append({
-        "id": f"h{tid}",
+        "id": node_id,
         "taxon_id": tid,
         "type": "plant",
         "name": info["name"],
         "common_name": info.get("common_name") or p.get("common_name", ""),
-        "family": plant_family(tid),
+        "family": plant_family(tid) if tid else "Unknown",
         "bay_area_obs": 0,
         "photo_url": p.get("photo_url", ""),
         "wikipedia_url": p.get("wikipedia_url", ""),
+        "unresolved_text": is_unresolved_text,
     })
-    node_ids.add(tid)
+    if tid:
+        node_ids.add(tid)
+    host_node_id[tid_str] = node_id
 
-edges = [
-    {
-        "source": f"b{e['butterfly_id']}",
-        "target": f"h{e['host_id']}",
+bfly_node_ids = {n["id"] for n in nodes if n["type"] == "butterfly"}
+edges = []
+for e in host_data["edges"]:
+    source = f"b{e['butterfly_id']}"
+    if source not in bfly_node_ids:
+        # Butterfly taxon isn't in bay_area_butterfly_species.json (e.g. an
+        # observation whose current identification is coarser than species
+        # despite carrying a stray min_species_taxon_id) -- drop the edge
+        # rather than reference a node that doesn't exist.
+        print(f"  Skipping edge: butterfly taxon {e['butterfly_id']} not in Bay Area species list")
+        continue
+    edges.append({
+        "source": source,
+        "target": host_node_id[str(e['host_id'])],
         "count": e["count"],
-    }
-    for e in host_data["edges"]
-]
+    })
 
 deg = {}
 for e in edges:

@@ -1,0 +1,161 @@
+{
+  "angelica": {
+    "common_name": "angelicas",
+    "name": "Angelica",
+    "rank": "genus",
+    "taxon_id": 52836
+  },
+  "angelica tomentosa": {
+    "common_name": "woolly angelica",
+    "name": "Angelica tomentosa",
+    "rank": "species",
+    "taxon_id": 52835
+  },
+  "aristolochia californica": {
+    "common_name": "California Dutchman's Pipe",
+    "name": "Aristolochia californica",
+    "rank": "species",
+    "taxon_id": 55190
+  },
+  "asclepias fascicularis": {
+    "common_name": "narrowleaf milkweed",
+    "name": "Asclepias fascicularis",
+    "rank": "species",
+    "taxon_id": 56851
+  },
+  "bee plant": null,
+  "blue crown passionflower": null,
+  "castilleja": {
+    "common_name": "Paintbrushes",
+    "name": "Castilleja",
+    "rank": "genus",
+    "taxon_id": 49340
+  },
+  "ceanothus": {
+    "common_name": "Ceanothus",
+    "name": "Ceanothus",
+    "rank": "genus",
+    "taxon_id": 49674
+  },
+  "ceanothus foliosus": {
+    "common_name": "Wavyleaf Ceanothus",
+    "name": "Ceanothus foliosus",
+    "rank": "species",
+    "taxon_id": 64077
+  },
+  "cirsium": {
+    "common_name": "Plume Thistles",
+    "name": "Cirsium",
+    "rank": "genus",
+    "taxon_id": 48561
+  },
+  "citrus": {
+    "common_name": "citrus",
+    "name": "Citrus",
+    "rank": "genus",
+    "taxon_id": 54297
+  },
+  "diplacus aurantiacus": {
+    "common_name": "orange bush monkeyflower",
+    "name": "Diplacus aurantiacus",
+    "rank": "species",
+    "taxon_id": 777371
+  },
+  "eriogonum latifolium": {
+    "common_name": "Seaside Buckwheat",
+    "name": "Eriogonum latifolium",
+    "rank": "species",
+    "taxon_id": 57211
+  },
+  "foeniculum vulgare": {
+    "common_name": "fennel",
+    "name": "Foeniculum vulgare",
+    "rank": "species",
+    "taxon_id": 53052
+  },
+  "heracleum maximum": {
+    "common_name": "common cowparsnip",
+    "name": "Heracleum maximum",
+    "rank": "species",
+    "taxon_id": 53094
+  },
+  "jersey cudweed": {
+    "common_name": "Jersey Cudweed",
+    "name": "Pseudognaphalium luteoalbum",
+    "rank": "species",
+    "taxon_id": 53083
+  },
+  "lupinus": {
+    "common_name": "lupines",
+    "name": "Lupinus",
+    "rank": "genus",
+    "taxon_id": 47121
+  },
+  "narrowleaf milkweed": {
+    "common_name": "narrowleaf milkweed",
+    "name": "Asclepias fascicularis",
+    "rank": "species",
+    "taxon_id": 56851
+  },
+  "passiflora": {
+    "common_name": "Passionflowers",
+    "name": "Passiflora",
+    "rank": "genus",
+    "taxon_id": 51452
+  },
+  "passiflora caerulea": {
+    "common_name": "Bluecrown passionflower",
+    "name": "Passiflora caerulea",
+    "rank": "species",
+    "taxon_id": 51454
+  },
+  "perideridia": {
+    "common_name": "yampahs",
+    "name": "Perideridia",
+    "rank": "genus",
+    "taxon_id": 56839
+  },
+  "perideridia kelloggii": {
+    "common_name": "Kellogg's yampah",
+    "name": "Perideridia kelloggii",
+    "rank": "species",
+    "taxon_id": 56838
+  },
+  "pseudognaphalium biolettii": {
+    "common_name": "two-color rabbit tobacco",
+    "name": "Pseudognaphalium biolettii",
+    "rank": "species",
+    "taxon_id": 58829
+  },
+  "scrophularia californica": {
+    "common_name": "California beeplant",
+    "name": "Scrophularia californica",
+    "rank": "species",
+    "taxon_id": 50812
+  },
+  "sedum": {
+    "common_name": "stonecrops",
+    "name": "Sedum",
+    "rank": "genus",
+    "taxon_id": 55735
+  },
+  "sedum spathulifolium": {
+    "common_name": "Broad-leaved Stonecrop",
+    "name": "Sedum spathulifolium",
+    "rank": "species",
+    "taxon_id": 58886
+  },
+  "showy milkweed": {
+    "common_name": "showy milkweed",
+    "name": "Asclepias speciosa",
+    "rank": "species",
+    "taxon_id": 62292
+  },
+  "soaproot": null,
+  "tropical milkweed": {
+    "common_name": "tropical milkweed",
+    "name": "Asclepias curassavica",
+    "rank": "species",
+    "taxon_id": 75602
+  }
+}
