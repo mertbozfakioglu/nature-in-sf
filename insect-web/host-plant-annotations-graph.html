@@ -45,6 +45,8 @@ body {
 }
 .toggle-pill.connected  { background: rgba(220,80,50,.18); border-color: #dc5032; color: #ff8060; }
 .toggle-pill.unconnected{ background: rgba(120,120,130,.12); border-color: #555; color: #8b949e; }
+.toggle-pill.native-only{ background: rgba(78,203,113,.12); border-color: #4ecb71; color: #7fe0a0; }
+.toggle-pill.native-only.active{ background: rgba(78,203,113,.35); color: #d2ffe2; }
 .toggle-pill.off { opacity: .3; }
 .bar-row-3 { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; -ms-overflow-style: none; }
 .bar-row-3::-webkit-scrollbar { display: none; }
@@ -105,6 +107,7 @@ body {
     <div class="toggle-pills">
       <div class="toggle-pill connected"   data-tog="connected">🔴 Has host-plant tag</div>
       <div class="toggle-pill unconnected" data-tog="unconnected">⚪ No tag yet</div>
+      <div class="toggle-pill native-only" data-tog="native-only">🌿 Native only</div>
     </div>
   </div>
   <div class="bar-row bar-row-3">
@@ -164,7 +167,9 @@ function init(DATA) {
   const nodeById = Object.fromEntries(DATA.nodes.map(n=>[n.id,n]));
   const statuses = [...new Set(DATA.nodes.map(n=>n.native_status))]
     .sort((a,b)=>["native","introduced","unknown"].indexOf(a)-["native","introduced","unknown"].indexOf(b));
+  const ALL_STATUSES = new Set(statuses);
   state.statuses = new Set(statuses);
+  state.nativeOnly = false;
 
   const pillsEl = document.getElementById("status-pills");
   statuses.forEach(st=>{
@@ -173,6 +178,7 @@ function init(DATA) {
     el.className="status-pill"; el.dataset.status=st; el.textContent=STATUS_LABELS[st]||st;
     el.style.cssText=`border-color:${col};color:${col};background:${hexAlpha(col,.12)}`;
     el.addEventListener("click",()=>{
+      state.nativeOnly=false;
       if(state.statuses.has(st)&&state.statuses.size>1) state.statuses.delete(st);
       else state.statuses.add(st);
       update();
@@ -184,6 +190,10 @@ function init(DATA) {
     const t=el.dataset.tog;
     if(t==="connected")   state.showConnected  =!state.showConnected;
     if(t==="unconnected") state.showUnconnected=!state.showUnconnected;
+    if(t==="native-only"){
+      state.nativeOnly=!state.nativeOnly;
+      state.statuses = state.nativeOnly ? new Set(["native"]) : new Set(ALL_STATUSES);
+    }
     update();
   }));
   document.getElementById("search").addEventListener("input",e=>{
@@ -297,6 +307,7 @@ function init(DATA) {
   function update(){
     document.querySelector(".toggle-pill.connected").classList.toggle("off",!state.showConnected);
     document.querySelector(".toggle-pill.unconnected").classList.toggle("off",!state.showUnconnected);
+    document.querySelector(".toggle-pill.native-only").classList.toggle("active",state.nativeOnly);
     document.querySelectorAll(".status-pill").forEach(el=>el.classList.toggle("off",!state.statuses.has(el.dataset.status)));
 
     const {visEdges,visIds,searchIds,focusIds}=getVisible();
