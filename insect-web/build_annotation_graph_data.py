@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
 Merge bay_area_butterfly_species.json + host_plant_annotations.json +
-annotation_graph_photos.json into annotation_graph_data.json, the data
-file for host-plant-annotations-graph.html.
+annotation_graph_photos.json + annotation_graph_nativity.json into
+annotation_graph_data.json, the data file for
+host-plant-annotations-graph.html.
 
 Nodes = every Bay Area butterfly species (all 120, whether or not it
-has a host-plant tag) + every host plant taxon that appears in a
-"Host plant" annotation. Edges = butterfly -> host plant, weighted by
-how many observations carry that tag.
+has a host-plant tag) + every host plant taxon that appears in a host
+plant annotation. Edges = butterfly -> host plant, weighted by how
+many observations carry that tag. Every node carries a native_status
+("native" / "introduced" / "unknown", per iNaturalist's California
+checklist) instead of a taxonomic family.
 """
 
 import json
@@ -18,34 +21,13 @@ DATA_DIR = Path(__file__).parent
 bay_species = json.loads((DATA_DIR / "bay_area_butterfly_species.json").read_text())
 host_data = json.loads((DATA_DIR / "host_plant_annotations.json").read_text())
 photos = json.loads((DATA_DIR / "annotation_graph_photos.json").read_text())
-
-BFLY_FAMILY_IDS = {
-    47223: "Papilionidae",
-    48508: "Pieridae",
-    47923: "Lycaenidae",
-    47922: "Nymphalidae",
-    47653: "Hesperiidae",
-    59166: "Riodinidae",
-}
+nativity = json.loads((DATA_DIR / "annotation_graph_nativity.json").read_text())
 
 
-def bfly_family(taxon_id):
-    anc = set(photos.get(str(taxon_id), {}).get("ancestor_ids", []))
-    for fid, name in BFLY_FAMILY_IDS.items():
-        if fid in anc:
-            return name
-    return "Unknown"
-
-
-def plant_family(taxon_id):
-    info = photos.get(str(taxon_id), {})
-    if info.get("rank") == "family":
-        return info["name"]
-    # walk ancestor chain from most specific to least, looking up each
-    # ancestor's own rank via a second pass isn't available here, so
-    # fall back to "Unknown" — family coloring is a nice-to-have, not
-    # required for the plant nodes since they're colored uniformly.
-    return "Unknown"
+def native_status(taxon_id):
+    if taxon_id is None:
+        return "unknown"
+    return nativity.get(str(taxon_id), "unknown")
 
 
 nodes = []
@@ -60,7 +42,7 @@ for tid_str, info in bay_species.items():
         "type": "butterfly",
         "name": info["name"],
         "common_name": info.get("common_name") or p.get("common_name", ""),
-        "family": bfly_family(tid),
+        "native_status": native_status(tid),
         "bay_area_obs": info.get("obs_count", 0),
         "photo_url": p.get("photo_url", ""),
         "wikipedia_url": p.get("wikipedia_url", ""),
@@ -89,7 +71,7 @@ for tid_str, info in host_data["host_taxa"].items():
         "type": "plant",
         "name": info["name"],
         "common_name": info.get("common_name") or p.get("common_name", ""),
-        "family": plant_family(tid) if tid else "Unknown",
+        "native_status": native_status(tid),
         "bay_area_obs": 0,
         "photo_url": p.get("photo_url", ""),
         "wikipedia_url": p.get("wikipedia_url", ""),
@@ -140,4 +122,8 @@ print(f"Nodes: {len(nodes)} ({sum(1 for n in nodes if n['type']=='butterfly')} b
       f"{sum(1 for n in nodes if n['type']=='plant')} plants)")
 print(f"Edges: {len(edges)}")
 print(f"Nodes with photos: {sum(1 for n in nodes if n['photo_url'])}/{len(nodes)}")
+ns = {"native": 0, "introduced": 0, "unknown": 0}
+for n in nodes:
+    ns[n["native_status"]] += 1
+print(f"Native status: {ns}")
 print(f"Saved -> {outfile}")
