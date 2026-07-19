@@ -161,10 +161,20 @@ const state = {
 
 // The underlying data file covers the whole Bay Area (so it never needs
 // re-fetching just because the display scope changes); this app only
-// shows nodes actually observed within San Francisco itself, dropping
-// any edge that would dangle once its butterfly or plant is hidden.
+// shows nodes actually observed within San Francisco itself, and among
+// butterflies only ones with a research-grade SF observation whose
+// taxon isn't geoprivacy-obscured (locally-sensitive species like
+// Mission Blue, whose true coordinates iNaturalist hides/randomizes).
+// Host plants aren't held to the research-grade/obscured checks --
+// those only apply to the butterfly side, per how this was scoped.
+// Any edge that would dangle once its butterfly or plant is hidden
+// gets dropped too.
 function filterToSF(DATA){
-  const nodes = DATA.nodes.filter(n=>n.sf_observed);
+  const nodes = DATA.nodes.filter(n=>{
+    if(!n.sf_observed) return false;
+    if(n.type==="butterfly" && (!n.research_grade_sf || n.geoprivacy_obscured)) return false;
+    return true;
+  });
   const keepIds = new Set(nodes.map(n=>n.id));
   const edges = DATA.edges.filter(e=>keepIds.has(e.source)&&keepIds.has(e.target));
   return {...DATA, nodes, edges};
