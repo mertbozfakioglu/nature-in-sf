@@ -1,41 +1,4 @@
 {
-  "47224": {
-    "name": "Papilionoidea",
-    "common_name": "Butterflies",
-    "rank": "superfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/252075801/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Papilionoidea"
-  },
-  "47922": {
-    "name": "Nymphalidae",
-    "common_name": "Brush-footed Butterflies",
-    "rank": "family",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2885020/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Nymphalidae"
-  },
   "47434": {
     "name": "Poaceae",
     "common_name": "grasses",
@@ -52,44 +15,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/76692662/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Poaceae"
-  },
-  "47923": {
-    "name": "Lycaenidae",
-    "common_name": "Gossamer-winged Butterflies",
-    "rank": "family",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10269445/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Lycaenidae"
-  },
-  "47653": {
-    "name": "Hesperiidae",
-    "common_name": "Skippers",
-    "rank": "family",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47653
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46937063/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Skipper_(butterfly)"
   },
   "47851": {
     "name": "Quercus",
@@ -109,25 +34,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/90880312/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Oak"
   },
-  "48508": {
-    "name": "Pieridae",
-    "common_name": "Whites, Yellows, and Sulphurs",
-    "rank": "family",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/460140204/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pieridae"
-  },
   "47727": {
     "name": "Acer",
     "common_name": "maples",
@@ -145,28 +51,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/99147747/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Maple"
-  },
-  "47225": {
-    "name": "Papilio",
-    "common_name": "Common Swallowtails",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47223,
-      49973,
-      207785,
-      47225
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/75995610/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio"
   },
   "48561": {
     "name": "Cirsium",
@@ -209,51 +93,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/79983188/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Asclepias"
-  },
-  "48663": {
-    "name": "Danaus",
-    "common_name": "Tiger Milkweed Butterflies",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      61244,
-      134169,
-      522900,
-      48663
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26539315/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Danaus_(genus)"
-  },
-  "48507": {
-    "name": "Vanessa",
-    "common_name": "Ladies and Related Admirals",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202066,
-      48507
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54889986/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Vanessa_(butterfly)"
   },
   "47121": {
     "name": "Lupinus",
@@ -336,48 +175,6 @@
     "photo_url": "https://static.inaturalist.org/photos/342511568/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Castilleja"
   },
-  "48939": {
-    "name": "Eriogonum",
-    "common_name": "wild buckwheats",
-    "rank": "genus",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47366,
-      48382,
-      922207,
-      922210,
-      48939
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/58619859/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Eriogonum"
-  },
-  "48506": {
-    "name": "Junonia",
-    "common_name": "Buckeyes & Pansies",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202224,
-      48506
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/60885673/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Junonia"
-  },
   "49133": {
     "name": "Vanessa atalanta",
     "common_name": "Red Admiral",
@@ -424,6 +221,24 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9506438/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Vanessa_cardui"
   },
+  "49664": {
+    "name": "Platanus",
+    "common_name": "planes",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      64516,
+      49663,
+      49664
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/53697442/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Platanus"
+  },
   "49150": {
     "name": "Dione vanillae",
     "common_name": "Gulf Fritillary",
@@ -448,10 +263,28 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2937112/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Gulf_fritillary"
   },
-  "47652": {
-    "name": "Erynnis",
-    "common_name": "Duskywings",
+  "49674": {
+    "name": "Ceanothus",
+    "common_name": "Ceanothus",
     "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47132,
+      49041,
+      49674
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/115875111/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Ceanothus"
+  },
+  "50340": {
+    "name": "Hylephila phyleus",
+    "common_name": "Fiery Skipper",
+    "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
       48460,
@@ -463,12 +296,58 @@
       47157,
       47224,
       47653,
-      51312,
-      320551,
-      47652
+      122493,
+      320552,
+      1363159,
+      50341,
+      50340
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/446628451/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Duskywing"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2611412/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Fiery_skipper"
+  },
+  "50154": {
+    "name": "Sphaeralcea",
+    "common_name": "globemallows",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48796,
+      48797,
+      860115,
+      860842,
+      50154
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6981322/medium.jpeg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Sphaeralcea"
+  },
+  "49972": {
+    "name": "Battus philenor",
+    "common_name": "Pipevine Swallowtail",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47223,
+      49973,
+      49974,
+      522893,
+      49975,
+      49972
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/176991567/medium.jpeg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Battus_philenor"
   },
   "48549": {
     "name": "Vanessa virginiensis",
@@ -584,27 +463,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18957208/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio_rutulus"
   },
-  "47146": {
-    "name": "Adenostoma fasciculatum",
-    "common_name": "chamise",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47132,
-      47148,
-      922110,
-      922115,
-      47147,
-      47146
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/621330016/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Adenostoma_fasciculatum"
-  },
   "47597": {
     "name": "Chlorogalum pomeridianum",
     "common_name": "wavy-leafed soap plant",
@@ -625,10 +483,10 @@
     "photo_url": "https://static.inaturalist.org/photos/8696545/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Chlorogalum_pomeridianum"
   },
-  "49973": {
-    "name": "Papilioninae",
-    "common_name": "Swallowtails",
-    "rank": "subfamily",
+  "49920": {
+    "name": "Nymphalis californica",
+    "common_name": "California Tortoiseshell",
+    "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
       48460,
@@ -639,11 +497,139 @@
       184884,
       47157,
       47224,
-      47223,
-      49973
+      47922,
+      202067,
+      202066,
+      49921,
+      49920
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/166053/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Papilioninae"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2041/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/California_tortoiseshell"
+  },
+  "49011": {
+    "name": "Quercus lobata",
+    "common_name": "valley oak",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47853,
+      47852,
+      47851,
+      861029,
+      861033,
+      1553163,
+      49011
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/88494137/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Quercus_lobata"
+  },
+  "49343": {
+    "name": "Castilleja exserta",
+    "common_name": "purple owl's-clover",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      47322,
+      902069,
+      49340,
+      49343
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/182011437/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Castilleja_exserta"
+  },
+  "49645": {
+    "name": "Pedicularis densiflora",
+    "common_name": "Warrior's Plume",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      47322,
+      902069,
+      49646,
+      49645
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/477957719/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Pedicularis_densiflora"
+  },
+  "49673": {
+    "name": "Ceanothus cuneatus",
+    "common_name": "Buckbrush",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47132,
+      49041,
+      49674,
+      1191149,
+      49673
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3033892/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Ceanothus_cuneatus"
+  },
+  "50391": {
+    "name": "Polygonia gracilis",
+    "common_name": "Hoary Comma",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47922,
+      202067,
+      202066,
+      50392,
+      50391
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6157618/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Hoary_comma"
+  },
+  "49341": {
+    "name": "Castilleja attenuata",
+    "common_name": "valley tassels",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      47322,
+      902069,
+      49340,
+      49341
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/280434527/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Castilleja_attenuata"
   },
   "50636": {
     "name": "Plantago",
@@ -663,26 +649,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31254943/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Plantago"
-  },
-  "51312": {
-    "name": "Pyrginae",
-    "common_name": "Spread-wing Skippers",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47653,
-      51312
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/27138459/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Spread-winged_skipper"
   },
   "51886": {
     "name": "Urtica",
@@ -723,181 +689,31 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/201211962/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Passiflora"
   },
-  "50392": {
-    "name": "Polygonia",
-    "common_name": "Commas",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202066,
-      50392
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/51743535/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Polygonia"
-  },
-  "50881": {
-    "name": "Limenitis",
-    "common_name": "",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      134171,
-      134175,
-      50881
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/76049495/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Limenitis"
-  },
-  "49664": {
-    "name": "Platanus",
-    "common_name": "planes",
-    "rank": "genus",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      64516,
-      49663,
-      49664
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/53697442/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Platanus"
-  },
-  "49674": {
-    "name": "Ceanothus",
-    "common_name": "Ceanothus",
-    "rank": "genus",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47132,
-      49041,
-      49674
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/115875111/medium.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Ceanothus"
-  },
-  "49921": {
-    "name": "Nymphalis",
-    "common_name": "Tortoiseshells",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202066,
-      49921
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13757531/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Nymphalis"
-  },
-  "50940": {
-    "name": "Strymon",
-    "common_name": "Scrub-Hairstreaks",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456505,
-      50940
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/104932582/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Strymon_(butterfly)"
-  },
-  "50340": {
-    "name": "Hylephila phyleus",
-    "common_name": "Fiery Skipper",
+  "52989": {
+    "name": "Cirsium vulgare",
+    "common_name": "Bull Thistle",
     "rank": "species",
-    "iconic_taxon_name": "Insecta",
+    "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
       48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47653,
-      122493,
-      320552,
-      1363159,
-      50341,
-      50340
+      47126,
+      211194,
+      47125,
+      47124,
+      47605,
+      47604,
+      201654,
+      632883,
+      632885,
+      48561,
+      52989
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2611412/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Fiery_skipper"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/306770747/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Cirsium_vulgare"
   },
-  "49975": {
-    "name": "Battus",
-    "common_name": "Pipevine Swallowtails and Allies",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47223,
-      49973,
-      49974,
-      522893,
-      49975
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27200611/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Battus_(butterfly)"
-  },
-  "50154": {
-    "name": "Sphaeralcea",
-    "common_name": "globemallows",
+  "53078": {
+    "name": "Pseudognaphalium",
+    "common_name": "rabbit-tobaccos",
     "rank": "genus",
     "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
@@ -906,42 +722,19 @@
       211194,
       47125,
       47124,
-      48796,
-      48797,
-      860115,
-      860842,
-      50154
+      47605,
+      47604,
+      632790,
+      324787,
+      1410494,
+      53078
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6981322/medium.jpeg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Sphaeralcea"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49732889/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Pseudognaphalium"
   },
-  "49972": {
-    "name": "Battus philenor",
-    "common_name": "Pipevine Swallowtail",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47223,
-      49973,
-      49974,
-      522893,
-      49975,
-      49972
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/176991567/medium.jpeg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Battus_philenor"
-  },
-  "50809": {
-    "name": "Scrophularia",
-    "common_name": "figworts",
+  "52836": {
+    "name": "Angelica",
+    "common_name": "angelicas",
     "rank": "genus",
     "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
@@ -950,13 +743,34 @@
       211194,
       47125,
       47124,
-      48151,
-      47151,
-      941815,
-      50809
+      48700,
+      48699,
+      790553,
+      790592,
+      52836
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/147811617/medium.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Scrophularia"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/367447501/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Angelica"
+  },
+  "51891": {
+    "name": "Dudleya",
+    "common_name": "Liveforever",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      71289,
+      51890,
+      889256,
+      1092926,
+      51891
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2309822/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Dudleya"
   },
   "50931": {
     "name": "Strymon melinus",
@@ -982,28 +796,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/94289281/medium.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_hairstreak"
   },
-  "50896": {
-    "name": "Euphydryas",
-    "common_name": "",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      130316,
-      50896
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/245336096/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Euphydryas"
-  },
   "51743": {
     "name": "Danaus gilippus",
     "common_name": "Queen",
@@ -1028,6 +820,70 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/163708904/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Queen_(butterfly)"
   },
+  "52998": {
+    "name": "Conium maculatum",
+    "common_name": "poison hemlock",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48700,
+      48699,
+      790553,
+      790593,
+      52999,
+      52998
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18903781/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Conium_maculatum"
+  },
+  "53052": {
+    "name": "Foeniculum vulgare",
+    "common_name": "fennel",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48700,
+      48699,
+      790553,
+      790576,
+      53053,
+      53052
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/50868492/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Fennel"
+  },
+  "52287": {
+    "name": "Borago officinalis",
+    "common_name": "Borage",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      523723,
+      48150,
+      795681,
+      795682,
+      1446651,
+      52288,
+      52287
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60861953/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Borage"
+  },
   "51773": {
     "name": "Nathalis iole",
     "common_name": "Dainty Sulphur",
@@ -1051,6 +907,48 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/502537743/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Nathalis_iole"
+  },
+  "52990": {
+    "name": "Carduus pycnocephalus",
+    "common_name": "Italian thistle",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47605,
+      47604,
+      201654,
+      632883,
+      632885,
+      52991,
+      52990
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4287278/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Carduus_pycnocephalus"
+  },
+  "52120": {
+    "name": "Populus fremontii",
+    "common_name": "Fr\u00e9mont Cottonwood",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      51820,
+      47567,
+      47566,
+      1430520,
+      52120
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/383049502/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Populus_fremontii"
   },
   "51097": {
     "name": "Papilio zelicaon",
@@ -1142,9 +1040,9 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/34843942/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Scrophularia_californica"
   },
-  "49920": {
-    "name": "Nymphalis californica",
-    "common_name": "California Tortoiseshell",
+  "52484": {
+    "name": "Celastrina echo",
+    "common_name": "Echo Azure",
     "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
@@ -1156,14 +1054,15 @@
       184884,
       47157,
       47224,
-      47922,
-      202067,
-      202066,
-      49921,
-      49920
+      47923,
+      58558,
+      125833,
+      522671,
+      52485,
+      52484
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2041/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/California_tortoiseshell"
+    "photo_url": "https://static.inaturalist.org/photos/182618709/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Celastrina_echo"
   },
   "51454": {
     "name": "Passiflora caerulea",
@@ -1188,6 +1087,72 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Passiflora_caerulea"
   },
+  "52621": {
+    "name": "Cirsium occidentale",
+    "common_name": "Cobwebby Thistle",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47605,
+      47604,
+      201654,
+      632883,
+      632885,
+      48561,
+      52621
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/42197035/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Cirsium_occidentale"
+  },
+  "50621": {
+    "name": "Streptanthus",
+    "common_name": "Jewelflowers",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      71275,
+      47204,
+      1473853,
+      1473856,
+      792499,
+      50621
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4335/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Streptanthus"
+  },
+  "51446": {
+    "name": "Passiflora edulis",
+    "common_name": "common passionfruit",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      51820,
+      51451,
+      853017,
+      853019,
+      51452,
+      878751,
+      1255740,
+      51446
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/155106210/medium.jpeg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Passiflora_edulis"
+  },
   "50786": {
     "name": "Vanessa annabella",
     "common_name": "West Coast Lady",
@@ -1211,28 +1176,27 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/71415220/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/West_Coast_lady"
   },
-  "50391": {
-    "name": "Polygonia gracilis",
-    "common_name": "Hoary Comma",
+  "53046": {
+    "name": "Eriogonum nudum",
+    "common_name": "Naked Buckwheat",
     "rank": "species",
-    "iconic_taxon_name": "Insecta",
+    "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
       48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202066,
-      50392,
-      50391
+      47126,
+      211194,
+      47125,
+      47124,
+      47366,
+      48382,
+      922207,
+      922210,
+      48939,
+      1112639,
+      53046
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6157618/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Hoary_comma"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/153468/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Eriogonum_nudum"
   },
   "51272": {
     "name": "Asclepias californica",
@@ -1256,6 +1220,30 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7654597/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Asclepias_californica"
   },
+  "52075": {
+    "name": "Atalopedes campestris",
+    "common_name": "Field Skipper",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47653,
+      122493,
+      320552,
+      1363159,
+      52077,
+      52075
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/300782110/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Atalopedes_campestris"
+  },
   "50622": {
     "name": "Ptelea crenulata",
     "common_name": "Western Hoptree",
@@ -1275,6 +1263,27 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2637/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Ptelea_crenulata"
+  },
+  "52835": {
+    "name": "Angelica tomentosa",
+    "common_name": "woolly angelica",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48700,
+      48699,
+      790553,
+      790592,
+      52836,
+      52835
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/22538237/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Angelica_tomentosa"
   },
   "53453": {
     "name": "Salix",
@@ -1312,6 +1321,46 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/74674308/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Fraxinus"
   },
+  "55735": {
+    "name": "Sedum",
+    "common_name": "stonecrops",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      71289,
+      51890,
+      889256,
+      1092926,
+      55735
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137304118/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Sedum"
+  },
+  "55978": {
+    "name": "Malva",
+    "common_name": "Mallows",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48796,
+      48797,
+      860115,
+      860842,
+      55978
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7691700/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Malva"
+  },
   "55626": {
     "name": "Pieris rapae",
     "common_name": "Small White",
@@ -1335,28 +1384,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28420401/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Pieris_rapae"
-  },
-  "52924": {
-    "name": "Phyciodes",
-    "common_name": "Crescents",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      130316,
-      52924
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169947949/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Phyciodes"
   },
   "54500": {
     "name": "Malus",
@@ -1400,50 +1427,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/384758481/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Plantago_lanceolata"
   },
-  "52485": {
-    "name": "Celastrina",
-    "common_name": "Holarctic Azures",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      58558,
-      125833,
-      522671,
-      52485
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/74552432/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Celastrina"
-  },
-  "53078": {
-    "name": "Pseudognaphalium",
-    "common_name": "rabbit-tobaccos",
-    "rank": "genus",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47605,
-      47604,
-      632790,
-      324787,
-      1410494,
-      53078
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49732889/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pseudognaphalium"
-  },
   "54297": {
     "name": "Citrus",
     "common_name": "citrus",
@@ -1463,10 +1446,10 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/78189/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Citrus"
   },
-  "53894": {
-    "name": "Chlosyne",
-    "common_name": "Patches and Allies",
-    "rank": "genus",
+  "56832": {
+    "name": "Nymphalis antiopa",
+    "common_name": "Mourning Cloak",
+    "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
       48460,
@@ -1479,34 +1462,12 @@
       47224,
       47922,
       202067,
-      130316,
-      53894
+      202066,
+      49921,
+      56832
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/23087314/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Chlosyne"
-  },
-  "54135": {
-    "name": "Satyrium",
-    "common_name": "Satyrid Hairstreaks",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456481,
-      54135
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6809/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Satyrium_(butterfly)"
+    "photo_url": "https://static.inaturalist.org/photos/266654572/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Nymphalis_antiopa"
   },
   "54464": {
     "name": "Aristolochia",
@@ -1527,9 +1488,9 @@
     "photo_url": "https://static.inaturalist.org/photos/28870515/medium.jpeg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Aristolochia"
   },
-  "52998": {
-    "name": "Conium maculatum",
-    "common_name": "poison hemlock",
+  "53094": {
+    "name": "Heracleum maximum",
+    "common_name": "common cowparsnip",
     "rank": "species",
     "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
@@ -1541,12 +1502,12 @@
       48700,
       48699,
       790553,
-      790593,
-      52999,
-      52998
+      790594,
+      53095,
+      53094
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18903781/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Conium_maculatum"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137558496/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Heracleum_maximum"
   },
   "54854": {
     "name": "Tilia americana",
@@ -1568,9 +1529,9 @@
     "photo_url": "https://static.inaturalist.org/photos/404975522/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Tilia_americana"
   },
-  "53052": {
-    "name": "Foeniculum vulgare",
-    "common_name": "fennel",
+  "55837": {
+    "name": "Prunus cerasifera",
+    "common_name": "Cherry-plum",
     "rank": "species",
     "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
@@ -1579,15 +1540,17 @@
       211194,
       47125,
       47124,
-      48700,
-      48699,
-      790553,
-      790576,
-      53053,
-      53052
+      47132,
+      47148,
+      922110,
+      922113,
+      47351,
+      886531,
+      1205922,
+      55837
     ],
-    "photo_url": "https://static.inaturalist.org/photos/50868492/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Fennel"
+    "photo_url": "https://static.inaturalist.org/photos/62295627/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Cherry_plum"
   },
   "54329": {
     "name": "Tropaeolum majus",
@@ -1609,9 +1572,9 @@
     "photo_url": "https://static.inaturalist.org/photos/30477591/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Tropaeolum_majus"
   },
-  "53357": {
-    "name": "Artemisia californica",
-    "common_name": "California sagebrush",
+  "53414": {
+    "name": "Holodiscus discolor",
+    "common_name": "Ocean spray",
     "rank": "species",
     "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
@@ -1620,59 +1583,15 @@
       211194,
       47125,
       47124,
-      47605,
-      47604,
-      632790,
-      373844,
-      900983,
-      52855,
-      1123943,
-      53357
+      47132,
+      47148,
+      922110,
+      922116,
+      53415,
+      53414
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/121001827/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Artemisia_californica"
-  },
-  "52287": {
-    "name": "Borago officinalis",
-    "common_name": "Borage",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      523723,
-      48150,
-      795681,
-      795682,
-      1446651,
-      52288,
-      52287
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60861953/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Borage"
-  },
-  "52120": {
-    "name": "Populus fremontii",
-    "common_name": "Fr\u00e9mont Cottonwood",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      51820,
-      47567,
-      47566,
-      1430520,
-      52120
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/383049502/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Populus_fremontii"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/297815731/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Holodiscus_discolor"
   },
   "53423": {
     "name": "Frangula californica",
@@ -1694,9 +1613,9 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49491423/medium.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Frangula_californica"
   },
-  "52484": {
-    "name": "Celastrina echo",
-    "common_name": "Echo Azure",
+  "56776": {
+    "name": "Glaucopsyche lygdamus",
+    "common_name": "Silvery Blue",
     "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
@@ -1711,12 +1630,37 @@
       47923,
       58558,
       125833,
-      522671,
-      52485,
-      52484
+      522674,
+      56777,
+      1456510,
+      56776
     ],
-    "photo_url": "https://static.inaturalist.org/photos/182618709/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Celastrina_echo"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43434836/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Glaucopsyche_lygdamus"
+  },
+  "54516": {
+    "name": "Brassica oleracea",
+    "common_name": "cabbage, broccoli, and allies",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      71275,
+      47204,
+      1473853,
+      1473856,
+      574731,
+      53113,
+      1183876,
+      1183893,
+      54516
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2057374/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Brassica_oleracea"
   },
   "53843": {
     "name": "Brephidium exilis",
@@ -1741,28 +1685,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/312111/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Western_pygmy_blue"
-  },
-  "52621": {
-    "name": "Cirsium occidentale",
-    "common_name": "Cobwebby Thistle",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47605,
-      47604,
-      201654,
-      632883,
-      632885,
-      48561,
-      52621
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/42197035/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Cirsium_occidentale"
   },
   "53452": {
     "name": "Salix lasiolepis",
@@ -1809,6 +1731,48 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/19451846/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio_eurymedon"
   },
+  "53083": {
+    "name": "Pseudognaphalium luteoalbum",
+    "common_name": "Jersey Cudweed",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47605,
+      47604,
+      632790,
+      324787,
+      1410494,
+      53078,
+      53083
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/601359587/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Helichrysum_luteoalbum"
+  },
+  "56760": {
+    "name": "Castilleja foliolosa",
+    "common_name": "Felt Paintbrush",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      47322,
+      902069,
+      49340,
+      56760
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31550844/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Castilleja_foliolosa"
+  },
   "53082": {
     "name": "Gnaphalium",
     "common_name": "cudweeds",
@@ -1829,6 +1793,29 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/170939479/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Gnaphalium"
+  },
+  "56644": {
+    "name": "Polygonia satyrus",
+    "common_name": "Satyr Comma",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47922,
+      202067,
+      202066,
+      50392,
+      56644
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/390722/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Polygonia_satyrus"
   },
   "53893": {
     "name": "Chlosyne palla",
@@ -1874,9 +1861,9 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353949827/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Aristolochia_californica"
   },
-  "52075": {
-    "name": "Atalopedes campestris",
-    "common_name": "Field Skipper",
+  "55785": {
+    "name": "Ochlodes agricola",
+    "common_name": "Rural Skipper",
     "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
@@ -1892,11 +1879,11 @@
       122493,
       320552,
       1363159,
-      52077,
-      52075
+      55786,
+      55785
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/300782110/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Atalopedes_campestris"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6577637/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Ochlodes_agricola"
   },
   "54024": {
     "name": "Satyrium californica",
@@ -1923,53 +1910,10 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/969097/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Satyrium_californica"
   },
-  "58558": {
-    "name": "Polyommatinae",
-    "common_name": "Blues",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      58558
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/105467451/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Polyommatinae"
-  },
-  "55690": {
-    "name": "Pieris",
-    "common_name": "Garden Whites",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508,
-      209720,
-      321384,
-      475032,
-      55690
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9431/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pieris_(butterfly)"
-  },
-  "55735": {
-    "name": "Sedum",
-    "common_name": "stonecrops",
-    "rank": "genus",
+  "53361": {
+    "name": "Ceanothus oliganthus sorediatus",
+    "common_name": "Jimbrush",
+    "rank": "variety",
     "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
       48460,
@@ -1977,34 +1921,15 @@
       211194,
       47125,
       47124,
-      71289,
-      51890,
-      889256,
-      1092926,
-      55735
+      47132,
+      49041,
+      49674,
+      1191150,
+      53360,
+      53361
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137304118/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Sedum"
-  },
-  "55978": {
-    "name": "Malva",
-    "common_name": "Mallows",
-    "rank": "genus",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      48796,
-      48797,
-      860115,
-      860842,
-      55978
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7691700/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Malva"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67268518/medium.jpeg",
+    "wikipedia_url": null
   },
   "58523": {
     "name": "Papilio polyxenes",
@@ -2030,29 +1955,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/77091306/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio_polyxenes"
   },
-  "56832": {
-    "name": "Nymphalis antiopa",
-    "common_name": "Mourning Cloak",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202066,
-      49921,
-      56832
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/266654572/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Nymphalis_antiopa"
-  },
   "58907": {
     "name": "Melilotus albus",
     "common_name": "White Sweetclover",
@@ -2074,28 +1976,27 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/16273/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Melilotus_albus"
   },
-  "58554": {
-    "name": "Callophrys",
-    "common_name": "Green Hairstreaks",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
+  "57983": {
+    "name": "Helianthus annuus",
+    "common_name": "Common Sunflower",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
       48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456481,
-      58554
+      47126,
+      211194,
+      47125,
+      47124,
+      47605,
+      47604,
+      632790,
+      605446,
+      901801,
+      56955,
+      57983
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248358768/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Callophrys"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323768723/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Helianthus_annuus"
   },
   "58532": {
     "name": "Colias eurytheme",
@@ -2121,29 +2022,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/235358656/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Colias_eurytheme"
   },
-  "55837": {
-    "name": "Prunus cerasifera",
-    "common_name": "Cherry-plum",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47132,
-      47148,
-      922110,
-      922113,
-      47351,
-      886531,
-      1205922,
-      55837
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/62295627/medium.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Cherry_plum"
-  },
   "58531": {
     "name": "Colias philodice",
     "common_name": "Clouded Sulphur",
@@ -2167,6 +2045,30 @@
     ],
     "photo_url": "https://static.inaturalist.org/photos/14482181/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Colias_philodice"
+  },
+  "59119": {
+    "name": "Pontia protodice",
+    "common_name": "Checkered White",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      48508,
+      209720,
+      321384,
+      475032,
+      59122,
+      59119
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/70833187/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Pontia_protodice"
   },
   "58606": {
     "name": "Cercyonis pegala",
@@ -2236,31 +2138,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/319029368/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Parietaria_judaica"
   },
-  "56776": {
-    "name": "Glaucopsyche lygdamus",
-    "common_name": "Silvery Blue",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      58558,
-      125833,
-      522674,
-      56777,
-      1456510,
-      56776
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43434836/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Glaucopsyche_lygdamus"
-  },
   "58202": {
     "name": "Malva parviflora",
     "common_name": "cheeseweed mallow",
@@ -2326,9 +2203,9 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/514857843/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Asclepias_fascicularis"
   },
-  "56760": {
-    "name": "Castilleja foliolosa",
-    "common_name": "Felt Paintbrush",
+  "57250": {
+    "name": "Prunus ilicifolia",
+    "common_name": "hollyleaf cherry",
     "rank": "species",
     "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
@@ -2337,59 +2214,37 @@
       211194,
       47125,
       47124,
-      48151,
-      47322,
-      902069,
-      49340,
-      56760
+      47132,
+      47148,
+      922110,
+      922113,
+      47351,
+      483776,
+      57250
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31550844/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Castilleja_foliolosa"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49953932/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Prunus_ilicifolia"
   },
-  "58528": {
-    "name": "Euchloe",
-    "common_name": "Dappled Whites",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508,
-      209720,
-      321383,
-      58528
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/133847915/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Euchloe"
-  },
-  "56644": {
-    "name": "Polygonia satyrus",
-    "common_name": "Satyr Comma",
+  "59008": {
+    "name": "Salix exigua",
+    "common_name": "Narrowleaf Willow",
     "rank": "species",
-    "iconic_taxon_name": "Insecta",
+    "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
       48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202066,
-      50392,
-      56644
+      47126,
+      211194,
+      47125,
+      47124,
+      51820,
+      47567,
+      53453,
+      1237136,
+      1237157,
+      59008
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/390722/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Polygonia_satyrus"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/23642240/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Salix_exigua"
   },
   "58829": {
     "name": "Pseudognaphalium biolettii",
@@ -2412,6 +2267,28 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60348373/medium.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Pseudognaphalium_biolettii"
+  },
+  "57211": {
+    "name": "Eriogonum latifolium",
+    "common_name": "Seaside Buckwheat",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47366,
+      48382,
+      922207,
+      922210,
+      48939,
+      1112639,
+      57211
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2355135/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Eriogonum_latifolium"
   },
   "58543": {
     "name": "Callophrys augustinus",
@@ -2461,6 +2338,26 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/164833814/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Pholisora_catullus"
   },
+  "56839": {
+    "name": "Perideridia",
+    "common_name": "yampahs",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48700,
+      48699,
+      790553,
+      790586,
+      56839
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/22636/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Perideridia"
+  },
   "58788": {
     "name": "Apium graveolens",
     "common_name": "Celery",
@@ -2481,6 +2378,26 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5647843/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Celery"
+  },
+  "57272": {
+    "name": "Cordylanthus rigidus",
+    "common_name": "Stiffbranch Bird's Beak",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      47322,
+      902069,
+      57273,
+      57272
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/416468014/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Cordylanthus_rigidus"
   },
   "58474": {
     "name": "Erynnis brizo",
@@ -2527,29 +2444,27 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/128540743/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Streptanthus_glandulosus"
   },
-  "55785": {
-    "name": "Ochlodes agricola",
-    "common_name": "Rural Skipper",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
+  "58872": {
+    "name": "Lonicera subspicata denudata",
+    "common_name": "Johnston's honeysuckle",
+    "rank": "variety",
+    "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
       48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47653,
-      122493,
-      320552,
-      1363159,
-      55786,
-      55785
+      47126,
+      211194,
+      47125,
+      47124,
+      48526,
+      48527,
+      345605,
+      51874,
+      1072514,
+      58100,
+      58872
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6577637/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Ochlodes_agricola"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43575451/medium.jpeg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Lonicera_subspicata"
   },
   "58518": {
     "name": "Amblyscirtes vialis",
@@ -2597,72 +2512,9 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/80918375/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Perideridia_kelloggii"
   },
-  "60854": {
-    "name": "Heliconiinae",
-    "common_name": "Fritillaries and Longwings",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      60854
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/231895/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Heliconiinae"
-  },
-  "61244": {
-    "name": "Danainae",
-    "common_name": "Milkweed Butterflies",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      61244
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242348839/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Milkweed_butterfly"
-  },
-  "59122": {
-    "name": "Pontia",
-    "common_name": "",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508,
-      209720,
-      321384,
-      475032,
-      59122
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28425604/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pontia"
-  },
-  "59119": {
-    "name": "Pontia protodice",
-    "common_name": "Checkered White",
+  "59118": {
+    "name": "Pontia sisymbrii",
+    "common_name": "Spring White",
     "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
@@ -2679,10 +2531,136 @@
       321384,
       475032,
       59122,
-      59119
+      59118
     ],
-    "photo_url": "https://static.inaturalist.org/photos/70833187/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pontia_protodice"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/15520/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Pontia_sisymbrii"
+  },
+  "57123": {
+    "name": "Stachys pycnantha",
+    "common_name": "short-spiked hedge nettle",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      48623,
+      918903,
+      918913,
+      51229,
+      57123
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/203427380/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Stachys_pycnantha"
+  },
+  "59082": {
+    "name": "Chlorogalum pomeridianum pomeridianum",
+    "common_name": "amole",
+    "rank": "subspecies",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47163,
+      47218,
+      47599,
+      194780,
+      47598,
+      47597,
+      59082
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14238/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Chlorogalum_pomeridianum"
+  },
+  "57719": {
+    "name": "Plagiobothrys bracteatus",
+    "common_name": "bracted popcornflower",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      523723,
+      48150,
+      796031,
+      796045,
+      49139,
+      57719
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/364944223/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Plagiobothrys_bracteatus"
+  },
+  "62206": {
+    "name": "Alcea",
+    "common_name": "hollyhocks",
+    "rank": "genus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48796,
+      48797,
+      860115,
+      860842,
+      62206
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/153872572/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Alcea"
+  },
+  "62292": {
+    "name": "Asclepias speciosa",
+    "common_name": "showy milkweed",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47363,
+      47362,
+      373579,
+      632307,
+      632069,
+      47906,
+      62292
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4301196/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Asclepias_speciosa"
+  },
+  "62205": {
+    "name": "Alcea rosea",
+    "common_name": "Hollyhock",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48796,
+      48797,
+      860115,
+      860842,
+      62206,
+      62205
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/161030578/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Alcea_rosea"
   },
   "59194": {
     "name": "Ochlodes sylvanoides",
@@ -2801,52 +2779,6 @@
     ],
     "photo_url": "https://static.inaturalist.org/photos/29839628/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Lerodea_eufala"
-  },
-  "59163": {
-    "name": "Euphilotes",
-    "common_name": "American Dotted Blues",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      58558,
-      125833,
-      522674,
-      59163
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12820/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Euphilotes"
-  },
-  "59129": {
-    "name": "Atlides",
-    "common_name": "",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456508,
-      59129
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5327818/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Atlides"
   },
   "59128": {
     "name": "Atlides halesus",
@@ -2990,6 +2922,27 @@
     "photo_url": "https://static.inaturalist.org/photos/237964466/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Satyrium_saepium"
   },
+  "62772": {
+    "name": "Aristolochia macrophylla",
+    "common_name": "pipevine",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      60244,
+      52860,
+      958334,
+      54464,
+      1464283,
+      62772
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113548878/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Aristolochia_macrophylla"
+  },
   "59190": {
     "name": "Heliopetes ericetorum",
     "common_name": "Northern White-Skipper",
@@ -3062,6 +3015,47 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/876802/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Euchloe_ausonides"
   },
+  "60480": {
+    "name": "Castilleja rubicundula",
+    "common_name": "cream sacs",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      47322,
+      902069,
+      49340,
+      60480
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14473/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Castilleja_rubicundula"
+  },
+  "62770": {
+    "name": "Aristolochia tomentosa",
+    "common_name": "woolly Dutchman's pipe",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      60244,
+      52860,
+      958334,
+      54464,
+      1464283,
+      62770
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18121/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Aristolochia_tomentosa"
+  },
   "59186": {
     "name": "Cercyonis sthenele",
     "common_name": "Great Basin Wood-Nymph",
@@ -3132,30 +3126,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3789199/medium.JPG",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Chlosyne_gabbii"
-  },
-  "59118": {
-    "name": "Pontia sisymbrii",
-    "common_name": "Spring White",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508,
-      209720,
-      321384,
-      475032,
-      59122,
-      59118
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/15520/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pontia_sisymbrii"
   },
   "59144": {
     "name": "Callophrys spinetorum",
@@ -3230,6 +3200,28 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3002074/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Philotes_(butterfly)"
+  },
+  "61925": {
+    "name": "Lessingia germanorum",
+    "common_name": "San Francisco lessingia",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47605,
+      47604,
+      632790,
+      461542,
+      972893,
+      56969,
+      61925
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4340506/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Lessingia_germanorum"
   },
   "59135": {
     "name": "Satyrium auretorum",
@@ -3351,26 +3343,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/58977135/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Danaus_chrysippus"
   },
-  "62206": {
-    "name": "Alcea",
-    "common_name": "hollyhocks",
-    "rank": "genus",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      48796,
-      48797,
-      860115,
-      860842,
-      62206
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/153872572/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Alcea"
-  },
   "75602": {
     "name": "Asclepias curassavica",
     "common_name": "tropical milkweed",
@@ -3392,28 +3364,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/133647238/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Asclepias_curassavica"
-  },
-  "62292": {
-    "name": "Asclepias speciosa",
-    "common_name": "showy milkweed",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47363,
-      47362,
-      373579,
-      632307,
-      632069,
-      47906,
-      62292
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4301196/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Asclepias_speciosa"
   },
   "69145": {
     "name": "Coenonympha california",
@@ -3458,6 +3408,28 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/136674/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Boehmeria_cylindrica"
   },
+  "68632": {
+    "name": "Quercus garryana",
+    "common_name": "Oregon oak",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47853,
+      47852,
+      47851,
+      861029,
+      861033,
+      1553163,
+      68632
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/321991481/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Quercus_garryana"
+  },
   "62831": {
     "name": "Persea americana",
     "common_name": "Avocado",
@@ -3476,6 +3448,28 @@
     ],
     "photo_url": "https://static.inaturalist.org/photos/188938346/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Avocado"
+  },
+  "77049": {
+    "name": "Eriophyllum lanatum",
+    "common_name": "common woolly sunflower",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47605,
+      47604,
+      632790,
+      179978,
+      347733,
+      53396,
+      77049
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/40562815/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Eriophyllum_lanatum"
   },
   "68263": {
     "name": "Papilio multicaudata",
@@ -3500,31 +3494,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14226965/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio_multicaudata"
-  },
-  "84239": {
-    "name": "Callophrys gryneus",
-    "common_name": "Juniper Hairstreak",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456481,
-      58554,
-      82484,
-      84239
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3652251/medium.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Callophrys_gryneus"
   },
   "67560": {
     "name": "Adelpha californica",
@@ -3662,6 +3631,27 @@
     "photo_url": "https://static.inaturalist.org/photos/302788969/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Pieris_marginalis"
   },
+  "75445": {
+    "name": "Anethum graveolens",
+    "common_name": "Dill",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48700,
+      48699,
+      790553,
+      790576,
+      71969,
+      75445
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/400755541/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Dill"
+  },
   "81967": {
     "name": "Callophrys eryphon",
     "common_name": "Western Pine Elfin",
@@ -3686,27 +3676,6 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5578140/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Western_pine_elfin"
-  },
-  "62772": {
-    "name": "Aristolochia macrophylla",
-    "common_name": "pipevine",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      60244,
-      52860,
-      958334,
-      54464,
-      1464283,
-      62772
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113548878/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Aristolochia_macrophylla"
   },
   "68273": {
     "name": "Boloria epithore",
@@ -3779,27 +3748,6 @@
     "photo_url": "https://static.inaturalist.org/photos/382751823/medium.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Chlosyne_acastus"
   },
-  "62770": {
-    "name": "Aristolochia tomentosa",
-    "common_name": "woolly Dutchman's pipe",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      60244,
-      52860,
-      958334,
-      54464,
-      1464283,
-      62770
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18121/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Aristolochia_tomentosa"
-  },
   "83543": {
     "name": "Pyrgus ruralis",
     "common_name": "Two-banded Checkered-Skipper",
@@ -3822,30 +3770,6 @@
     ],
     "photo_url": "https://static.inaturalist.org/photos/237991807/medium.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Pyrgus_ruralis"
-  },
-  "117317": {
-    "name": "Zerene eurydice",
-    "common_name": "California Dogface",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508,
-      119556,
-      1609468,
-      1609475,
-      117318,
-      117317
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11227632/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Zerene_eurydice"
   },
   "69824": {
     "name": "Habrodais grunus",
@@ -3894,6 +3818,27 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/255656449/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio_indra"
   },
+  "70397": {
+    "name": "Malacothamnus fremontii",
+    "common_name": "unfurled bushmallow",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48796,
+      48797,
+      860115,
+      860842,
+      57138,
+      70397
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3929334/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Malacothamnus_fremontii"
+  },
   "79258": {
     "name": "Streptanthus breweri",
     "common_name": "Brewer's Jewelflower",
@@ -3915,6 +3860,28 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54096/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Streptanthus_breweri"
+  },
+  "68148": {
+    "name": "Amorpha californica napensis",
+    "common_name": "Napa False Indigo",
+    "rank": "variety",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47123,
+      47122,
+      507502,
+      737817,
+      57357,
+      57358,
+      68148
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/594425/medium.jpg",
+    "wikipedia_url": null
   },
   "63194": {
     "name": "Brassica oleracea botrytis",
@@ -3941,6 +3908,29 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3516944/medium.JPG",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Cauliflower"
   },
+  "80787": {
+    "name": "Eriogonum grande rubescens",
+    "common_name": "red-flowered buckwheat",
+    "rank": "variety",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47366,
+      48382,
+      922207,
+      922210,
+      48939,
+      1112639,
+      76994,
+      80787
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3727644/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Eriogonum_grande"
+  },
   "69852": {
     "name": "Euchloe hyantis",
     "common_name": "California Marble",
@@ -3964,26 +3954,6 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/16156981/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Euchloe_hyantis"
   },
-  "202067": {
-    "name": "Nymphalinae",
-    "common_name": "Checkerspots, Anglewings, Peacocks, and Allies",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/236887/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Nymphalinae"
-  },
   "201654": {
     "name": "Carduoideae",
     "common_name": "Thistles and Allies",
@@ -4002,10 +3972,10 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10571895/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Carduoideae"
   },
-  "202066": {
-    "name": "Nymphalini",
-    "common_name": "Ladies, Anglewings, and Allies",
-    "rank": "tribe",
+  "207977": {
+    "name": "Aglais io",
+    "common_name": "European Peacock Butterfly",
+    "rank": "species",
     "iconic_taxon_name": "Insecta",
     "ancestor_ids": [
       48460,
@@ -4018,177 +3988,12 @@
       47224,
       47922,
       202067,
-      202066
+      202066,
+      54469,
+      207977
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6939319/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Nymphalini"
-  },
-  "125833": {
-    "name": "Polyommatini",
-    "common_name": "Typical Blues",
-    "rank": "tribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      58558,
-      125833
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2565521/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Polyommatini"
-  },
-  "122493": {
-    "name": "Hesperiinae",
-    "common_name": "Grass Skippers",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47653,
-      122493
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/134755/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Grass_skippers"
-  },
-  "130316": {
-    "name": "Melitaeini",
-    "common_name": "Checkerspots",
-    "rank": "tribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      130316
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3891335/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Melitaeini"
-  },
-  "125830": {
-    "name": "Theclinae",
-    "common_name": "Hairstreaks",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/20862520/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Theclinae"
-  },
-  "134168": {
-    "name": "Argynnini",
-    "common_name": "Fritillaries",
-    "rank": "tribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      60854,
-      134168
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/140051901/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Argynnini"
-  },
-  "125836": {
-    "name": "Eumaeini",
-    "common_name": "",
-    "rank": "tribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/183729053/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Eumaeini"
-  },
-  "134173": {
-    "name": "Heliconiini",
-    "common_name": "Longwings",
-    "rank": "tribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      60854,
-      134173
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/199329307/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Heliconiini"
-  },
-  "130349": {
-    "name": "Dione",
-    "common_name": "",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      60854,
-      134173,
-      130349
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/96962730/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Dione_(butterfly)"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4710619/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Aglais_io"
   },
   "157750": {
     "name": "Diplacus",
@@ -4252,6 +4057,74 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/25063001/medium.jpeg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Urtica_dioica_subsp._gracilis"
+  },
+  "181543": {
+    "name": "Pelargonium \u00d7 hybridum",
+    "common_name": "garden geranium",
+    "rank": "hybrid",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47690,
+      47689,
+      72281,
+      733278,
+      719464,
+      181543
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/106838084/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Pelargonium_\u00d7_hortorum"
+  },
+  "84239": {
+    "name": "Callophrys gryneus",
+    "common_name": "Juniper Hairstreak",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125830,
+      125836,
+      1456481,
+      58554,
+      82484,
+      84239
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3652251/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Callophrys_gryneus"
+  },
+  "281273": {
+    "name": "Gomphocarpus physocarpus",
+    "common_name": "balloonplant",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47363,
+      47362,
+      373579,
+      632307,
+      632069,
+      52363,
+      281273
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/119163222/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Gomphocarpus_physocarpus"
   },
   "135331": {
     "name": "Prunus armeniaca",
@@ -4347,6 +4220,78 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347368172/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Erynnis_persius"
   },
+  "346970": {
+    "name": "Callophrys dumetorum",
+    "common_name": "Lotus Hairstreak",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125830,
+      125836,
+      1456481,
+      58554,
+      1456500,
+      346970
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6852203/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Callophrys_dumetorum"
+  },
+  "464594": {
+    "name": "Prunus salicina",
+    "common_name": "Chinese plum",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      47132,
+      47148,
+      922110,
+      922113,
+      47351,
+      886531,
+      1205922,
+      464594
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179593072/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Prunus_salicina"
+  },
+  "117317": {
+    "name": "Zerene eurydice",
+    "common_name": "California Dogface",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      48508,
+      119556,
+      1609468,
+      1609475,
+      117318,
+      117317
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11227632/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Zerene_eurydice"
+  },
   "117345": {
     "name": "Euphilotes enoptes",
     "common_name": "Dotted Blue",
@@ -4439,6 +4384,56 @@
     ],
     "photo_url": "https://static.inaturalist.org/photos/272131829/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Callophrys_mossii"
+  },
+  "210423": {
+    "name": "Callophrys viridis",
+    "common_name": "Coastal Green Hairstreak",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125830,
+      125836,
+      1456481,
+      58554,
+      1456500,
+      210423
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/33398096/medium.jpeg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Callophrys_dumetorum"
+  },
+  "315267": {
+    "name": "Brassica oleracea italica",
+    "common_name": "Broccoli",
+    "rank": "variety",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      71275,
+      47204,
+      1473853,
+      1473856,
+      574731,
+      53113,
+      1183876,
+      1183893,
+      54516,
+      315267
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/67937224/medium.jpeg",
+    "wikipedia_url": null
   },
   "122368": {
     "name": "Colias occidentalis",
@@ -4630,180 +4625,26 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/16157431/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Anthocharis_lanceolata"
   },
-  "209720": {
-    "name": "Pierinae",
-    "common_name": "Whites",
-    "rank": "subfamily",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508,
-      209720
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/144472160/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pierinae"
-  },
-  "207785": {
-    "name": "Papilionini",
-    "common_name": "Fluted Swallowtails",
-    "rank": "tribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47223,
-      49973,
-      207785
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14935417/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio"
-  },
-  "321384": {
-    "name": "Pierini",
-    "common_name": "",
-    "rank": "tribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      48508,
-      209720,
-      321384
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/41701869/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Pierini"
-  },
-  "522900": {
-    "name": "Danaina",
-    "common_name": "Tiger Butterflies",
-    "rank": "subtribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      61244,
-      134169,
-      522900
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/222153446/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Danaini"
-  },
-  "545186": {
-    "name": "Pterourus",
-    "common_name": "Tiger Swallowtails and Allies",
-    "rank": "subgenus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47223,
-      49973,
-      207785,
-      47225,
-      545186
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/72512645/medium.jpeg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Papilio"
-  },
-  "545183": {
-    "name": "Papilio",
-    "common_name": "",
-    "rank": "subgenus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47223,
-      49973,
-      207785,
-      47225,
-      545183
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/45215620/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Papilio"
-  },
-  "1456481": {
-    "name": "Callophryidina",
-    "common_name": "",
-    "rank": "subtribe",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456481
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/559017/medium.jpg",
-    "wikipedia_url": null
-  },
-  "207977": {
-    "name": "Aglais io",
-    "common_name": "European Peacock Butterfly",
+  "166878": {
+    "name": "Pimpinella anisum",
+    "common_name": "Anise",
     "rank": "species",
-    "iconic_taxon_name": "Insecta",
+    "iconic_taxon_name": "Plantae",
     "ancestor_ids": [
       48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47922,
-      202067,
-      202066,
-      54469,
-      207977
+      47126,
+      211194,
+      47125,
+      47124,
+      48700,
+      48699,
+      790553,
+      790588,
+      123738,
+      166878
     ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4710619/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Aglais_io"
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11075402/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Anise"
   },
   "777236": {
     "name": "Diplacus",
@@ -4868,29 +4709,6 @@
     "photo_url": "https://static.inaturalist.org/photos/87326219/medium.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Rosemary"
   },
-  "520397": {
-    "name": "Icaricia",
-    "common_name": "",
-    "rank": "genus",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      58558,
-      125833,
-      522678,
-      520397
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/147376944/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Icaricia"
-  },
   "777371": {
     "name": "Diplacus aurantiacus",
     "common_name": "orange bush monkeyflower",
@@ -4910,6 +4728,26 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18817746/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Diplacus_aurantiacus"
+  },
+  "470643": {
+    "name": "Erythranthe guttata",
+    "common_name": "seep monkeyflower",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      64552,
+      319976,
+      982854,
+      470643
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/80360799/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Erythranthe_guttata"
   },
   "1021509": {
     "name": "Junonia grisea",
@@ -4982,6 +4820,26 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/147376944/medium.jpg",
     "wikipedia_url": "http://en.wikipedia.org/wiki/Acmon_blue"
   },
+  "1464283": {
+    "name": "Siphisia",
+    "common_name": "Subgenus Siphisia",
+    "rank": "subgenus",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      60244,
+      52860,
+      958334,
+      54464,
+      1464283
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/194790387/medium.jpeg",
+    "wikipedia_url": null
+  },
   "1081332": {
     "name": "Lon melane",
     "common_name": "Umber Skipper",
@@ -5005,310 +4863,6 @@
     ],
     "photo_url": "https://static.inaturalist.org/photos/73662202/medium.jpeg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Poanes_melane"
-  },
-  "520457": {
-    "name": "Icaricia icarioides",
-    "common_name": "Boisduval's Blue",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      58558,
-      125833,
-      522678,
-      520397,
-      520457
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/561703160/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Aricia_icarioides"
-  },
-  "281273": {
-    "name": "Gomphocarpus physocarpus",
-    "common_name": "balloonplant",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47363,
-      47362,
-      373579,
-      632307,
-      632069,
-      52363,
-      281273
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/119163222/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Gomphocarpus_physocarpus"
-  },
-  "1360298": {
-    "name": "Tharsalea helloides",
-    "common_name": "Purplish Copper",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125835,
-      125818,
-      1360273,
-      1360289,
-      1360298
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/566636255/medium.jpg",
-    "wikipedia_url": null
-  },
-  "346970": {
-    "name": "Callophrys dumetorum",
-    "common_name": "Lotus Hairstreak",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456481,
-      58554,
-      1456500,
-      346970
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6852203/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Callophrys_dumetorum"
-  },
-  "1360290": {
-    "name": "Tharsalea heteronea",
-    "common_name": "Blue Copper",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125835,
-      125818,
-      1360273,
-      1360289,
-      1360290
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/227263357/medium.jpg",
-    "wikipedia_url": null
-  },
-  "1268537": {
-    "name": "Carterocephalus skada",
-    "common_name": "Western Arctic Skipper",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47653,
-      320508,
-      1456850,
-      122378,
-      1268537
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8417538/medium.jpg",
-    "wikipedia_url": null
-  },
-  "464594": {
-    "name": "Prunus salicina",
-    "common_name": "Chinese plum",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      47132,
-      47148,
-      922110,
-      922113,
-      47351,
-      886531,
-      1205922,
-      464594
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179593072/medium.jpg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Prunus_salicina"
-  },
-  "1360314": {
-    "name": "Tharsalea gorgon",
-    "common_name": "Gorgon Copper",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125835,
-      125818,
-      1360273,
-      1360289,
-      1360314
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339024/medium.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Lycaena_gorgon"
-  },
-  "1360337": {
-    "name": "Tharsalea arota",
-    "common_name": "Tailed Copper",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125835,
-      125818,
-      1360273,
-      1360336,
-      1360337
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/240728463/medium.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Lycaena_arota"
-  },
-  "1360279": {
-    "name": "Tharsalea xanthoides",
-    "common_name": "Great Copper",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125835,
-      125818,
-      1360273,
-      1360276,
-      1360279
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1565918/medium.JPG",
-    "wikipedia_url": null
-  },
-  "771827": {
-    "name": "Diplacus layneae",
-    "common_name": "Layne's monkeyflower",
-    "rank": "species",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      48151,
-      64552,
-      157750,
-      777233,
-      771827
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/38091575/medium.jpeg",
-    "wikipedia_url": "http://en.wikipedia.org/wiki/Diplacus_layneae"
-  },
-  "210423": {
-    "name": "Callophrys viridis",
-    "common_name": "Coastal Green Hairstreak",
-    "rank": "species",
-    "iconic_taxon_name": "Insecta",
-    "ancestor_ids": [
-      48460,
-      1,
-      47120,
-      372739,
-      47158,
-      184884,
-      47157,
-      47224,
-      47923,
-      125830,
-      125836,
-      1456481,
-      58554,
-      1456500,
-      210423
-    ],
-    "photo_url": "https://static.inaturalist.org/photos/33398096/medium.jpeg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Callophrys_dumetorum"
-  },
-  "1441711": {
-    "name": "Passiflora manicata \u00d7 tarminiana",
-    "common_name": "Passiflora 'Coral Glow'",
-    "rank": "hybrid",
-    "iconic_taxon_name": "Plantae",
-    "ancestor_ids": [
-      48460,
-      47126,
-      211194,
-      47125,
-      47124,
-      51820,
-      51451,
-      853017,
-      853019,
-      51452,
-      1442036,
-      1441711
-    ],
-    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111354325/medium.jpg",
-    "wikipedia_url": null
   },
   "1638386": {
     "name": "Cecropterus pylades",
@@ -5335,6 +4889,30 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/51950856/medium.jpg",
     "wikipedia_url": null
   },
+  "520457": {
+    "name": "Icaricia icarioides",
+    "common_name": "Boisduval's Blue",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      58558,
+      125833,
+      522678,
+      520397,
+      520457
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/561703160/medium.jpg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Aricia_icarioides"
+  },
   "1457202": {
     "name": "Burnsius albezens",
     "common_name": "White Checkered-Skipper",
@@ -5358,6 +4936,30 @@
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/42030687/medium.jpeg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Burnsius_albezens"
+  },
+  "1360298": {
+    "name": "Tharsalea helloides",
+    "common_name": "Purplish Copper",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125835,
+      125818,
+      1360273,
+      1360289,
+      1360298
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/566636255/medium.jpg",
+    "wikipedia_url": null
   },
   "1456595": {
     "name": "Argynnis zerene",
@@ -5431,6 +5033,77 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/202622542/medium.jpeg",
     "wikipedia_url": null
   },
+  "1360290": {
+    "name": "Tharsalea heteronea",
+    "common_name": "Blue Copper",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125835,
+      125818,
+      1360273,
+      1360289,
+      1360290
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/227263357/medium.jpg",
+    "wikipedia_url": null
+  },
+  "1268537": {
+    "name": "Carterocephalus skada",
+    "common_name": "Western Arctic Skipper",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47653,
+      320508,
+      1456850,
+      122378,
+      1268537
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8417538/medium.jpg",
+    "wikipedia_url": null
+  },
+  "1360314": {
+    "name": "Tharsalea gorgon",
+    "common_name": "Gorgon Copper",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125835,
+      125818,
+      1360273,
+      1360289,
+      1360314
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339024/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Lycaena_gorgon"
+  },
   "1681572": {
     "name": "Satyrium dryope",
     "common_name": "Dryope Hairstreak",
@@ -5456,6 +5129,30 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/662882547/medium.jpg",
     "wikipedia_url": null
   },
+  "1360337": {
+    "name": "Tharsalea arota",
+    "common_name": "Tailed Copper",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125835,
+      125818,
+      1360273,
+      1360336,
+      1360337
+    ],
+    "photo_url": "https://static.inaturalist.org/photos/240728463/medium.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Lycaena_arota"
+  },
   "1456575": {
     "name": "Argynnis egleis",
     "common_name": "Great Basin Fritillary",
@@ -5480,6 +5177,30 @@
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/20982047/medium.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Speyeria_egleis"
   },
+  "1360279": {
+    "name": "Tharsalea xanthoides",
+    "common_name": "Great Copper",
+    "rank": "species",
+    "iconic_taxon_name": "Insecta",
+    "ancestor_ids": [
+      48460,
+      1,
+      47120,
+      372739,
+      47158,
+      184884,
+      47157,
+      47224,
+      47923,
+      125835,
+      125818,
+      1360273,
+      1360276,
+      1360279
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1565918/medium.JPG",
+    "wikipedia_url": null
+  },
   "1650172": {
     "name": "Limochores sonora",
     "common_name": "Sonoran Skipper",
@@ -5502,6 +5223,48 @@
       1650172
     ],
     "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/199303/medium.jpg",
+    "wikipedia_url": null
+  },
+  "771827": {
+    "name": "Diplacus layneae",
+    "common_name": "Layne's monkeyflower",
+    "rank": "species",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      48151,
+      64552,
+      157750,
+      777233,
+      771827
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/38091575/medium.jpeg",
+    "wikipedia_url": "http://en.wikipedia.org/wiki/Diplacus_layneae"
+  },
+  "1441711": {
+    "name": "Passiflora manicata \u00d7 tarminiana",
+    "common_name": "Passiflora 'Coral Glow'",
+    "rank": "hybrid",
+    "iconic_taxon_name": "Plantae",
+    "ancestor_ids": [
+      48460,
+      47126,
+      211194,
+      47125,
+      47124,
+      51820,
+      51451,
+      853017,
+      853019,
+      51452,
+      1442036,
+      1441711
+    ],
+    "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111354325/medium.jpg",
     "wikipedia_url": null
   },
   "1456553": {
