@@ -405,7 +405,7 @@
   },
   "520457": {
     "research_grade_sf": true,
-    "geoprivacy_obscured": true
+    "geoprivacy_obscured": false
   },
   "1021509": {
     "research_grade_sf": true,

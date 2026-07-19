@@ -36,6 +36,15 @@ DATA_DIR = Path(__file__).parent
 INAT_OBS = "https://api.inaturalist.org/v1/observations"
 SF_PLACE_ID = 854  # San Francisco County, CA
 
+# Explicit exceptions to the geoprivacy-obscured filter, by species-level
+# taxon id. iNaturalist obscures true coordinates for these taxa to protect
+# the animals themselves, which has no bearing on a graph that never shows
+# coordinates at all -- so an obscured taxon can still be worth showing.
+# 520457 = Icaricia icarioides (Boisduval's Blue), whose SF-local subspecies
+# is the federally endangered Mission Blue (I. i. missionensis). Requested
+# explicitly so Mission Blue appears in the graph despite the flag.
+GEOPRIVACY_EXCEPTIONS = {520457}
+
 bay_species = json.loads((DATA_DIR / "bay_area_butterfly_species.json").read_text())
 ids = sorted(int(k) for k in bay_species.keys())
 print(f"Checking {len(ids)} butterfly species")
@@ -66,9 +75,12 @@ for i, tid in enumerate(ids):
     results = data.get("results", [])
     if results:
         o = results[0]
+        obscured = o.get("taxon_geoprivacy") in ("obscured", "private")
+        if tid in GEOPRIVACY_EXCEPTIONS:
+            obscured = False
         result[tid] = {
             "research_grade_sf": True,
-            "geoprivacy_obscured": o.get("taxon_geoprivacy") in ("obscured", "private"),
+            "geoprivacy_obscured": obscured,
         }
     else:
         result[tid] = {"research_grade_sf": False, "geoprivacy_obscured": False}
