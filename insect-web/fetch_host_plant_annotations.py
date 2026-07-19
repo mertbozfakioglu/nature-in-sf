@@ -151,6 +151,14 @@ def main():
                 # this rolls subspecies/variety/form up to their species
                 # without dropping genuinely coarse (genus/family) IDs,
                 # which have no min_species_taxon_id at all.
+                # rank_level <= 10 means species-or-finer (species=10,
+                # subspecies/variety/form=5). Belt-and-suspenders: a few
+                # observations have been seen with min_species_taxon_id
+                # populated even though the taxon itself is coarser
+                # (e.g. subfamily Nymphalinae, rank_level 27) -- rely on
+                # rank_level, not just min_species_taxon_id's presence.
+                if (taxon.get("rank_level") or 999) > 10:
+                    continue
                 b_id = taxon.get("min_species_taxon_id")
                 if not b_id:
                     continue

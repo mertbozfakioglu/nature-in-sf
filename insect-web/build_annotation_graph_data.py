@@ -99,14 +99,22 @@ for tid_str, info in host_data["host_taxa"].items():
         node_ids.add(tid)
     host_node_id[tid_str] = node_id
 
-edges = [
-    {
-        "source": f"b{e['butterfly_id']}",
+bfly_node_ids = {n["id"] for n in nodes if n["type"] == "butterfly"}
+edges = []
+for e in host_data["edges"]:
+    source = f"b{e['butterfly_id']}"
+    if source not in bfly_node_ids:
+        # Butterfly taxon isn't in bay_area_butterfly_species.json (e.g. an
+        # observation whose current identification is coarser than species
+        # despite carrying a stray min_species_taxon_id) -- drop the edge
+        # rather than reference a node that doesn't exist.
+        print(f"  Skipping edge: butterfly taxon {e['butterfly_id']} not in Bay Area species list")
+        continue
+    edges.append({
+        "source": source,
         "target": host_node_id[str(e['host_id'])],
         "count": e["count"],
-    }
-    for e in host_data["edges"]
-]
+    })
 
 deg = {}
 for e in edges:
