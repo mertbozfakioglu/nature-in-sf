@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-20",
+  "lastUpdated": "2026-07-21",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -29,9 +29,6 @@
     "Agrostis exarata": [
       "oaktown"
     ],
-    "Ambrosia chamissonis": [
-      "heronshead"
-    ],
     "Anaphalis margaritacea": [
       "missionblue"
     ],
@@ -49,7 +46,6 @@
       "oaktown"
     ],
     "Armeria maritima": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -441,9 +437,6 @@
     ],
     "Pseudognaphalium californicum": [
       "oaktown"
-    ],
-    "Pseudognaphalium stramineum": [
-      "heronshead"
     ],
     "Quercus agrifolia": [
       "oaktown",
