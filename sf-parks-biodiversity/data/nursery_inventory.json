@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-23",
+  "lastUpdated": "2026-07-24",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -123,9 +123,6 @@
     "Clarkia rubicunda": [
       "larnerseeds"
     ],
-    "Claytonia sibirica": [
-      "larnerseeds"
-    ],
     "Clinopodium douglasii": [
       "oaktown",
       "missionblue"
@@ -181,14 +178,12 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
     ],
     "Eriogonum latifolium": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
@@ -243,7 +238,6 @@
       "larnerseeds"
     ],
     "Fragaria chiloensis": [
-      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -426,7 +420,6 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
