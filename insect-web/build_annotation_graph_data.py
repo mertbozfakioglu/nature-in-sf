@@ -59,10 +59,12 @@ DISPLAY_OVERRIDES = {
 
 # Species-level taxa excluded from the butterfly node set entirely (as
 # opposed to DISPLAY_OVERRIDES, which just renames/re-photos a node).
-# 520456 = Icaricia acmon (Acmon Blue): per user, SF's local population is
-# a distinct subspecies, so the species-level node is excluded rather than
-# risk representing it as a generic Acmon Blue.
-EXCLUDED_BUTTERFLY_TAXA = {520456}
+# Empty: Icaricia acmon (Acmon Blue) was excluded here briefly on the
+# mistaken assumption that it was Mission Blue's parent species -- it
+# isn't. That's Icaricia icarioides (see DISPLAY_OVERRIDES above).
+# Acmon Blue is an unrelated species in the same genus, so it belongs
+# back in the graph like any other untagged butterfly.
+EXCLUDED_BUTTERFLY_TAXA = set()
 
 
 nodes = []
