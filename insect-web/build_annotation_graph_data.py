@@ -40,6 +40,24 @@ def sf_observed(taxon_id):
     return bool(sf_presence.get(str(taxon_id), False))
 
 
+# Display-only overrides, keyed by species-level taxon id. The graph tracks
+# butterflies at species rank (see fetch_host_plant_annotations.py's
+# subspecies rollup), but the species-level identity isn't always what's
+# actually flying in SF -- Icaricia icarioides (Boisduval's Blue) locally
+# means the subspecies I. i. missionensis, Mission Blue. This only swaps
+# what's displayed (name/common name/photo/Wikipedia link); taxon_id stays
+# the species id so it still lines up with the nativity/sf_presence/quality
+# lookups and the host-plant edges, all keyed at species rank.
+DISPLAY_OVERRIDES = {
+    520457: {
+        "name": "Icaricia icarioides ssp. missionensis",
+        "common_name": "Mission Blue",
+        "photo_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/486126130/medium.jpeg",
+        "wikipedia_url": "http://en.wikipedia.org/wiki/Mission_blue_butterfly",
+    },
+}
+
+
 nodes = []
 node_ids = set()
 
@@ -47,19 +65,20 @@ for tid_str, info in bay_species.items():
     tid = int(tid_str)
     p = photos.get(tid_str, {})
     q = quality.get(tid_str, {})
+    override = DISPLAY_OVERRIDES.get(tid, {})
     nodes.append({
         "id": f"b{tid}",
         "taxon_id": tid,
         "type": "butterfly",
-        "name": info["name"],
-        "common_name": info.get("common_name") or p.get("common_name", ""),
+        "name": override.get("name", info["name"]),
+        "common_name": override.get("common_name") or info.get("common_name") or p.get("common_name", ""),
         "native_status": native_status(tid),
         "sf_observed": sf_observed(tid),
         "research_grade_sf": q.get("research_grade_sf", False),
         "geoprivacy_obscured": q.get("geoprivacy_obscured", False),
         "bay_area_obs": info.get("obs_count", 0),
-        "photo_url": p.get("photo_url", ""),
-        "wikipedia_url": p.get("wikipedia_url", ""),
+        "photo_url": override.get("photo_url") or p.get("photo_url", ""),
+        "wikipedia_url": override.get("wikipedia_url") or p.get("wikipedia_url", ""),
     })
     node_ids.add(tid)
 
