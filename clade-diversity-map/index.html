@@ -242,8 +242,36 @@
     font-size: 0.78rem; color: #6b7280; line-height: 1.6;
   }
 
-  /* ── Map ── */
+  /* ── Map area ── */
+  #map-area { flex: 1; display: flex; flex-direction: column; min-height: 0; }
   #map { flex: 1; min-height: 0; }
+
+  /* ── Phenology panel ── */
+  #pheno-panel {
+    display: none;
+    background: #ffffff;
+    border-top: 1px solid #e1e4ea;
+    padding: 10px 16px 14px;
+    max-height: 230px;
+    overflow-y: auto;
+    position: relative;
+    flex-shrink: 0;
+  }
+  #pheno-panel.shown { display: block; }
+  #pheno-title {
+    font-size: 0.67rem; font-weight: 700; color: #8a93a8;
+    letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .pheno-month { font-size: 9px; fill: #8a93a8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .pheno-label { font-size: 10px; fill: #3b4055; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .pheno-note  { font-size: 9px; fill: #8a93a8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .pheno-cell  { cursor: crosshair; }
+  #pheno-tip {
+    display: none; position: absolute; pointer-events: none; z-index: 300;
+    background: #fff; border: 1px solid #d8dde8; border-radius: 6px;
+    padding: 6px 10px; font-size: 0.72rem; color: #1d2230;
+    box-shadow: 0 2px 8px rgba(20,24,40,0.12); white-space: nowrap; line-height: 1.5;
+  }
 
   /* ── Error / status banner ── */
   #status-banner {
@@ -389,8 +417,15 @@
       </div>
     </aside>
 
-    <div id="map">
-      <div id="map-loading"><div class="spinner"></div></div>
+    <div id="map-area">
+      <div id="map">
+        <div id="map-loading"><div class="spinner"></div></div>
+      </div>
+      <div id="pheno-panel">
+        <div id="pheno-title">Observations by month</div>
+        <svg id="pheno-svg" width="100%"></svg>
+        <div id="pheno-tip"></div>
+      </div>
     </div>
   </div>
 
@@ -627,6 +662,8 @@ function clearMap() {
   legendSection.classList.remove('shown');
   $('hs-species').textContent = '–';
   $('hs-obs').textContent = '–';
+  $('pheno-panel').classList.remove('shown');
+  $('pheno-svg').innerHTML = '';
 }
 
 // ── Fetch + render a clade ───────────────────────────────────────────────
@@ -746,10 +783,15 @@ function renderObservations(observations) {
     if (!t || t.rank !== 'species') continue;
     if (!groups.has(t.id)) {
       const nonNative = t.introduced === true || t.native === false;
-      groups.set(t.id, { id: t.id, name: t.name, commonName: t.preferred_common_name, nonNative, points: [] });
+      groups.set(t.id, { id: t.id, name: t.name, commonName: t.preferred_common_name, nonNative, points: [], monthCounts: new Array(12).fill(0) });
     }
     const [lng, lat] = obs.geojson.coordinates;
-    groups.get(t.id).points.push({ lat, lng, id: obs.id, date: obs.observed_on });
+    const g = groups.get(t.id);
+    g.points.push({ lat, lng, id: obs.id, date: obs.observed_on });
+    if (obs.observed_on) {
+      const mo = parseInt(obs.observed_on.substring(5, 7), 10) - 1;
+      if (mo >= 0 && mo < 12) g.monthCounts[mo]++;
+    }
   }
 
   const speciesList = Array.from(groups.values()).sort((a, b) => a.name.localeCompare(b.name));
@@ -790,6 +832,7 @@ function renderObservations(observations) {
   $('hs-obs').textContent = totalPoints.toLocaleString();
 
   buildLegend(speciesList);
+  buildPhenologyChart(speciesList);
 }
 
 function buildLegend(speciesList) {
@@ -845,6 +888,106 @@ function setAllSpeciesVisible(visible) {
     row.classList.toggle('dimmed', !visible);
     toggleSpecies(parseInt(checkbox.dataset.id), visible);
   });
+}
+
+// ── Phenology heatmap ────────────────────────────────────────────────────
+function buildPhenologyChart(speciesList) {
+  const panel = $('pheno-panel');
+  const svgEl = $('pheno-svg');
+  const tip   = $('pheno-tip');
+
+  const MAX_SP  = 22;
+  const MONTHS  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const LABEL_W = 112;
+  const CELL_H  = 19;
+  const GAP     = 2;
+  const HEAD_H  = 22;
+
+  // Sort by total count descending, cap at MAX_SP
+  const sorted = [...speciesList]
+    .sort((a, b) => speciesLayers.get(b.id).count - speciesLayers.get(a.id).count)
+    .slice(0, MAX_SP);
+
+  const nRows  = sorted.length;
+  const W      = Math.max(svgEl.parentElement.clientWidth - 32, 300);
+  const cellW  = (W - LABEL_W) / 12;
+  const H      = HEAD_H + nRows * CELL_H + (speciesList.length > MAX_SP ? 16 : 4);
+
+  svgEl.setAttribute('width',   W);
+  svgEl.setAttribute('height',  H);
+  svgEl.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  const parts = [];
+
+  // Month column headers
+  for (let m = 0; m < 12; m++) {
+    const cx = (LABEL_W + (m + 0.5) * cellW).toFixed(1);
+    parts.push(`<text x="${cx}" y="15" text-anchor="middle" class="pheno-month">${MONTHS[m]}</text>`);
+  }
+
+  // Species rows
+  sorted.forEach((sp, i) => {
+    const meta   = speciesLayers.get(sp.id);
+    const counts = sp.monthCounts;
+    const peak   = Math.max(...counts, 1);
+    const rowY   = HEAD_H + i * CELL_H;
+    const midY   = (rowY + CELL_H / 2).toFixed(1);
+
+    // Color swatch + label
+    parts.push(`<circle cx="${(LABEL_W - 10).toFixed(1)}" cy="${midY}" r="3.5" fill="${meta.color}"/>`);
+    const label = (sp.commonName || sp.name).slice(0, 17);
+    parts.push(`<text x="${(LABEL_W - 18).toFixed(1)}" y="${(rowY + CELL_H / 2 + 3.5).toFixed(1)}" text-anchor="end" class="pheno-label">${label}</text>`);
+
+    // Month cells
+    for (let m = 0; m < 12; m++) {
+      const rel = counts[m] / peak;           // 0..1 relative to this species' peak
+      const cx  = (LABEL_W + m * cellW + GAP / 2).toFixed(1);
+      const cy  = (rowY + GAP / 2).toFixed(1);
+      const cw  = (cellW - GAP).toFixed(1);
+      const ch  = (CELL_H - GAP).toFixed(1);
+      // Background cell (always visible, light track)
+      parts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="#f0f2f7"/>`);
+      // Filled cell — species color at intensity proportional to rel activity
+      if (rel > 0) {
+        parts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="${meta.color}" opacity="${rel.toFixed(3)}" class="pheno-cell" data-sp="${sp.id}" data-m="${m}" data-c="${counts[m]}" data-p="${peak}"/>`);
+      } else {
+        // Still make zero cells hoverable for UX completeness
+        parts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="transparent" class="pheno-cell" data-sp="${sp.id}" data-m="${m}" data-c="0" data-p="${peak}"/>`);
+      }
+    }
+  });
+
+  // Overflow note
+  if (speciesList.length > MAX_SP) {
+    const noteY = (HEAD_H + nRows * CELL_H + 12).toFixed(1);
+    parts.push(`<text x="${(W / 2).toFixed(1)}" y="${noteY}" text-anchor="middle" class="pheno-note">Showing top ${MAX_SP} of ${speciesList.length} species by observation count</text>`);
+  }
+
+  svgEl.innerHTML = parts.join('');
+  panel.classList.add('shown');
+
+  // ── Tooltip ──
+  const MONTH_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const spMap = new Map(sorted.map(s => [s.id, s]));
+
+  svgEl.addEventListener('mousemove', (e) => {
+    const cell = e.target.closest('.pheno-cell');
+    if (!cell) { tip.style.display = 'none'; return; }
+    const spId  = parseInt(cell.dataset.sp);
+    const mIdx  = parseInt(cell.dataset.m);
+    const count = parseInt(cell.dataset.c);
+    const peak  = parseInt(cell.dataset.p);
+    const sp    = spMap.get(spId);
+    if (!sp) return;
+    const pct   = peak > 0 ? Math.round((count / peak) * 100) : 0;
+    const name  = sp.commonName || `<em>${sp.name}</em>`;
+    tip.innerHTML = `<strong>${name}</strong><br>${MONTH_FULL[mIdx]}: <strong>${count.toLocaleString()}</strong> obs (${pct}% of peak)`;
+    tip.style.display = 'block';
+    const pr = panel.getBoundingClientRect();
+    tip.style.left = Math.min(e.clientX - pr.left + 12, pr.width - 210) + 'px';
+    tip.style.top  = Math.max(e.clientY - pr.top - 52, 4) + 'px';
+  });
+  svgEl.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
 }
 </script>
 </body>
