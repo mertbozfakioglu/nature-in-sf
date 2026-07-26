@@ -1,5 +1,5 @@
 {
-  "total_obs_scanned": 20388,
+  "total_obs_scanned": 20454,
   "butterfly_taxa": {
     "49150": {
       "name": "Dione vanillae",
@@ -216,10 +216,6 @@
     "59128": {
       "name": "Atlides halesus",
       "common_name": "Great Purple Hairstreak"
-    },
-    "59136": {
-      "name": "Satyrium tetra",
-      "common_name": "Mountain Mahogany Hairstreak"
     },
     "48550": {
       "name": "Phoebis sennae",
@@ -706,6 +702,11 @@
       "common_name": "garden geranium",
       "rank": "hybrid"
     },
+    "51691": {
+      "name": "Lupinus albifrons",
+      "common_name": "Silver Bush Lupine",
+      "rank": "species"
+    },
     "49343": {
       "name": "Castilleja exserta",
       "common_name": "purple owl's-clover",
@@ -739,6 +740,11 @@
     "57211": {
       "name": "Eriogonum latifolium",
       "common_name": "Seaside Buckwheat",
+      "rank": "species"
+    },
+    "51884": {
+      "name": "Urtica dioica",
+      "common_name": "great stinging nettle",
       "rank": "species"
     },
     "61925": {
@@ -831,6 +837,11 @@
       "common_name": "Naked Buckwheat",
       "rank": "species"
     },
+    "501208": {
+      "name": "Malva multiflora",
+      "common_name": "Cretan mallow",
+      "rank": "species"
+    },
     "53083": {
       "name": "Pseudognaphalium luteoalbum",
       "common_name": "Jersey Cudweed",
@@ -861,12 +872,12 @@
     {
       "butterfly_id": 49972,
       "host_id": 55190,
-      "count": 183
+      "count": 184
     },
     {
       "butterfly_id": 51097,
       "host_id": 53052,
-      "count": 229
+      "count": 230
     },
     {
       "butterfly_id": 59182,
@@ -926,7 +937,7 @@
     {
       "butterfly_id": 50892,
       "host_id": 50812,
-      "count": 72
+      "count": 73
     },
     {
       "butterfly_id": 50892,
@@ -961,7 +972,7 @@
     {
       "butterfly_id": 48662,
       "host_id": 56851,
-      "count": 128
+      "count": 130
     },
     {
       "butterfly_id": 49133,
@@ -1376,7 +1387,7 @@
     {
       "butterfly_id": 50931,
       "host_id": 80787,
-      "count": 1
+      "count": 3
     },
     {
       "butterfly_id": 1021509,
@@ -1386,6 +1397,11 @@
     {
       "butterfly_id": 47226,
       "host_id": 53423,
+      "count": 1
+    },
+    {
+      "butterfly_id": 520457,
+      "host_id": 51691,
       "count": 1
     },
     {
@@ -1441,6 +1457,11 @@
     {
       "butterfly_id": 50931,
       "host_id": 57211,
+      "count": 1
+    },
+    {
+      "butterfly_id": 49133,
+      "host_id": 51884,
       "count": 1
     },
     {
@@ -1531,6 +1552,11 @@
     {
       "butterfly_id": 1360314,
       "host_id": 53046,
+      "count": 1
+    },
+    {
+      "butterfly_id": 59190,
+      "host_id": 501208,
       "count": 1
     },
     {
