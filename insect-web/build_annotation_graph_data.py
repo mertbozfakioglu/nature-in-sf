@@ -57,12 +57,21 @@ DISPLAY_OVERRIDES = {
     },
 }
 
+# Species-level taxa excluded from the butterfly node set entirely (as
+# opposed to DISPLAY_OVERRIDES, which just renames/re-photos a node).
+# 520456 = Icaricia acmon (Acmon Blue): per user, SF's local population is
+# a distinct subspecies, so the species-level node is excluded rather than
+# risk representing it as a generic Acmon Blue.
+EXCLUDED_BUTTERFLY_TAXA = {520456}
+
 
 nodes = []
 node_ids = set()
 
 for tid_str, info in bay_species.items():
     tid = int(tid_str)
+    if tid in EXCLUDED_BUTTERFLY_TAXA:
+        continue
     p = photos.get(tid_str, {})
     q = quality.get(tid_str, {})
     override = DISPLAY_OVERRIDES.get(tid, {})
