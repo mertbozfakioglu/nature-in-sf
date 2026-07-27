@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-26",
+  "lastUpdated": "2026-07-27",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -273,9 +273,6 @@
       "heronshead",
       "missionblue"
     ],
-    "Heliotropium curassavicum": [
-      "oaktown"
-    ],
     "Hemizonia congesta": [
       "larnerseeds"
     ],
@@ -290,6 +287,7 @@
       "larnerseeds"
     ],
     "Heuchera micrantha": [
+      "oaktown",
       "heronshead"
     ],
     "Holodiscus discolor": [
@@ -305,7 +303,6 @@
       "missionblue"
     ],
     "Iris douglasiana": [
-      "oaktown",
       "heronshead"
     ],
     "Isolepis cernua": [
@@ -550,6 +547,7 @@
       "missionblue"
     ],
     "Tellima grandiflora": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -571,9 +569,6 @@
       "larnerseeds"
     ],
     "Urtica dioica": [
-      "oaktown"
-    ],
-    "Vaccinium ovatum": [
       "oaktown"
     ],
     "Viola adunca": [
