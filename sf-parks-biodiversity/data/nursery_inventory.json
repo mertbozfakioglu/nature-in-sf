@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-28",
+  "lastUpdated": "2026-07-29",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -58,6 +58,7 @@
       "larnerseeds"
     ],
     "Artemisia pycnocephala": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -86,6 +87,7 @@
       "oaktown"
     ],
     "Carex praegracilis": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -175,6 +177,7 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
+      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
@@ -481,6 +484,7 @@
       "oaktown"
     ],
     "Salvia spathacea": [
+      "oaktown",
       "heronshead",
       "missionblue"
     ],
