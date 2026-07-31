@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-30",
+  "lastUpdated": "2026-07-31",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -203,7 +203,8 @@
       "oaktown"
     ],
     "Erysimum franciscanum": [
-      "sutro"
+      "sutro",
+      "larnerseeds"
     ],
     "Erythranthe cardinalis": [
       "oaktown"
@@ -302,6 +303,9 @@
       "heronshead",
       "missionblue"
     ],
+    "Hosackia gracilis": [
+      "larnerseeds"
+    ],
     "Iris douglasiana": [
       "heronshead"
     ],
@@ -348,9 +352,6 @@
     "Lonicera involucrata": [
       "oaktown",
       "sutro"
-    ],
-    "Lupinus albifrons": [
-      "heronshead"
     ],
     "Lupinus bicolor": [
       "larnerseeds"
@@ -415,7 +416,6 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
-      "heronshead",
       "larnerseeds"
     ],
     "Prunus ilicifolia": [
@@ -465,7 +465,8 @@
       "oaktown"
     ],
     "Rubus parviflorus": [
-      "heronshead"
+      "heronshead",
+      "larnerseeds"
     ],
     "Rubus spectabilis": [
       "oaktown"
