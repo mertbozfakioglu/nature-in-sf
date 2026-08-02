@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-01",
+  "lastUpdated": "2026-08-02",
   "bySpecies": {
     "Abronia latifolia": [
       "heronshead"
@@ -65,7 +65,6 @@
     "Baccharis pilularis": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Bromus carinatus": [
@@ -226,7 +225,6 @@
     "Festuca californica": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Festuca idahoensis": [
@@ -242,7 +240,6 @@
       "missionblue"
     ],
     "Fragaria vesca": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue"
@@ -331,7 +328,6 @@
       "oaktown"
     ],
     "Koeleria macrantha": [
-      "oaktown",
       "larnerseeds"
     ],
     "Lasthenia californica": [
