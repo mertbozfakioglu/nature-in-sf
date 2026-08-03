@@ -1,9 +1,6 @@
 {
-  "lastUpdated": "2026-08-02",
+  "lastUpdated": "2026-08-03",
   "bySpecies": {
-    "Abronia latifolia": [
-      "heronshead"
-    ],
     "Acer negundo": [
       "oaktown",
       "heronshead"
@@ -377,6 +374,7 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
+      "oaktown",
       "heronshead"
     ],
     "Morella californica": [
@@ -415,6 +413,7 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "heronshead",
       "larnerseeds"
     ],
     "Prunus ilicifolia": [
@@ -487,9 +486,6 @@
       "oaktown",
       "heronshead",
       "missionblue"
-    ],
-    "Sambucus nigra": [
-      "oaktown"
     ],
     "Sambucus racemosa": [
       "heronshead",
