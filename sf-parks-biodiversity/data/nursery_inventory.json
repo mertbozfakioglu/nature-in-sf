@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-05",
+  "lastUpdated": "2026-08-06",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -69,7 +69,6 @@
       "larnerseeds"
     ],
     "Calamagrostis nutkaensis": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -127,6 +126,7 @@
       "larnerseeds"
     ],
     "Cornus sericea": [
+      "oaktown",
       "missionblue"
     ],
     "Corylus cornuta": [
@@ -542,7 +542,6 @@
       "missionblue"
     ],
     "Tellima grandiflora": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
