@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-07",
+  "lastUpdated": "2026-08-08",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -93,7 +93,6 @@
       "larnerseeds"
     ],
     "Ceanothus thyrsiflorus": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -152,6 +151,9 @@
     ],
     "Drymocallis glandulosa": [
       "missionblue"
+    ],
+    "Dryopteris arguta": [
+      "oaktown"
     ],
     "Dudleya caespitosa": [
       "oaktown"
@@ -214,7 +216,6 @@
     "Eschscholzia californica": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Festuca californica": [
@@ -358,7 +359,6 @@
     ],
     "Lupinus succulentus": [
       "oaktown",
-      "heronshead",
       "larnerseeds"
     ],
     "Madia elegans": [
