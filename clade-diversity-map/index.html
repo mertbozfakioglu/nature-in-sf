@@ -236,6 +236,7 @@
   .leg-text .ln em { font-style: italic; color: #6b7280; }
   .leg-count { font-size: 0.7rem; color: #6b7280; flex-shrink: 0; }
   .leg-row.dimmed .leg-text, .leg-row.dimmed .leg-count { opacity: 0.4; }
+  .leg-row.nonnative-hidden { display: none; }
 
   /* ── Empty / placeholder state ── */
   #placeholder {
@@ -359,7 +360,7 @@
       <div id="sidebar-scroll">
 
         <div id="search-wrap">
-          <input id="taxon-search" type="text" placeholder="Search a family or genus…" autocomplete="off" spellcheck="false">
+          <input id="taxon-search" type="text" placeholder="Search a clade, family, or genus…" autocomplete="off" spellcheck="false">
           <button id="search-clear" title="Clear">✕</button>
           <div id="search-dropdown"></div>
         </div>
@@ -369,6 +370,8 @@
           <span class="chip" data-id="47851" data-name="Quercus" data-rank="genus">Quercus</span>
           <span class="chip" data-id="6912" data-name="Anatidae" data-rank="family">Anatidae</span>
           <span class="chip" data-id="52775" data-name="Bombus" data-rank="genus">Bombus</span>
+          <span class="chip" data-id="40151" data-name="Mammalia" data-rank="class">Mammalia</span>
+          <span class="chip" data-id="47170" data-name="Fungi" data-rank="kingdom">Fungi</span>
         </div>
 
         <div id="status-banner"></div>
@@ -387,6 +390,8 @@
         <div id="options">
           <label><input type="checkbox" id="research-only" checked> Research-grade only</label>
           <div class="opt-hint">Community-confirmed species ID with evidence. Uncheck to also include unconfirmed (needs ID) records.</div>
+          <label style="margin-top:8px"><input type="checkbox" id="native-only"> Native species only</label>
+          <div class="opt-hint">Hide non-native / introduced species from the map, legend, and chart.</div>
         </div>
 
         <div id="progress-wrap">
@@ -396,7 +401,7 @@
         </div>
 
         <div id="placeholder">
-          Search a family or genus, then click <strong>Search this area</strong> to plot every iNaturalist species-level occurrence within the current map view. Each species gets its own color — dense, multicolored clusters are diversity hotspots.
+          Search any clade — kingdom, class, order, family, or genus — then click <strong>Search this area</strong> to plot every iNaturalist species-level occurrence within the current map view. Each species gets its own color — dense, multicolored clusters are diversity hotspots.
         </div>
 
         <div id="legend-section">
@@ -439,6 +444,7 @@ const FIELDS = '(id:!t,taxon:(id:!t,name:!t,rank:!t,preferred_common_name:!t,nat
 const PER_PAGE = 200;
 const FETCH_CAP = 20000;       // hard safety cap on observations fetched per query
 const REQUEST_GAP_MS = 300;    // be polite to the API between pages
+const VALID_RANKS = new Set(['kingdom','phylum','subphylum','class','subclass','order','suborder','superfamily','family','subfamily','genus']);
 
 // ── Map setup ──────────────────────────────────────────────────────────────
 const map = L.map('map', { preferCanvas: true }).setView([37.7595, -122.4492], 11);
@@ -483,6 +489,7 @@ const progressMsg   = $('progress-msg');
 const progressFill  = $('progress-bar-fill');
 const statusBanner  = $('status-banner');
 const researchOnly  = $('research-only');
+const nativeOnly    = $('native-only');
 const mapLoading    = $('map-loading');
 const searchAreaWrap = $('search-area-wrap');
 const searchAreaBtn  = $('search-area-btn');
@@ -532,10 +539,10 @@ async function runSearch(q) {
     return;
   }
   try {
-    const url = `${AUTOCOMPLETE_URL}?q=${encodeURIComponent(q)}&per_page=10&rank=genus,family&is_active=true`;
+    const url = `${AUTOCOMPLETE_URL}?q=${encodeURIComponent(q)}&per_page=10&rank=kingdom,phylum,class,order,family,genus&is_active=true`;
     const resp = await fetch(url);
     const data = await resp.json();
-    dropdownItems = (data.results || []).filter(r => r.rank === 'genus' || r.rank === 'family');
+    dropdownItems = (data.results || []).filter(r => VALID_RANKS.has(r.rank));
     renderDropdown();
   } catch (err) {
     // silent fail on search — not critical
@@ -546,7 +553,7 @@ const debouncedSearch = debounce(runSearch, 250);
 function renderDropdown() {
   highlightIdx = -1;
   if (dropdownItems.length === 0) {
-    searchDropdown.innerHTML = '<div class="sd-empty">No matching family or genus found</div>';
+    searchDropdown.innerHTML = '<div class="sd-empty">No matching taxon found</div>';
     searchDropdown.classList.add('open');
     return;
   }
@@ -613,6 +620,8 @@ document.querySelectorAll('.chip').forEach(chip => {
 researchOnly.addEventListener('change', () => {
   if (currentTaxon) loadClade(currentTaxon);
 });
+
+nativeOnly.addEventListener('change', applyNativeFilter);
 
 searchAreaBtn.addEventListener('click', () => {
   if (currentTaxon) loadClade(currentTaxon);
@@ -684,6 +693,7 @@ async function loadClade(taxon) {
   searchAreaBtn.textContent = 'Loading…';
 
   const bbox = map.getBounds();
+  const preferredPlaceId = await findPreferredPlace(bbox);
 
   const collected = [];
   let idAbove = null;
@@ -706,6 +716,7 @@ async function loadClade(taxon) {
         fields: FIELDS
       });
       if (researchOnly.checked) params.set('quality_grade', 'research');
+      if (preferredPlaceId) params.set('preferred_place_id', preferredPlaceId);
       if (idAbove !== null) params.set('id_above', idAbove);
 
       const data = await fetchWithRetry(`${OBS_URL}?${params.toString()}`, signal);
@@ -753,7 +764,7 @@ async function loadClade(taxon) {
   }
 
   if (truncated) {
-    setBanner(`Showing the first ${collected.length.toLocaleString()} of ${total.toLocaleString()} observations (capped for performance). Try a narrower genus for full coverage.`, 'info');
+    setBanner(`Showing the first ${collected.length.toLocaleString()} of ${total.toLocaleString()} observations (capped for performance). Try a narrower taxon for full coverage.`, 'info');
   }
 
   renderObservations(collected);
@@ -833,6 +844,7 @@ function renderObservations(observations) {
 
   buildLegend(speciesList);
   buildPhenologyChart(speciesList);
+  applyNativeFilter();
 }
 
 function buildLegend(speciesList) {
@@ -883,6 +895,7 @@ function toggleSpecies(taxonId, visible) {
 
 function setAllSpeciesVisible(visible) {
   legendList.querySelectorAll('.leg-row').forEach(row => {
+    if (row.classList.contains('nonnative-hidden')) return;
     const checkbox = row.querySelector('input');
     checkbox.checked = visible;
     row.classList.toggle('dimmed', !visible);
@@ -925,7 +938,7 @@ function buildPhenologyChart(speciesList) {
     parts.push(`<text x="${cx}" y="15" text-anchor="middle" class="pheno-month">${MONTHS[m]}</text>`);
   }
 
-  // Species rows
+  // Species rows — each wrapped in <g> so native-only filter can toggle visibility
   sorted.forEach((sp, i) => {
     const meta   = speciesLayers.get(sp.id);
     const counts = sp.monthCounts;
@@ -933,10 +946,12 @@ function buildPhenologyChart(speciesList) {
     const rowY   = HEAD_H + i * CELL_H;
     const midY   = (rowY + CELL_H / 2).toFixed(1);
 
+    const rowParts = [];
+
     // Color swatch + label
-    parts.push(`<circle cx="${(LABEL_W - 10).toFixed(1)}" cy="${midY}" r="3.5" fill="${meta.color}"/>`);
+    rowParts.push(`<circle cx="${(LABEL_W - 10).toFixed(1)}" cy="${midY}" r="3.5" fill="${meta.color}"/>`);
     const label = (sp.commonName || sp.name).slice(0, 17);
-    parts.push(`<text x="${(LABEL_W - 18).toFixed(1)}" y="${(rowY + CELL_H / 2 + 3.5).toFixed(1)}" text-anchor="end" class="pheno-label">${label}</text>`);
+    rowParts.push(`<text x="${(LABEL_W - 18).toFixed(1)}" y="${(rowY + CELL_H / 2 + 3.5).toFixed(1)}" text-anchor="end" class="pheno-label">${label}</text>`);
 
     // Month cells
     for (let m = 0; m < 12; m++) {
@@ -946,15 +961,16 @@ function buildPhenologyChart(speciesList) {
       const cw  = (cellW - GAP).toFixed(1);
       const ch  = (CELL_H - GAP).toFixed(1);
       // Background cell (always visible, light track)
-      parts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="#f0f2f7"/>`);
+      rowParts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="#f0f2f7"/>`);
       // Filled cell — species color at intensity proportional to rel activity
       if (rel > 0) {
-        parts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="${meta.color}" opacity="${rel.toFixed(3)}" class="pheno-cell" data-sp="${sp.id}" data-m="${m}" data-c="${counts[m]}" data-p="${peak}"/>`);
+        rowParts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="${meta.color}" opacity="${rel.toFixed(3)}" class="pheno-cell" data-sp="${sp.id}" data-m="${m}" data-c="${counts[m]}" data-p="${peak}"/>`);
       } else {
-        // Still make zero cells hoverable for UX completeness
-        parts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="transparent" class="pheno-cell" data-sp="${sp.id}" data-m="${m}" data-c="0" data-p="${peak}"/>`);
+        rowParts.push(`<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="2" fill="transparent" class="pheno-cell" data-sp="${sp.id}" data-m="${m}" data-c="0" data-p="${peak}"/>`);
       }
     }
+
+    parts.push(`<g class="pheno-row" data-nonnative="${sp.nonNative}">${rowParts.join('')}</g>`);
   });
 
   // Overflow note
@@ -988,6 +1004,53 @@ function buildPhenologyChart(speciesList) {
     tip.style.top  = Math.max(e.clientY - pr.top - 52, 4) + 'px';
   });
   svgEl.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+}
+
+// ── Native/introduced place detection ────────────────────────────────────
+async function findPreferredPlace(bbox) {
+  try {
+    const params = new URLSearchParams({
+      nelat: bbox.getNorth().toFixed(4),
+      nelng: bbox.getEast().toFixed(4),
+      swlat: bbox.getSouth().toFixed(4),
+      swlng: bbox.getWest().toFixed(4),
+    });
+    const resp = await fetch(`https://api.inaturalist.org/v1/places/nearby?${params.toString()}`);
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    const standard = data.results?.standard;
+    return (standard && standard.length > 0) ? standard[0].id : null;
+  } catch {
+    return null;
+  }
+}
+
+// ── Native-only filter ────────────────────────────────────────────────────
+function applyNativeFilter() {
+  const onlyNative = nativeOnly.checked;
+  let visibleCount = 0;
+
+  for (const [id, meta] of speciesLayers) {
+    const isFiltered = onlyNative && meta.nonNative;
+    const row = legendList.querySelector(`input[data-id="${id}"]`);
+    const legRow = row ? row.closest('.leg-row') : null;
+
+    if (legRow) legRow.classList.toggle('nonnative-hidden', isFiltered);
+
+    if (isFiltered) {
+      if (map.hasLayer(meta.layerGroup)) map.removeLayer(meta.layerGroup);
+    } else {
+      visibleCount++;
+      const indivChecked = row ? row.checked : true;
+      if (indivChecked && !map.hasLayer(meta.layerGroup)) meta.layerGroup.addTo(map);
+    }
+  }
+
+  $('lg-count').textContent = visibleCount;
+
+  $('pheno-svg').querySelectorAll('.pheno-row').forEach(g => {
+    g.style.display = (onlyNative && g.dataset.nonnative === 'true') ? 'none' : '';
+  });
 }
 </script>
 </body>
