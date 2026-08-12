@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-11",
+  "lastUpdated": "2026-08-12",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -217,6 +217,9 @@
       "heronshead",
       "larnerseeds"
     ],
+    "Euthamia occidentalis": [
+      "oaktown"
+    ],
     "Festuca californica": [
       "oaktown",
       "heronshead",
@@ -337,9 +340,6 @@
     "Layia platyglossa": [
       "larnerseeds"
     ],
-    "Lonicera hispidula": [
-      "oaktown"
-    ],
     "Lonicera involucrata": [
       "oaktown",
       "sutro"
@@ -457,6 +457,7 @@
       "oaktown"
     ],
     "Rubus parviflorus": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -556,9 +557,6 @@
     "Trifolium wormskioldii": [
       "missionblue",
       "larnerseeds"
-    ],
-    "Umbellularia californica": [
-      "oaktown"
     ],
     "Urtica dioica": [
       "oaktown"
