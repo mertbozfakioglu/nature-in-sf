@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-14",
+  "lastUpdated": "2026-08-15",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -215,7 +215,6 @@
       "larnerseeds"
     ],
     "Eschscholzia californica": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -236,13 +235,11 @@
       "larnerseeds"
     ],
     "Fragaria chiloensis": [
-      "heronshead",
-      "missionblue"
+      "heronshead"
     ],
     "Fragaria vesca": [
       "sutro",
-      "heronshead",
-      "missionblue"
+      "heronshead"
     ],
     "Frangula californica": [
       "oaktown"
@@ -285,7 +282,6 @@
       "larnerseeds"
     ],
     "Heuchera micrantha": [
-      "oaktown",
       "heronshead"
     ],
     "Holodiscus discolor": [
@@ -497,9 +493,6 @@
       "heronshead",
       "missionblue"
     ],
-    "Silene laciniata": [
-      "oaktown"
-    ],
     "Sisyrinchium bellum": [
       "oaktown",
       "heronshead",
@@ -562,6 +555,9 @@
     ],
     "Urtica dioica": [
       "oaktown"
+    ],
+    "Vaccinium ovatum": [
+      "heronshead"
     ],
     "Viola adunca": [
       "heronshead"
