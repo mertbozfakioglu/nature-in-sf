@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-15",
+  "lastUpdated": "2026-08-16",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -282,6 +282,7 @@
       "larnerseeds"
     ],
     "Heuchera micrantha": [
+      "oaktown",
       "heronshead"
     ],
     "Holodiscus discolor": [
@@ -337,6 +338,9 @@
     ],
     "Layia platyglossa": [
       "larnerseeds"
+    ],
+    "Lepechinia calycina": [
+      "oaktown"
     ],
     "Lonicera involucrata": [
       "oaktown",
