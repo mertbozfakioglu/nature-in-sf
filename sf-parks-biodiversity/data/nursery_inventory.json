@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-17",
+  "lastUpdated": "2026-08-18",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -76,9 +76,6 @@
     ],
     "Calystegia occidentalis": [
       "heronshead"
-    ],
-    "Carex pansa": [
-      "oaktown"
     ],
     "Carex praegracilis": [
       "oaktown",
@@ -436,6 +433,7 @@
       "heronshead"
     ],
     "Rhododendron occidentale": [
+      "oaktown",
       "heronshead"
     ],
     "Ribes divaricatum": [
@@ -556,6 +554,9 @@
     "Trifolium wormskioldii": [
       "missionblue",
       "larnerseeds"
+    ],
+    "Umbellularia californica": [
+      "oaktown"
     ],
     "Urtica dioica": [
       "oaktown"
