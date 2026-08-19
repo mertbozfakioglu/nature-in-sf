@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-18",
+  "lastUpdated": "2026-08-19",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -27,7 +27,8 @@
       "missionblue"
     ],
     "Aquilegia formosa": [
-      "oaktown"
+      "oaktown",
+      "larnerseeds"
     ],
     "Arbutus menziesii": [
       "heronshead"
@@ -77,6 +78,9 @@
     "Calystegia occidentalis": [
       "heronshead"
     ],
+    "Camissoniopsis cheiranthifolia": [
+      "larnerseeds"
+    ],
     "Carex praegracilis": [
       "oaktown",
       "heronshead",
@@ -110,6 +114,12 @@
       "larnerseeds"
     ],
     "Clarkia rubicunda": [
+      "larnerseeds"
+    ],
+    "Claytonia perfoliata": [
+      "larnerseeds"
+    ],
+    "Claytonia sibirica": [
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
@@ -284,7 +294,8 @@
     ],
     "Holodiscus discolor": [
       "oaktown",
-      "heronshead"
+      "heronshead",
+      "larnerseeds"
     ],
     "Hordeum brachyantherum": [
       "larnerseeds"
@@ -371,7 +382,8 @@
     ],
     "Monardella villosa": [
       "oaktown",
-      "heronshead"
+      "heronshead",
+      "larnerseeds"
     ],
     "Morella californica": [
       "oaktown",
@@ -402,6 +414,9 @@
       "larnerseeds"
     ],
     "Plantago subnuda": [
+      "larnerseeds"
+    ],
+    "Platystemon californicus": [
       "larnerseeds"
     ],
     "Polystichum munitum": [
@@ -534,6 +549,9 @@
       "oaktown",
       "missionblue"
     ],
+    "Tanacetum bipinnatum": [
+      "larnerseeds"
+    ],
     "Tellima grandiflora": [
       "heronshead",
       "larnerseeds"
@@ -571,7 +589,8 @@
       "heronshead"
     ],
     "Wyethia angustifolia": [
-      "oaktown"
+      "oaktown",
+      "larnerseeds"
     ]
   }
 }
