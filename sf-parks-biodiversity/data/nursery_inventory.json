@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-22",
+  "lastUpdated": "2026-08-23",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -59,6 +59,9 @@
       "oaktown",
       "heronshead",
       "larnerseeds"
+    ],
+    "Asarum caudatum": [
+      "heronshead"
     ],
     "Baccharis pilularis": [
       "oaktown",
@@ -141,6 +144,9 @@
       "oaktown",
       "larnerseeds"
     ],
+    "Delphinium hesperium": [
+      "larnerseeds"
+    ],
     "Deschampsia cespitosa": [
       "heronshead",
       "larnerseeds"
@@ -182,7 +188,8 @@
     "Erigeron glaucus": [
       "sutro",
       "heronshead",
-      "missionblue"
+      "missionblue",
+      "larnerseeds"
     ],
     "Eriogonum latifolium": [
       "sutro",
@@ -248,7 +255,8 @@
       "heronshead"
     ],
     "Frangula californica": [
-      "oaktown"
+      "oaktown",
+      "larnerseeds"
     ],
     "Garrya elliptica": [
       "oaktown",
@@ -301,7 +309,6 @@
     ],
     "Horkelia californica": [
       "oaktown",
-      "heronshead",
       "missionblue"
     ],
     "Hosackia gracilis": [
@@ -524,6 +531,9 @@
       "oaktown",
       "heronshead",
       "larnerseeds"
+    ],
+    "Stachys bullata": [
+      "oaktown"
     ],
     "Stachys chamissonis": [
       "oaktown"
