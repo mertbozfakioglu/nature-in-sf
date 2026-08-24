@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-23",
+  "lastUpdated": "2026-08-24",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -186,6 +186,7 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
+      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
