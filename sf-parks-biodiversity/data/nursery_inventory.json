@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-26",
+  "lastUpdated": "2026-08-27",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -41,6 +41,7 @@
       "oaktown"
     ],
     "Armeria maritima": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -325,6 +326,7 @@
       "larnerseeds"
     ],
     "Iris douglasiana": [
+      "oaktown",
       "heronshead"
     ],
     "Isolepis cernua": [
