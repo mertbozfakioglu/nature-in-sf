@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-27",
+  "lastUpdated": "2026-08-28",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -227,9 +227,6 @@
       "sutro",
       "larnerseeds"
     ],
-    "Erythranthe cardinalis": [
-      "oaktown"
-    ],
     "Erythranthe guttata": [
       "oaktown",
       "sutro",
@@ -262,6 +259,7 @@
       "heronshead"
     ],
     "Fragaria vesca": [
+      "oaktown",
       "sutro",
       "heronshead"
     ],
@@ -601,8 +599,7 @@
       "oaktown"
     ],
     "Vaccinium ovatum": [
-      "oaktown",
-      "heronshead"
+      "oaktown"
     ],
     "Viola adunca": [
       "heronshead"
