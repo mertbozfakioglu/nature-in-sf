@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-29",
+  "lastUpdated": "2026-08-30",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -38,7 +38,8 @@
       "heronshead"
     ],
     "Aristolochia californica": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Armeria maritima": [
       "oaktown",
@@ -129,6 +130,7 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
+      "oaktown",
       "missionblue"
     ],
     "Collinsia heterophylla": [
@@ -309,7 +311,6 @@
       "heronshead"
     ],
     "Holodiscus discolor": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
