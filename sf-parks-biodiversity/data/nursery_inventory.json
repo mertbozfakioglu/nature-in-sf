@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-30",
+  "lastUpdated": "2026-08-31",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -219,15 +219,14 @@
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
-      "heronshead",
+      "oaktown",
       "missionblue"
     ],
     "Erysimum capitatum": [
       "oaktown"
     ],
     "Erysimum franciscanum": [
-      "sutro",
-      "larnerseeds"
+      "sutro"
     ],
     "Erythranthe guttata": [
       "oaktown",
@@ -289,7 +288,6 @@
       "larnerseeds"
     ],
     "Helenium puberulum": [
-      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -465,7 +463,6 @@
       "heronshead"
     ],
     "Rhododendron occidentale": [
-      "oaktown",
       "heronshead"
     ],
     "Ribes divaricatum": [
