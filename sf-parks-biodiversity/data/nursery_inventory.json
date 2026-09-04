@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-03",
+  "lastUpdated": "2026-09-04",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -288,6 +288,7 @@
       "larnerseeds"
     ],
     "Helenium puberulum": [
+      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -456,6 +457,7 @@
       "oaktown"
     ],
     "Ranunculus californicus": [
+      "oaktown",
       "larnerseeds"
     ],
     "Rhamnus crocea": [
