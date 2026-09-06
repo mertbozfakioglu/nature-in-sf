@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-05",
+  "lastUpdated": "2026-09-06",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -216,7 +216,6 @@
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
-      "oaktown",
       "missionblue"
     ],
     "Erysimum capitatum": [
@@ -226,7 +225,6 @@
       "sutro"
     ],
     "Erythranthe guttata": [
-      "oaktown",
       "sutro",
       "larnerseeds"
     ],
@@ -394,7 +392,6 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -436,6 +433,7 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -519,7 +517,6 @@
       "larnerseeds"
     ],
     "Sedum spathulifolium": [
-      "heronshead",
       "missionblue"
     ],
     "Sisyrinchium bellum": [
