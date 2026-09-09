@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-08",
+  "lastUpdated": "2026-09-09",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -451,8 +451,7 @@
       "oaktown"
     ],
     "Ranunculus californicus": [
-      "oaktown",
-      "larnerseeds"
+      "oaktown"
     ],
     "Rhamnus crocea": [
       "heronshead"
@@ -503,8 +502,7 @@
     ],
     "Salvia spathacea": [
       "oaktown",
-      "heronshead",
-      "missionblue"
+      "heronshead"
     ],
     "Sambucus racemosa": [
       "heronshead",
@@ -516,6 +514,7 @@
       "larnerseeds"
     ],
     "Sedum spathulifolium": [
+      "heronshead",
       "missionblue"
     ],
     "Sisyrinchium bellum": [
