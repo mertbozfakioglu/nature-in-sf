@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-09",
+  "lastUpdated": "2026-09-10",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -364,9 +364,6 @@
       "oaktown",
       "sutro"
     ],
-    "Lupinus albifrons": [
-      "heronshead"
-    ],
     "Lupinus bicolor": [
       "larnerseeds"
     ],
@@ -530,7 +527,6 @@
     ],
     "Solidago velutina": [
       "oaktown",
-      "heronshead",
       "larnerseeds"
     ],
     "Stachys bullata": [
