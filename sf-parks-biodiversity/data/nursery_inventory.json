@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10",
+  "lastUpdated": "2026-09-11",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -86,6 +86,9 @@
     ],
     "Camissoniopsis cheiranthifolia": [
       "larnerseeds"
+    ],
+    "Carex pansa": [
+      "oaktown"
     ],
     "Carex praegracilis": [
       "oaktown",
@@ -196,7 +199,6 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
-      "oaktown",
       "sutro",
       "heronshead",
       "missionblue",
@@ -251,10 +253,10 @@
       "larnerseeds"
     ],
     "Fragaria chiloensis": [
+      "oaktown",
       "heronshead"
     ],
     "Fragaria vesca": [
-      "oaktown",
       "sutro",
       "heronshead"
     ],
@@ -448,7 +450,8 @@
       "oaktown"
     ],
     "Ranunculus californicus": [
-      "oaktown"
+      "oaktown",
+      "larnerseeds"
     ],
     "Rhamnus crocea": [
       "heronshead"
@@ -501,6 +504,9 @@
       "oaktown",
       "heronshead"
     ],
+    "Sambucus nigra": [
+      "oaktown"
+    ],
     "Sambucus racemosa": [
       "heronshead",
       "missionblue"
@@ -515,7 +521,6 @@
       "missionblue"
     ],
     "Sisyrinchium bellum": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
