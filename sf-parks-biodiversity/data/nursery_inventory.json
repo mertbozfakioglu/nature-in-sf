@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-11",
+  "lastUpdated": "2026-09-12",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -168,7 +168,6 @@
       "heronshead"
     ],
     "Diplacus aurantiacus": [
-      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -261,8 +260,7 @@
       "heronshead"
     ],
     "Frangula californica": [
-      "oaktown",
-      "larnerseeds"
+      "oaktown"
     ],
     "Garrya elliptica": [
       "oaktown",
