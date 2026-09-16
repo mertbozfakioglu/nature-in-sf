@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15",
+  "lastUpdated": "2026-09-16",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -405,6 +405,9 @@
       "missionblue",
       "larnerseeds"
     ],
+    "Pentagramma triangularis": [
+      "oaktown"
+    ],
     "Phacelia californica": [
       "heronshead",
       "missionblue",
@@ -428,6 +431,7 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -529,6 +533,9 @@
     "Solidago velutina": [
       "oaktown",
       "larnerseeds"
+    ],
+    "Stachys ajugoides": [
+      "oaktown"
     ],
     "Stachys bullata": [
       "oaktown"
