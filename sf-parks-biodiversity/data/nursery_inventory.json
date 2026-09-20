@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-19",
+  "lastUpdated": "2026-09-20",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -19,9 +19,6 @@
       "oaktown",
       "heronshead",
       "missionblue"
-    ],
-    "Agrostis exarata": [
-      "oaktown"
     ],
     "Anaphalis margaritacea": [
       "missionblue"
@@ -215,6 +212,7 @@
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
+      "heronshead",
       "missionblue"
     ],
     "Erysimum capitatum": [
@@ -317,14 +315,10 @@
       "larnerseeds"
     ],
     "Iris douglasiana": [
-      "oaktown",
       "heronshead"
     ],
     "Isolepis cernua": [
       "heronshead"
-    ],
-    "Juncus balticus": [
-      "oaktown"
     ],
     "Juncus effusus": [
       "oaktown",
@@ -417,7 +411,6 @@
       "larnerseeds"
     ],
     "Plantago maritima": [
-      "oaktown",
       "larnerseeds"
     ],
     "Plantago subnuda": [
@@ -532,6 +525,7 @@
     ],
     "Solidago velutina": [
       "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Stachys ajugoides": [
@@ -592,6 +586,9 @@
     ],
     "Urtica dioica": [
       "oaktown"
+    ],
+    "Vaccinium ovatum": [
+      "heronshead"
     ],
     "Viola adunca": [
       "heronshead"
