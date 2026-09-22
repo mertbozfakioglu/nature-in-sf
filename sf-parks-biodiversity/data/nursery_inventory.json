@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-21",
+  "lastUpdated": "2026-09-22",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -41,6 +41,7 @@
     "Armeria maritima": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Artemisia californica": [
@@ -61,6 +62,7 @@
     "Baccharis pilularis": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Bromus carinatus": [
@@ -230,6 +232,7 @@
     ],
     "Eschscholzia californica": [
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Euthamia occidentalis": [
@@ -238,6 +241,7 @@
     "Festuca californica": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Festuca idahoensis": [
@@ -494,7 +498,8 @@
     ],
     "Salvia spathacea": [
       "oaktown",
-      "heronshead"
+      "heronshead",
+      "missionblue"
     ],
     "Sambucus nigra": [
       "oaktown"
