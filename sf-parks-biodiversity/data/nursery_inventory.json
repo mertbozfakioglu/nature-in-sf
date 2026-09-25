@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-24",
+  "lastUpdated": "2026-09-25",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -81,11 +81,7 @@
       "heronshead"
     ],
     "Camissoniopsis cheiranthifolia": [
-      "oaktown",
       "larnerseeds"
-    ],
-    "Carex pansa": [
-      "oaktown"
     ],
     "Carex praegracilis": [
       "oaktown",
@@ -165,6 +161,7 @@
       "heronshead"
     ],
     "Diplacus aurantiacus": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -320,6 +317,7 @@
       "larnerseeds"
     ],
     "Iris douglasiana": [
+      "oaktown",
       "heronshead"
     ],
     "Isolepis cernua": [
@@ -389,6 +387,7 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
