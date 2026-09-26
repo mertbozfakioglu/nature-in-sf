@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-25",
+  "lastUpdated": "2026-09-26",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -220,6 +220,9 @@
     "Erysimum franciscanum": [
       "sutro"
     ],
+    "Erythranthe cardinalis": [
+      "oaktown"
+    ],
     "Erythranthe guttata": [
       "sutro",
       "larnerseeds"
@@ -405,9 +408,6 @@
     "Oenothera elata": [
       "missionblue",
       "larnerseeds"
-    ],
-    "Pentagramma triangularis": [
-      "oaktown"
     ],
     "Phacelia californica": [
       "heronshead",
