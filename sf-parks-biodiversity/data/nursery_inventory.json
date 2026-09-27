@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-26",
+  "lastUpdated": "2026-09-27",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -32,6 +32,7 @@
       "heronshead"
     ],
     "Arctostaphylos manzanita": [
+      "oaktown",
       "heronshead"
     ],
     "Aristolochia californica": [
@@ -198,6 +199,9 @@
       "missionblue",
       "larnerseeds"
     ],
+    "Eriodictyon californicum": [
+      "oaktown"
+    ],
     "Eriogonum latifolium": [
       "sutro",
       "heronshead",
@@ -232,7 +236,6 @@
     ],
     "Eschscholzia californica": [
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Euthamia occidentalis": [
@@ -586,6 +589,9 @@
     ],
     "Trifolium wormskioldii": [
       "missionblue",
+      "larnerseeds"
+    ],
+    "Triteleia laxa": [
       "larnerseeds"
     ],
     "Urtica dioica": [
