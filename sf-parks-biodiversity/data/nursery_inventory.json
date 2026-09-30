@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-29",
+  "lastUpdated": "2026-09-30",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -7,7 +7,6 @@
     ],
     "Achillea millefolium": [
       "oaktown",
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -25,8 +24,7 @@
     ],
     "Aquilegia formosa": [
       "oaktown",
-      "heronshead",
-      "larnerseeds"
+      "heronshead"
     ],
     "Arbutus menziesii": [
       "heronshead"
@@ -163,7 +161,6 @@
     ],
     "Diplacus aurantiacus": [
       "oaktown",
-      "missionblue",
       "larnerseeds"
     ],
     "Drymocallis glandulosa": [
@@ -194,7 +191,6 @@
     ],
     "Erigeron glaucus": [
       "oaktown",
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -203,7 +199,6 @@
       "oaktown"
     ],
     "Eriogonum latifolium": [
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -221,14 +216,10 @@
     "Erysimum capitatum": [
       "oaktown"
     ],
-    "Erysimum franciscanum": [
-      "sutro"
-    ],
     "Erythranthe cardinalis": [
       "oaktown"
     ],
     "Erythranthe guttata": [
-      "sutro",
       "larnerseeds"
     ],
     "Eschscholzia caespitosa": [
@@ -261,7 +252,6 @@
     ],
     "Fragaria vesca": [
       "oaktown",
-      "sutro",
       "heronshead"
     ],
     "Frangula californica": [
@@ -363,8 +353,7 @@
       "oaktown"
     ],
     "Lonicera involucrata": [
-      "oaktown",
-      "sutro"
+      "oaktown"
     ],
     "Lupinus albifrons": [
       "oaktown"
@@ -414,7 +403,6 @@
     ],
     "Phacelia californica": [
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Plantago erecta": [
@@ -473,7 +461,6 @@
     ],
     "Ribes sanguineum": [
       "oaktown",
-      "sutro",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -528,9 +515,7 @@
       "larnerseeds"
     ],
     "Sisyrinchium californicum": [
-      "sutro",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Solidago velutina": [
