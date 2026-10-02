@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-01",
+  "lastUpdated": "2026-10-02",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -144,6 +144,7 @@
     ],
     "Danthonia californica": [
       "oaktown",
+      "heronshead",
       "larnerseeds"
     ],
     "Delphinium hesperium": [
@@ -218,9 +219,6 @@
     ],
     "Erythranthe cardinalis": [
       "oaktown"
-    ],
-    "Erythranthe guttata": [
-      "larnerseeds"
     ],
     "Eschscholzia caespitosa": [
       "larnerseeds"
