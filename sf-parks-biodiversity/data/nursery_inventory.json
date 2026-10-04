@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-03",
+  "lastUpdated": "2026-10-04",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -181,7 +181,6 @@
       "heronshead"
     ],
     "Elymus glaucus": [
-      "oaktown",
       "larnerseeds"
     ],
     "Elymus triticoides": [
@@ -191,7 +190,6 @@
       "heronshead"
     ],
     "Erigeron glaucus": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -213,9 +211,6 @@
     "Eriophyllum staechadifolium": [
       "heronshead",
       "missionblue"
-    ],
-    "Erysimum capitatum": [
-      "oaktown"
     ],
     "Erythranthe cardinalis": [
       "oaktown"
@@ -245,7 +240,6 @@
       "larnerseeds"
     ],
     "Fragaria chiloensis": [
-      "oaktown",
       "heronshead"
     ],
     "Fragaria vesca": [
