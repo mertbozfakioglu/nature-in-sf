@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-04",
+  "lastUpdated": "2026-10-05",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -194,9 +194,6 @@
       "missionblue",
       "larnerseeds"
     ],
-    "Eriodictyon californicum": [
-      "oaktown"
-    ],
     "Eriogonum latifolium": [
       "heronshead",
       "missionblue",
@@ -371,6 +368,7 @@
       "larnerseeds"
     ],
     "Melica torreyana": [
+      "oaktown",
       "larnerseeds"
     ],
     "Monardella villosa": [
@@ -482,7 +480,6 @@
       "oaktown"
     ],
     "Salvia spathacea": [
-      "oaktown",
       "heronshead",
       "missionblue"
     ],
