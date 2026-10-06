@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-05",
+  "lastUpdated": "2026-10-06",
   "bySpecies": {
     "Acer negundo": [
       "oaktown",
@@ -282,6 +282,9 @@
       "heronshead",
       "missionblue",
       "larnerseeds"
+    ],
+    "Heterotheca sessiliflora": [
+      "oaktown"
     ],
     "Heuchera micrantha": [
       "oaktown",
