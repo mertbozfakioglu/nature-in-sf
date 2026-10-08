@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-07",
+  "lastUpdated": "2026-10-08",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -141,8 +141,7 @@
       "missionblue"
     ],
     "Corylus cornuta": [
-      "oaktown",
-      "heronshead"
+      "oaktown"
     ],
     "Danthonia californica": [
       "oaktown",
@@ -521,14 +520,10 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
     "Stachys ajugoides": [
-      "oaktown"
-    ],
-    "Stachys bullata": [
       "oaktown"
     ],
     "Stachys chamissonis": [
