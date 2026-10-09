@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-08",
+  "lastUpdated": "2026-10-09",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -22,7 +22,6 @@
       "missionblue"
     ],
     "Aquilegia formosa": [
-      "oaktown",
       "heronshead"
     ],
     "Arbutus menziesii": [
@@ -479,12 +478,6 @@
       "oaktown",
       "heronshead"
     ],
-    "Salix exigua": [
-      "oaktown"
-    ],
-    "Salix laevigata": [
-      "oaktown"
-    ],
     "Salix lasiolepis": [
       "oaktown"
     ],
@@ -546,7 +539,8 @@
       "heronshead"
     ],
     "Symphyotrichum chilense": [
-      "missionblue"
+      "missionblue",
+      "larnerseeds"
     ],
     "Tanacetum bipinnatum": [
       "larnerseeds"
