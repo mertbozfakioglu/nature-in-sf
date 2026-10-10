@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-09",
+  "lastUpdated": "2026-10-10",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -106,6 +106,7 @@
       "larnerseeds"
     ],
     "Chlorogalum pomeridianum": [
+      "oaktown",
       "larnerseeds"
     ],
     "Cirsium occidentale": [
