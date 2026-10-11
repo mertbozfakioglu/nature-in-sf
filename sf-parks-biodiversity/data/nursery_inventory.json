@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-10",
+  "lastUpdated": "2026-10-11",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -58,6 +58,9 @@
     "Artemisia pycnocephala": [
       "heronshead",
       "larnerseeds"
+    ],
+    "Asarum caudatum": [
+      "oaktown"
     ],
     "Baccharis pilularis": [
       "oaktown",
@@ -246,7 +249,6 @@
       "heronshead"
     ],
     "Fragaria vesca": [
-      "oaktown",
       "heronshead"
     ],
     "Frangula californica": [
@@ -311,7 +313,6 @@
       "larnerseeds"
     ],
     "Iris douglasiana": [
-      "oaktown",
       "heronshead"
     ],
     "Isolepis cernua": [
@@ -421,7 +422,6 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
-      "heronshead",
       "larnerseeds"
     ],
     "Prunus ilicifolia": [
@@ -483,6 +483,7 @@
       "oaktown"
     ],
     "Salvia spathacea": [
+      "oaktown",
       "heronshead",
       "missionblue"
     ],
