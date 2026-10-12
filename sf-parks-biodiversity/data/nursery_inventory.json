@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-11",
+  "lastUpdated": "2026-10-12",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -129,7 +129,6 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
-      "oaktown",
       "missionblue"
     ],
     "Collinsia heterophylla": [
@@ -200,6 +199,7 @@
       "larnerseeds"
     ],
     "Eriogonum latifolium": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -347,9 +347,6 @@
     ],
     "Layia platyglossa": [
       "larnerseeds"
-    ],
-    "Lepechinia calycina": [
-      "oaktown"
     ],
     "Lonicera involucrata": [
       "oaktown"
@@ -548,7 +545,6 @@
       "larnerseeds"
     ],
     "Tellima grandiflora": [
-      "heronshead",
       "larnerseeds"
     ],
     "Thalictrum fendleri": [
