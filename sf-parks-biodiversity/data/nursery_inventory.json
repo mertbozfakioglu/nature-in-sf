@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-12",
+  "lastUpdated": "2026-10-13",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -87,7 +87,6 @@
       "larnerseeds"
     ],
     "Carex praegracilis": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -351,9 +350,6 @@
     "Lonicera involucrata": [
       "oaktown"
     ],
-    "Lupinus albifrons": [
-      "oaktown"
-    ],
     "Lupinus bicolor": [
       "larnerseeds"
     ],
@@ -419,6 +415,7 @@
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "heronshead",
       "larnerseeds"
     ],
     "Prunus ilicifolia": [
@@ -461,9 +458,6 @@
       "missionblue",
       "larnerseeds"
     ],
-    "Rosa californica": [
-      "oaktown"
-    ],
     "Rubus parviflorus": [
       "oaktown",
       "heronshead",
@@ -475,9 +469,6 @@
     "Rubus ursinus": [
       "oaktown",
       "heronshead"
-    ],
-    "Salix lasiolepis": [
-      "oaktown"
     ],
     "Salvia spathacea": [
       "oaktown",
@@ -545,6 +536,7 @@
       "larnerseeds"
     ],
     "Tellima grandiflora": [
+      "heronshead",
       "larnerseeds"
     ],
     "Thalictrum fendleri": [
