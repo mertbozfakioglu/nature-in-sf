@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-13",
+  "lastUpdated": "2026-10-14",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -308,9 +308,6 @@
       "oaktown",
       "missionblue"
     ],
-    "Hosackia gracilis": [
-      "larnerseeds"
-    ],
     "Iris douglasiana": [
       "heronshead"
     ],
@@ -503,6 +500,7 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
