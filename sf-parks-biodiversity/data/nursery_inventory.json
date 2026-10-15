@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14",
+  "lastUpdated": "2026-10-15",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -7,7 +7,6 @@
     "Achillea millefolium": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Achyrachaena mollis": [
@@ -31,7 +30,6 @@
       "oaktown"
     ],
     "Arctostaphylos manzanita": [
-      "oaktown",
       "heronshead"
     ],
     "Aristolochia californica": [
@@ -41,7 +39,6 @@
     "Armeria maritima": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Artemisia californica": [
@@ -138,7 +135,6 @@
       "larnerseeds"
     ],
     "Cornus sericea": [
-      "oaktown",
       "missionblue"
     ],
     "Corylus cornuta": [
@@ -194,25 +190,19 @@
     "Erigeron glaucus": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Eriogonum latifolium": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
-    ],
-    "Eriophyllum confertiflorum": [
-      "oaktown"
     ],
     "Eriophyllum lanatum": [
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
       "oaktown",
-      "heronshead",
-      "missionblue"
+      "heronshead"
     ],
     "Erysimum franciscanum": [
       "larnerseeds"
@@ -388,7 +378,6 @@
       "heronshead"
     ],
     "Oenothera elata": [
-      "missionblue",
       "larnerseeds"
     ],
     "Phacelia californica": [
@@ -452,7 +441,6 @@
     "Ribes sanguineum": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Rubus parviflorus": [
@@ -464,7 +452,6 @@
       "oaktown"
     ],
     "Rubus ursinus": [
-      "oaktown",
       "heronshead"
     ],
     "Salvia spathacea": [
@@ -485,13 +472,13 @@
       "larnerseeds"
     ],
     "Sedum spathulifolium": [
-      "heronshead",
-      "missionblue"
+      "heronshead"
     ],
     "Sidalcea malviflora": [
       "oaktown"
     ],
     "Sisyrinchium bellum": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -500,7 +487,6 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
