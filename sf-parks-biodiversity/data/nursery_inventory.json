@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-15",
+  "lastUpdated": "2026-10-16",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -39,6 +39,7 @@
     "Armeria maritima": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Artemisia californica": [
@@ -137,9 +138,6 @@
     "Cornus sericea": [
       "missionblue"
     ],
-    "Corylus cornuta": [
-      "oaktown"
-    ],
     "Danthonia californica": [
       "oaktown",
       "heronshead",
@@ -215,13 +213,13 @@
     ],
     "Eschscholzia californica": [
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Euthamia occidentalis": [
       "oaktown"
     ],
     "Festuca californica": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -299,7 +297,9 @@
       "missionblue"
     ],
     "Iris douglasiana": [
-      "heronshead"
+      "oaktown",
+      "heronshead",
+      "larnerseeds"
     ],
     "Isolepis cernua": [
       "heronshead"
@@ -441,6 +441,7 @@
     "Ribes sanguineum": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Rubus parviflorus": [
@@ -487,6 +488,7 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
