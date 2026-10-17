@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-16",
+  "lastUpdated": "2026-10-17",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -56,9 +56,6 @@
     "Artemisia pycnocephala": [
       "heronshead",
       "larnerseeds"
-    ],
-    "Asarum caudatum": [
-      "oaktown"
     ],
     "Baccharis pilularis": [
       "oaktown",
@@ -278,9 +275,6 @@
       "missionblue",
       "larnerseeds"
     ],
-    "Heterotheca sessiliflora": [
-      "oaktown"
-    ],
     "Heuchera micrantha": [
       "oaktown",
       "heronshead"
@@ -358,7 +352,6 @@
       "larnerseeds"
     ],
     "Melica torreyana": [
-      "oaktown",
       "larnerseeds"
     ],
     "Monardella villosa": [
