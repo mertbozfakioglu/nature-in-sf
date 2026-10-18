@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-17",
+  "lastUpdated": "2026-10-18",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -176,6 +176,9 @@
     "Elymus glaucus": [
       "larnerseeds"
     ],
+    "Elymus multisetus": [
+      "oaktown"
+    ],
     "Elymus triticoides": [
       "larnerseeds"
     ],
@@ -217,10 +220,12 @@
       "oaktown"
     ],
     "Festuca californica": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
     "Festuca idahoensis": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -328,9 +333,6 @@
     "Layia platyglossa": [
       "larnerseeds"
     ],
-    "Lonicera involucrata": [
-      "oaktown"
-    ],
     "Lupinus bicolor": [
       "larnerseeds"
     ],
@@ -373,7 +375,11 @@
     "Oenothera elata": [
       "larnerseeds"
     ],
+    "Pentagramma triangularis": [
+      "oaktown"
+    ],
     "Phacelia californica": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
