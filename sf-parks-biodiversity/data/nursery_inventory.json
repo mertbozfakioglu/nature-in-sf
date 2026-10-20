@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-10-20",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -30,6 +30,7 @@
       "oaktown"
     ],
     "Arctostaphylos manzanita": [
+      "oaktown",
       "heronshead"
     ],
     "Aristolochia californica": [
@@ -254,7 +255,6 @@
       "larnerseeds"
     ],
     "Grindelia hirsutula": [
-      "oaktown",
       "heronshead"
     ],
     "Grindelia stricta": [
