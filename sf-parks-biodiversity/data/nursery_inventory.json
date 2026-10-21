@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20",
+  "lastUpdated": "2026-10-21",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -7,6 +7,7 @@
     "Achillea millefolium": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Achyrachaena mollis": [
@@ -16,6 +17,9 @@
       "oaktown",
       "heronshead",
       "missionblue"
+    ],
+    "Allium unifolium": [
+      "larnerseeds"
     ],
     "Anaphalis margaritacea": [
       "missionblue"
@@ -83,6 +87,7 @@
       "larnerseeds"
     ],
     "Carex praegracilis": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -156,6 +161,7 @@
     ],
     "Diplacus aurantiacus": [
       "oaktown",
+      "missionblue",
       "larnerseeds"
     ],
     "Drymocallis glandulosa": [
@@ -189,11 +195,13 @@
     "Erigeron glaucus": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Eriogonum latifolium": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Eriophyllum lanatum": [
@@ -201,13 +209,11 @@
     ],
     "Eriophyllum staechadifolium": [
       "oaktown",
-      "heronshead"
+      "heronshead",
+      "missionblue"
     ],
     "Erysimum franciscanum": [
       "larnerseeds"
-    ],
-    "Erythranthe cardinalis": [
-      "oaktown"
     ],
     "Eschscholzia caespitosa": [
       "larnerseeds"
@@ -236,6 +242,7 @@
       "larnerseeds"
     ],
     "Fragaria chiloensis": [
+      "oaktown",
       "heronshead"
     ],
     "Fragaria vesca": [
@@ -373,6 +380,7 @@
       "heronshead"
     ],
     "Oenothera elata": [
+      "missionblue",
       "larnerseeds"
     ],
     "Pentagramma triangularis": [
@@ -381,6 +389,7 @@
     "Phacelia californica": [
       "oaktown",
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Plantago erecta": [
@@ -472,6 +481,7 @@
       "larnerseeds"
     ],
     "Sedum spathulifolium": [
+      "oaktown",
       "heronshead"
     ],
     "Sidalcea malviflora": [
@@ -484,6 +494,7 @@
     ],
     "Sisyrinchium californicum": [
       "heronshead",
+      "missionblue",
       "larnerseeds"
     ],
     "Solidago velutina": [
@@ -554,6 +565,7 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
+      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
