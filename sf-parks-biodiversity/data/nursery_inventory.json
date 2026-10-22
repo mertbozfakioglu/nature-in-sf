@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-21",
+  "lastUpdated": "2026-10-22",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -220,7 +220,6 @@
     ],
     "Eschscholzia californica": [
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Euthamia occidentalis": [
@@ -326,6 +325,7 @@
       "oaktown"
     ],
     "Koeleria macrantha": [
+      "oaktown",
       "larnerseeds"
     ],
     "Lasthenia californica": [
@@ -404,17 +404,24 @@
     "Platystemon californicus": [
       "larnerseeds"
     ],
+    "Polypodium glycyrrhiza": [
+      "oaktown"
+    ],
     "Polystichum munitum": [
       "oaktown",
       "heronshead"
     ],
     "Prunella vulgaris": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
     "Prunus ilicifolia": [
       "oaktown",
       "heronshead"
+    ],
+    "Pseudognaphalium californicum": [
+      "oaktown"
     ],
     "Quercus agrifolia": [
       "oaktown",
@@ -465,8 +472,7 @@
     ],
     "Salvia spathacea": [
       "oaktown",
-      "heronshead",
-      "missionblue"
+      "heronshead"
     ],
     "Sambucus nigra": [
       "oaktown"
@@ -562,6 +568,7 @@
       "heronshead"
     ],
     "Viola adunca": [
+      "oaktown",
       "heronshead"
     ],
     "Woodwardia fimbriata": [
