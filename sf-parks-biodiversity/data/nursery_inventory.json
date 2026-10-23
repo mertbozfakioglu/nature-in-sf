@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-22",
+  "lastUpdated": "2026-10-23",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -141,6 +141,9 @@
     "Cornus sericea": [
       "missionblue"
     ],
+    "Corylus cornuta": [
+      "oaktown"
+    ],
     "Danthonia californica": [
       "oaktown",
       "heronshead",
@@ -198,6 +201,9 @@
       "missionblue",
       "larnerseeds"
     ],
+    "Eriodictyon californicum": [
+      "oaktown"
+    ],
     "Eriogonum latifolium": [
       "oaktown",
       "heronshead",
@@ -205,6 +211,7 @@
       "larnerseeds"
     ],
     "Eriophyllum lanatum": [
+      "oaktown",
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
@@ -245,6 +252,7 @@
       "heronshead"
     ],
     "Fragaria vesca": [
+      "oaktown",
       "heronshead"
     ],
     "Frangula californica": [
@@ -441,6 +449,7 @@
       "heronshead"
     ],
     "Rhododendron occidentale": [
+      "oaktown",
       "heronshead"
     ],
     "Ribes divaricatum": [
@@ -478,6 +487,7 @@
       "oaktown"
     ],
     "Sambucus racemosa": [
+      "oaktown",
       "heronshead",
       "missionblue"
     ],
@@ -531,6 +541,7 @@
       "heronshead"
     ],
     "Symphyotrichum chilense": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
