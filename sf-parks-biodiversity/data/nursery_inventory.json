@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-24",
+  "lastUpdated": "2026-10-25",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -394,7 +394,6 @@
       "oaktown"
     ],
     "Phacelia californica": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -443,9 +442,6 @@
     "Ranunculus californicus": [
       "oaktown",
       "larnerseeds"
-    ],
-    "Rhamnus crocea": [
-      "heronshead"
     ],
     "Rhododendron occidentale": [
       "oaktown",
