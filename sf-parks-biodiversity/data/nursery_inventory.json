@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-25",
+  "lastUpdated": "2026-10-26",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -50,7 +50,6 @@
     "Artemisia californica": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Artemisia douglasiana": [
@@ -65,7 +64,6 @@
     "Baccharis pilularis": [
       "oaktown",
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Bromus carinatus": [
@@ -475,7 +473,6 @@
       "heronshead"
     ],
     "Salvia spathacea": [
-      "oaktown",
       "heronshead"
     ],
     "Sambucus racemosa": [
@@ -574,7 +571,6 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
-      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
