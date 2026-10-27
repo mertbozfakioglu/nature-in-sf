@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-26",
+  "lastUpdated": "2026-10-27",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -412,7 +412,6 @@
       "oaktown"
     ],
     "Polystichum munitum": [
-      "oaktown",
       "heronshead"
     ],
     "Prunella vulgaris": [
@@ -473,6 +472,7 @@
       "heronshead"
     ],
     "Salvia spathacea": [
+      "oaktown",
       "heronshead"
     ],
     "Sambucus racemosa": [
