@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-28",
+  "lastUpdated": "2026-10-29",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -20,9 +20,6 @@
     ],
     "Allium unifolium": [
       "larnerseeds"
-    ],
-    "Anaphalis margaritacea": [
-      "missionblue"
     ],
     "Aquilegia formosa": [
       "heronshead"
@@ -209,7 +206,6 @@
       "larnerseeds"
     ],
     "Eriophyllum lanatum": [
-      "oaktown",
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
@@ -516,6 +512,7 @@
       "larnerseeds"
     ],
     "Stipa lepida": [
+      "oaktown",
       "larnerseeds"
     ],
     "Stipa pulchra": [
@@ -558,6 +555,7 @@
       "larnerseeds"
     ],
     "Triteleia laxa": [
+      "oaktown",
       "larnerseeds"
     ],
     "Urtica dioica": [
