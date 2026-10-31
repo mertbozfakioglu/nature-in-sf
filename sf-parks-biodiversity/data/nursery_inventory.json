@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-30",
+  "lastUpdated": "2026-10-31",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -87,6 +87,7 @@
       "larnerseeds"
     ],
     "Carex tumulicola": [
+      "oaktown",
       "heronshead"
     ],
     "Castilleja exserta": [
@@ -242,11 +243,9 @@
       "larnerseeds"
     ],
     "Fragaria chiloensis": [
-      "oaktown",
       "heronshead"
     ],
     "Fragaria vesca": [
-      "oaktown",
       "heronshead"
     ],
     "Frangula californica": [
@@ -365,7 +364,6 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -384,12 +382,8 @@
       "missionblue",
       "larnerseeds"
     ],
-    "Pentagramma triangularis": [
-      "oaktown"
-    ],
     "Phacelia californica": [
       "heronshead",
-      "missionblue",
       "larnerseeds"
     ],
     "Plantago erecta": [
@@ -456,6 +450,9 @@
       "missionblue",
       "larnerseeds"
     ],
+    "Rosa californica": [
+      "oaktown"
+    ],
     "Rubus parviflorus": [
       "oaktown",
       "heronshead",
@@ -465,6 +462,7 @@
       "oaktown"
     ],
     "Rubus ursinus": [
+      "oaktown",
       "heronshead"
     ],
     "Salvia spathacea": [
@@ -498,6 +496,7 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -569,6 +568,7 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
+      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
