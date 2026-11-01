@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-31",
+  "lastUpdated": "2026-11-01",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -205,6 +205,9 @@
       "heronshead",
       "missionblue",
       "larnerseeds"
+    ],
+    "Eriogonum nudum": [
+      "oaktown"
     ],
     "Eriophyllum lanatum": [
       "heronshead"
@@ -568,7 +571,6 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
-      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
