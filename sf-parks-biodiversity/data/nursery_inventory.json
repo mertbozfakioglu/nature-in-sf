@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-01",
+  "lastUpdated": "2026-11-02",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -135,6 +135,7 @@
       "larnerseeds"
     ],
     "Cornus sericea": [
+      "oaktown",
       "missionblue"
     ],
     "Corylus cornuta": [
@@ -205,9 +206,6 @@
       "heronshead",
       "missionblue",
       "larnerseeds"
-    ],
-    "Eriogonum nudum": [
-      "oaktown"
     ],
     "Eriophyllum lanatum": [
       "heronshead"
@@ -281,6 +279,7 @@
       "larnerseeds"
     ],
     "Heracleum maximum": [
+      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -343,6 +342,9 @@
     "Layia platyglossa": [
       "larnerseeds"
     ],
+    "Lonicera hispidula": [
+      "oaktown"
+    ],
     "Lupinus bicolor": [
       "larnerseeds"
     ],
@@ -386,6 +388,7 @@
       "larnerseeds"
     ],
     "Phacelia californica": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -469,7 +472,6 @@
       "heronshead"
     ],
     "Salvia spathacea": [
-      "oaktown",
       "heronshead"
     ],
     "Sambucus racemosa": [
@@ -522,9 +524,6 @@
     ],
     "Symphoricarpos albus": [
       "oaktown"
-    ],
-    "Symphoricarpos mollis": [
-      "heronshead"
     ],
     "Symphyotrichum chilense": [
       "oaktown",
