@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-04",
+  "lastUpdated": "2026-11-05",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -55,6 +55,7 @@
       "larnerseeds"
     ],
     "Artemisia pycnocephala": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -119,6 +120,9 @@
       "larnerseeds"
     ],
     "Clarkia rubicunda": [
+      "larnerseeds"
+    ],
+    "Claytonia perfoliata": [
       "larnerseeds"
     ],
     "Claytonia sibirica": [
@@ -284,7 +288,6 @@
       "larnerseeds"
     ],
     "Heteromeles arbutifolia": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -305,7 +308,6 @@
       "missionblue"
     ],
     "Iris douglasiana": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
