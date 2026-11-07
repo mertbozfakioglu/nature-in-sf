@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-06",
+  "lastUpdated": "2026-11-07",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -126,6 +126,7 @@
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
+      "oaktown",
       "missionblue"
     ],
     "Collinsia heterophylla": [
@@ -305,6 +306,7 @@
       "missionblue"
     ],
     "Iris douglasiana": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -368,6 +370,7 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -387,7 +390,6 @@
       "larnerseeds"
     ],
     "Phacelia californica": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -473,6 +475,9 @@
     "Salvia spathacea": [
       "heronshead"
     ],
+    "Sambucus nigra": [
+      "oaktown"
+    ],
     "Sambucus racemosa": [
       "oaktown",
       "heronshead",
@@ -525,7 +530,6 @@
       "oaktown"
     ],
     "Symphyotrichum chilense": [
-      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -569,6 +573,7 @@
       "heronshead"
     ],
     "Woodwardia fimbriata": [
+      "oaktown",
       "heronshead"
     ],
     "Wyethia angustifolia": [
