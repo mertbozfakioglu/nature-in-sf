@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-08",
+  "lastUpdated": "2026-11-09",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -31,7 +31,6 @@
       "oaktown"
     ],
     "Arctostaphylos manzanita": [
-      "oaktown",
       "heronshead"
     ],
     "Aristolochia californica": [
@@ -137,7 +136,6 @@
       "larnerseeds"
     ],
     "Cornus sericea": [
-      "oaktown",
       "missionblue"
     ],
     "Danthonia californica": [
@@ -196,9 +194,6 @@
       "heronshead",
       "missionblue",
       "larnerseeds"
-    ],
-    "Eriodictyon californicum": [
-      "oaktown"
     ],
     "Eriogonum latifolium": [
       "oaktown",
@@ -325,6 +320,7 @@
       "oaktown"
     ],
     "Koeleria macrantha": [
+      "oaktown",
       "larnerseeds"
     ],
     "Lasthenia californica": [
@@ -400,6 +396,9 @@
     ],
     "Platystemon californicus": [
       "larnerseeds"
+    ],
+    "Polypodium californicum": [
+      "oaktown"
     ],
     "Polypodium glycyrrhiza": [
       "oaktown"
