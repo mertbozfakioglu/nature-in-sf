@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-09",
+  "lastUpdated": "2026-11-11",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -17,9 +17,6 @@
       "oaktown",
       "heronshead",
       "missionblue"
-    ],
-    "Allium unifolium": [
-      "larnerseeds"
     ],
     "Aquilegia formosa": [
       "heronshead"
@@ -157,7 +154,6 @@
       "heronshead"
     ],
     "Diplacus aurantiacus": [
-      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -297,7 +293,6 @@
       "missionblue"
     ],
     "Iris douglasiana": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -362,7 +357,6 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -488,7 +482,8 @@
       "heronshead"
     ],
     "Sidalcea malviflora": [
-      "oaktown"
+      "oaktown",
+      "heronshead"
     ],
     "Sisyrinchium bellum": [
       "heronshead",
@@ -561,7 +556,6 @@
       "heronshead"
     ],
     "Viola adunca": [
-      "oaktown",
       "heronshead"
     ],
     "Woodwardia fimbriata": [
