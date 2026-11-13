@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12",
+  "lastUpdated": "2026-11-13",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -355,7 +355,6 @@
       "larnerseeds"
     ],
     "Lupinus succulentus": [
-      "oaktown",
       "larnerseeds"
     ],
     "Madia elegans": [
@@ -369,6 +368,7 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -485,6 +485,7 @@
       "missionblue"
     ],
     "Scrophularia californica": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
