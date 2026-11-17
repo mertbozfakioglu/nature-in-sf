@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-16",
+  "lastUpdated": "2026-11-17",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -54,6 +54,9 @@
       "heronshead",
       "larnerseeds"
     ],
+    "Asarum caudatum": [
+      "oaktown"
+    ],
     "Baccharis pilularis": [
       "oaktown",
       "heronshead",
@@ -82,11 +85,11 @@
       "oaktown"
     ],
     "Carex praegracilis": [
+      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
     "Carex tumulicola": [
-      "oaktown",
       "heronshead"
     ],
     "Castilleja exserta": [
@@ -362,7 +365,6 @@
       "larnerseeds"
     ],
     "Monardella villosa": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -465,6 +467,7 @@
       "heronshead"
     ],
     "Salvia spathacea": [
+      "oaktown",
       "heronshead"
     ],
     "Sambucus nigra": [
