@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-17",
+  "lastUpdated": "2026-11-18",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -89,9 +89,6 @@
       "heronshead",
       "larnerseeds"
     ],
-    "Carex tumulicola": [
-      "heronshead"
-    ],
     "Castilleja exserta": [
       "larnerseeds"
     ],
@@ -108,6 +105,9 @@
     ],
     "Chlorogalum pomeridianum": [
       "oaktown",
+      "larnerseeds"
+    ],
+    "Cirsium occidentale": [
       "larnerseeds"
     ],
     "Clarkia amoena": [
@@ -339,9 +339,6 @@
     "Layia platyglossa": [
       "larnerseeds"
     ],
-    "Lupinus albifrons": [
-      "oaktown"
-    ],
     "Lupinus bicolor": [
       "larnerseeds"
     ],
@@ -403,6 +400,7 @@
       "oaktown"
     ],
     "Polystichum munitum": [
+      "oaktown",
       "heronshead"
     ],
     "Prunella vulgaris": [
@@ -498,6 +496,7 @@
       "larnerseeds"
     ],
     "Sisyrinchium californicum": [
+      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -520,7 +519,6 @@
       "larnerseeds"
     ],
     "Stipa lepida": [
-      "oaktown",
       "larnerseeds"
     ],
     "Stipa pulchra": [
