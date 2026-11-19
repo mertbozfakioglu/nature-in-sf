@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-18",
+  "lastUpdated": "2026-11-19",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -105,9 +105,6 @@
     ],
     "Chlorogalum pomeridianum": [
       "oaktown",
-      "larnerseeds"
-    ],
-    "Cirsium occidentale": [
       "larnerseeds"
     ],
     "Clarkia amoena": [
@@ -551,10 +548,6 @@
     ],
     "Trifolium wormskioldii": [
       "missionblue",
-      "larnerseeds"
-    ],
-    "Triteleia laxa": [
-      "oaktown",
       "larnerseeds"
     ],
     "Urtica dioica": [
