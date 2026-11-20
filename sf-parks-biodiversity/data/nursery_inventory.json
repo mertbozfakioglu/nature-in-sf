@@ -1,6 +1,9 @@
 {
-  "lastUpdated": "2026-11-19",
+  "lastUpdated": "2026-11-20",
   "bySpecies": {
+    "Abronia latifolia": [
+      "oaktown"
+    ],
     "Acer negundo": [
       "oaktown"
     ],
@@ -17,6 +20,9 @@
       "oaktown",
       "heronshead",
       "missionblue"
+    ],
+    "Allium unifolium": [
+      "larnerseeds"
     ],
     "Aquilegia formosa": [
       "heronshead"
@@ -89,6 +95,10 @@
       "heronshead",
       "larnerseeds"
     ],
+    "Carex tumulicola": [
+      "oaktown",
+      "heronshead"
+    ],
     "Castilleja exserta": [
       "larnerseeds"
     ],
@@ -118,9 +128,6 @@
       "larnerseeds"
     ],
     "Claytonia perfoliata": [
-      "larnerseeds"
-    ],
-    "Claytonia sibirica": [
       "larnerseeds"
     ],
     "Clinopodium douglasii": [
@@ -202,7 +209,6 @@
       "oaktown"
     ],
     "Eriophyllum lanatum": [
-      "oaktown",
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
@@ -461,6 +467,12 @@
       "oaktown",
       "heronshead"
     ],
+    "Salix laevigata": [
+      "oaktown"
+    ],
+    "Salix lasiolepis": [
+      "oaktown"
+    ],
     "Salvia spathacea": [
       "oaktown",
       "heronshead"
@@ -548,6 +560,9 @@
     ],
     "Trifolium wormskioldii": [
       "missionblue",
+      "larnerseeds"
+    ],
+    "Triteleia laxa": [
       "larnerseeds"
     ],
     "Urtica dioica": [
