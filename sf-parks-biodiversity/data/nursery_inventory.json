@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-22",
+  "lastUpdated": "2026-11-23",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -134,15 +134,9 @@
     "Cornus sericea": [
       "missionblue"
     ],
-    "Corylus cornuta": [
-      "oaktown"
-    ],
     "Danthonia californica": [
       "oaktown",
       "heronshead",
-      "larnerseeds"
-    ],
-    "Delphinium hesperium": [
       "larnerseeds"
     ],
     "Deschampsia cespitosa": [
@@ -245,7 +239,6 @@
       "oaktown"
     ],
     "Garrya elliptica": [
-      "oaktown",
       "heronshead"
     ],
     "Gilia capitata": [
@@ -519,6 +512,7 @@
       "larnerseeds"
     ],
     "Stipa pulchra": [
+      "oaktown",
       "larnerseeds"
     ],
     "Symphyotrichum chilense": [
