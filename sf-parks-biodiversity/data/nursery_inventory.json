@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-23",
+  "lastUpdated": "2026-11-24",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -132,6 +132,7 @@
       "larnerseeds"
     ],
     "Cornus sericea": [
+      "oaktown",
       "missionblue"
     ],
     "Danthonia californica": [
@@ -150,7 +151,6 @@
       "heronshead"
     ],
     "Diplacus aurantiacus": [
-      "oaktown",
       "missionblue",
       "larnerseeds"
     ],
@@ -194,6 +194,7 @@
       "oaktown"
     ],
     "Eriophyllum lanatum": [
+      "oaktown",
       "heronshead"
     ],
     "Eriophyllum staechadifolium": [
@@ -233,12 +234,13 @@
       "heronshead"
     ],
     "Fragaria vesca": [
-      "heronshead"
+      "oaktown"
     ],
     "Frangula californica": [
       "oaktown"
     ],
     "Garrya elliptica": [
+      "oaktown",
       "heronshead"
     ],
     "Gilia capitata": [
@@ -325,6 +327,9 @@
     ],
     "Layia platyglossa": [
       "larnerseeds"
+    ],
+    "Lupinus albifrons": [
+      "oaktown"
     ],
     "Lupinus bicolor": [
       "larnerseeds"
@@ -436,9 +441,6 @@
       "missionblue",
       "larnerseeds"
     ],
-    "Rosa californica": [
-      "oaktown"
-    ],
     "Rubus parviflorus": [
       "oaktown",
       "heronshead",
@@ -458,6 +460,7 @@
       "oaktown"
     ],
     "Salvia spathacea": [
+      "oaktown",
       "heronshead"
     ],
     "Sambucus nigra": [
@@ -514,6 +517,9 @@
     "Stipa pulchra": [
       "oaktown",
       "larnerseeds"
+    ],
+    "Symphoricarpos albus": [
+      "oaktown"
     ],
     "Symphyotrichum chilense": [
       "missionblue",
