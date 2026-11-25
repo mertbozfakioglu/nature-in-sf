@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-24",
+  "lastUpdated": "2026-11-25",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -372,6 +372,9 @@
       "missionblue",
       "larnerseeds"
     ],
+    "Pentagramma triangularis": [
+      "oaktown"
+    ],
     "Phacelia californica": [
       "heronshead",
       "larnerseeds"
@@ -517,9 +520,6 @@
     "Stipa pulchra": [
       "oaktown",
       "larnerseeds"
-    ],
-    "Symphoricarpos albus": [
-      "oaktown"
     ],
     "Symphyotrichum chilense": [
       "missionblue",
