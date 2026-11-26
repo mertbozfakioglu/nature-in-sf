@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-25",
+  "lastUpdated": "2026-11-26",
   "bySpecies": {
     "Acer negundo": [
       "oaktown"
@@ -121,6 +121,9 @@
     "Claytonia perfoliata": [
       "larnerseeds"
     ],
+    "Claytonia sibirica": [
+      "larnerseeds"
+    ],
     "Clinopodium douglasii": [
       "oaktown"
     ],
@@ -216,7 +219,6 @@
       "oaktown"
     ],
     "Festuca californica": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
@@ -232,9 +234,6 @@
     "Fragaria chiloensis": [
       "oaktown",
       "heronshead"
-    ],
-    "Fragaria vesca": [
-      "oaktown"
     ],
     "Frangula californica": [
       "oaktown"
@@ -270,7 +269,6 @@
       "larnerseeds"
     ],
     "Heteromeles arbutifolia": [
-      "oaktown",
       "heronshead",
       "missionblue",
       "larnerseeds"
@@ -498,7 +496,6 @@
       "larnerseeds"
     ],
     "Solidago velutina": [
-      "oaktown",
       "heronshead",
       "larnerseeds"
     ],
