@@ -1,6 +1,9 @@
 {
-  "lastUpdated": "2026-11-27",
+  "lastUpdated": "2026-11-28",
   "bySpecies": {
+    "Abronia latifolia": [
+      "oaktown"
+    ],
     "Acer negundo": [
       "oaktown"
     ],
@@ -17,9 +20,6 @@
       "oaktown",
       "heronshead",
       "missionblue"
-    ],
-    "Aquilegia formosa": [
-      "heronshead"
     ],
     "Arbutus menziesii": [
       "heronshead"
@@ -123,9 +123,6 @@
     ],
     "Claytonia sibirica": [
       "larnerseeds"
-    ],
-    "Clinopodium douglasii": [
-      "oaktown"
     ],
     "Collinsia heterophylla": [
       "heronshead",
@@ -265,7 +262,6 @@
       "larnerseeds"
     ],
     "Heracleum maximum": [
-      "oaktown",
       "larnerseeds"
     ],
     "Heteromeles arbutifolia": [
@@ -481,7 +477,6 @@
       "larnerseeds"
     ],
     "Sedum spathulifolium": [
-      "oaktown",
       "heronshead"
     ],
     "Sidalcea malviflora": [
@@ -560,6 +555,7 @@
       "heronshead"
     ],
     "Viola adunca": [
+      "oaktown",
       "heronshead"
     ],
     "Woodwardia fimbriata": [
